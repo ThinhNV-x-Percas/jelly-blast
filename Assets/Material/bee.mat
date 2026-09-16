@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bee
+  m_Shader: {fileID: 4800000, guid: b2cc156fce4917545a11b48fd35c52e4, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties:
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _DetailTex:
+        m_Texture: {fileID: 2800000, guid: b331689b88ac98949956f3521aa05245, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _EmissionTex:
+        m_Texture: {fileID: 8400000, guid: 5240f17eea692f34f8373d2de018d2d2, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _EyesTex:
+        m_Texture: {fileID: 2800000, guid: abfa9cc0c079b1d47a3166c7c5659bf5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _FluidTex:
+        m_Texture: {fileID: 8400000, guid: f3fe9890c6429844a822eccc1eca1b6a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _RawFieldTex:
+        m_Texture: {fileID: 8400000, guid: 5439ff0b698ee634eb5f4734004ca7ea, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: {}
+    m_Floats:
+      _AlphaThreshold: 0.2
+      _BumpScale: 1
+      _Cutoff: 0.5
+      _DetailNormalMapScale: 1
+      _DetailTexMag: 0.01
+      _DetailTexProfileMag: 3.63
+      _DetailTexScale: 1.9
+      _DstBlend: 0
+      _EyesScale: 2
+      _FlipDY: 1
+      _GlossMapScale: 1
+      _Glossiness: 0.5
+      _GlossyReflections: 1
+      _Metallic: 0
+      _Mode: 0
+      _OcclusionStrength: 1
+      _Parallax: 0.02
+      _ReflectAmount: 0
+      _Shininess: 60
+      _SmoothnessTextureChannel: 0
+      _SpecularHighlights: 1
+      _SpecularIntensity: 0.43
+      _SrcBlend: 1
+      _UVSec: 0
+      _ZWrite: 1
+    m_Colors:
+      _AmbientColor: {r: 0.7607843, g: 0.5137255, b: 0.85882354, a: 1}
+      _Color: {r: 1, g: 0.88550186, b: 0, a: 1}
+      _Color1: {r: 1, g: 0.8862745, b: 0, a: 1}
+      _Color2: {r: 0.26415092, g: 0.22552508, b: 0.22552508, a: 1}
+      _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+      _LightColor: {r: 1, g: 1, b: 1, a: 1}
+      _WingColor: {r: 1, g: 1, b: 1, a: 0.9372549}
+  m_BuildTextureStacks: []

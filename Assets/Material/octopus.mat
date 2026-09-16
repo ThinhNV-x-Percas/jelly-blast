@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: octopus
+  m_Shader: {fileID: 4800000, guid: 58cb76174def29c459bd7dad8e0f4da8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties:
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _EmissionTex:
+        m_Texture: {fileID: 8400000, guid: 5240f17eea692f34f8373d2de018d2d2, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _EyesTex:
+        m_Texture: {fileID: 2800000, guid: 229f0ab449977c7419cc28fcd5b74bb5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _FluidTex:
+        m_Texture: {fileID: 8400000, guid: f3fe9890c6429844a822eccc1eca1b6a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _RawFieldTex:
+        m_Texture: {fileID: 8400000, guid: 5439ff0b698ee634eb5f4734004ca7ea, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _SuckerTex:
+        m_Texture: {fileID: 2800000, guid: ba54a2b6ce5a00d438d4e6833f93ce5d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: {}
+    m_Floats:
+      _AlphaThreshold: 0.2
+      _BulgeScale: 2.54
+      _BumpScale: 1
+      _Cutoff: 0.5
+      _DetailNormalMapScale: 1
+      _DstBlend: 0
+      _EyesScale: 1.2
+      _FlipDY: 1
+      _GlossMapScale: 1
+      _Glossiness: 0.5
+      _GlossyReflections: 1
+      _Metallic: 0
+      _Mode: 0
+      _OcclusionStrength: 1
+      _Parallax: 0.02
+      _ReflectAmount: 0.5
+      _Shininess: 100
+      _SmoothnessTextureChannel: 0
+      _SpecularHighlights: 1
+      _SpecularIntensity: 1
+      _SrcBlend: 1
+      _SuckerScale: 7.41
+      _UVSec: 0
+      _ZWrite: 1
+    m_Colors:
+      _AmbientColor: {r: 0.7607843, g: 0.5137255, b: 0.85882354, a: 1}
+      _Color: {r: 1, g: 0.5002092, b: 0.3726415, a: 1}
+      _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+      _LightColor: {r: 1, g: 1, b: 1, a: 1}
+      _SuckerColor: {r: 1, g: 0.818492, b: 0.6179246, a: 1}
+  m_BuildTextureStacks: []

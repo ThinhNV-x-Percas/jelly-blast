@@ -1,0 +1,16 @@
+{
+  "name": "com.voodoo.pathcreator",
+  "displayName": "Path Creator",
+  "description": "Path creation and manipulation tools for Unity.",
+  "version": "1.0.0",
+  "unity": "2018.3",
+  "author": {
+    "name": "Voodoo"
+  },
+  "keywords": [
+    "path",
+    "pathcreator",
+    "spline",
+    "curve"
+  ]
+}

@@ -3904,57 +3904,17 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = 0x302A000;\n\tgoto L_0023;\n\tv27 = Il2CppMethodInfo;\n\tv28 = v27 + 0x968;\n\tv29 = \"il2cpp_codegen_initialize_runtime_metadata\"(v28, particleIds, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv53 = Il2CppMethodInfo;\n\tv54 = v53 + 0x970;\n\tv55 = \"il2cpp_codegen_initialize_runtime_metadata\"(v54, particleIds, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv70 = Il2CppMethodInfo;\n\tv71 = v70 + 0x978;\n\tv72 = \"il2cpp_codegen_initialize_runtime_metadata\"(v71, particleIds, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv77 = Il2CppMethodInfo;\n\tv78 = v77 + 0x998;\n\tv79 = \"il2cpp_codegen_initialize_runtime_metadata\"(v78, particleIds, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv111 = Il2CppMethodInfo;\n\tv112 = v111 + 0xC28;\n\tv45 = \"il2cpp_codegen_initialize_runtime_metadata\"(v112, particleIds, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv47 = 1;\n\t*([302AA15]) = v47;\nL_0023:\n\tv48 = 0;\n\tv52 = v120 == 0;\n\tif (v52) goto L_0059;\n\tv58 = Il2CppMethodInfo;\n\tv60 = Il2CppMethodInfo;\n\tv62 = Il2CppMethodInfo;\n\tv68 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(v120);\n\tv75 = this + 0x1F8;\nL_003C:\n\tv99 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v48 @ stack_-58_v1, *([v58 @ X22_v3 (Il2CppMethodInfo)+970]));\n\tv113 = v99 & 1;\n\tv114 = v113 == 0;\n\tif (v114) goto L_004E;\n\tv92 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v75, 0, &v84 @ stack_-5C_v4, *([v60 @ X23_v3 (Il2CppMethodInfo)+C28]));\n\tv137 = v92 & 1;\n\tv94 = v137 == 0;\n\tif (v94) goto L_003C;\n\tv82 = this.isHoneyCoated;\n\t*([v82 @ X9_v3 (Unity.Collections.NativeArray`1<System.Boolean>)+v84 @ stack_-5C_v4]) = 1;\n\tgoto L_003C;\nL_004E:\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v48 @ stack_-58_v1, *([v62 @ X21_v4 (Il2CppMethodInfo)+968]));\nL_0058:\n\treturn;\nL_0059:\n\tv69 = new System.NullReferenceException();\n\tgoto L_0065;\nL_0065:\n\tv110 = v120 != 1;\n\tif (v110) goto L_0075;\n\tv116 = 0x274A080(v69, v120, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv134 = 0x274A098(v116, v120, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(v161, *([v22 @ X21_v1]));\n\tv125 = *([v116 @ X0_v10]) == 0;\n\tif (v125) goto L_0058;\n\tv123 = new System.OutOfMemoryException();\nL_0075:\n\tv129 = 0xBF092C(&v119 @ stack_-70, *([v22 @ X21_v1]), methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv136 = 0x27498DC(v126, *([v22 @ X21_v1]), methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv182 = 0xD6F8(v136, *([v22 @ X21_v1]), methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\treturn;\n// 68 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void AddHoneyCoating(global::System.Collections.Generic.HashSet<int> particleIds)
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0138: Expected O, but got I4
-		//IL_003a: Expected O, but got I
-		object obj = 50503680;
-		object obj2 = 0;
-		global::System.Collections.Generic.HashSet<int> hashSet = default(global::System.Collections.Generic.HashSet<int>);
-		if (hashSet != null)
+		if (particleIds == null)
 		{
-			nint num = 0;
-			nint num2 = 0;
-			nint num3 = 0;
-			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = hashSet.GetEnumerator();
-			object obj4 = default(object);
-			object obj5 = default(object);
-			while (true)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-				if ((int)((nint)obj4 & 1) == 0)
-				{
-					break;
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
-				if ((int)((nint)obj5 & 1) != 0)
-				{
-					global::Unity.Collections.NativeArray<bool> nativeArray = isHoneyCoated;
-					_ = 1;
-				}
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
 			return;
 		}
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		bool flag = (nint)hashSet != 1;
-		global::System.NullReferenceException ex2 = ex;
-		if (!flag)
+		foreach (int id in particleIds)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			object obj6 = default(object);
-			if (obj6 == null)
+			if (idToIndex.TryGetValue(id, out var index))
 			{
-				return;
+				isHoneyCoated[index] = true;
 			}
-			global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-			object obj7 = obj6;
-			ex2 = (global::System.NullReferenceException)(object)ex3;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600028C")]
@@ -3962,96 +3922,24 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_002B;\n\tv31 = Il2CppMethodInfo;\n\tv32 = v31 + 0x968;\n\tv33 = \"il2cpp_codegen_initialize_runtime_metadata\"(v32, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv57 = Il2CppMethodInfo;\n\tv58 = v57 + 0x970;\n\tv59 = \"il2cpp_codegen_initialize_runtime_metadata\"(v58, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv140 = Il2CppMethodInfo;\n\tv141 = v140 + 0x978;\n\tv142 = \"il2cpp_codegen_initialize_runtime_metadata\"(v141, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv146 = Il2CppMethodInfo;\n\tv147 = v146 + 0x998;\n\tv148 = \"il2cpp_codegen_initialize_runtime_metadata\"(v147, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv179 = Il2CppMethodInfo;\n\tv180 = v179 + 0xC28;\n\tv181 = \"il2cpp_codegen_initialize_runtime_metadata\"(v180, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv198 = Il2CppMethodInfo;\n\tv199 = v198 + 0xC80;\n\tv200 = \"il2cpp_codegen_initialize_runtime_metadata\"(v199, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv208 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv209 = v208 + 0xA40;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v209, particleIds, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv51 = 1;\n\t*([302AA16]) = v51;\nL_002B:\n\tv52 = 0;\n\tv56 = particleIds == 0;\n\tif (v56) goto L_007E;\n\tv62 = Il2CppMethodInfo;\n\tv64 = Il2CppMethodInfo;\n\tv124 = Il2CppMethodInfo + 0xC80;\n\tv70 = Il2CppMethodInfo;\n\tv122 = Il2CppMethodInfo + 0x968;\n\tv76 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(particleIds);\n\tv145 = this + 0x1F8;\nL_0047:\n\tv167 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v52 @ stack_-68_v1, *([v62 @ X25_v4 (Il2CppMethodInfo)+970]));\n\tv182 = v167 & 1;\n\tv183 = v182 == 0;\n\tif (v183) goto L_0059;\n\tv160 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v145, 0, &v152 @ stack_-6C_v5, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]));\n\tv210 = v160 & 1;\n\tv162 = v210 == 0;\n\tif (v162) goto L_0047;\n\tv219 = this.isHoneyCoated;\n\t*([v219 @ X9_v6 (Unity.Collections.NativeArray`1<System.Boolean>)+v152 @ stack_-6C_v5]) = 0;\n\tv150 = this.isStatic;\n\t*([v150 @ X9_v7 (Unity.Collections.NativeArray`1<System.Boolean>)+v152 @ stack_-6C_v5]) = 0;\n\tgoto L_0047;\nL_0059:\n\tv188 = *([v70 @ X24_v4 (Il2CppMethodInfo)+968]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v52 @ stack_-68_v1, *([v70 @ X24_v4 (Il2CppMethodInfo)+968]));\nL_0060:\n\tgoto L_0063;\n\tv220 = \"il2cpp_codegen_runtime_class_init\"(v215, v120, v110, v112, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_0063:\n\tv132 = Singleton`1::get_Instance /* +1 sharing this address */(*([v124 @ X22_v2]));\n\tv134 = v132 == 0;\n\tif (v134) goto L_007E;\n\tCollectionManager::OnRemoveHoney(v132, particleIds);\n\tv261 = this.OnRemoveHoneyCoating;\n\tv259 = this.OnRemoveHoneyCoating == 0;\n\tif (v259) goto L_007D;\n\tv261.invoke_impl(v277, v261.method_code, particleIds, 1, v261.method, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_007D:\n\treturn;\nL_007E:\n\tv139 = new System.NullReferenceException();\n\tgoto L_008A;\nL_008A:\n\tv178 = v188 != 1;\n\tif (v178) goto L_009A;\n\tv185 = 0x274A080(v139, v188, v110, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]), v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv205 = 0x274A098(v185, v188, v110, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]), v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv188 = *([v122 @ X24_v2]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v52 @ stack_-68_v1, *([v122 @ X24_v2]));\n\tv193 = *([v185 @ X0_v11]) == 0;\n\tif (v193) goto L_0060;\n\tv191 = new System.OutOfMemoryException();\nL_009A:\n\tv197 = 0xBF092C(&v118 @ stack_-80 (System.Int32), v188, v110, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]), v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv207 = 0x27498DC(v194, v188, v110, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]), v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv218 = 0xD6F8(v207, v188, v110, *([v64 @ X26_v4 (Il2CppMethodInfo)+C28]), v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\treturn;\n// 84 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void RemoveHoneyCoating(global::System.Collections.Generic.HashSet<int> particleIds)
 	{
-		//IL_0201: Expected O, but got I4
-		//IL_001e: Expected O, but got I
-		//IL_0030: Expected O, but got I
-		//IL_0049: Expected O, but got I
-		//IL_00c9: Expected O, but got I
-		//IL_01cb: Expected I4, but got O
-		//IL_007e: Expected I, but got O
-		//IL_01ea: Expected I4, but got O
-		//IL_00b4: Expected I, but got O
-		object obj = 0;
-		bool flag = particleIds == null;
-		global::System.Collections.Generic.HashSet<int> hashSet = particleIds;
-		object obj3 = default(object);
-		if (!flag)
+		if (particleIds == null)
 		{
-			nint num = 0;
-			nint num2 = 0;
-			object obj2 = (nint)0 + (nint)3200;
-			nint num3 = 0;
-			obj3 = (nint)0 + (nint)2408;
-			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = particleIds.GetEnumerator();
-			object obj5 = default(object);
-			object obj6 = default(object);
-			object obj7 = default(object);
-			while (true)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-				if ((int)((nint)obj5 & 1) == 0)
-				{
-					break;
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
-				int num4 = (int)((nint)obj6 & 1);
-				bool flag2 = num4 == 0;
-				nint num5 = (nint)obj7;
-				if (!flag2)
-				{
-					global::Unity.Collections.NativeArray<bool> nativeArray = isHoneyCoated;
-					_ = 0;
-					global::Unity.Collections.NativeArray<bool> nativeArray2 = isStatic;
-					_ = 0;
-					num5 = (nint)obj7;
-				}
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v70 @ X24_v4 (Il2CppMethodInfo)+968]");
-			hashSet = (global::System.Collections.Generic.HashSet<int>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			int num6 = 0;
-			goto IL_00e6;
+			return;
 		}
-		goto IL_0152;
-		IL_0152:
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		bool flag3 = (nint)hashSet != 1;
-		global::System.NullReferenceException ex2 = ex;
-		if (!flag3)
+		foreach (int id in particleIds)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			hashSet = (global::System.Collections.Generic.HashSet<int>)obj3;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			object obj8 = default(object);
-			bool flag4 = obj8 == null;
-			int num6 = (int)obj8;
-			if (flag4)
+			if (idToIndex.TryGetValue(id, out var index))
 			{
-				goto IL_00e6;
+				isHoneyCoated[index] = false;
+				isStatic[index] = false;
 			}
-			global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-			num6 = (int)obj8;
-			ex2 = (global::System.NullReferenceException)(object)ex3;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
-		return;
-		IL_00e6:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		CollectionManager collectionManager = default(CollectionManager);
+		CollectionManager collectionManager = global::Singleton<CollectionManager>.Instance;
 		if ((object)collectionManager != null)
 		{
 			collectionManager.OnRemoveHoney(particleIds);
-			global::System.Action<global::System.Collections.Generic.HashSet<int>, bool> onRemoveHoneyCoating = OnRemoveHoneyCoating;
-			if (OnRemoveHoneyCoating != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v261.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
-			return;
+			OnRemoveHoneyCoating?.Invoke(particleIds, true);
 		}
-		goto IL_0152;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600028D")]
@@ -4068,45 +3956,12 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		//IL_013a: Expected O, but got I
 		//IL_0163: Expected O, but got I
 		//IL_0172: Expected O, but got I
-		nint num2 = 0;
-		nint num3 = 0;
 		int nextUnusedFluidType = GetNextUnusedFluidType();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X25_v1 (Il2CppMethodInfo)+570]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(this, (global::System.IntPtr)0);
-		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num4 = 0;
+		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, null);
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		Water water = default(Water);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v127 @ X0_v21+108]");
-		water.Init(this, hashSet, nextUnusedFluidType, (FluidCompute)0);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v128 @ X0_v25+A8]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X0_v26+1C]");
-		object obj2 = (nint)0 + (nint)1;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X0_v26+10]");
-		object obj3 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X0_v26+18]");
-		nint num6 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v114 @ X9_v5+18]");
-		if (num6 < 0)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X0_v26+18]");
-			object obj4 = (nint)0 + (nint)1;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X0_v26+18]");
-			int num7 = (int)((nint)0 << 3);
-			object obj5 = (nint)obj3 + num7;
-			object obj6 = (nint)obj5 + 32;
-			obj6 = water;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		}
-		else
-		{
-			((global::System.Collections.Generic.List<object>)obj).Add((object)water);
-		}
+		Water water = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.waterPrefab, transform);
+		water.Init(this, hashSet, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute);
+		global::Singleton<GameManager>.Instance.waters.Add(water);
 		return water;
 	}
 
@@ -4126,25 +3981,13 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		{
 			return;
 		}
-		global::Unity.Collections.NativeArray<int> nativeArray = fishIds;
-		int num = ActiveCount << 3;
-		int num2 = 0;
-		global::Unity.Mathematics.float2 float5 = default(global::Unity.Mathematics.float2);
-		do
+		for (int i = 0; i < ActiveCount; i++)
 		{
-			nativeArray = (global::Unity.Collections.NativeArray<int>)(nativeArray + 4);
-			if ((nint)nativeArray == fishId)
+			if (fishIds[i] == fishId)
 			{
-				object obj = deltaVel + num2;
-				float num3 = float5.x + (float)obj;
-				float num4 = impulse.y;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v102 @ X11_v5+4]");
-				float num5 = num4 + 0f;
-				obj = num3;
+				deltaVel[i] += impulse;
 			}
-			num2 += 8;
 		}
-		while (num != num2);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600028F")]
@@ -4465,11 +4308,10 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		float num = global::UnityEngine.Mathf.Sqrt(index);
 		float num2 = (float)index * 137.508f;
 		float num3 = num2 * ((float)global::System.Math.PI / 180f);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A170");
 		float num4 = num * radius;
-		float x = num4 * ((float)global::System.Math.PI / 180f);
 		global::Unity.Mathematics.float2 result = default(global::Unity.Mathematics.float2);
-		result.x = x;
+		result.x = num4 * global::UnityEngine.Mathf.Cos(num3);
+		result.y = num4 * global::UnityEngine.Mathf.Sin(num3);
 		return result;
 	}
 

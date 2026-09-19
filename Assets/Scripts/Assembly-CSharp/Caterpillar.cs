@@ -26,56 +26,15 @@ public class Caterpillar : RotatingSpecialFluid
 		//IL_0166: Expected O, but got I
 		//IL_0178: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-		if ((typeof(_00210) & 1) != 0)
-		{
-			object obj2 = (nint)0 + (nint)3216;
-			id = _id;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v36 @ X25_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v42 @ X0_v22+E0]");
-			bool flag = (nint)0 == 0;
-			object obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_009b;
-			}
-		}
-		else
-		{
-			_ = 1;
-			object obj2 = (nint)0 + (nint)3216;
-			id = _id;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v36 @ X25_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X0_v18+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			object obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_009b;
-			}
-		}
+		id = _id;
+		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v36 @ X25_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
+		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v42 @ X0_v22+E0]");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		goto IL_0145;
-		IL_0145:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X0_v3+78]");
-		object obj6 = 0;
-		object obj7 = (nint)this + 208;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v88 @ X8_v4+108]");
-		levelBottomTransform = (global::UnityEngine.Transform)0;
+		levelBottomTransform = null;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		base.Init(_solver, _particleIds, _fluidType, _compute);
-		return;
-		IL_009b:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj8 = default(object);
-		if (obj8 == null)
-		{
-			throw new global::System.NullReferenceException();
-		}
-		goto IL_0145;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000182")]
@@ -99,7 +58,6 @@ public class Caterpillar : RotatingSpecialFluid
 		global::UnityEngine.Transform transform = base.transform;
 		global::UnityEngine.Vector3 vector = transform.position;
 		global::UnityEngine.Transform transform2 = base.transform;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		int num2 = id * 916964780;
 		float z = (float)num2 + -6f;
 		global::UnityEngine.Vector3 vector2 = default(global::UnityEngine.Vector3);
@@ -133,7 +91,6 @@ public class Caterpillar : RotatingSpecialFluid
 			collectionManager.OnCollectCaterpillar(pos);
 			global::UnityEngine.Transform transform3 = base.transform;
 			global::UnityEngine.Vector3 vector4 = transform3.position;
-			nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v328 @ X8_v14 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj2 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v330 @ X8_v16+B8]");
@@ -147,7 +104,6 @@ public class Caterpillar : RotatingSpecialFluid
 			float x = vector4.x + num5;
 			float y = vector4.y + num6;
 			float z2 = vector4.z + num7;
-			nint num8 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v348 @ X8_v20 (Il2CppClass<System.Runtime.Serialization.ObjectHolderList>)+538]");
 			object obj4 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v350 @ X8_v22+B8]");

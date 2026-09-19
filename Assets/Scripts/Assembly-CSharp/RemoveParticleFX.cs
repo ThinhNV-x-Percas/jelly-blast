@@ -25,7 +25,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 		//IL_0021: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111CB34 (UnityEngine.Component::GetComponentInParent, and 1 more at this address)");
-		object obj = (nint)this + 32;
 		FluidSolver fluidSolver = default(FluidSolver);
 		solver = fluidSolver;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -39,7 +38,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 		//IL_0013: Expected I, but got O
 		//IL_00fb: Expected I, but got O
 		FluidSolver fluidSolver = solver;
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num2 = 0;
 		int num3 = (int)((nint)solver + 608);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v54 @ X24_v4 (Il2CppMethodInfo)+D50]");
@@ -73,7 +71,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_00ed;
 		IL_00ed:
-		nint num4 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num5 = 0;
 		num3 = (int)((nint)fluidSolver2 + 640);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v189 @ X24_v7 (Il2CppMethodInfo)+D48]");
@@ -183,9 +180,7 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 			nint num2 = 0;
 			nint num3 = 0;
 			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = hashSet.GetEnumerator();
-			object obj3 = (nint)obj2 - 144;
 			_ = 0;
-			nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction DUP not yet implemented.\"");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction DUP not yet implemented.\"");
 			object obj5 = default(object);
@@ -223,7 +218,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 			{
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v70 @ X23_v4 (Il2CppMethodInfo)+970]");
 				minMaxGradient = (global::UnityEngine.ParticleSystem.MinMaxGradient)0;
-				object obj6 = (nint)obj2 - 144;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
 				if ((int)((nint)obj7 & 1) != 0)
 				{
@@ -232,7 +226,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 					bool flag3;
 					if ((object)solver != null)
 					{
-						object obj8 = (nint)solver + 504;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v72 @ X24_v4 (Il2CppMethodInfo)+C28]");
 						num6 = 0;
 						bool flag = (byte)((nint)obj2 - 148) != 0;
@@ -370,7 +363,7 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 																		minMaxGradient2 = color;
 																		mode = minMaxGradient2.m_Mode;
 																		global::UnityEngine.ParticleSystem.MainModule mainModule = (global::UnityEngine.ParticleSystem.MainModule)((nint)obj2 - 160);
-																		((global::UnityEngine.ParticleSystem.MainModule*)mainModule)->startColor = (global::UnityEngine.ParticleSystem.MinMaxGradient)(&mode);
+																		mainModule.startColor = (global::UnityEngine.ParticleSystem.MinMaxGradient)(&mode);
 																		if ((object)cloudParticles == null)
 																		{
 																			global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
@@ -449,7 +442,7 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 																				minMaxGradient3 = color2;
 																				mode = minMaxGradient3.m_Mode;
 																				global::UnityEngine.ParticleSystem.MainModule mainModule2 = (global::UnityEngine.ParticleSystem.MainModule)((nint)obj2 - 168);
-																				((global::UnityEngine.ParticleSystem.MainModule*)mainModule2)->startColor = (global::UnityEngine.ParticleSystem.MinMaxGradient)(&mode);
+																				mainModule2.startColor = (global::UnityEngine.ParticleSystem.MinMaxGradient)(&mode);
 																				sparkleParticles.Emit(1);
 																				obj30 = obj31;
 																				obj32 = obj33;
@@ -570,7 +563,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 					break;
 				}
 				nint num23 = 0;
-				object obj39 = (nint)obj2 - 144;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
 				return;
 			}
@@ -596,7 +588,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 			global::System.OutOfMemoryException ex20 = new global::System.OutOfMemoryException();
 			ex19 = (global::System.NullReferenceException)(object)ex20;
 		}
-		object obj41 = (nint)obj2 - 184;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
@@ -620,7 +611,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v180 @ X21_v6 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v181 @ X0_v7+E0]");
@@ -639,7 +629,6 @@ public class RemoveParticleFX : global::UnityEngine.MonoBehaviour
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1171058 (UnityEngine.Object::Instantiate, and 1 more at this address)");
 		global::UnityEngine.GameObject gameObject = default(global::UnityEngine.GameObject);
 		global::UnityEngine.Transform transform = gameObject.transform;
-		nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v251 @ X8_v14 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 		object obj2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v253 @ X8_v16+B8]");

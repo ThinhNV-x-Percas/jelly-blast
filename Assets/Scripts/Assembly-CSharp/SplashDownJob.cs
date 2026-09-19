@@ -82,7 +82,6 @@ public struct SplashDownJob : global::Unity.Jobs.IJobParallelFor
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		int num2 = i << 3;
 		object obj2 = predicted + num2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v77 @ X23_v3 (Il2CppClass<System.Runtime.Serialization.ObjectHolderList>)+D20]");
@@ -120,8 +119,7 @@ public struct SplashDownJob : global::Unity.Jobs.IJobParallelFor
 			}
 		}
 		_ = 1;
-		nint num3 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		object obj9 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+		object obj9 = (nint)0 + 2328;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v272 @ X20_v6 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj10 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v250 @ X0_v81+E0]");
@@ -135,8 +133,7 @@ public struct SplashDownJob : global::Unity.Jobs.IJobParallelFor
 		}
 		goto IL_0906;
 		IL_00aa:
-		nint num4 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		obj9 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+		obj9 = (nint)0 + 2328;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v233 @ X20_v10 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj12 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v235 @ X0_v90+E0]");

@@ -14,7 +14,6 @@ public class Stone : Block
 		//IL_00fb: Expected I, but got O
 		base.OnEnable();
 		FluidSolver fluidSolver = solver;
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num2 = 0;
 		int num3 = (int)((nint)solver + 624);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X24_v4 (Il2CppMethodInfo)+C0]");
@@ -48,7 +47,6 @@ public class Stone : Block
 		}
 		goto IL_00ed;
 		IL_00ed:
-		nint num4 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num5 = 0;
 		num3 = (int)((nint)fluidSolver2 + 632);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v191 @ X24_v7 (Il2CppMethodInfo)+B8]");
@@ -84,7 +82,6 @@ public class Stone : Block
 		//IL_00fb: Expected I, but got O
 		base.OnDisable();
 		FluidSolver fluidSolver = solver;
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num2 = 0;
 		int num3 = (int)((nint)solver + 624);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X24_v4 (Il2CppMethodInfo)+C0]");
@@ -118,7 +115,6 @@ public class Stone : Block
 		}
 		goto IL_00ed;
 		IL_00ed:
-		nint num4 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num5 = 0;
 		num3 = (int)((nint)fluidSolver2 + 632);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v191 @ X24_v7 (Il2CppMethodInfo)+B8]");
@@ -201,17 +197,16 @@ public class Stone : Block
 					if ((object)solver == null)
 					{
 						global::System.NullReferenceException ex = new global::System.NullReferenceException();
-						flag = (byte)(&obj2) != 0;
+						flag = obj2 != null;
 						hashSet = null;
 						break;
 					}
-					object obj3 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v305 @ X22_v4 (Il2CppMethodInfo)+C28]");
 					num5 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num6 = (int)((nint)obj4 & 1);
 					bool flag2 = num6 == 0;
-					flag = (byte)(&obj2) != 0;
+					flag = obj2 != null;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v305 @ X22_v4 (Il2CppMethodInfo)+C28]");
 					num7 = 0;
 					if (flag2)
@@ -225,7 +220,7 @@ public class Stone : Block
 					{
 						global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
 						z = position.z;
-						flag = (byte)(&obj2) != 0;
+						flag = obj2 != null;
 						y = position.y;
 						num3 = position.x;
 						hashSet = null;
@@ -258,7 +253,7 @@ public class Stone : Block
 					float f = y + num12;
 					num3 = global::UnityEngine.Mathf.Sqrt(f);
 					bool flag3 = num3 < 0.5f;
-					flag = (byte)(&obj2) != 0;
+					flag = obj2 != null;
 					num7 = num5;
 					if (!flag3)
 					{

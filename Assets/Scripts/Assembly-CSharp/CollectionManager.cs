@@ -207,7 +207,6 @@ public class CollectionManager : Singleton<CollectionManager>
 		nint num2 = 0;
 		nint num3 = 0;
 		FluidSolver fluidSolver;
-		object obj5 = (nint)fluidSolver + 616;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v324 @ X25_v6 (Il2CppMethodInfo)+338]");
 		global::System.Delegate b = null;
 		global::System.Delegate obj6 = global::System.Delegate.Combine(fluidSolver.OnCreatePowerup, b);
@@ -268,7 +267,6 @@ public class CollectionManager : Singleton<CollectionManager>
 		global::UnityEngine.Material material4 = CloneMaterialLowRes((global::UnityEngine.Material)0);
 		fluidCollectDisplay4.mr.material = material4;
 		FluidCollectDisplay fluidCollectDisplay5 = snowDisplay;
-		nint num4 = (nint)fluidCollectDisplay5;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v298 @ X8_v18 (Il2CppClass<FluidCollectDisplay>)+178]");
 		object obj8 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v298 @ X8_v18 (Il2CppClass<FluidCollectDisplay>)+180]");
@@ -284,19 +282,16 @@ public class CollectionManager : Singleton<CollectionManager>
 		}
 		goto IL_05fe;
 		IL_0137:
-		object obj11 = (nint)this + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v78 @ X0_v9+30]");
 		solver = (FluidSolver)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj12 = (nint)this + 48;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v143 @ X0_v13+78]");
 		level = (Level)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidSolver fluidSolver5 = solver;
 		nint num5 = 0;
 		nint num6 = 0;
-		object obj13 = (nint)solver + 608;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v306 @ X26_v4 (Il2CppMethodInfo)+340]");
 		global::System.Delegate b2 = null;
 		global::System.Delegate obj14 = global::System.Delegate.Combine(fluidSolver5.OnStartRemoveParticles, b2);
@@ -396,7 +391,6 @@ public class CollectionManager : Singleton<CollectionManager>
 				nint num5 = 0;
 				nint num6 = 0;
 				global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = ids.GetEnumerator();
-				object obj2 = (nint)obj + 24;
 				global::UnityEngine.Vector2 vector3 = default(global::UnityEngine.Vector2);
 				global::UnityEngine.Vector2 vector2 = vector3;
 				object obj3 = default(object);
@@ -416,7 +410,6 @@ public class CollectionManager : Singleton<CollectionManager>
 					{
 						if ((object)solver != null)
 						{
-							object obj4 = (nint)solver + 504;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v252 @ X27_v4 (Il2CppMethodInfo)+C28]");
 							func2 = (global::System.Func<global::UnityEngine.Vector2>)0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
@@ -428,7 +421,7 @@ public class CollectionManager : Singleton<CollectionManager>
 								if ((object)solver == null)
 								{
 									global::System.NullReferenceException ex = new global::System.NullReferenceException();
-									num7 = (nint)(&obj6);
+									num7 = (nint)obj6;
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v252 @ X27_v4 (Il2CppMethodInfo)+C28]");
 									func3 = (global::System.Func<global::UnityEngine.Vector2>)0;
 									vector4 = vector2;
@@ -456,7 +449,7 @@ public class CollectionManager : Singleton<CollectionManager>
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v70 @ X0_v3 (System.Object)+18]");
 								bool flag3 = (nint)0 == 0;
 								bool flag4 = !flag3;
-								num7 = (nint)(&obj6);
+								num7 = (nint)obj6;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v252 @ X27_v4 (Il2CppMethodInfo)+C28]");
 								func3 = (global::System.Func<global::UnityEngine.Vector2>)0;
 								func4 = func6;
@@ -642,14 +635,13 @@ public class CollectionManager : Singleton<CollectionManager>
 				nint num5;
 				if ((object)solver != null)
 				{
-					object obj4 = (nint)solver + 504;
 					nint num4 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v394 @ X8_v23 (Il2CppMethodInfo)+C28]");
 					num5 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num6 = (int)((nint)obj5 & 1);
 					bool flag3 = num6 == 0;
-					flag = (byte)(&obj6) != 0;
+					flag = obj6 != null;
 					if (flag3)
 					{
 						continue;
@@ -672,7 +664,7 @@ public class CollectionManager : Singleton<CollectionManager>
 						obj9 = obj10;
 						obj11 = obj12;
 						obj13 = obj14;
-						num8 = (int)(&obj6);
+						num8 = (int)(nint)obj6;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v394 @ X8_v23 (Il2CppMethodInfo)+C28]");
 						func = (global::System.Func<global::UnityEngine.Vector2>)0;
 						obj15 = obj2;
@@ -745,7 +737,7 @@ public class CollectionManager : Singleton<CollectionManager>
 						obj17 = obj10;
 						obj18 = obj12;
 						obj19 = obj14;
-						flag7 = (byte)(&obj6) != 0;
+						flag7 = obj6 != null;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v394 @ X8_v23 (Il2CppMethodInfo)+C28]");
 						num5 = 0;
 						obj20 = obj2;
@@ -757,7 +749,7 @@ public class CollectionManager : Singleton<CollectionManager>
 						obj17 = obj10;
 						obj18 = obj12;
 						obj19 = obj14;
-						flag7 = (byte)(&obj6) != 0;
+						flag7 = obj6 != null;
 						obj20 = obj2;
 					}
 				}
@@ -832,7 +824,6 @@ public class CollectionManager : Singleton<CollectionManager>
 							{
 								break;
 							}
-							object obj23 = (nint)obj22 + 16;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v750 @ X0_v46 (System.Object)+10]");
 							object obj24 = 0;
@@ -907,7 +898,7 @@ public class CollectionManager : Singleton<CollectionManager>
 					obj17 = obj10;
 					obj18 = obj12;
 					obj19 = obj14;
-					flag7 = (byte)(&obj6) != 0;
+					flag7 = obj6 != null;
 					obj20 = obj2;
 					goalData = goalData2;
 				}
@@ -1479,7 +1470,6 @@ public class CollectionManager : Singleton<CollectionManager>
 					nint num5;
 					if ((object)solver != null)
 					{
-						object obj3 = (nint)solver + 504;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X24_v4 (Il2CppMethodInfo)+C28]");
 						func = (global::System.Func<global::UnityEngine.Vector2>)0;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");

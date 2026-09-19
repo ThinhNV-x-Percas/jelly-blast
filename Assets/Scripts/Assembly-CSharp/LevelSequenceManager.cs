@@ -28,21 +28,19 @@ public class LevelSequenceManager : Singleton<LevelSequenceManager>
 	public Level GetLevelPrefab(int index)
 	{
 		Level[] array = onboardingLevelPrefabs;
-		int num2 = default(int);
-		int num = num2 - array.Length;
-		if (num2 >= array.Length)
+		int num = index - array.Length;
+		if (index >= array.Length)
 		{
 			array = repeatLevelPrefabs;
 			int num3 = num / array.Length;
 			int num4 = num3 * array.Length;
-			num2 = num - num4;
-			if (num2 >= array.Length)
+			index = num - num4;
+			if (index >= array.Length)
 			{
-				global::System.IndexOutOfRangeException ex = new global::System.IndexOutOfRangeException();
-				return (Level)(object)new global::System.NullReferenceException();
+				throw new global::System.IndexOutOfRangeException();
 			}
 		}
-		return array[num2];
+		return array[index];
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600036E")]
@@ -57,7 +55,6 @@ public class LevelSequenceManager : Singleton<LevelSequenceManager>
 		//IL_0056: Expected O, but got I
 		//IL_0066: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA72]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

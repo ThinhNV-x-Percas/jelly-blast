@@ -196,7 +196,6 @@ public class Sponge : SpecialFluid
 							{
 								goto IL_07f1;
 							}
-							object obj2 = (nint)specialFluid.solver + 504;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v563 @ X22_v16 (Il2CppMethodInfo)+C28]");
 							obj3 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
@@ -246,7 +245,6 @@ public class Sponge : SpecialFluid
 					}
 					nint num7 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-					object obj9 = (nint)this + 24;
 					_003C_003E2__current = null;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 1;
@@ -282,12 +280,10 @@ public class Sponge : SpecialFluid
 					float num20;
 					if (obj11 != null)
 					{
-						object obj12 = (nint)obj11 + 24;
 						_ = _003C_003E4__this;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 						if ((object)specialFluid.solver != null)
 						{
-							object obj13 = (nint)specialFluid.solver + 504;
 							obj5 = (nint)obj11 + 16;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v426 @ X25_v10 (Il2CppMethodInfo)+C28]");
 							obj3 = 0;
@@ -415,7 +411,6 @@ public class Sponge : SpecialFluid
 			{
 				goto IL_098c;
 			}
-			object obj25 = (nint)obj11 + 24;
 			_ = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			ex = new global::System.NullReferenceException();
@@ -543,7 +538,6 @@ public class Sponge : SpecialFluid
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)4064;
@@ -677,7 +671,7 @@ public class Sponge : SpecialFluid
 		nint num6 = 0;
 		object obj4 = (nint)0 + (nint)3112;
 		object obj5 = obj;
-		global::System.Collections.Generic.HashSet<int> hashSet2 = (global::System.Collections.Generic.HashSet<int>)(typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328);
+		global::System.Collections.Generic.HashSet<int> hashSet2 = default(global::System.Collections.Generic.HashSet<int>);
 		bool flag = !isCleared;
 		float num8 = default(float);
 		float num7 = num8;
@@ -708,7 +702,6 @@ public class Sponge : SpecialFluid
 				}
 				if ((object)solver != null)
 				{
-					object obj11 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num10 = (int)((nint)obj12 & 1);
 					bool flag2 = num10 == 0;
@@ -780,7 +773,7 @@ public class Sponge : SpecialFluid
 		base.OnPreComputeUpdate();
 		global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
 		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = (global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>)((nint)solver + 936);
-		global::Unity.Mathematics.float2 float6 = (*(global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>*)nativeParallelHashMap)[id];
+		global::Unity.Mathematics.float2 float6 = nativeParallelHashMap[id];
 		global::UnityEngine.Vector2 vector2 = float6;
 		global::UnityEngine.Vector3 vector3 = default(global::UnityEngine.Vector3);
 		vector3.x = vector2.x;
@@ -853,7 +846,6 @@ public class Sponge : SpecialFluid
 				int num12;
 				if ((object)solver != null)
 				{
-					object obj20 = (nint)solver + 504;
 					action3 = (global::System.Action<ParticleInitData>)obj6;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num29 = (int)((nint)obj21 & 1);
@@ -1049,7 +1041,6 @@ public class Sponge : SpecialFluid
 											obj18 = value2;
 											break;
 										}
-										object obj34 = (nint)solver + 504;
 										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 										int num67 = (int)((nint)obj35 & 1);
 										bool flag18 = num67 == 0;
@@ -1121,10 +1112,8 @@ public class Sponge : SpecialFluid
 										isCleared = true;
 										nint num74 = 0;
 										object obj38 = new object();
-										object obj39 = (nint)obj38 + 40;
 										_ = 0;
 										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-										object obj40 = (nint)obj38 + 32;
 										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 										global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj38);
 										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v131 @ X26_v10 (Il2CppMethodInfo)+C28]");
@@ -1220,9 +1209,7 @@ public class Sponge : SpecialFluid
 		nint num = 0;
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj3 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -1240,11 +1227,9 @@ public class Sponge : SpecialFluid
 		nint num = 0;
 		nint num2 = 0;
 		global::System.Collections.Generic.Dictionary<int, global::UnityEngine.Vector2> dictionary = new global::System.Collections.Generic.Dictionary<int, global::UnityEngine.Vector2>();
-		object obj = (nint)this + 176;
 		prevOffset = dictionary;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.HashSet<int> hashSet = new global::System.Collections.Generic.HashSet<int>();
-		object obj2 = (nint)this + 192;
 		removedParticles = hashSet;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 	}

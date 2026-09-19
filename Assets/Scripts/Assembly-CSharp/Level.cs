@@ -117,7 +117,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)288;
@@ -376,14 +375,8 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv4 = &v5 @ stack_-10_v2;\n\t*([v4 @ X29_v1-4]) = 0;\n\tv7 = &v5 @ stack_-10_v2 - 4;\n\tLevel::GetColliderYExtents(this, v7, &v9 @ stack_-18_v2 (System.Single));\n\tv14 = v9 - *([v4 @ X29_v1-4]);\n\treturnVal1 = v14 + 8f;\n\treturn returnVal1;\n// 11 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			object obj2 = default(object);
-			object obj = obj2;
-			_ = 0;
-			GetColliderYExtents(out *(float*)((nint)obj2 - 4), out var maxY);
-			float num = maxY;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v4 @ X29_v1-4]");
-			float num2 = num - 0f;
-			return num2 + 8f;
+			GetColliderYExtents(out var minY, out var maxY);
+			return maxY - minY + 8f;
 		}
 	}
 
@@ -395,13 +388,8 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv4 = &v5 @ stack_-10_v2;\n\t*([v4 @ X29_v1-4]) = 0;\n\tv7 = &v5 @ stack_-10_v2 - 4;\n\tLevel::GetColliderYExtents(this, v7, &v9 @ stack_-18_v2 (System.Single));\n\tv14 = *([v4 @ X29_v1-4]) + v9;\n\treturnVal1 = v14 * 0.5f;\n\treturn returnVal1;\n// 11 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			object obj2 = default(object);
-			object obj = obj2;
-			_ = 0;
-			GetColliderYExtents(out *(float*)((nint)obj2 - 4), out var maxY);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v4 @ X29_v1-4]");
-			float num = 0f + maxY;
-			return num * 0.5f;
+			GetColliderYExtents(out var minY, out var maxY);
+			return (minY + maxY) * 0.5f;
 		}
 	}
 
@@ -500,7 +488,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		//IL_05e8: Expected O, but got I
 		//IL_0326: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AABE]");
 		object obj4;
 		object obj2;
@@ -743,7 +730,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 				}
 				int num7 = (int)((nint)obj6 << 4);
 				object obj8 = (nint)obj4 + num7;
-				object obj9 = (nint)obj8 + 312;
 				num8 = num9;
 				goto IL_0860;
 			}
@@ -779,7 +765,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 			}
 			int num10 = (int)((nint)obj13 << 4);
 			object obj15 = (nint)obj10 + num10;
-			object obj16 = (nint)obj15 + 312;
 			nint num11 = num8;
 			goto IL_094d;
 			IL_0277:
@@ -904,10 +889,9 @@ public class Level : global::UnityEngine.MonoBehaviour
 						}
 						goto IL_0277;
 					}
-					object obj34 = obj32 + 1;
+					object obj34 = (nint)obj32 + 1;
 					int num19 = (int)((nint)obj34 << 4);
 					object obj35 = (nint)obj30 + num19;
-					object obj36 = (nint)obj35 + 312;
 					num11 = num8;
 					goto IL_08d2;
 				}
@@ -995,7 +979,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 	private void CreateSideCollider(string name, float xPos)
 	{
 		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		global::UnityEngine.GameObject gameObject = new global::UnityEngine.GameObject(name);
 		global::UnityEngine.Transform transform = gameObject.transform;
 		nint num2 = 0;
@@ -1022,10 +1005,8 @@ public class Level : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -1042,11 +1023,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		//IL_0220: Expected O, but got I
 		//IL_0237: Expected O, but got I
 		//IL_024c: Expected O, but got I
-		string text = "Writing object reference to Id '{0}' for {1}.";
-		string text2 = "Writing object reference to Id '{0}' for {1}.";
-		string text3 = "Writing object reference to Id '{0}' for {1}.";
 		global::UnityEngine.Texture2D texture2D = GenerateGradientLUT(gradientResolution);
-		object obj = (nint)this + 176;
 		gradientLUT = texture2D;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		GetColliderYExtents(out var minY, out var maxY);
@@ -1062,23 +1039,10 @@ public class Level : global::UnityEngine.MonoBehaviour
 		float num7 = minY + maxY;
 		float num8 = num7 * 0.5f;
 		float num9 = (gradientEndY = num3 + num8) - gradientStartY;
-		float num10 = 1f / num9;
-		float num11 = num9 - 0.0001f;
-		bool flag = num11 < 0f;
-		bool flag2 = num11 == 0f;
-		int num12 = num9 ^ 0x38D1B717;
-		object obj2 = num9 ^ num11;
-		int num13 = (int)(num12 & (nint)obj2);
-		bool flag3 = num13 < 0;
-		bool flag4 = flag == flag3;
-		bool flag5 = !flag2;
-		float value = ((!(flag4 && flag5)) ? 10000f : num10);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v26 @ X23_v1 (System.String)+A30]");
-		global::UnityEngine.Shader.SetGlobalTexture((string)0, gradientLUT);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v28 @ X22_v1 (System.String)+A28]");
-		global::UnityEngine.Shader.SetGlobalFloat((string)0, gradientStartY);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X21_v1 (System.String)+A10]");
-		global::UnityEngine.Shader.SetGlobalFloat((string)0, value);
+		float value = (num9 <= 0.0001f) ? 10000f : (1f / num9);
+		global::UnityEngine.Shader.SetGlobalTexture("_GradientTex", gradientLUT);
+		global::UnityEngine.Shader.SetGlobalFloat("_GradientStartY", gradientStartY);
+		global::UnityEngine.Shader.SetGlobalFloat("_GradientRangeInv", value);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000354")]
@@ -1086,201 +1050,20 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0025;\n\tv39 = System.Net.Configuration.SettingsSectionInternal;\n\tv40 = v39 + 0x900;\n\tv41 = \"il2cpp_codegen_initialize_runtime_metadata\"(v40, width, methodInfo, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55);\n\tv76 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tv77 = v76 + 0xC08;\n\tv57 = \"il2cpp_codegen_initialize_runtime_metadata\"(v77, width, methodInfo, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55);\n\tv59 = 1;\n\t*([302AA67]) = v59;\nL_0025:\n\tv65 = this.backgroundBottomColor.g - this.backgroundBottomColor.b;\n\tv66 = v65 < 0;\n\tv67 = v65 == 0;\n\tv68 = this.backgroundBottomColor.g ^ this.backgroundBottomColor.b;\n\tv69 = this.backgroundBottomColor.g ^ v65;\n\tv70 = v68 & v69;\n\tv71 = v70 < 0;\n\tv72 = v66 == v71;\n\tv73 = ~v67;\n\tv74 = v72 & v73;\n\tv75 = ~v74;\n\tif (v75) goto L_FFFFFFFF;\n\tgoto L_0037;\nL_0037:\n\tv83 = this.backgroundBottomColor - v80;\n\tv84 = v83 < 0;\n\tv85 = v83 == 0;\n\tv86 = this.backgroundBottomColor ^ v80;\n\tv87 = this.backgroundBottomColor ^ v83;\n\tv88 = v86 & v87;\n\tv89 = v88 < 0;\n\tv90 = v84 == v89;\n\tv91 = ~v85;\n\tv92 = v90 & v91;\n\tv93 = ~v92;\n\tif (v93) goto L_FFFFFFFF;\n\tgoto L_0048;\nL_0048:\n\tv98 = v96 < 0;\n\tv99 = ~v98;\n\tv102 = v96 == 0;\n\tv110 = ~v99;\n\tv111 = v110 | v102;\n\tif (v111) goto L_00E0;\n\tv121 = this.backgroundBottomColor.g >= this.backgroundBottomColor.b;\n\tif (v121) goto L_FFFFFFFF;\n\tgoto L_006F;\nL_006F:\n\tv196 = this.backgroundBottomColor >= v186;\n\tif (v196) goto L_FFFFFFFF;\n\tgoto L_0075;\nL_0075:\n\tv143 = v96 - v215;\n\tv228 = v96 <= v215;\n\tif (v228) goto L_00DD;\n\tv243 = this.backgroundBottomColor.g - this.backgroundBottomColor.b;\n\tv244 = v243 / v143;\n\tv139 = v244 * 0x42700000;\n\tv250 = this.backgroundBottomColor.g - this.backgroundBottomColor.b;\n\tv251 = v250 < 0;\n\tv259 = v139 + 0x43B40000;\n\tv260 = ~v251;\n\tv261 = ~v260;\n\tif (v261) goto L_FFFFFFFF;\n\tgoto L_009C;\nL_009C:\n\tv354 = this.backgroundBottomColor - this.backgroundBottomColor.g;\n\tv355 = v354 / v143;\n\tv358 = v355 * 0x42700000;\n\tv270 = v358 + 0x43700000;\n\tv362 = this.backgroundBottomColor.b - v96;\n\tv364 = v362 == 0;\n\tv369 = ~v364;\n\tv370 = ~v369;\n\tif (v370) goto L_FFFFFFFF;\n\tgoto L_00B4;\nL_00B4:\n\tv394 = this.backgroundBottomColor.b - this.backgroundBottomColor;\n\tv395 = v394 / v143;\n\tv398 = v395 * 0x42700000;\n\tv263 = v398 + 0x42F00000;\n\tv401 = this.backgroundBottomColor.g - v96;\n\tv403 = v401 == 0;\n\tv408 = ~v403;\n\tv271 = ~v408;\n\tif (v271) goto L_FFFFFFFF;\n\tgoto L_00D5;\nL_00D5:\n\tv267 = v139 >= 0;\n\tif (v267) goto L_00DD;\n\tv139 = v139 + 0x43B40000;\nL_00DD:\n\tv650 = v139 * 0x3B360B61;\n\tv126 = v143 / v96;\nL_00E0:\n\tv164 = System.Net.Configuration.SettingsSectionInternal;\n\tv171 = this.backgroundTopColor.g - this.backgroundTopColor.b;\n\tv172 = v171 < 0;\n\tv173 = v171 == 0;\n\tv174 = this.backgroundTopColor.g ^ this.backgroundTopColor.b;\n\tv175 = this.backgroundTopColor.g ^ v171;\n\tv176 = v174 & v175;\n\tv177 = v176 < 0;\n\tv178 = v172 == v177;\n\tv179 = ~v173;\n\tv180 = v178 & v179;\n\tv181 = ~v180;\n\tif (v181) goto L_FFFFFFFF;\n\tgoto L_00F9;\nL_00F9:\n\tv200 = this.backgroundTopColor - v197;\n\tv201 = v200 < 0;\n\tv202 = v200 == 0;\n\tv203 = this.backgroundTopColor ^ v197;\n\tv204 = this.backgroundTopColor ^ v200;\n\tv205 = v203 & v204;\n\tv206 = v205 < 0;\n\tv207 = v201 == v206;\n\tv208 = ~v202;\n\tv209 = v207 & v208;\n\tv210 = ~v209;\n\tif (v210) goto L_FFFFFFFF;\n\tgoto L_0109;\nL_0109:\n\tv230 = v229 < 0;\n\tv231 = ~v230;\n\tv234 = v229 == 0;\n\tv241 = ~v231;\n\tv242 = v241 | v234;\n\tif (v242) goto L_01A4;\n\tv293 = this.backgroundTopColor.g >= this.backgroundTopColor.b;\n\tif (v293) goto L_FFFFFFFF;\n\tgoto L_012F;\nL_012F:\n\tv381 = this.backgroundTopColor >= v371;\n\tif (v381) goto L_FFFFFFFF;\n\tgoto L_0135;\nL_0135:\n\tv318 = v229 - v409;\n\tv422 = v229 <= v409;\n\tif (v422) goto L_019D;\n\tv428 = this.backgroundTopColor.g - this.backgroundTopColor.b;\n\tv429 = v428 / v318;\n\tv314 = v429 * 0x42700000;\n\tv435 = this.backgroundTopColor.g - this.backgroundTopColor.b;\n\tv436 = v435 < 0;\n\tv444 = v314 + 0x43B40000;\n\tv445 = ~v436;\n\tv446 = ~v445;\n\tif (v446) goto L_FFFFFFFF;\n\tgoto L_015C;\nL_015C:\n\tv577 = this.backgroundTopColor - this.backgroundTopColor.g;\n\tv578 = v577 / v318;\n\tv581 = v578 * 0x42700000;\n\tv458 = v581 + 0x43700000;\n\tv585 = this.backgroundTopColor.b - v229;\n\tv587 = v585 == 0;\n\tv592 = ~v587;\n\tv593 = ~v592;\n\tif (v593) goto L_FFFFFFFF;\n\tgoto L_0174;\nL_0174:\n\tv682 = this.backgroundTopColor.b - this.backgroundTopColor;\n\tv683 = v682 / v318;\n\tv686 = v683 * 0x42700000;\n\tv448 = v686 + 0x42F00000;\n\tv689 = this.backgroundTopColor.g - v229;\n\tv691 = v689 == 0;\n\tv696 = ~v691;\n\tv459 = ~v696;\n\tif (v459) goto L_FFFFFFFF;\n\tgoto L_0195;\nL_0195:\n\tv455 = v314 >= 0;\n\tif (v455) goto L_019D;\n\tv314 = v314 + 0x43B40000;\nL_019D:\n\tv296 = v314 * 0x3B360B61;\n\tv300 = v318 / v229;\nL_01A4:\n\tv341 = new *([v164 @ X8_v4 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+900])();\n\tUnityEngine.Texture2D::.ctor(v341, width, 1, 4, 0, 1);\n\tv387 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tUnityEngine.Texture::set_filterMode(v341, 1);\n\tUnityEngine.Texture::set_wrapMode(v341, 1);\n\tUnityEngine.Object::set_name(v341, *([v387 @ X21_v2 (System.String)+C08]));\n\tv553 = width - 1;\n\tv575 = width < 1;\n\tif (v575) goto L_0201;\nL_01D3:\n\tv676 = v673 / v553;\n\t// 478 MakeStruct v602 @ AGG1011244_0_v3 (HSBColor), typeof(HSBColor), v650 @ V10_v5 (System.Single), v126 @ V11_v2 (System.Int32), v124 @ V12_v2 (System.Int32), this.backgroundBottomColor.a (System.Single)\n\t// 479 MakeStruct v601 @ AGG1011244_1_v3 (HSBColor), typeof(HSBColor), v296 @ V16_v2 (System.Single), v300 @ V13_v2 (System.Int32), v298 @ V14_v2 (System.Int32), this.backgroundTopColor.a (System.Single)\n\tv680 = HSBColor::Lerp(v602, v601, v676);\n\tv635 = HSBColor::ToColor(v680);\n\tUnityEngine.Texture2D::SetPixel(v341, v673, 0, v635);\n\tv673 = v673 + 1;\n\tv623 = width != v673;\n\tif (v623) goto L_01D3;\nL_0201:\n\tUnityEngine.Texture2D::Apply(v341);\n\treturn v341;\n\treturnVal1 = new System.NullReferenceException();\n\treturn returnVal1;\n// 349 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private global::UnityEngine.Texture2D GenerateGradientLUT(int width)
 	{
-		//IL_0454: Expected I4, but got F4
-		//IL_0468: Expected I4, but got F4
-		//IL_0505: Unknown result type (might be due to invalid IL or missing references)
-		//IL_050a: Expected I4, but got Unknown
-		//IL_0514: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0519: Expected I4, but got Unknown
-		//IL_0044: Expected I4, but got F4
-		//IL_0037: Expected I4, but got O
-		//IL_0b2e: Expected I, but got O
-		//IL_0b88: Expected I4, but got F4
-		//IL_0b9c: Expected I4, but got F4
-		//IL_07d1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_07d6: Expected I4, but got Unknown
-		//IL_07e0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_07e5: Expected I4, but got Unknown
-		//IL_01e5: Expected I4, but got F4
-		//IL_01d8: Expected I4, but got O
-		//IL_00b7: Expected I4, but got F4
-		//IL_00aa: Expected I4, but got O
-		//IL_0386: Expected O, but got I
-		//IL_0258: Expected I4, but got F4
-		//IL_024b: Expected I4, but got O
-		float num = backgroundBottomColor.g - backgroundBottomColor.b;
-		bool flag = num < 0f;
-		bool flag2 = num == 0f;
-		int num2 = backgroundBottomColor.g ^ backgroundBottomColor.b;
-		int num3 = backgroundBottomColor.g ^ num;
-		int num4 = num2 & num3;
-		bool flag3 = num4 < 0;
-		bool flag4 = flag == flag3;
-		bool flag5 = !flag2;
-		float num5 = ((!(flag4 && flag5)) ? backgroundBottomColor.b : backgroundBottomColor.g);
-		float num6 = backgroundBottomColor.r - num5;
-		bool flag6 = num6 < 0f;
-		bool flag7 = num6 == 0f;
-		int num7 = backgroundBottomColor ^ num5;
-		int num8 = backgroundBottomColor ^ num6;
-		int num9 = num7 & num8;
-		bool flag8 = num9 < 0;
-		bool flag9 = flag6 == flag8;
-		bool flag10 = !flag7;
-		int num10 = ((!(flag9 && flag10)) ? ((int)num5) : ((int)backgroundBottomColor));
-		bool flag11 = num10 < 0;
-		bool flag12 = !flag11;
-		bool flag13 = num10 == 0;
-		bool flag14 = !flag12;
-		bool flag15 = flag14 || flag13;
-		int num11 = 0;
-		int num12 = 0;
-		float h = 0f;
-		if (!flag15)
-		{
-			float num13 = ((!(backgroundBottomColor.g < backgroundBottomColor.b)) ? backgroundBottomColor.b : backgroundBottomColor.g);
-			int num14 = ((!(backgroundBottomColor.r < num13)) ? ((int)num13) : ((int)backgroundBottomColor));
-			int num15 = num10 - num14;
-			bool flag16 = num10 <= num14;
-			float num16 = 0f;
-			if (!flag16)
-			{
-				float num17 = backgroundBottomColor.g - backgroundBottomColor.b;
-				float num18 = num17 / (float)num15;
-				num16 = num18 * 60f;
-				float num19 = backgroundBottomColor.g - backgroundBottomColor.b;
-				bool flag17 = num19 < 0f;
-				float num20 = num16 + 360f;
-				if (flag17)
-				{
-					num16 = num20;
-				}
-				float num21 = backgroundBottomColor.r - backgroundBottomColor.g;
-				float num22 = num21 / (float)num15;
-				float num23 = num22 * 60f;
-				float num24 = num23 + 240f;
-				float num25 = backgroundBottomColor.b - (float)num10;
-				if (num25 == 0f)
-				{
-					num16 = num24;
-				}
-				float num26 = backgroundBottomColor.b - backgroundBottomColor.r;
-				float num27 = num26 / (float)num15;
-				float num28 = num27 * 60f;
-				float num29 = num28 + 120f;
-				float num30 = backgroundBottomColor.g - (float)num10;
-				if (num30 == 0f)
-				{
-					num16 = num29;
-				}
-				if (num16 < 0f)
-				{
-					num16 += 360f;
-				}
-			}
-			h = num16 * 0.0027777778f;
-			num12 = num15 / num10;
-			num11 = num10;
-		}
-		nint num31 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-		float num32 = backgroundTopColor.g - backgroundTopColor.b;
-		bool flag18 = num32 < 0f;
-		bool flag19 = num32 == 0f;
-		int num33 = backgroundTopColor.g ^ backgroundTopColor.b;
-		int num34 = backgroundTopColor.g ^ num32;
-		int num35 = num33 & num34;
-		bool flag20 = num35 < 0;
-		bool flag21 = flag18 == flag20;
-		bool flag22 = !flag19;
-		float num36 = ((!(flag21 && flag22)) ? backgroundTopColor.b : backgroundTopColor.g);
-		float num37 = backgroundTopColor.r - num36;
-		bool flag23 = num37 < 0f;
-		bool flag24 = num37 == 0f;
-		int num38 = backgroundTopColor ^ num36;
-		int num39 = backgroundTopColor ^ num37;
-		int num40 = num38 & num39;
-		bool flag25 = num40 < 0;
-		bool flag26 = flag23 == flag25;
-		bool flag27 = !flag24;
-		int num41 = ((!(flag26 && flag27)) ? ((int)num36) : ((int)backgroundTopColor));
-		bool flag28 = num41 < 0;
-		bool flag29 = !flag28;
-		bool flag30 = num41 == 0;
-		bool flag31 = !flag29;
-		bool flag32 = flag31 || flag30;
-		float h2 = 0f;
-		int num42 = 0;
-		int num43 = 0;
-		if (!flag32)
-		{
-			float num44 = ((!(backgroundTopColor.g < backgroundTopColor.b)) ? backgroundTopColor.b : backgroundTopColor.g);
-			int num45 = ((!(backgroundTopColor.r < num44)) ? ((int)num44) : ((int)backgroundTopColor));
-			int num46 = num41 - num45;
-			bool flag33 = num41 <= num45;
-			float num47 = 0f;
-			if (!flag33)
-			{
-				float num48 = backgroundTopColor.g - backgroundTopColor.b;
-				float num49 = num48 / (float)num46;
-				num47 = num49 * 60f;
-				float num50 = backgroundTopColor.g - backgroundTopColor.b;
-				bool flag34 = num50 < 0f;
-				float num51 = num47 + 360f;
-				if (flag34)
-				{
-					num47 = num51;
-				}
-				float num52 = backgroundTopColor.r - backgroundTopColor.g;
-				float num53 = num52 / (float)num46;
-				float num54 = num53 * 60f;
-				float num55 = num54 + 240f;
-				float num56 = backgroundTopColor.b - (float)num41;
-				if (num56 == 0f)
-				{
-					num47 = num55;
-				}
-				float num57 = backgroundTopColor.b - backgroundTopColor.r;
-				float num58 = num57 / (float)num46;
-				float num59 = num58 * 60f;
-				float num60 = num59 + 120f;
-				float num61 = backgroundTopColor.g - (float)num41;
-				if (num61 == 0f)
-				{
-					num47 = num60;
-				}
-				if (num47 < 0f)
-				{
-					num47 += 360f;
-				}
-			}
-			h2 = num47 * 0.0027777778f;
-			num43 = num46 / num41;
-			num42 = num41;
-		}
+		HSBColor a = HSBColor.FromColor(backgroundBottomColor);
+		HSBColor b = HSBColor.FromColor(backgroundTopColor);
 		global::UnityEngine.Texture2D texture2D = new global::UnityEngine.Texture2D(width, 1, global::UnityEngine.TextureFormat.RGBA32, mipChain: false, linear: true);
-		string text = "Expected ComplexType. Schema was not generated using this tool.";
 		texture2D.filterMode = global::UnityEngine.FilterMode.Bilinear;
 		texture2D.wrapMode = global::UnityEngine.TextureWrapMode.Clamp;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v387 @ X21_v2 (System.String)+C08]");
-		texture2D.name = (string)0;
+		texture2D.name = "GradientLUT";
 		int num62 = width - 1;
 		if (width >= 1)
 		{
 			int num63 = 0;
-			HSBColor a = default(HSBColor);
-			HSBColor b = default(HSBColor);
 			do
 			{
-				int num64 = num63 / num62;
-				a.h = h;
-				a.s = num12;
-				a.b = num11;
-				a.a = backgroundBottomColor.a;
-				b.h = h2;
-				b.s = num43;
-				b.b = num42;
-				b.a = backgroundTopColor.a;
-				HSBColor hsbColor = HSBColor.Lerp(a, b, num64);
+				float t = (num62 > 0) ? ((float)num63 / (float)num62) : 0f;
+				HSBColor hsbColor = HSBColor.Lerp(a, b, t);
 				global::UnityEngine.Color color = HSBColor.ToColor(hsbColor);
 				texture2D.SetPixel(num63, 0, color);
 				num63++;
@@ -1304,362 +1087,36 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0058;\n\tv37 = Il2CppMethodInfo;\n\tv38 = v37 + 0x888;\n\tv39 = \"il2cpp_codegen_initialize_runtime_metadata\"(v38, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv64 = Il2CppMethodInfo;\n\tv65 = v64 + 0x7E8;\n\tv66 = \"il2cpp_codegen_initialize_runtime_metadata\"(v65, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv351 = Il2CppMethodInfo;\n\tv352 = v351 + 0xAA8;\n\tv353 = \"il2cpp_codegen_initialize_runtime_metadata\"(v352, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv400 = Il2CppMethodInfo;\n\tv401 = v400 + 0x9E0;\n\tv402 = \"il2cpp_codegen_initialize_runtime_metadata\"(v401, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv418 = Il2CppMethodInfo;\n\tv419 = v418 + 0x9E8;\n\tv420 = \"il2cpp_codegen_initialize_runtime_metadata\"(v419, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv487 = Il2CppMethodInfo;\n\tv488 = v487 + 0x9F0;\n\tv489 = \"il2cpp_codegen_initialize_runtime_metadata\"(v488, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv502 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv503 = v502 + 0x228;\n\tv504 = \"il2cpp_codegen_initialize_runtime_metadata\"(v503, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv509 = Il2CppMethodInfo;\n\tv510 = v509 + 0x1C8;\n\tv511 = \"il2cpp_codegen_initialize_runtime_metadata\"(v510, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv521 = Il2CppMethodInfo;\n\tv522 = v521 + 0x618;\n\tv523 = \"il2cpp_codegen_initialize_runtime_metadata\"(v522, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv540 = Il2CppMethodInfo;\n\tv541 = v540 + 0x620;\n\tv542 = \"il2cpp_codegen_initialize_runtime_metadata\"(v541, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv564 = Il2CppMethodInfo;\n\tv565 = v564 + 0x5A8;\n\tv566 = \"il2cpp_codegen_initialize_runtime_metadata\"(v565, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv660 = Il2CppMethodInfo;\n\tv661 = v660 + 0x1B0;\n\tv662 = \"il2cpp_codegen_initialize_runtime_metadata\"(v661, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv705 = Il2CppMethodInfo;\n\tv706 = v705 + 0x5B0;\n\tv707 = \"il2cpp_codegen_initialize_runtime_metadata\"(v706, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv712 = Il2CppMethodInfo;\n\tv713 = v712 + 0x628;\n\tv714 = \"il2cpp_codegen_initialize_runtime_metadata\"(v713, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv724 = Il2CppMethodInfo;\n\tv725 = v724 + 0x5B8;\n\tv726 = \"il2cpp_codegen_initialize_runtime_metadata\"(v725, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv752 = Il2CppMethodInfo;\n\tv753 = v752 + 0x208;\n\tv754 = \"il2cpp_codegen_initialize_runtime_metadata\"(v753, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv764 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv765 = v764 + 0x390;\n\tv766 = \"il2cpp_codegen_initialize_runtime_metadata\"(v765, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv778 = Il2CppMethodInfo;\n\tv779 = v778 + 0xF0;\n\tv780 = \"il2cpp_codegen_initialize_runtime_metadata\"(v779, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv786 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv787 = v786 + 0x158;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v787, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv58 = 1;\n\t*([302AA68]) = v58;\nL_0058:\n\t;\n\tv69 = Il2CppMethodInfo;\n\tv471 = Il2CppMethodInfo + 0x9E0;\n\tv76 = System.Collections.Generic.List`1<LevelSection>::GetEnumerator(this.sections);\nL_006A:\n\tv392 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv422 = v392 == 0;\n\tif (v422) goto L_0087;\n\tv394 = v355 == 0;\n\tif (v394) goto L_0255;\n\tv483 = *([v355 @ stack_-98+18]);\n\tv415 = *([v355 @ stack_-98+18]) == 0;\n\tif (v415) goto L_0257;\n\tv403 = *([v483 @ X8_v82+18]) < 1;\n\tif (v403) goto L_006A;\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tgoto L_0253;\nL_0087:\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_0088:\n\t;\n\tv517 = System.Collections.Generic.List`1<LevelSection>::GetEnumerator(this.sections);\nL_0095:\n\tv531 = *([v69 @ X22_v15 (Il2CppMethodInfo)+9E8]);\n\tv558 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv655 = v558 == 0;\n\tif (v655) goto L_00B9;\n\tv480 = v355 == 0;\n\tif (v480) goto L_0259;\n\tv482 = *([v355 @ stack_-98+18]);\n\tv439 = *([v482 @ X8_v80+18]);\n\tv544 = *([v482 @ X8_v80+1C]) + 1;\n\t*([v482 @ X8_v80+18]) = 0;\n\t*([v482 @ X8_v80+1C]) = v544;\n\tv546 = *([v482 @ X8_v80+18]) < 1;\n\tif (v546) goto L_0095;\n\tSystem.Array::Clear(*([v482 @ X8_v80+10]), 0, *([v482 @ X8_v80+18]));\n\tgoto L_0095;\nL_00B9:\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_00BA:\n\tv345 = v348.sections;\n\tv632 = *([v345 @ X20_v12 (System.Collections.Generic.IEnumerable`1<System.Object>)+18]) == 0;\n\tif (v632) goto L_0253;\n\tv708 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv709 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv711 = *([v709 @ X0_v24+E0]) == 0;\n\tif (v711) goto L_00CD;\n\tv769 = *([v709 @ X0_v24+B8]);\n\tv733 = *([v769 @ X8_v61+18]);\n\tv721 = *([v769 @ X8_v61+18]) == 0;\n\tv722 = ~v721;\n\tif (v722) goto L_00EC;\n\tgoto L_00D6;\nL_00CD:\n\tv739 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv769 = *([v739 @ X0_v67+B8]);\n\tv733 = *([v769 @ X8_v61+18]);\n\tv751 = *([v769 @ X8_v61+18]) == 0;\n\tv742 = ~v751;\n\tif (v742) goto L_00EC;\nL_00D6:\n\tgoto L_00DB;\n\tv767 = \"il2cpp_codegen_runtime_class_init\"(v756, v276, v154, v139, v43, v44, v45, v46, v262, v82, v78, v50, v51, v52, v53, v54);\n\tv781 = *([v298 @ X23_v8]);\n\tv770 = *([v781 @ X8_v67+B8]);\nL_00DB:\n\tv771 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv774 = new *([v771 @ X8_v62 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+228])();\n\tv782 = Il2CppMethodInfo;\n\tSystem.Func`2<System.Object, System.Single>::.ctor(v774, *([v769 @ X8_v61]), *([v782 @ X8_v64 (Il2CppMethodInfo)+F0]));\n\tv744 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv789 = *([v744 @ X8_v66+B8]) + 0x18;\n\t*([v789 @ X0_v63]) = v774;\n\tv738 = 0xF3F1B4(v789, v774, *([v782 @ X8_v64 (Il2CppMethodInfo)+F0]), 0, v43, v44, v45, v46, v262, v358, v357, v50, v51, v52, v53, v54);\nL_00EC:\n\t;\n\tv750 = System.Linq.Enumerable::OrderBy(v345, v733);\n\tv763 = System.Linq.Enumerable::ToList(v750);\n\tv775 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv305 = new *([v775 @ X8_v15 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+390])();\n\tSystem.Collections.Generic.List`1<System.Single>::.ctor(v305);\n\tv792 = v305._version + 1;\n\tv305._version = v792;\n\tv145 = v305._items;\n\tv133 = v305._size;\n\tv793 = v305._size < v145.Length;\n\tv243 = ~v793;\n\tif (v243) goto L_011E;\n\tv794 = v305._size + 1;\n\tv305._size = v794;\n\tv145[v133 @ X10_v6 (System.Int32)] = 0xFF800000;\n\tgoto L_0128;\nL_011E:\n\t;\n\tSystem.Collections.Generic.List`1<System.Single>::AddWithResize(v305, -Infinityf);\nL_0128:\n\tv805 = v763._size - 1;\n\tv816 = v805 < 1;\n\tif (v816) goto L_018\n// ... truncated")]
 	private unsafe void AssignLocksToSections()
 	{
-		//IL_0019: Expected O, but got I
-		//IL_0ab0: Expected O, but got I
-		//IL_005a: Expected O, but got I
-		//IL_09ca: Expected O, but got I
-		//IL_0111: Expected O, but got I
-		//IL_01fc: Expected I, but got O
-		//IL_020c: Expected O, but got I
-		//IL_013c: Expected O, but got I
-		//IL_0296: Expected O, but got I
-		//IL_02a6: Expected O, but got I
-		//IL_02b6: Expected O, but got I
-		//IL_0241: Expected O, but got I
-		//IL_0251: Expected O, but got I
-		//IL_018e: Expected O, but got I
-		//IL_0197: Expected O, but got I4
-		//IL_031e: Expected I, but got O
-		//IL_0ae8: Expected I, but got O
-		//IL_0b18: Expected O, but got I
-		//IL_0b2e: Expected O, but got I
-		//IL_0b49: Expected O, but got I4
-		//IL_04f8: Expected O, but got I
-		//IL_071d: Expected O, but got I
-		//IL_0734: Expected O, but got I
-		//IL_0848: Expected O, but got I
-		//IL_0865: Expected O, but got I
-		//IL_087a: Expected O, but got I
-		//IL_06c6: Expected O, but got I
-		//IL_08ce: Expected O, but got I
-		//IL_08f7: Expected O, but got I
-		//IL_0906: Expected O, but got I
-		//IL_0916: Expected O, but got I
-		nint num = 0;
-		object obj = (nint)0 + (nint)2528;
-		global::System.Collections.Generic.List<LevelSection>.Enumerator enumerator = sections.GetEnumerator();
-		global::System.Collections.Generic.List<object>.Enumerator enumerator2 = default(global::System.Collections.Generic.List<object>.Enumerator);
-		object obj2 = default(object);
-		object obj5 = default(object);
-		int num3 = default(int);
-		object obj7 = default(object);
-		object obj8 = default(object);
-		global::System.NullReferenceException ex = default(global::System.NullReferenceException);
-		global::System.NullReferenceException ex2 = default(global::System.NullReferenceException);
-		object obj9 = default(object);
-		Level level = default(Level);
-		object obj10 = default(object);
-		int num5 = default(int);
-		object obj13 = default(object);
-		object obj6 = default(object);
-		object obj18 = default(object);
-		while (true)
+		foreach (LevelSection section in sections)
 		{
-			int num2;
-			global::System.Collections.Generic.List<object>.Enumerator enumerator3;
-			int num4;
-			object obj4;
-			if (enumerator2.MoveNext())
-			{
-				if (obj2 != null)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v355 @ stack_-98+18]");
-					object obj3 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v355 @ stack_-98+18]");
-					if ((nint)0 != 0)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v483 @ X8_v82+18]");
-						if ((nint)0 >= (nint)1)
-						{
-							enumerator2.Dispose();
-							return;
-						}
-						continue;
-					}
-					ex = new global::System.NullReferenceException();
-					obj4 = obj5;
-					num2 = num3;
-					obj6 = obj7;
-					obj = obj8;
-					ex = ex2;
-				}
-				else
-				{
-					ex2 = new global::System.NullReferenceException();
-					obj9 = enumerator2;
-					enumerator3 = enumerator2;
-					num4 = 0;
-					level = this;
-				}
-				goto IL_09da;
-			}
-			enumerator2.Dispose();
-			global::System.Collections.Generic.List<LevelSection>.Enumerator enumerator4 = sections.GetEnumerator();
-			obj4 = obj10;
-			num2 = num5;
-			while (true)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v69 @ X22_v15 (Il2CppMethodInfo)+9E8]");
-				obj6 = 0;
-				if (!enumerator2.MoveNext())
-				{
-					break;
-				}
-				if (obj2 != null)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v355 @ stack_-98+18]");
-					object obj11 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v482 @ X8_v80+18]");
-					num2 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v482 @ X8_v80+1C]");
-					object obj12 = (nint)0 + (nint)1;
-					_ = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v482 @ X8_v80+18]");
-					if ((nint)0 >= (nint)1)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v482 @ X8_v80+10]");
-						nint num6 = 0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v482 @ X8_v80+18]");
-						global::System.Array.Clear((global::System.Array)num6, 0, 0);
-						obj4 = 0;
-					}
-					continue;
-				}
-				goto IL_0988;
-			}
-			enumerator2.Dispose();
-			enumerator3 = enumerator2;
-			level = this;
-			goto IL_01b7;
-			IL_09da:
-			global::System.NullReferenceException ex3;
-			if ((nint)obj6 == 1)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-				ex3 = (global::System.NullReferenceException)obj13;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-				obj6 = obj;
-				((global::System.Collections.Generic.List<object>.Enumerator*)obj9)->Dispose();
-				if (obj13 != null)
-				{
-					global::System.OutOfMemoryException ex4 = new global::System.OutOfMemoryException();
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF1270");
-					ex3 = (global::System.NullReferenceException)(object)ex4;
-					break;
-				}
-				goto IL_01b7;
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF1270");
-			ex3 = ex;
-			break;
-			IL_02eb:
-			global::System.Collections.Generic.IEnumerable<object> source2;
-			global::System.Func<object, float> keySelector;
-			global::System.Linq.IOrderedEnumerable<object> source = global::System.Linq.Enumerable.OrderBy(source2, keySelector);
-			global::System.Collections.Generic.List<object> list = global::System.Linq.Enumerable.ToList(source);
-			nint num7 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-			global::System.Collections.Generic.List<float> list2 = new global::System.Collections.Generic.List<float>();
-			int version = list2._version + 1;
-			list2._version = version;
-			float[] items = list2._items;
-			int count = list2.Count;
-			if (list2.Count < items.Length)
-			{
-				int size = list2.Count + 1;
-				list2._size = size;
-				items[count] = float.NegativeInfinity;
-			}
-			else
-			{
-				list2.Add(float.NegativeInfinity);
-			}
-			int num8 = list.Count - 1;
-			if (num8 >= 1)
-			{
-				int num9 = 0;
-				while (true)
-				{
-					object obj14 = list[num9];
-					num9++;
-					object obj15 = list[num9];
-					int version2 = list2._version + 1;
-					list2._version = version2;
-					float[] items2 = list2._items;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v307 @ X0_v53+10]");
-					nint num10 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v308 @ X0_v55+10]");
-					object obj16 = num10 + 0;
-					float num11 = (float)obj16 * 0.5f;
-					int count2 = list2.Count;
-					if (list2.Count >= items2.Length)
-					{
-						list2.Add(num11);
-						int num12 = list.Count - 1;
-						if (num9 >= num12)
-						{
-							break;
-						}
-						continue;
-					}
-					int size2 = list2.Count + 1;
-					list2._size = size2;
-					items2[count2] = num11;
-					int num13 = list.Count - 1;
-					if (num9 >= num13)
-					{
-						break;
-					}
-				}
-			}
-			int version3 = list2._version + 1;
-			list2._version = version3;
-			float[] items3 = list2._items;
-			int count3 = list2.Count;
-			if (list2.Count < items3.Length)
-			{
-				int size3 = list2.Count + 1;
-				list2._size = size3;
-				items3[count3] = float.PositiveInfinity;
-			}
-			else
-			{
-				list2.Add(float.PositiveInfinity);
-			}
-			nint num14 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111D01C (UnityEngine.Component::GetComponentsInChildren, and 1 more at this address)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v310 @ X0_v35+18]");
-			if ((nint)0 < (nint)1)
-			{
-				return;
-			}
-			nint num15 = 0;
-			int num16 = 0;
-			int num24;
-			do
-			{
-				int num17 = num16 << 3;
-				object obj17 = (nint)obj18 + num17;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v30+20]");
-				global::UnityEngine.Transform transform = ((global::UnityEngine.Component)0).transform;
-				global::UnityEngine.Vector3 position = transform.position;
-				if (list.Count >= 1)
-				{
-					int num18 = 0;
-					bool flag;
-					do
-					{
-						float num19 = list2[num18];
-						int num20 = num18 + 1;
-						if (!(position.y < num19))
-						{
-							float num21 = list2[num20];
-							if (position.y < num21)
-							{
-								object obj19 = list[num18];
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v313 @ X0_v43+18]");
-								object obj20 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X0_v44+1C]");
-								object obj21 = (nint)0 + (nint)1;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X0_v44+10]");
-								object obj22 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X0_v44+18]");
-								nint num22 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v152 @ X9_v19+18]");
-								if (num22 >= 0)
-								{
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v30+20]");
-									((global::System.Collections.Generic.List<object>)obj20).Add((object)0);
-									break;
-								}
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X0_v44+18]");
-								object obj23 = (nint)0 + (nint)1;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X0_v44+18]");
-								int num23 = (int)((nint)0 << 3);
-								object obj24 = (nint)obj22 + num23;
-								object obj25 = (nint)obj24 + 32;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v30+20]");
-								obj25 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-								break;
-							}
-						}
-						flag = num20 >= list.Count;
-						num18 = num20;
-					}
-					while (!flag);
-				}
-				num16++;
-				num24 = num16;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v310 @ X0_v35+18]");
-			}
-			while ((nint)num24 < (nint)0);
-			return;
-			IL_0988:
-			global::System.NullReferenceException ex5 = new global::System.NullReferenceException();
-			obj4 = obj10;
-			num2 = num5;
-			obj9 = enumerator2;
-			enumerator3 = enumerator2;
-			num4 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v69 @ X22_v15 (Il2CppMethodInfo)+9E8]");
-			obj6 = 0;
-			level = this;
-			goto IL_09da;
-			IL_01b7:
-			source2 = level.sections;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v345 @ X20_v12 (System.Collections.Generic.IEnumerable`1<System.Object>)+18]");
-			if ((nint)0 == 0)
-			{
-				return;
-			}
-			nint num25 = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-			object obj26 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v709 @ X0_v24+E0]");
-			object obj27;
-			if ((nint)0 != 0)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v709 @ X0_v24+B8]");
-				obj27 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v769 @ X8_v61+18]");
-				keySelector = (global::System.Func<object, float>)0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v769 @ X8_v61+18]");
-				if ((nint)0 != 0)
-				{
-					goto IL_02eb;
-				}
-			}
-			else
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-				object obj28 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v739 @ X0_v67+B8]");
-				obj27 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v769 @ X8_v61+18]");
-				keySelector = (global::System.Func<object, float>)0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v769 @ X8_v61+18]");
-				if ((nint)0 != 0)
-				{
-					goto IL_02eb;
-				}
-			}
-			nint num26 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
-			object obj29 = obj27;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v782 @ X8_v64 (Il2CppMethodInfo)+F0]");
-			global::System.Func<object, float> func = new global::System.Func<object, float>(obj29, (global::System.IntPtr)0);
-			nint num27 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-			object obj30 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v744 @ X8_v66+B8]");
-			object obj31 = (nint)0 + (nint)24;
-			obj31 = func;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			obj4 = 0;
-			keySelector = func;
-			goto IL_02eb;
+			section.locks.Clear();
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
+		global::System.Collections.Generic.List<LevelSection> orderedSections = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(sections, (LevelSection s) => s.y));
+		if (orderedSections.Count == 0)
+		{
+			return;
+		}
+		global::System.Collections.Generic.List<float> boundaries = new global::System.Collections.Generic.List<float>();
+		boundaries.Add(float.NegativeInfinity);
+		for (int i = 0; i < orderedSections.Count - 1; i++)
+		{
+			boundaries.Add((orderedSections[i].y + orderedSections[i + 1].y) * 0.5f);
+		}
+		boundaries.Add(float.PositiveInfinity);
+		Lock[] componentsInChildren = GetComponentsInChildren<Lock>(true);
+		Lock[] array = componentsInChildren;
+		foreach (Lock lockComponent in array)
+		{
+			float y = lockComponent.transform.position.y;
+			for (int j = 0; j < orderedSections.Count; j++)
+			{
+				if (y >= boundaries[j] && y < boundaries[j + 1])
+				{
+					orderedSections[j].locks.Add(lockComponent);
+					break;
+				}
+			}
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000357")]
@@ -1667,103 +1124,23 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001F;\n\tv25 = Il2CppMethodInfo;\n\tv26 = v25 + 0x9E0;\n\tv27 = \"il2cpp_codegen_initialize_runtime_metadata\"(v26, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv52 = Il2CppMethodInfo;\n\tv53 = v52 + 0x9E8;\n\tv54 = \"il2cpp_codegen_initialize_runtime_metadata\"(v53, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv158 = Il2CppMethodInfo;\n\tv159 = v158 + 0x9F0;\n\tv160 = \"il2cpp_codegen_initialize_runtime_metadata\"(v159, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv201 = Il2CppMethodInfo;\n\tv202 = v201 + 0x5A8;\n\tv44 = \"il2cpp_codegen_initialize_runtime_metadata\"(v202, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv46 = 1;\n\t*([302AA69]) = v46;\nL_001F:\n\tv47 = 0;\n\tv51 = this.sections == 0;\n\tif (v51) goto L_0065;\n\t// 42 MakeStruct v60 @ AGG101133C_0_v2 (UnityEngine.Color), typeof(UnityEngine.Color), 0, 1f, 0, 1f\n\tUnityEngine.Gizmos::set_color(v60);\n\tv163 = UnityEngine.Camera::get_main();\n\tv203 = v163 == 0;\n\tif (v203) goto L_0068;\n\tv205 = UnityEngine.Camera::get_aspect(v163);\n\tv214 = this.sections == 0;\n\tif (v214) goto L_0068;\n\tv219 = Il2CppMethodInfo;\n\tv147 = Il2CppMethodInfo + 0x9E0;\n\tv120 = this.levelWidth / v205;\n\tv224 = System.Collections.Generic.List`1<LevelSection>::GetEnumerator(this.sections);\nL_0045:\n\tv185 = *([v219 @ X21_v4 (Il2CppMethodInfo)+9E8]);\n\tv248 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v47 @ stack_-58_v1 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv140 = v248 == 0;\n\tif (v140) goto L_005B;\n\tv215 = 0;\n\tv132 = *([v215 @ X8_v10 (System.Int32)+10]);\n\t// 85 MakeStruct v236 @ AGG10113CC_0_v4 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), 0, [v215 @ X8_v10 (System.Int32)+10], 0\n\t// 86 MakeStruct v235 @ AGG10113CC_1_v4 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), this.levelWidth (System.Single), v120 @ V8_v5 (System.Single), 1008981770\n\tUnityEngine.Gizmos::DrawWireCube(v236, v235);\n\tgoto L_0045;\nL_005B:\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v47 @ stack_-58_v1 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_0065:\n\treturn;\n\tv210 = new System.NullReferenceException();\nL_0068:\n\tv216 = new System.NullReferenceException();\n\tgoto L_0075;\n\tgoto L_0075;\nL_0075:\n\tv63 = v185 != 1;\n\tif (v63) goto L_0085;\n\tv229 = 0x274A080(v216, v185, v29, v30, v31, v32, v33, v34, v135, v132, v129, v126, v39, v101, v41, v42);\n\tv249 = 0x274A098(v229, v185, v29, v30, v31, v32, v33, v34, v135, v132, v129, v126, v39, v101, v41, v42);\n\tv185 = *([v147 @ X20_v4 (System.Int32)]);\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(v104);\n\tv141 = *([v229 @ X0_v15]) == 0;\n\tif (v141) goto L_0065;\n\tv231 = new System.OutOfMemoryException();\nL_0085:\n\tv234 = 0xBF1270(&v206 @ stack_-68_v2 (System.Int32), v185, v29, v30, v31, v32, v33, v34, v135, v132, v129, v126, v39, v101, v41, v42);\n\tv251 = 0x27498DC(v199, v185, v29, v30, v31, v32, v33, v34, v135, v132, v129, v126, v39, v101, v41, v42);\n\tv193 = 0xD6F8(v251, v185, v29, v30, v31, v32, v33, v34, v135, v132, v129, v126, v39, v101, v41, v42);\n\treturn;\n// 79 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private unsafe void OnDrawGizmos()
 	{
-		//IL_00ca: Expected O, but got I4
-		//IL_0139: Expected O, but got I4
-		//IL_027c: Expected I4, but got O
-		//IL_0165: Expected F4, but got I
-		//IL_0188: Expected F4, but got I
-		//IL_01df: Expected O, but got I4
-		global::System.Collections.Generic.List<object>.Enumerator enumerator = default(global::System.Collections.Generic.List<object>.Enumerator);
 		if (sections == null)
 		{
 			return;
 		}
-		global::UnityEngine.Color color = default(global::UnityEngine.Color);
-		color.r = 0f;
-		color.g = 1f;
-		color.b = 0f;
-		color.a = 1f;
-		global::UnityEngine.Gizmos.color = color;
+		global::UnityEngine.Gizmos.color = new global::UnityEngine.Color(0f, 1f, 0f, 1f);
 		global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
-		bool flag = (object)main == null;
-		object obj = enumerator;
-		int num = 0;
-		int num8 = default(int);
-		nint num4 = default(nint);
-		if (!flag)
+		if (main == null)
 		{
-			float aspect = main.aspect;
-			bool flag2 = sections == null;
-			int num3 = default(int);
-			int num2 = num3;
-			object obj2 = default(object);
-			obj = obj2;
-			global::System.IntPtr intPtr = default(global::System.IntPtr);
-			num4 = intPtr;
-			float num5 = 1f;
-			object obj3 = 0;
-			float num6 = 1f;
-			float num7 = 0f;
-			num8 = 50503680;
-			if (!flag2)
-			{
-				nint num9 = 0;
-				num8 = (int)((nint)0 + (nint)2528);
-				float y = levelWidth / aspect;
-				global::System.Collections.Generic.List<LevelSection>.Enumerator enumerator2 = sections.GetEnumerator();
-				num5 = 1f;
-				obj3 = 0;
-				num6 = 1f;
-				global::UnityEngine.Vector3 center = default(global::UnityEngine.Vector3);
-				global::UnityEngine.Vector3 size = default(global::UnityEngine.Vector3);
-				while (true)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v219 @ X21_v4 (Il2CppMethodInfo)+9E8]");
-					num4 = 0;
-					if (!enumerator.MoveNext())
-					{
-						break;
-					}
-					int num10 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v215 @ X8_v10 (System.Int32)+10]");
-					num6 = 0f;
-					center.x = 0f;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v215 @ X8_v10 (System.Int32)+10]");
-					center.y = 0f;
-					center.z = 0f;
-					size.x = levelWidth;
-					size.y = y;
-					size.z = 0.01f;
-					global::UnityEngine.Gizmos.DrawWireCube(center, size);
-					num2 = 1008981770;
-					obj3 = 0;
-					num7 = 0f;
-				}
-				enumerator.Dispose();
-				return;
-			}
+			return;
 		}
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		bool flag3 = num4 != 1;
-		global::System.NullReferenceException ex2 = ex;
-		if (!flag3)
+		float height = levelWidth / main.aspect;
+		foreach (LevelSection section in sections)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			num4 = num8;
-			((global::System.Collections.Generic.List<object>.Enumerator*)obj)->Dispose();
-			object obj4 = default(object);
-			if (obj4 == null)
-			{
-				return;
-			}
-			global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-			num = (int)obj4;
-			ex2 = (global::System.NullReferenceException)(object)ex3;
+			global::UnityEngine.Vector3 center = new global::UnityEngine.Vector3(0f, section.y, 0f);
+			global::UnityEngine.Vector3 size = new global::UnityEngine.Vector3(levelWidth, height, 0.01f);
+			global::UnityEngine.Gizmos.DrawWireCube(center, size);
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF1270");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000358")]
@@ -1781,50 +1158,21 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0016;\n\tv23 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv24 = v23 + 0xFD8;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, particleType, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39);\n\tv42 = 1;\n\t*([302AA6A]) = v42;\nL_0016:\n\tv44 = ~this.enableBeeSpawning;\n\tif (v44) goto L_0025;\n\tv45 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv48 = *([v45 @ X8_v7 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv50 = *([v48 @ X0_v5+E0]) == 0;\n\tif (v50) goto L_0033;\n\tv58 = UnityEngine.Object::op_Equality(this.solver, 0);\n\tv61 = ~v58;\n\tif (v61) goto L_0037;\nL_0025:\n\tv113 = this + 0x70;\nL_0026:\n\t*([v113 @ X20_v2]) = 0;\nL_002E:\n\treturn;\nL_0033:\n\tv59 = UnityEngine.Object::op_Equality(this.solver, 0);\n\tv154 = ~v59;\n\tv62 = ~v154;\n\tif (v62) goto L_0025;\nL_0037:\n\tv153 = this.solver;\n\tv120 = v153.colorFluidTypes <= particleType;\n\tif (v120) goto L_002E;\n\tv113 = this + 0x70;\n\tv74 = this.fluidsCollectedSinceLastBee + 1;\n\tthis.fluidsCollectedSinceLastBee = v74;\n\tv77 = v74 < this.fluidCollectionThreshold;\n\tif (v77) goto L_002E;\n\tLevel::SpawnBee(this);\n\tgoto L_0026;\n\tthrow System.NullReferenceException;\n\treturn;\n// 63 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void OnFluidCollected(int particleType)
 	{
-		//IL_007e: Expected O, but got I
-		//IL_0174: Expected O, but got I4
-		//IL_0013: Expected I, but got O
-		//IL_0023: Expected O, but got I
-		//IL_00fc: Expected O, but got I
-		if (!EnableBeeSpawning)
+		if (!EnableBeeSpawning || solver == null)
 		{
-			goto IL_0072;
-		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v45 @ X8_v7 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v48 @ X0_v5+E0]");
-		if ((nint)0 != 0)
-		{
-			if (solver == null)
-			{
-				goto IL_0072;
-			}
-		}
-		else if (solver == null)
-		{
-			goto IL_0072;
-		}
-		FluidSolver fluidSolver = solver;
-		object obj2;
-		if (fluidSolver.colorFluidTypes > particleType)
-		{
-			obj2 = (nint)this + 112;
-			int num2 = (fluidsCollectedSinceLastBee = FluidsCollectedSinceLastBee + 1);
-			totalFluidsCollected = (int)((uint)num2 >> 32);
-			if (num2 >= FluidCollectionThreshold)
-			{
-				SpawnBee();
-				goto IL_016b;
-			}
 			return;
 		}
-		return;
-		IL_0072:
-		obj2 = (nint)this + 112;
-		goto IL_016b;
-		IL_016b:
-		obj2 = 0;
+		if (solver.colorFluidTypes <= particleType)
+		{
+			return;
+		}
+		totalFluidsCollected++;
+		fluidsCollectedSinceLastBee++;
+		if (fluidsCollectedSinceLastBee >= FluidCollectionThreshold)
+		{
+			SpawnBee();
+			fluidsCollectedSinceLastBee = 0;
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600035A")]
@@ -1845,7 +1193,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X21_v3 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X0_v3+E0]");
@@ -1909,8 +1256,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		obj3 = obj4;
 		goto IL_025c;
 		IL_05b2:
-		nint num3 = (nint)typeof(CollectParticleData[]);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
 		global::UnityEngine.Vector2 insideUnitCircle = global::UnityEngine.Random.insideUnitCircle;
 		float num4 = insideUnitCircle.x * beeSpawnRadius;
 		float num5 = insideUnitCircle.y * beeSpawnRadius;
@@ -1921,7 +1266,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 vector2 = default(global::UnityEngine.Vector2);
 		vector2.x = x;
 		vector2.y = y2;
-		_ = ((global::Unity.Mathematics.float2)vector2).y;
 		global::UnityEngine.Vector2 insideUnitCircle2 = global::UnityEngine.Random.insideUnitCircle;
 		float num8 = insideUnitCircle2.x * beeSpawnRadius;
 		float num9 = insideUnitCircle2.y * beeSpawnRadius;
@@ -1932,7 +1276,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 vector3 = default(global::UnityEngine.Vector2);
 		vector3.x = x2;
 		vector3.y = y3;
-		_ = ((global::Unity.Mathematics.float2)vector3).y;
 		global::UnityEngine.Vector2 insideUnitCircle3 = global::UnityEngine.Random.insideUnitCircle;
 		float num12 = insideUnitCircle3.x * beeSpawnRadius;
 		float num13 = insideUnitCircle3.y * beeSpawnRadius;
@@ -1943,7 +1286,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 vector4 = default(global::UnityEngine.Vector2);
 		vector4.x = x3;
 		vector4.y = y4;
-		_ = ((global::Unity.Mathematics.float2)vector4).y;
 		global::UnityEngine.Vector2 insideUnitCircle4 = global::UnityEngine.Random.insideUnitCircle;
 		float num16 = insideUnitCircle4.x * beeSpawnRadius;
 		float num17 = insideUnitCircle4.y * beeSpawnRadius;
@@ -1954,7 +1296,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 vector5 = default(global::UnityEngine.Vector2);
 		vector5.x = x4;
 		vector5.y = y5;
-		_ = ((global::Unity.Mathematics.float2)vector5).y;
 		global::UnityEngine.Vector2 insideUnitCircle5 = global::UnityEngine.Random.insideUnitCircle;
 		float num20 = insideUnitCircle5.x * beeSpawnRadius;
 		float num21 = insideUnitCircle5.y * beeSpawnRadius;
@@ -1965,8 +1306,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 vector6 = default(global::UnityEngine.Vector2);
 		vector6.x = x5;
 		vector6.y = y6;
-		_ = ((global::Unity.Mathematics.float2)vector6).y;
-		global::Unity.Mathematics.float2[] pos = default(global::Unity.Mathematics.float2[]);
+		global::Unity.Mathematics.float2[] pos = new global::Unity.Mathematics.float2[5] { vector2, vector3, vector4, vector5, vector6 };
 		Bee bee = solver.AddBee(pos);
 		int num24 = BeesSpawnedCount + 1;
 		beesSpawnedCount = num24;
@@ -1990,882 +1330,93 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_006E;\n\tv49 = Il2CppMethodInfo;\n\tv50 = v49 + 0x6F8;\n\tv51 = \"il2cpp_codegen_initialize_runtime_metadata\"(v50, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv76 = Il2CppMethodInfo;\n\tv77 = v76 + 0x788;\n\tv78 = \"il2cpp_codegen_initialize_runtime_metadata\"(v77, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv503 = Il2CppMethodInfo;\n\tv504 = v503 + 0x7E8;\n\tv505 = \"il2cpp_codegen_initialize_runtime_metadata\"(v504, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv509 = Il2CppMethodInfo;\n\tv510 = v509 + 0xAA8;\n\tv511 = \"il2cpp_codegen_initialize_runtime_metadata\"(v510, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv539 = Il2CppMethodInfo;\n\tv540 = v539 + 0x7B8;\n\tv541 = \"il2cpp_codegen_initialize_runtime_metadata\"(v540, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv548 = Il2CppMethodInfo;\n\tv549 = v548 + 0x7C0;\n\tv550 = \"il2cpp_codegen_initialize_runtime_metadata\"(v549, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv558 = Il2CppMethodInfo;\n\tv559 = v558 + 0x7C8;\n\tv560 = \"il2cpp_codegen_initialize_runtime_metadata\"(v559, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv576 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv577 = v576 + 0x228;\n\tv578 = \"il2cpp_codegen_initialize_runtime_metadata\"(v577, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv585 = Il2CppMethodInfo;\n\tv586 = v585 + 0xA80;\n\tv587 = \"il2cpp_codegen_initialize_runtime_metadata\"(v586, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv603 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv604 = v603 + 0x1A8;\n\tv605 = \"il2cpp_codegen_initialize_runtime_metadata\"(v604, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv727 = Il2CppMethodInfo;\n\tv728 = v727 + 0x1C8;\n\tv729 = \"il2cpp_codegen_initialize_runtime_metadata\"(v728, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv736 = Il2CppMethodInfo;\n\tv737 = v736 + 0xFD8;\n\tv738 = \"il2cpp_codegen_initialize_runtime_metadata\"(v737, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv746 = Il2CppMethodInfo;\n\tv747 = v746 + 0xFE0;\n\tv748 = \"il2cpp_codegen_initialize_runtime_metadata\"(v747, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv755 = Il2CppMethodInfo;\n\tv756 = v755 + 0xFE8;\n\tv757 = \"il2cpp_codegen_initialize_runtime_metadata\"(v756, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv761 = Il2CppMethodInfo;\n\tv762 = v761 + 0x1B0;\n\tv763 = \"il2cpp_codegen_initialize_runtime_metadata\"(v762, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv848 = Il2CppMethodInfo;\n\tv849 = v848 + 0x5B0;\n\tv850 = \"il2cpp_codegen_initialize_runtime_metadata\"(v849, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv854 = Il2CppMethodInfo;\n\tv855 = v854 + 0x200;\n\tv856 = \"il2cpp_codegen_initialize_runtime_metadata\"(v855, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv861 = Il2CppMethodInfo;\n\tv862 = v861 + 0x5B8;\n\tv863 = \"il2cpp_codegen_initialize_runtime_metadata\"(v862, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv869 = Il2CppMethodInfo;\n\tv870 = v869 + 0x208;\n\tv871 = \"il2cpp_codegen_initialize_runtime_metadata\"(v870, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv872 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv873 = v872 + 0x390;\n\tv874 = \"il2cpp_codegen_initialize_runtime_metadata\"(v873, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv875 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv876 = v875 + 0xFD8;\n\tv877 = \"il2cpp_codegen_initialize_runtime_metadata\"(v876, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv879 = Il2CppMethodInfo;\n\tv880 = v879 + 0xF8;\n\tv881 = \"il2cpp_codegen_initialize_runtime_metadata\"(v880, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv882 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv883 = v882 + 0x158;\n\tv884 = \"il2cpp_codegen_initialize_runtime_metadata\"(v883, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv886 = \"Parent table name is missing in relation '{0}'.\";\n\tv887 = v886 + 0xCF0;\n\tv888 = \"il2cpp_codegen_initialize_runtime_metadata\"(v887, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv893 = \"IsCyrillic\";\n\tv894 = v893 + 0x750;\n\tv68 = \"il2cpp_codegen_initialize_runtime_metadata\"(v894, methodInfo, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66);\n\tv70 = 1;\n\t*([302AA6C]) = v70;\nL_006E:\n\tv75 = this.leftBackgroundQuads == 0;\n\tif (v75) goto L_0379;\n\tv905 = Facebook.Unity.Windows.IWindowsFacebook + 0xFD8;\n\tv85 = Il2CppMethodInfo;\n\tv400 = Il2CppMethodInfo + 0x7B8;\n\tv90 = System.Collections.Generic.List`1<UnityEngine.GameObject>::GetEnumerator(this.leftBackgroundQuads);\n\tgoto L_008C;\nL_0086:\n\tgoto L_0089;\nL_0089:\n\tUnityEngine.Object::Destroy(v507);\nL_008C:\n\tv527 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v89 @ stack_-D8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv543 = v527 == 0;\n\tif (v543) goto L_00A1;\n\tgoto L_009A;\n\tv561 = \"il2cpp_codegen_runtime_class_init\"(v551, v525, v320, v54, v55, v56, v57, v58, v350, v60, v61, v62, v63, v64, v65, v66);\nL_009A:\n\tv518 = UnityEngine.Object::op_Inequality(v507, 0);\n\tv521 = v518 == 0;\n\tif (v521) goto L_008C;\n\tgoto L_0086;\n\tv731 = \"il2cpp_codegen_runtime_class_init\"(v606, v515, v512, v54, v55, v56, v57, v58, v350, v60, v61, v62, v63, v64, v65, v66);\n\tgoto L_0089;\nL_00A1:\n\tv380 = *([v85 @ X22_v15 (Il2CppMethodInfo)+7B8]);\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v89 @ stack_-D8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_00A4:\n\t;\n\tv449 = this.rightBackgroundQuads == 0;\n\tif (v449) goto L_0379;\n\tv583 = System.Collections.Generic.List`1<UnityEngine.GameObject>::GetEnumerator(this.rightBackgroundQuads);\n\tgoto L_00BB;\nL_00B5:\n\tgoto L_00B8;\nL_00B8:\n\tUnityEngine.Object::Destroy(v507);\nL_00BB:\n\tv622 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v582 @ stack_-D8_v10 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv599 = v622 == 0;\n\tif (v599) goto L_00D0;\n\tgoto L_00C9;\n\tv749 = \"il2cpp_codegen_runtime_class_init\"(v739, v620, v595, v54, v55, v56, v57, v58, v588, v60, v61, v62, v63, v64, v65, v66);\nL_00C9:\n\tv613 = UnityEngine.Object::op_Inequality(v507, 0);\n\tv616 = v613 == 0;\n\tif (v616) goto L_00BB;\n\tgoto L_00B5;\n\tv858 = \"il2cpp_codegen_runtime_class_init\"(v851, v610, v607, v54, v55, v56, v57, v58, v588, v60, v61, v62, v63, v64, v65, v66);\n\tgoto L_00B8;\nL_00D0:\n\tv380 = *([v85 @ X22_v15 (Il2CppMethodInfo)+7B8]);\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v582 @ stack_-D8_v10 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_00D3:\n\tv482 = this.leftBackgroundQuads;\n\tv450 = this.leftBackgroundQuads == 0;\n\tif (v450) goto L_0379;\n\tv322 = v482._size;\n\tv309 = v482._version + 1;\n\tv482._size = 0;\n\tv482._version = v309;\n\tv212 = v482._size < 1;\n\tif (v212) goto L_00EB;\n\tSystem.Array::Clear(v482._items, 0, v482._size);\nL_00EB:\n\tv483 = this.rightBackgroundQuads;\n\tv451 = this.rightBackgroundQuads == 0;\n\tif (v451) goto L_0379;\n\tv322 = v483._size;\n\tv310 = v483._version + 1;\n\tv483._size = 0;\n\tv483._version = v310;\n\tv213 = v483._size < 1;\n\tif (v213) goto L_0103;\n\tSystem.Array::Clear(v483._items, 0, v483._size);\nL_0103:\n\tv484 = this.sections;\n\tv452 = this.sections == 0;\n\tif (v452) goto L_0379;\n\tv760 = v484._size == 0;\n\tif (v760) \n// ... truncated")]
 	private unsafe void CreateSideBackgrounds()
 	{
-		//IL_0016: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001b: Expected O, but got Unknown
-		//IL_19b8: Expected I4, but got O
-		//IL_19f4: Expected I4, but got O
-		//IL_0290: Expected O, but got I4
-		//IL_0349: Expected O, but got I4
-		//IL_047a: Expected I4, but got O
-		//IL_04ba: Expected O, but got F4
-		//IL_057e: Expected I, but got O
-		//IL_058e: Expected O, but got I
-		//IL_1a66: Expected O, but got I
-		//IL_1a76: Expected O, but got I
-		//IL_05e2: Expected I, but got O
-		//IL_0635: Expected O, but got F4
-		//IL_1ab5: Expected I, but got O
-		//IL_1ae7: Expected O, but got I
-		//IL_1afe: Expected O, but got I
-		//IL_1b19: Expected O, but got I4
-		//IL_1b21: Expected I4, but got O
-		//IL_068c: Expected O, but got F4
-		//IL_06c2: Expected O, but got F4
-		//IL_06ef: Expected O, but got I
-		//IL_0741: Expected O, but got F4
-		//IL_07f0: Expected O, but got I
-		//IL_0800: Expected O, but got I
-		//IL_0842: Expected O, but got F4
-		//IL_0bb4: Expected O, but got F4
-		//IL_0964: Expected O, but got F4
-		//IL_09da: Expected O, but got F4
-		//IL_0cdc: Expected I, but got O
-		//IL_0a08: Expected O, but got I
-		//IL_0a18: Expected O, but got I
-		//IL_0a9d: Expected O, but got I
-		//IL_0e0b: Expected O, but got I
-		//IL_0e2f: Expected O, but got F4
-		//IL_0e3f: Expected I4, but got O
-		//IL_0e47: Expected I4, but got O
-		//IL_0e4f: Expected O, but got I4
-		//IL_08b4: Expected O, but got I
-		//IL_08c4: Expected O, but got I
-		//IL_0ea6: Expected O, but got F4
-		//IL_0ebf: Expected I4, but got O
-		//IL_0ec7: Expected O, but got I4
-		//IL_0f11: Expected O, but got I4
-		//IL_0f22: Expected O, but got F4
-		//IL_0f3b: Expected I4, but got O
-		//IL_0f43: Expected O, but got I4
-		//IL_1001: Expected O, but got I4
-		//IL_1012: Expected O, but got F4
-		//IL_102b: Expected I4, but got O
-		//IL_1033: Expected O, but got I4
-		//IL_10c8: Expected O, but got I4
-		//IL_10d9: Expected O, but got F4
-		//IL_10e9: Expected I4, but got O
-		//IL_10f1: Expected O, but got I4
-		//IL_1149: Expected O, but got I4
-		//IL_115a: Expected O, but got F4
-		//IL_1173: Expected I4, but got O
-		//IL_117b: Expected O, but got I4
-		//IL_11cc: Expected O, but got I4
-		//IL_11dd: Expected O, but got F4
-		//IL_11f6: Expected I4, but got O
-		//IL_11fe: Expected O, but got I4
-		//IL_121c: Expected O, but got I
-		//IL_1277: Expected O, but got I4
-		//IL_1288: Expected O, but got F4
-		//IL_12a1: Expected I4, but got O
-		//IL_12a9: Expected O, but got I4
-		//IL_136b: Expected O, but got I
-		//IL_137b: Expected O, but got I
-		//IL_138b: Expected O, but got I
-		//IL_132c: Expected O, but got I
-		//IL_133b: Expected O, but got I
-		//IL_1356: Expected O, but got I4
-		//IL_13d1: Expected O, but got I
-		//IL_13fe: Expected O, but got I4
-		//IL_140f: Expected O, but got F4
-		//IL_141f: Expected I4, but got O
-		//IL_1427: Expected I4, but got O
-		//IL_142f: Expected O, but got I4
-		//IL_148f: Expected O, but got I4
-		//IL_14a0: Expected O, but got F4
-		//IL_14b9: Expected I4, but got O
-		//IL_14c1: Expected O, but got I4
-		//IL_151c: Expected O, but got I4
-		//IL_152d: Expected O, but got F4
-		//IL_1546: Expected I4, but got O
-		//IL_154e: Expected O, but got I4
-		//IL_15ed: Expected O, but got I4
-		//IL_15fe: Expected O, but got F4
-		//IL_1617: Expected I4, but got O
-		//IL_161f: Expected O, but got I4
-		//IL_16aa: Expected O, but got I4
-		//IL_16bb: Expected O, but got F4
-		//IL_16cb: Expected I4, but got O
-		//IL_16d3: Expected O, but got I4
-		//IL_172b: Expected O, but got I4
-		//IL_173c: Expected O, but got F4
-		//IL_1755: Expected I4, but got O
-		//IL_175d: Expected O, but got I4
-		//IL_17ae: Expected O, but got I4
-		//IL_17bf: Expected O, but got F4
-		//IL_17d8: Expected I4, but got O
-		//IL_17e0: Expected O, but got I4
-		//IL_184a: Expected O, but got I4
-		//IL_185b: Expected O, but got F4
-		//IL_1874: Expected I4, but got O
-		//IL_187c: Expected O, but got I4
-		//IL_0d66: Expected O, but got I4
-		//IL_18ff: Expected O, but got I
-		//IL_190e: Expected O, but got I
-		//IL_1969: Expected O, but got I4
-		bool flag = leftBackgroundQuads == null;
-		global::System.IntPtr intPtr = default(global::System.IntPtr);
-		int num = (int)(nint)intPtr;
-		int num3 = default(int);
-		object obj2 = default(object);
-		global::System.Func<object, float> func = default(global::System.Func<object, float>);
-		global::System.Collections.Generic.List<object>.Enumerator enumerator3;
-		if (!flag)
-		{
-			func = (global::System.Func<object, float>)(typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 4056);
-			nint num2 = 0;
-			num3 = (int)((nint)0 + (nint)1976);
-			global::System.Collections.Generic.List<global::UnityEngine.GameObject>.Enumerator enumerator = leftBackgroundQuads.GetEnumerator();
-			global::System.Collections.Generic.List<object>.Enumerator enumerator2 = default(global::System.Collections.Generic.List<object>.Enumerator);
-			global::UnityEngine.Object obj = default(global::UnityEngine.Object);
-			while (enumerator2.MoveNext())
-			{
-				bool flag2 = obj != null;
-				bool flag3 = !flag2;
-				int num4 = 0;
-				if (!flag3)
-				{
-					global::UnityEngine.Object.Destroy(obj);
-					num4 = 0;
-				}
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v85 @ X22_v15 (Il2CppMethodInfo)+7B8]");
-			num = 0;
-			enumerator2.Dispose();
-			bool flag4 = rightBackgroundQuads == null;
-			obj2 = enumerator2;
-			enumerator3 = enumerator2;
-			int num5 = 0;
-			if (!flag4)
-			{
-				global::System.Collections.Generic.List<global::UnityEngine.GameObject>.Enumerator enumerator4 = rightBackgroundQuads.GetEnumerator();
-				global::System.Collections.Generic.List<object>.Enumerator enumerator5 = default(global::System.Collections.Generic.List<object>.Enumerator);
-				while (enumerator5.MoveNext())
-				{
-					bool flag5 = obj != null;
-					bool flag6 = !flag5;
-					int num4 = 0;
-					if (!flag6)
-					{
-						global::UnityEngine.Object.Destroy(obj);
-						num4 = 0;
-					}
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v85 @ X22_v15 (Il2CppMethodInfo)+7B8]");
-				num = 0;
-				enumerator5.Dispose();
-				obj2 = enumerator5;
-				enumerator3 = enumerator5;
-				num5 = 0;
-				goto IL_01e5;
-			}
-		}
-		goto IL_1978;
-		IL_01e5:
-		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list = leftBackgroundQuads;
-		float num6;
-		float num9;
-		global::System.Collections.Generic.List<object> list4;
-		global::System.Collections.Generic.List<float> list5;
-		float num19;
-		float num16;
 		if (leftBackgroundQuads != null)
 		{
-			int num4 = list.Count;
-			int version = list._version + 1;
-			list._size = 0;
-			list._version = version;
-			if (list.Count >= 1)
+			foreach (global::UnityEngine.GameObject item in leftBackgroundQuads)
 			{
-				global::System.Array.Clear(list._items, 0, list.Count);
-				object obj3 = 0;
-				num = 0;
-			}
-			global::System.Collections.Generic.List<global::UnityEngine.GameObject> list2 = rightBackgroundQuads;
-			if (rightBackgroundQuads != null)
-			{
-				num4 = list2.Count;
-				int version2 = list2._version + 1;
-				list2._size = 0;
-				list2._version = version2;
-				if (list2.Count >= 1)
+				if (item != null)
 				{
-					global::System.Array.Clear(list2._items, 0, list2.Count);
-					object obj3 = 0;
-					num = 0;
-				}
-				global::System.Collections.Generic.List<LevelSection> list3 = sections;
-				if (sections != null)
-				{
-					if (list3.Count == 0)
-					{
-						return;
-					}
-					object obj4 = func;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v764 @ X0_v23+E0]");
-					global::UnityEngine.Object obj5;
-					if ((nint)0 != 0)
-					{
-						bool flag7 = sideBackgroundMaterial == null;
-						bool flag8 = !flag7;
-						num4 = 0;
-						obj5 = null;
-						if (!flag8)
-						{
-							return;
-						}
-					}
-					else
-					{
-						bool flag9 = sideBackgroundMaterial == null;
-						bool flag10 = !flag9;
-						bool flag11 = !flag10;
-						num4 = 0;
-						obj5 = null;
-						if (flag11)
-						{
-							return;
-						}
-					}
-					global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
-					bool flag12 = (object)main == null;
-					num = (int)obj5;
-					if (!flag12)
-					{
-						float orthographicSize = main.orthographicSize;
-						global::UnityEngine.Camera main2 = global::UnityEngine.Camera.main;
-						bool flag13 = (object)main2 == null;
-						enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)orthographicSize;
-						num = 0;
-						if (!flag13)
-						{
-							num6 = orthographicSize + orthographicSize;
-							float aspect = main2.aspect;
-							float num7 = num6 * aspect;
-							float num8 = num7 - levelWidth;
-							num9 = num8 * 0.5f;
-							bool flag14 = num9 < 0f;
-							bool flag15 = !flag14;
-							bool flag16 = num9 == 0f;
-							bool flag17 = !flag15;
-							if (flag17 || flag16)
-							{
-								return;
-							}
-							nint num10 = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v896 @ X23_v5 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-							object obj6 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v902 @ X0_v30+B8]");
-							object obj7 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v931 @ X8_v69+20]");
-							func = (global::System.Func<object, float>)0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v931 @ X8_v69+20]");
-							if ((nint)0 == 0)
-							{
-								nint num11 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v942 @ X8_v72 (Il2CppMethodInfo)+F8]");
-								global::System.Func<object, float> func2 = new global::System.Func<object, float>(obj7, (global::System.IntPtr)0);
-								nint num12 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v896 @ X23_v5 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-								object obj8 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v923 @ X8_v74+B8]");
-								object obj9 = (nint)0 + (nint)32;
-								obj9 = func2;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-								object obj3 = 0;
-								num3 = (int)obj7;
-								func = func2;
-							}
-							nint num13 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v924 @ X8_v14 (Il2CppMethodInfo)+7E8]");
-							num4 = 0;
-							global::System.Linq.IOrderedEnumerable<object> source = global::System.Linq.Enumerable.OrderBy(sections, func);
-							list4 = global::System.Linq.Enumerable.ToList(source);
-							nint num14 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-							list5 = new global::System.Collections.Generic.List<float>();
-							nint num15 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v954 @ X8_v22 (Il2CppMethodInfo)+6F8]");
-							num = 0;
-							object obj10 = global::System.Linq.Enumerable.First(list4);
-							bool flag18 = obj10 == null;
-							num16 = 0.5f;
-							enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num8;
-							func = (global::System.Func<object, float>)(object)list4;
-							if (!flag18)
-							{
-								nint num17 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v956 @ X8_v24 (Il2CppMethodInfo)+788]");
-								num = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1131EAC (System.Linq.Enumerable::Last, and 1 more at this address)");
-								object obj11 = default(object);
-								bool flag19 = obj11 == null;
-								num16 = 0.5f;
-								enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num8;
-								func = (global::System.Func<object, float>)(object)list4;
-								if (!flag19)
-								{
-									bool flag20 = list5 == null;
-									num16 = 0.5f;
-									enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num8;
-									func = (global::System.Func<object, float>)(object)list4;
-									if (!flag20)
-									{
-										nint num18 = 0;
-										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v958 @ X23_v7 (Il2CppMethodInfo)+1C8]");
-										object obj12 = 0;
-										int version3 = list5._version + 1;
-										list5._version = version3;
-										float[] items = list5._items;
-										bool flag21 = list5._items == null;
-										num16 = 0.5f;
-										enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num8;
-										func = (global::System.Func<object, float>)(object)list4;
-										if (!flag21)
-										{
-											global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v428 @ X0_v38 (System.Object)+10]");
-											num19 = 0f - num6;
-											int count = list5.Count;
-											if (list5.Count < items.Length)
-											{
-												int size = list5.Count + 1;
-												list5._size = size;
-												items[count] = num19;
-											}
-											else
-											{
-												global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v488 @ X8_v26+20]");
-												object obj13 = 0;
-												global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v965 @ X8_v65+C0]");
-												object obj14 = 0;
-												global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v966 @ X8_v66+70]");
-												num = 0;
-												list5.Add(num19);
-											}
-											bool flag22 = list4 == null;
-											num16 = 0.5f;
-											enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num19;
-											func = (global::System.Func<object, float>)(object)list4;
-											if (!flag22)
-											{
-												int num20 = list4.Count - 1;
-												if (num20 < 1)
-												{
-													goto IL_0b61;
-												}
-												nint num21 = 0;
-												float num22 = num19;
-												int num23 = 0;
-												while (true)
-												{
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v983 @ X24_v8 (Il2CppMethodInfo)+5B8]");
-													num4 = 0;
-													object obj15 = list4[num23];
-													bool flag23 = obj15 == null;
-													num16 = 0.5f;
-													enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num22;
-													num = num23;
-													num3 = num23;
-													func = (global::System.Func<object, float>)(object)list4;
-													if (flag23)
-													{
-														break;
-													}
-													num3 = num23 + 1;
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v983 @ X24_v8 (Il2CppMethodInfo)+5B8]");
-													num4 = 0;
-													object obj16 = list4[num3];
-													bool flag24 = obj16 == null;
-													num16 = 0.5f;
-													enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num22;
-													num = num3;
-													func = (global::System.Func<object, float>)(object)list4;
-													if (flag24)
-													{
-														break;
-													}
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v432 @ X0_v103+10]");
-													enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)0;
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v958 @ X23_v7 (Il2CppMethodInfo)+1C8]");
-													object obj17 = 0;
-													int version4 = list5._version + 1;
-													list5._version = version4;
-													float[] items2 = list5._items;
-													bool flag25 = list5._items == null;
-													num16 = 0.5f;
-													num = num3;
-													func = (global::System.Func<object, float>)(object)list4;
-													if (flag25)
-													{
-														break;
-													}
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v431 @ X0_v101+10]");
-													nint num24 = 0;
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v432 @ X0_v103+10]");
-													object obj18 = num24 + 0;
-													num22 = (float)obj18 * 0.5f;
-													int count2 = list5.Count;
-													if (list5.Count >= items2.Length)
-													{
-														global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v491 @ X8_v56+20]");
-														object obj19 = 0;
-														global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1100 @ X8_v61+C0]");
-														object obj20 = 0;
-														global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1101 @ X8_v62+70]");
-														num = 0;
-														list5.Add(num22);
-														int num25 = list4.Count - 1;
-														bool flag26 = num3 >= num25;
-														num23 = num3;
-														num19 = num22;
-														if (!flag26)
-														{
-															continue;
-														}
-													}
-													else
-													{
-														int size2 = list5.Count + 1;
-														list5._size = size2;
-														items2[count2] = num22;
-														int num26 = list4.Count - 1;
-														bool flag27 = num3 < num26;
-														num23 = num3;
-														num19 = num22;
-														num = num3;
-														if (flag27)
-														{
-															continue;
-														}
-													}
-													goto IL_0b61;
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+					global::UnityEngine.Object.Destroy(item);
 				}
 			}
+			leftBackgroundQuads.Clear();
 		}
-		goto IL_1978;
-		IL_0b61:
-		int version5 = list5._version + 1;
-		list5._version = version5;
-		float[] items3 = list5._items;
-		bool flag28 = list5._items == null;
-		num16 = 0.5f;
-		enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num19;
-		func = (global::System.Func<object, float>)(object)list4;
-		if (!flag28)
+		if (rightBackgroundQuads != null)
 		{
-			float num27 = num6;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v429 @ X0_v40+10]");
-			float num28 = num27 + 0f;
-			int count3 = list5.Count;
-			if (list5.Count < items3.Length)
+			foreach (global::UnityEngine.GameObject item2 in rightBackgroundQuads)
 			{
-				int size3 = list5.Count + 1;
-				list5._size = size3;
-				items3[count3] = num28;
-				if (list5.Count < 1)
+				if (item2 != null)
 				{
-					return;
+					global::UnityEngine.Object.Destroy(item2);
 				}
 			}
-			else
-			{
-				list5.Add(num28);
-				int num29 = list5.Count - 1;
-				if (num29 < 1)
-				{
-					return;
-				}
-			}
-			nint num30 = 0;
-			float num31 = num9 * 0.5f;
-			nint num32 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-			nint num33 = 0;
-			nint num34 = 0;
-			string text = "Parent table name is missing in relation '{0}'.";
-			num16 = 0.5f;
-			int num35 = 0;
-			object obj21 = default(object);
-			global::UnityEngine.Vector3 position = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Renderer renderer = default(global::UnityEngine.Renderer);
-			object obj28 = default(object);
-			global::UnityEngine.Vector3 position2 = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Vector3 localScale2 = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Renderer renderer2 = default(global::UnityEngine.Renderer);
-			while (true)
-			{
-				float num36 = list5[num35];
-				int index = num35 + 1;
-				float num37 = list5[index];
-				float num38 = list5[index];
-				float num39 = list5[num35];
-				global::UnityEngine.GameObject gameObject = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"il2cpp_vm_object_box\"");
-				string text2 = "IsCyrillic";
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1113 @ X8_v36 (System.String)+750]");
-				string text3 = string.Format((string)0, obj21);
-				bool flag29 = (object)gameObject == null;
-				int num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num39;
-				int num5 = num35;
-				num = (int)obj21;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag29)
-				{
-					break;
-				}
-				gameObject.name = text3;
-				global::UnityEngine.Transform transform = gameObject.transform;
-				global::UnityEngine.Transform parent = base.transform;
-				bool flag30 = (object)transform == null;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num39;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag30)
-				{
-					break;
-				}
-				transform.SetParent(parent, worldPositionStays: false);
-				global::UnityEngine.Transform transform2 = gameObject.transform;
-				bool flag31 = (object)transform2 == null;
-				object obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num39;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag31)
-				{
-					break;
-				}
-				float num40 = num36 + num37;
-				float num41 = num40 * 0.5f;
-				float num42 = levelWidth * -0.5f;
-				float num43 = (position.x = num42 - num31);
-				position.y = num41;
-				position.z = -9f;
-				transform2.position = position;
-				global::UnityEngine.Transform transform3 = gameObject.transform;
-				bool flag32 = (object)transform3 == null;
-				float num44 = -9f;
-				num16 = num41;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num43;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag32)
-				{
-					break;
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction FABD not yet implemented.\"");
-				localScale.x = num9;
-				localScale.y = num38;
-				localScale.z = 1f;
-				transform3.localScale = localScale;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1052 @ X27_v5 (Il2CppMethodInfo)+A80]");
-				num = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @114831C (UnityEngine.GameObject::GetComponent, and 1 more at this address)");
-				bool flag33 = (object)renderer == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag33)
-				{
-					break;
-				}
-				renderer.material = sideBackgroundMaterial;
-				global::UnityEngine.Material material = renderer.material;
-				bool flag34 = (object)material == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag34)
-				{
-					break;
-				}
-				material.renderQueue = 4000;
-				global::System.Collections.Generic.List<global::UnityEngine.GameObject> list6 = leftBackgroundQuads;
-				bool flag35 = leftBackgroundQuads == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 4000;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag35)
-				{
-					break;
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1053 @ X28_v5 (Il2CppMethodInfo)+FD8]");
-				object obj22 = 0;
-				int version6 = list6._version + 1;
-				list6._version = version6;
-				global::UnityEngine.GameObject[] items4 = list6._items;
-				bool flag36 = list6._items == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 4000;
-				num3 = (int)gameObject;
-				func = (global::System.Func<object, float>)num35;
-				if (flag36)
-				{
-					break;
-				}
-				if (list6.Count < items4.Length)
-				{
-					int size4 = list6.Count + 1;
-					list6._size = size4;
-					int num45 = list6.Count << 3;
-					object obj23 = (nint)list6._items + num45;
-					object obj24 = (nint)obj23 + 32;
-					obj24 = gameObject;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-					object obj25 = 0;
-				}
-				else
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v494 @ X8_v38+20]");
-					object obj26 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1142 @ X8_v48+C0]");
-					object obj27 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1143 @ X8_v49+70]");
-					object obj25 = 0;
-					leftBackgroundQuads.Add(gameObject);
-				}
-				global::UnityEngine.GameObject gameObject2 = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"il2cpp_vm_object_box\"");
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1054 @ X26_v5 (System.String)+CF0]");
-				string text4 = string.Format((string)0, obj28);
-				bool flag37 = (object)gameObject2 == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = (int)obj28;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag37)
-				{
-					break;
-				}
-				gameObject2.name = text4;
-				global::UnityEngine.Transform transform4 = gameObject2.transform;
-				global::UnityEngine.Transform parent2 = base.transform;
-				bool flag38 = (object)transform4 == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag38)
-				{
-					break;
-				}
-				transform4.SetParent(parent2, worldPositionStays: false);
-				global::UnityEngine.Transform transform5 = gameObject2.transform;
-				bool flag39 = (object)transform5 == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag39)
-				{
-					break;
-				}
-				float num46 = levelWidth * 0.5f;
-				float num47 = (position2.x = num31 + num46);
-				position2.y = num41;
-				position2.z = -9f;
-				transform5.position = position2;
-				global::UnityEngine.Transform transform6 = gameObject2.transform;
-				bool flag40 = (object)transform6 == null;
-				num44 = -9f;
-				num16 = num41;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num47;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag40)
-				{
-					break;
-				}
-				localScale2.x = num9;
-				localScale2.y = num38;
-				localScale2.z = 1f;
-				transform6.localScale = localScale2;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1052 @ X27_v5 (Il2CppMethodInfo)+A80]");
-				num = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @114831C (UnityEngine.GameObject::GetComponent, and 1 more at this address)");
-				bool flag41 = (object)renderer2 == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag41)
-				{
-					break;
-				}
-				renderer2.material = sideBackgroundMaterial;
-				global::UnityEngine.Material material2 = renderer2.material;
-				bool flag42 = (object)material2 == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 0;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag42)
-				{
-					break;
-				}
-				material2.renderQueue = 4000;
-				global::System.Collections.Generic.List<global::UnityEngine.GameObject> list7 = rightBackgroundQuads;
-				bool flag43 = rightBackgroundQuads == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 4000;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag43)
-				{
-					break;
-				}
-				int version7 = list7._version + 1;
-				list7._version = version7;
-				global::UnityEngine.GameObject[] items5 = list7._items;
-				bool flag44 = list7._items == null;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				num4 = 0;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num9;
-				num5 = num35;
-				num = 4000;
-				num3 = (int)gameObject2;
-				func = (global::System.Func<object, float>)num35;
-				if (flag44)
-				{
-					break;
-				}
-				if (list7.Count >= items5.Length)
-				{
-					rightBackgroundQuads.Add(gameObject2);
-					int num48 = list5.Count - 1;
-					num35++;
-					bool flag45 = num35 >= num48;
-					num44 = 1f;
-					num16 = num38;
-					obj3 = 0;
-					if (flag45)
-					{
-						return;
-					}
-					continue;
-				}
-				int size5 = list7.Count + 1;
-				list7._size = size5;
-				int num49 = list7.Count << 3;
-				object obj29 = (nint)list7._items + num49;
-				object obj30 = (nint)obj29 + 32;
-				obj30 = gameObject2;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				int num50 = list5.Count - 1;
-				num35++;
-				bool flag46 = num35 < num50;
-				num44 = 1f;
-				num16 = num38;
-				obj3 = 0;
-				if (!flag46)
-				{
-					return;
-				}
-			}
+			rightBackgroundQuads.Clear();
 		}
-		goto IL_1978;
-		IL_1978:
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		if (num == 1)
+		if (leftBackgroundQuads == null || rightBackgroundQuads == null || sideBackgroundMaterial == null)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			object obj31 = default(object);
-			int num51 = (int)obj31;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			num = ((int*)num3)->m_value;
-			((global::System.Collections.Generic.List<object>.Enumerator*)obj2)->Dispose();
-			bool flag47 = obj31 == null;
-			int num5 = (int)obj31;
-			if (flag47)
-			{
-				goto IL_01e5;
-			}
-			global::System.OutOfMemoryException ex2 = new global::System.OutOfMemoryException();
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF130C");
-			global::System.NullReferenceException ex3 = (global::System.NullReferenceException)(object)ex2;
+			return;
 		}
-		else
+		if (sections == null || sections.Count == 0)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF130C");
-			global::System.NullReferenceException ex3 = ex;
+			return;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
+		global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
+		if (main == null)
+		{
+			return;
+		}
+		float orthographicSize = main.orthographicSize;
+		global::UnityEngine.Camera main2 = global::UnityEngine.Camera.main;
+		if (main2 == null)
+		{
+			return;
+		}
+		float cameraHeight = orthographicSize + orthographicSize;
+		float aspect = main2.aspect;
+		float cameraWidth = cameraHeight * aspect;
+		float sideWidth = (cameraWidth - levelWidth) * 0.5f;
+		if (sideWidth <= 0f)
+		{
+			return;
+		}
+		global::System.Collections.Generic.List<LevelSection> orderedSections = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(sections, (LevelSection s) => s.y));
+		global::System.Collections.Generic.List<float> boundaries = new global::System.Collections.Generic.List<float>();
+		boundaries.Add(0f - cameraHeight);
+		for (int i = 0; i < orderedSections.Count - 1; i++)
+		{
+			boundaries.Add((orderedSections[i].y + orderedSections[i + 1].y) * 0.5f);
+		}
+		boundaries.Add(cameraHeight);
+		if (boundaries.Count < 2)
+		{
+			return;
+		}
+		float halfSideWidth = sideWidth * 0.5f;
+		for (int j = 0; j < boundaries.Count - 1; j++)
+		{
+			float bottom = boundaries[j];
+			float top = boundaries[j + 1];
+			float centerY = (bottom + top) * 0.5f;
+			float height = top - bottom;
+			global::UnityEngine.GameObject gameObject = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
+			gameObject.name = string.Format("LeftBackground{0}", j);
+			gameObject.transform.SetParent(base.transform, worldPositionStays: false);
+			gameObject.transform.position = new global::UnityEngine.Vector3(levelWidth * -0.5f - halfSideWidth, centerY, -9f);
+			gameObject.transform.localScale = new global::UnityEngine.Vector3(sideWidth, height, 1f);
+			global::UnityEngine.Renderer renderer = gameObject.GetComponent<global::UnityEngine.Renderer>();
+			renderer.material = sideBackgroundMaterial;
+			renderer.material.renderQueue = 4000;
+			leftBackgroundQuads.Add(gameObject);
+			global::UnityEngine.GameObject gameObject2 = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
+			gameObject2.name = string.Format("RightBackground{0}", j);
+			gameObject2.transform.SetParent(base.transform, worldPositionStays: false);
+			gameObject2.transform.position = new global::UnityEngine.Vector3(levelWidth * 0.5f + halfSideWidth, centerY, -9f);
+			gameObject2.transform.localScale = new global::UnityEngine.Vector3(sideWidth, height, 1f);
+			global::UnityEngine.Renderer renderer2 = gameObject2.GetComponent<global::UnityEngine.Renderer>();
+			renderer2.material = sideBackgroundMaterial;
+			renderer2.material.renderQueue = 4000;
+			rightBackgroundQuads.Add(gameObject2);
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600035C")]
@@ -2899,9 +1450,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		//IL_1313: Expected O, but got I4
 		//IL_0aec: Expected O, but got I
 		//IL_0b53: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
-		object obj2 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		if (introPlaying)
 		{
@@ -2969,61 +1518,16 @@ public class Level : global::UnityEngine.MonoBehaviour
 				nint num18 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
 			}
-			float num19 = global::UnityEngine.Mathf.Abs(cameraTargetY);
-			float num20 = global::UnityEngine.Mathf.Abs(levelSection.y);
-			float num21 = num19 - num20;
-			bool flag9 = num21 < 0f;
-			bool flag10 = num21 == 0f;
-			object obj3 = num19 ^ num20;
-			object obj4 = num19 ^ num21;
-			int num22 = (int)((nint)obj3 & (nint)obj4);
-			bool flag11 = num22 < 0;
-			bool flag12 = flag9 == flag11;
-			bool flag13 = !flag10;
-			if (!(flag12 && flag13))
-			{
-				num19 = num20;
-			}
-			nint num23 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1053 @ X8_v70 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+920]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1055 @ X8_v72+B8]");
-			object obj6 = 0;
-			float num24 = num19 * 1E-06f;
-			float num25 = (float)obj6 * 8f;
-			float num26 = num24 - num25;
-			bool flag14 = num26 < 0f;
-			bool flag15 = num26 == 0f;
-			object obj7 = num24 ^ num25;
-			object obj8 = num24 ^ num26;
-			int num27 = (int)((nint)obj7 & (nint)obj8);
-			bool flag16 = num27 < 0;
-			bool flag17 = flag14 == flag16;
-			bool flag18 = !flag15;
-			if (!(flag17 && flag18))
-			{
-				num24 = num25;
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction FABD not yet implemented.\"");
-			bool flag19 = num25 < num24;
-			float num28 = 8f;
-			if (!flag19)
+			if (!global::UnityEngine.Mathf.Approximately(cameraTargetY, levelSection.y))
 			{
 				cameraTargetY = levelSection.y;
-				object obj9 = (nint)this + 280;
 				if (cameraMoveTween != null && global::DG.Tweening.TweenExtensions.IsActive(cameraMoveTween))
 				{
 					global::DG.Tweening.TweenExtensions.Kill(cameraMoveTween);
 				}
 				global::UnityEngine.Camera main5 = global::UnityEngine.Camera.main;
 				global::UnityEngine.Transform target = main5.transform;
-				global::DG.Tweening.Core.TweenerCore<global::UnityEngine.Vector3, global::UnityEngine.Vector3, global::DG.Tweening.Plugins.Options.VectorOptions> tweenerCore = global::DG.Tweening.ShortcutExtensions.DOMoveY(target, levelSection.y, 1.2f);
-				nint num29 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1590 (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
-				global::DG.Tweening.Tween tween = default(global::DG.Tweening.Tween);
-				cameraMoveTween = tween;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				num28 = 8f;
+				cameraMoveTween = global::DG.Tweening.ShortcutExtensions.DOMoveY(target, levelSection.y, 1.2f);
 			}
 		}
 		goto IL_0426;
@@ -3090,198 +1594,53 @@ public class Level : global::UnityEngine.MonoBehaviour
 		{
 			int index3 = ++currentSection;
 			LevelSection levelSection4 = sections[index3];
-			_ = levelSection4.y;
 			global::UnityEngine.Camera main6 = global::UnityEngine.Camera.main;
 			global::UnityEngine.Transform target2 = main6.transform;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v66 @ X0_v3 (System.Object)+18]");
-			global::DG.Tweening.Core.TweenerCore<global::UnityEngine.Vector3, global::UnityEngine.Vector3, global::DG.Tweening.Plugins.Options.VectorOptions> tweenerCore2 = global::DG.Tweening.ShortcutExtensions.DOMoveY(target2, 0f, 1.2f);
-			nint num38 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1590 (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
-			nint num39 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1023 @ X8_v64 (Il2CppMethodInfo)+118]");
-			global::DG.Tweening.TweenCallback tweenCallback = new global::DG.Tweening.TweenCallback(obj, (global::System.IntPtr)0);
-			nint num40 = 0;
-			nint num41 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B0CBC (DG.Tweening.TweenSettingsExtensions::OnComplete, and 1 more at this address)");
-			object obj11 = 0;
-			num36 = 1.2f;
+			global::DG.Tweening.ShortcutExtensions.DOMoveY(target2, levelSection4.y, 1.2f);
 		}
-		global::System.Collections.Generic.List<LevelSection> list4 = sections;
-		bool flag21 = list4.Count < 0;
-		bool flag22 = list4.Count == 0;
-		int num42 = list4.Count ^ list4.Count;
-		int num43 = list4.Count & num42;
-		bool flag23 = num43 < 0;
-		bool flag24 = flag21 == flag23;
-		bool flag25 = !flag24;
-		int num44 = ((!(flag25 || flag22)) ? (list4.Count + 1) : 0);
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list5 = leftBackgroundQuads;
-		if (list5.Count != num44)
-		{
-			return;
-		}
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list6 = rightBackgroundQuads;
-		bool flag26;
-		bool flag27;
-		if (list6.Count == num44)
-		{
-			int num45 = list4.Count - 1;
-			flag26 = num45 < 0;
-			int num46 = list4.Count ^ 1;
-			int num47 = list4.Count ^ num45;
-			int num48 = num46 & num47;
-			flag27 = num48 < 0;
-		}
-		else
-		{
-			flag27 = false;
-			flag26 = true;
-		}
-		if (flag26 != flag27)
+		int expectedQuadCount = (list3.Count > 0) ? (list3.Count + 1) : 0;
+		if (list5.Count != expectedQuadCount || list6.Count != expectedQuadCount || expectedQuadCount < 2)
 		{
 			return;
 		}
 		global::UnityEngine.Camera main7 = global::UnityEngine.Camera.main;
+		if (main7 == null)
+		{
+			return;
+		}
 		float orthographicSize2 = main7.orthographicSize;
 		global::UnityEngine.Camera main8 = global::UnityEngine.Camera.main;
+		if (main8 == null)
+		{
+			return;
+		}
 		float aspect2 = main8.aspect;
-		nint num49 = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1076 @ X24_v4 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-		object obj12 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1084 @ X0_v19+B8]");
-		object obj13 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1122 @ X8_v49+28]");
-		global::System.Func<object, float> keySelector = (global::System.Func<object, float>)0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1122 @ X8_v49+28]");
-		if ((nint)0 == 0)
+		global::System.Collections.Generic.List<LevelSection> orderedSections2 = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(list3, (LevelSection s) => s.y));
+		float cameraHeight2 = orthographicSize2 + orthographicSize2;
+		global::System.Collections.Generic.List<float> boundaries2 = new global::System.Collections.Generic.List<float>();
+		boundaries2.Add(0f - cameraHeight2);
+		for (int k = 0; k < orderedSections2.Count - 1; k++)
 		{
-			nint num50 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1135 @ X8_v52 (Il2CppMethodInfo)+110]");
-			global::System.Func<object, float> func = new global::System.Func<object, float>(obj13, (global::System.IntPtr)0);
-			nint num51 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1076 @ X24_v4 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]");
-			object obj14 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1114 @ X8_v54+B8]");
-			object obj15 = (nint)0 + (nint)40;
-			obj15 = func;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			object obj11 = 0;
-			keySelector = func;
+			boundaries2.Add((orderedSections2[k].y + orderedSections2[k + 1].y) * 0.5f);
 		}
-		nint num52 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1115 @ X8_v19 (Il2CppMethodInfo)+7E8]");
-		object obj16 = 0;
-		global::System.Linq.IOrderedEnumerable<object> source = global::System.Linq.Enumerable.OrderBy(sections, keySelector);
-		global::System.Collections.Generic.List<object> list7 = global::System.Linq.Enumerable.ToList(source);
-		nint num53 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-		global::System.Collections.Generic.List<float> list8 = new global::System.Collections.Generic.List<float>();
-		object obj17 = global::System.Linq.Enumerable.First(list7);
-		nint num54 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1131EAC (System.Linq.Enumerable::Last, and 1 more at this address)");
-		float num55 = orthographicSize2 + orthographicSize2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v444 @ X0_v27 (System.Object)+10]");
-		float num56 = 0f - num55;
-		nint num57 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF12B0");
-		int num58 = list7.Count - 1;
-		if (num58 >= 1)
+		boundaries2.Add(cameraHeight2);
+		float cameraWidth2 = cameraHeight2 * aspect2;
+		float sideWidth2 = (cameraWidth2 - levelWidth) * 0.5f;
+		float halfSideWidth2 = sideWidth2 * 0.5f;
+		for (int m = 0; m < boundaries2.Count - 1; m++)
 		{
-			int num59 = 0;
-			while (true)
-			{
-				object obj18 = list7[num59];
-				num59++;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v807 @ X23_v4 (Il2CppMethodInfo)+5B8]");
-				obj16 = 0;
-				object obj19 = list7[num59];
-				int version = list8._version + 1;
-				list8._version = version;
-				float[] items = list8._items;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v447 @ X0_v54+10]");
-				nint num60 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v448 @ X0_v56+10]");
-				object obj20 = num60 + 0;
-				float num61 = (float)obj20 * 0.5f;
-				int count = list8.Count;
-				if (list8.Count >= items.Length)
-				{
-					list8.Add(num61);
-					int num62 = list7.Count - 1;
-					if (num59 >= num62)
-					{
-						break;
-					}
-					continue;
-				}
-				int size = list8.Count + 1;
-				list8._size = size;
-				items[count] = num61;
-				int num63 = list7.Count - 1;
-				if (num59 >= num63)
-				{
-					break;
-				}
-			}
-		}
-		float num64 = num55;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v445 @ X0_v29+10]");
-		float num65 = num64 + 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF12B0");
-		int num66 = list8.Count - 1;
-		if (num66 >= 1)
-		{
-			float num67 = num55 * aspect2;
-			float num68 = num67 - levelWidth;
-			float num69 = num68 * 0.5f;
-			float num70 = num69 * 0.5f;
-			int num71 = 0;
-			global::UnityEngine.Vector3 position = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Vector3 position2 = default(global::UnityEngine.Vector3);
-			global::UnityEngine.Vector3 localScale2 = default(global::UnityEngine.Vector3);
-			int num78;
-			do
-			{
-				float num72 = list8[num71];
-				int index4 = num71 + 1;
-				float num73 = list8[index4];
-				float y = list8[index4];
-				float num74 = list8[num71];
-				global::UnityEngine.GameObject gameObject = leftBackgroundQuads[num71];
-				global::UnityEngine.Transform transform = gameObject.transform;
-				float num75 = num72 + num73;
-				float y2 = num75 * 0.5f;
-				float num76 = levelWidth * -0.5f;
-				float x = num76 - num70;
-				position.x = x;
-				position.y = y2;
-				position.z = -9f;
-				transform.position = position;
-				global::UnityEngine.GameObject gameObject2 = leftBackgroundQuads[num71];
-				global::UnityEngine.Transform transform2 = gameObject2.transform;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction FABD not yet implemented.\"");
-				localScale.x = num69;
-				localScale.y = y;
-				localScale.z = 1f;
-				transform2.localScale = localScale;
-				global::UnityEngine.GameObject gameObject3 = rightBackgroundQuads[num71];
-				global::UnityEngine.Transform transform3 = gameObject3.transform;
-				float num77 = levelWidth * 0.5f;
-				float x2 = num70 + num77;
-				position2.x = x2;
-				position2.y = y2;
-				position2.z = -9f;
-				transform3.position = position2;
-				global::UnityEngine.GameObject gameObject4 = rightBackgroundQuads[num71];
-				global::UnityEngine.Transform transform4 = gameObject4.transform;
-				localScale2.x = num69;
-				localScale2.y = y;
-				localScale2.z = 1f;
-				transform4.localScale = localScale2;
-				num78 = list8.Count - 1;
-				num71++;
-			}
-			while (num71 < num78);
+			float bottom2 = boundaries2[m];
+			float top2 = boundaries2[m + 1];
+			float centerY2 = (bottom2 + top2) * 0.5f;
+			float height2 = top2 - bottom2;
+			global::UnityEngine.Transform leftTransform = list5[m].transform;
+			leftTransform.position = new global::UnityEngine.Vector3(levelWidth * -0.5f - halfSideWidth2, centerY2, -9f);
+			leftTransform.localScale = new global::UnityEngine.Vector3(sideWidth2, height2, 1f);
+			global::UnityEngine.Transform rightTransform = list6[m].transform;
+			rightTransform.position = new global::UnityEngine.Vector3(levelWidth * 0.5f + halfSideWidth2, centerY2, -9f);
+			rightTransform.localScale = new global::UnityEngine.Vector3(sideWidth2, height2, 1f);
 		}
 	}
 
@@ -3301,22 +1660,15 @@ public class Level : global::UnityEngine.MonoBehaviour
 		//IL_0103: Expected O, but got I
 		//IL_0137: Expected O, but got I
 		//IL_0171: Expected O, but got I
-		base._002Ector();
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-		nint num2 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-		nint num3 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-		nint num4 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		moveCount = 20;
 		numParticles = 512;
 		shouldSpawnParticles = true;
 		levelWidth = 10f;
 		triggerNextSectionDist = 3f;
 		global::System.Collections.Generic.List<LevelSection> list = new global::System.Collections.Generic.List<LevelSection>();
-		object obj = (nint)this + 72;
 		sections = list;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.List<GoalData> list2 = new global::System.Collections.Generic.List<GoalData>();
-		object obj2 = (nint)this + 80;
 		goals = list2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		fluidCollectionThreshold = 5;
@@ -3325,19 +1677,16 @@ public class Level : global::UnityEngine.MonoBehaviour
 		backgroundBottomColor = default(global::UnityEngine.Color);
 		gradientResolution = 256;
 		introDuration = 3f;
-		fluidSpawnXRange = (global::UnityEngine.Vector2)2.0000014305114746;
+		fluidSpawnXRange = new global::UnityEngine.Vector2(-2f, 2f);
 		sectionHeight = 8f;
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list3 = new global::System.Collections.Generic.List<global::UnityEngine.GameObject>();
-		object obj3 = (nint)this + 224;
 		leftBackgroundQuads = list3;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list4 = new global::System.Collections.Generic.List<global::UnityEngine.GameObject>();
-		object obj4 = (nint)this + 232;
 		rightBackgroundQuads = list4;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		introPlaying = true;
 		global::System.Collections.Generic.List<Block> list5 = new global::System.Collections.Generic.List<Block>();
-		object obj5 = (nint)this + 248;
 		blocks = list5;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		sideColliderSize = 1000f;

@@ -92,13 +92,8 @@ public static class EasingFunction
 		//IL_0040: Expected O, but got F4
 		//IL_004d: Expected O, but got F4
 		float num = t - 1f;
-		bool flag = num < 0f;
 		bool flag2 = num == 0f;
-		object obj = t ^ 1f;
-		object obj2 = t ^ num;
-		int num2 = (int)((nint)obj & (nint)obj2);
-		bool flag3 = num2 < 0;
-		bool flag4 = flag == flag3;
+		bool flag4 = t > 1f;
 		bool flag5 = !flag2;
 		float num3 = ((!(flag4 && flag5)) ? t : 1f);
 		float num4 = ((!(t < 0f)) ? num3 : 0f);
@@ -1232,13 +1227,8 @@ public static class EasingFunction
 		//IL_0040: Expected O, but got F4
 		//IL_004d: Expected O, but got F4
 		float num = t - 1f;
-		bool flag = num < 0f;
 		bool flag2 = num == 0f;
-		object obj = t ^ 1f;
-		object obj2 = t ^ num;
-		int num2 = (int)((nint)obj & (nint)obj2);
-		bool flag3 = num2 < 0;
-		bool flag4 = flag == flag3;
+		bool flag4 = t > 1f;
 		bool flag5 = !flag2;
 		float num3 = ((!(flag4 && flag5)) ? t : 1f);
 		float num4 = ((!(t < 0f)) ? num3 : 0f);

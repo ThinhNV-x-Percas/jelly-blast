@@ -25,12 +25,10 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Transform root = transform.root;
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X0_v7+20]");
 		_logScroller = (LogScroller)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		string identifier = global::UnityEngine.Application.identifier;
-		nint num2 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		_logScroller.Log(identifier);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v131 @ X22_v4 (Il2CppClass<UnityEngine.UIElements.EnumFieldHelpers>)+1F0]");
 		object obj2 = 0;
@@ -50,7 +48,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		LogScroller logScroller = _logScroller;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v147 @ X8_v8 (System.String)+240]");
 		logScroller.Log((string)0);
-		nint num3 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v155 @ X8_v12 (Il2CppMethodInfo)+118]");
 		global::Facebook.Unity.InitDelegate onInitComplete = new global::Facebook.Unity.InitDelegate(this, (global::System.IntPtr)0);
 		nint num4 = 0;
@@ -139,7 +136,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		//IL_001c: Expected I, but got O
 		//IL_0039: Expected O, but got I
 		string text = "Expected ComplexType. Schema was not generated using this tool.";
-		nint num = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
 		nint num2 = 0;
 		LogScroller logScroller = _logScroller;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v48 @ X8_v3 (System.String)+B68]");
@@ -178,7 +174,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		//IL_00d3: Expected O, but got I
 		//IL_00e1: Expected I, but got O
 		object obj = 50503680;
-		nint num = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A8EA]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -216,7 +211,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		LogScroller logScroller3 = logScroller;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v81 @ X8_v11 (System.String)+238]");
 		logScroller3.Log((string)0);
-		nint num2 = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
 		global::Facebook.Unity.FacebookDelegate<global::Facebook.Unity.IInitCloudGameResult> callback = null;
 		nint num3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @154E9A0 (Facebook.Unity.FacebookDelegate`1::.ctor, and 1 more at this address)");
@@ -276,8 +270,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		//IL_029d: Expected O, but got I
 		//IL_01c8: Expected O, but got I
 		//IL_01d7: Expected O, but got I
-		nint num = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
-		nint num2 = (nint)result;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X8_v4 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X8_v4 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
@@ -307,8 +299,8 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 			goto IL_00b1;
 		}
 		int num4 = obj2 << 4;
+		nint num2 = 0;
 		object obj4 = num2 + num4;
-		object obj5 = (nint)obj4 + 312;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v261 @ X0_v31] (should have been resolved before IL gen)");
 		object obj6 = default(object);
 		bool flag2 = obj6 == null;
@@ -333,7 +325,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_02d7;
 		IL_02d7:
-		nint num7 = (nint)result;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v321 @ X8_v6 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
 		object obj8 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v321 @ X8_v6 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
@@ -363,8 +354,8 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 			goto IL_0375;
 		}
 		int num9 = obj9 << 4;
+		nint num7 = 0;
 		object obj11 = num7 + num9;
-		object obj12 = (nint)obj11 + 312;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v401 @ X0_v14] (should have been resolved before IL gen)");
 		goto IL_03f5;
 		IL_0242:
@@ -408,7 +399,6 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_03f5;
 		IL_0161:
-		nint num10 = (nint)result;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v13 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
 		object obj16 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v13 (Il2CppClass<Facebook.Unity.IInitCloudGameResult>)+12E]");
@@ -439,8 +429,8 @@ public class MainPage : global::UnityEngine.MonoBehaviour
 		}
 		object obj19 = obj17 + 1;
 		int num12 = (int)((nint)obj19 << 4);
+		nint num10 = 0;
 		object obj20 = num10 + num12;
-		object obj21 = (nint)obj20 + 312;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v418 @ X0_v24] (should have been resolved before IL gen)");
 		object obj22 = default(object);
 		bool flag11 = obj22 == null;

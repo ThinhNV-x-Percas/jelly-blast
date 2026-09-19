@@ -49,7 +49,6 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 		//IL_0021: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 32;
 		global::UnityEngine.RectTransform rectTransform = default(global::UnityEngine.RectTransform);
 		rt = rectTransform;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -82,13 +81,12 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 		object obj = default(object);
 		float num = acceleration.x * (float)obj;
 		float num2 = velocity.x + num;
-		velocity = (global::UnityEngine.Vector2)num2;
+		velocity.x = num2;
 		float num3 = num2 * (float)obj;
 		float deltaTime2 = global::UnityEngine.Time.deltaTime;
 		float num4 = num3 * (float)obj;
 		float num5 = num2 - num4;
-		velocity = (global::UnityEngine.Vector2)num5;
-		nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
+		velocity.x = num5;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X8_v4 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v58 @ X8_v6+B8]");
@@ -97,7 +95,7 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 		float deltaTime3 = global::UnityEngine.Time.deltaTime;
 		float num7 = num5 * (float)obj;
 		float num8 = position.x + num7;
-		position = (global::UnityEngine.Vector2)num8;
+		position.x = num8;
 		prevRotation = rotation;
 		float deltaTime4 = global::UnityEngine.Time.deltaTime;
 		float num9 = angularVelocity * deltaTime4;
@@ -124,17 +122,7 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 		float fixedDeltaTime = global::UnityEngine.Time.fixedDeltaTime;
 		float num = time - fixedTime;
 		float num2 = num / fixedDeltaTime;
-		float num3 = num2 - 1f;
-		bool flag = num3 < 0f;
-		bool flag2 = num3 == 0f;
-		object obj = num2 ^ 1f;
-		object obj2 = num2 ^ num3;
-		int num4 = (int)((nint)obj & (nint)obj2);
-		bool flag3 = num4 < 0;
-		bool flag4 = flag == flag3;
-		bool flag5 = !flag2;
-		float num5 = ((!(flag4 && flag5)) ? num2 : 1f);
-		float num6 = ((!(num2 < 0f)) ? num5 : 0f);
+		float num6 = global::UnityEngine.Mathf.Clamp01(num2);
 		float num7 = position.x - prevPosition.x;
 		object obj3 = default(object);
 		float num8 = num7 * (float)obj3;
@@ -149,30 +137,10 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 		float num10 = global::UnityEngine.Mathf.Floor(f);
 		float num11 = num10 * -360f;
 		float num12 = num9 + num11;
-		float num13 = num12 - 360f;
-		bool flag6 = num13 < 0f;
-		bool flag7 = num13 == 0f;
-		object obj5 = num12 ^ 0x43B40000;
-		object obj6 = num12 ^ num13;
-		int num14 = (int)((nint)obj5 & (nint)obj6);
-		bool flag8 = num14 < 0;
-		bool flag9 = flag6 == flag8;
-		bool flag10 = !flag7;
-		float num15 = ((!(flag9 && flag10)) ? num12 : 360f);
-		float num16 = ((!(num12 < 0f)) ? num15 : 0f);
-		float num17 = num16 + -360f;
-		float num18 = num16 - 180f;
-		bool flag11 = num18 < 0f;
-		bool flag12 = num18 == 0f;
-		int num19 = num16 ^ 0x43340000;
-		object obj7 = num16 ^ num18;
-		int num20 = (int)(num19 & (nint)obj7);
-		bool flag13 = num20 < 0;
-		bool flag14 = flag11 == flag13;
-		bool flag15 = !flag12;
-		if (flag14 && flag15)
+		float num16 = global::UnityEngine.Mathf.Clamp(num12, 0f, 360f);
+		if (num16 > 180f)
 		{
-			num16 = num17;
+			num16 -= 360f;
 		}
 		float num21 = num6 * num16;
 		float z = prevRotation + num21;

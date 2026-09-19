@@ -54,12 +54,10 @@ public struct BuoyancyJob : global::Unity.Jobs.IJobParallelFor
 			{
 				num3 = num4;
 			}
-			int num5 = i << 3;
-			object obj2 = deltaVel + num5;
+			global::Unity.Mathematics.float2 deltaVelValue = deltaVel[i];
 			float num6 = num3;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v52 @ X8_v2+4]");
-			float num7 = num6 + 0f;
-			obj2 = obj2;
+			float num7 = num6 + deltaVelValue.y;
+			deltaVel[i] = new global::Unity.Mathematics.float2(deltaVelValue.x, num7);
 		}
 	}
 }

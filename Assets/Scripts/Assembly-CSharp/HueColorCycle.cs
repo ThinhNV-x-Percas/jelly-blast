@@ -18,13 +18,7 @@ public class HueColorCycle : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Il2CppMethodInfo;\n\tgoto L_0018;\n\tv23 = Il2CppMethodInfo;\n\tv24 = v23 + 0x710;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302A955]) = v43;\nL_0018:\n\tv46 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v18 @ X21_v1 (Il2CppMethodInfo)+710]));\n\tv48 = this + 0x20;\n\tthis._renderer = v46;\n\tv56 = 0xF3F1B4(v48, v46, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\treturn;\n// 26 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Awake()
 	{
-		//IL_0021: Expected O, but got I
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 32;
-		global::UnityEngine.Renderer renderer = default(global::UnityEngine.Renderer);
-		_renderer = renderer;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		_renderer = GetComponent<global::UnityEngine.Renderer>();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600012E")]
@@ -46,9 +40,9 @@ public class HueColorCycle : global::UnityEngine.MonoBehaviour
 		float num6 = num4 - 2f;
 		bool flag = num6 < 0f;
 		bool flag2 = num6 == 0f;
-		object obj = num4 ^ 2f;
-		object obj2 = num4 ^ num6;
-		int num7 = (int)((nint)obj & (nint)obj2);
+		int obj = global::Unity.Mathematics.math.asint(num4) ^ global::Unity.Mathematics.math.asint(2f);
+		int obj2 = global::Unity.Mathematics.math.asint(num4) ^ global::Unity.Mathematics.math.asint(num6);
+		int num7 = obj & obj2;
 		bool flag3 = num7 < 0;
 		bool flag4 = flag == flag3;
 		bool flag5 = !flag2;

@@ -15,13 +15,9 @@ public class NumberFormatter : global::UnityEngine.MonoBehaviour
 			{
 				return num2.ToString();
 			}
-			string text = "focus";
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v87 @ X8_v8 (System.String)+E90]");
-			return FormatWithSuffix(num, 1000, (string)0);
+			return FormatWithSuffix(num, 1000, "K");
 		}
-		string text2 = "l1";
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v71 @ X8_v5 (System.String)+368]");
-		return FormatWithSuffix(num, 1000000, (string)0);
+		return FormatWithSuffix(num, 1000000, "M");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000375")]
@@ -32,7 +28,6 @@ public class NumberFormatter : global::UnityEngine.MonoBehaviour
 		//IL_000e: Expected I, but got O
 		//IL_007f: Expected I4, but got F8
 		//IL_0108: Expected O, but got I
-		nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		string text = ", R=";
 		float num3 = num / (float)divisor;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A8CC");
@@ -40,9 +35,9 @@ public class NumberFormatter : global::UnityEngine.MonoBehaviour
 		double num5 = 1E-323 - (double)num3;
 		int val = ((num4 != 9.218868437227405E+18) ? ((int)num5) : (-2147483646));
 		int count = global::System.Math.Max(0, val);
-		string text2 = ((string)null).CreateString('#', count);
+		string text2 = new string('#', count);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X21_v2 (System.String)+7E0]");
-		string text3 = (string)0 + text2;
+		string text3 = "0." + text2;
 		string text4 = ((double*)(&num3))->ToString(text3);
 		return text4 + suffix;
 	}

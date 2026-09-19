@@ -42,7 +42,6 @@ public struct PredictJob : global::Unity.Jobs.IJobParallelFor
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v43 @ X9_v1 (Unity.Collections.NativeArray`1<System.Boolean>)+i @ X1 (System.Int32)]");
 		if ((nint)0 != 0)
 		{
-			nint num = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X9_v5 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
 			object obj = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v49 @ X9_v7+B8]");

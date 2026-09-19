@@ -34,9 +34,8 @@ public struct PowerUpMergeTranslateJob : global::Unity.Jobs.IJobParallelFor
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X8_v3 (Unity.Collections.NativeArray`1<System.Int32>)+i @ X1 (System.Int32)*4]");
 		if ((uint)((nuint)0u + (nuint)1u) != 0)
 		{
-			global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = (global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>)global::System.Runtime.CompilerServices.Unsafe.AsPointer(ref global::System.Runtime.CompilerServices.Unsafe.AddByteOffset(ref this, 48));
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X8_v3 (Unity.Collections.NativeArray`1<System.Int32>)+i @ X1 (System.Int32)*4]");
-			if (((global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>*)nativeParallelHashMap)->TryGetValue(0, out var item))
+			if (mergeDeltas.TryGetValue(powerUpIds[i], out var item))
 			{
 				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray2 = positions;
 				int num = i << 3;

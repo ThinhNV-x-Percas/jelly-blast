@@ -92,9 +92,7 @@ public class ApplicationManager : Singleton<ApplicationManager>
 						applicationManager.loadingScene = true;
 						ApplicationData appData = ApplicationManager.appData;
 						appData.SavePlayerData();
-						nint num = (nint)typeof(global::System.Xml.ValidateNames);
 						global::UnityEngine.WaitForSecondsRealtime waitForSecondsRealtime = new global::UnityEngine.WaitForSecondsRealtime(applicationManager.sceneTransitionDuration);
-						object obj = (nint)this + 24;
 						_003C_003E2__current = waitForSecondsRealtime;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 						_003C_003E1__state = 1;
@@ -104,7 +102,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 				}
 				_003C_003E1__state = -1;
 				global::UnityEngine.AsyncOperation asyncOperation = global::UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(buildIndex);
-				object obj2 = (nint)this + 48;
 				_003Coperation_003E5__2 = asyncOperation;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			}
@@ -132,7 +129,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 				return false;
 			}
 			float progress = _003Coperation_003E5__2.progress;
-			object obj6 = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 2;
@@ -154,7 +150,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3528;
@@ -221,7 +216,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 			//IL_033b: Expected O, but got I
 			object obj = 50503680;
 			nint num = (nint)typeof(CollectParticleData[]);
-			nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A962]");
 			global::UnityEngine.Object obj4;
 			global::UnityEngine.Object obj6;
@@ -283,7 +277,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 				nint num3 = (nint)typeof(CollectParticleData[]);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v155 @ X9_v3 (Il2CppClass<CollectParticleData[]>)+B38]");
 				object obj13 = 0;
-				nint num4 = (nint)obj12;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v158 @ X10_v3 (Il2CppClass<UnityEngine.Object>)+130]");
 				nint num5 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v157 @ X8_v13+130]");
@@ -312,7 +305,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 				object obj19 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v155 @ X9_v3 (Il2CppClass<CollectParticleData[]>)+B38]");
 				object obj20 = 0;
-				nint num7 = (nint)obj12;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v212 @ X10_v7 (Il2CppClass<UnityEngine.Object>)+130]");
 				nint num8 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v214 @ X9_v5+130]");
@@ -383,8 +375,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 		bool? useSafeMode = true;
 		global::System.Int32Enum? logBehaviour = (global::System.Int32Enum)2;
 		global::DG.Tweening.IDOTweenInit iDOTweenInit = global::DG.Tweening.DOTween.Init(recycleAllByDefault, useSafeMode, (global::DG.Tweening.LogBehaviour?)logBehaviour);
-		nint num = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
-		nint num2 = (nint)iDOTweenInit;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v90 @ X8_v7 (Il2CppClass<DG.Tweening.IDOTweenInit>)+12E]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v90 @ X8_v7 (Il2CppClass<DG.Tweening.IDOTweenInit>)+12E]");
@@ -414,8 +404,8 @@ public class ApplicationManager : Singleton<ApplicationManager>
 			goto IL_00d2;
 		}
 		int num4 = obj2 << 4;
+		nint num2 = 0;
 		object obj4 = num2 + num4;
-		object obj5 = (nint)obj4 + 312;
 		goto IL_019a;
 		IL_00d2:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F7087C");
@@ -436,7 +426,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0025: Expected I, but got O
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		string text = "system.security.cryptography.des";
 		nint num2 = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
 		nint num3 = 0;
@@ -467,7 +456,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 		int buildIndex = global::UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 		if (!loadingScene)
 		{
-			nint num = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v67 @ X22_v1 (Il2CppClass<System.Xml.ValidateNames>)+FA8]");
 			global::UnityEngine.SceneManagement.Scene scene = (global::UnityEngine.SceneManagement.Scene)0;
 			object obj = new object();
@@ -487,10 +475,8 @@ public class ApplicationManager : Singleton<ApplicationManager>
 		//IL_0062: Expected O, but got I
 		if (!loadingScene)
 		{
-			nint num = (nint)typeof(global::System.Xml.ValidateNames);
 			object obj = new object();
 			_ = 0;
-			object obj2 = (nint)obj + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 		}
@@ -504,10 +490,8 @@ public class ApplicationManager : Singleton<ApplicationManager>
 	{
 		//IL_000e: Expected I, but got O
 		//IL_003c: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -571,7 +555,6 @@ public class ApplicationManager : Singleton<ApplicationManager>
 	{
 		//IL_000e: Expected I, but got O
 		//IL_005a: Expected O, but got I
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		nint num2 = 0;
 		sceneTransitionDuration = 0.75f;
 		isDeveloperMode = true;

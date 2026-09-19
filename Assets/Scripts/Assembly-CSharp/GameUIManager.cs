@@ -90,9 +90,7 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11CDAA4 (Viewport::GetViewport, and 1 more at this address)");
 					Viewport viewport5 = default(Viewport);
 					viewport5.Show();
-					nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(3f);
-					object obj = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 2;
@@ -101,9 +99,7 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 				if (_003C_003E1__state == 0)
 				{
 					_003C_003E1__state = -1;
-					nint num7 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds2 = new global::UnityEngine.WaitForSeconds(0f);
-					object obj2 = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds2;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 1;
@@ -140,7 +136,6 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3696;
@@ -238,9 +233,7 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11CDAA4 (Viewport::GetViewport, and 1 more at this address)");
 					Viewport viewport5 = default(Viewport);
 					viewport5.Show();
-					nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(3f);
-					object obj = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 2;
@@ -249,9 +242,7 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 				if (_003C_003E1__state == 0)
 				{
 					_003C_003E1__state = -1;
-					nint num7 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds2 = new global::UnityEngine.WaitForSeconds(1.5f);
-					object obj2 = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds2;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 1;
@@ -292,7 +283,6 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3704;
@@ -309,7 +299,6 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 		//IL_00e3: Expected I, but got O
 		//IL_00fd: Expected O, but got I
 		nint num = 0;
-		nint num2 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v53 @ X22_v1 (Il2CppMethodInfo)+BB0]");
@@ -357,7 +346,6 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 	private global::System.Collections.IEnumerator HandleWin()
 	{
 		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object result = new object();
 		_ = 0;
 		return (global::System.Collections.IEnumerator)result;
@@ -370,7 +358,6 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 	private global::System.Collections.IEnumerator HandleFail()
 	{
 		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object result = new object();
 		_ = 0;
 		return (global::System.Collections.IEnumerator)result;

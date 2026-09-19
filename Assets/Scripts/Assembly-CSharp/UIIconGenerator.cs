@@ -87,12 +87,10 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 		//IL_0032: Expected O, but got I
 		nint num = 0;
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj = (nint)this + 64;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		UIIconGenerator uIIconGenerator = default(UIIconGenerator);
 		global::UnityEngine.Texture2DArray texture2DArray = uIIconGenerator.CreateArrayFromTexture(fluidTex);
-		object obj2 = (nint)this + 80;
 		fluidTexArray = texture2DArray;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 	}
@@ -253,7 +251,7 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 								nint num9 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v343 @ X8_v5 (Il2CppMethodInfo)+7E8]");
 								renderTexture = (global::UnityEngine.RenderTexture)0;
-								((global::System.Collections.Generic.List<object>.Enumerator*)obj7)->Dispose();
+								obj7.Dispose();
 								if (obj9 == null)
 								{
 									break;
@@ -721,7 +719,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 		{
 			nint num5 = 0;
 			object obj7 = default(object);
-			object obj6 = (nint)obj7 + 32;
 			string text = "Writing object reference to Id '{0}' for {1}.";
 			int num6 = 0;
 			global::UnityEngine.Vector4 value = default(global::UnityEngine.Vector4);
@@ -914,7 +911,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 				}
 				int num7 = obj6 << 4;
 				object obj8 = (nint)obj4 + num7;
-				object obj9 = (nint)obj8 + 312;
 				num8 = num5;
 				goto IL_064a;
 			}
@@ -997,7 +993,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 			}
 			int num14 = obj18 << 4;
 			object obj20 = (nint)obj16 + num14;
-			object obj21 = (nint)obj20 + 312;
 			num13 = num8;
 			goto IL_072c;
 			IL_0227:
@@ -1008,7 +1003,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v595 @ X0_v38] (should have been resolved before IL gen)");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v192 @ X24_v6 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+AA8]");
 			gameObject = (global::UnityEngine.GameObject)0;
-			nint num15 = (nint)component;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v599 @ X8_v23 (Il2CppClass<UnityEngine.Component>)+130]");
 			nint num16 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v173 @ X1_v3 (UnityEngine.GameObject)+130]");
@@ -1071,7 +1065,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 					object obj29 = obj27 + 1;
 					int num19 = (int)((nint)obj29 << 4);
 					object obj30 = (nint)obj25 + num19;
-					object obj31 = (nint)obj30 + 312;
 					num13 = num8;
 					goto IL_06ac;
 				}
@@ -1189,7 +1182,6 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 		global::UnityEngine.Color32[] array = default(global::UnityEngine.Color32[]);
 		if (array.Length >= 1)
 		{
-			object obj = (nint)array + 32;
 			int num5 = 0;
 			int num6 = default(int);
 			num5 = num6;

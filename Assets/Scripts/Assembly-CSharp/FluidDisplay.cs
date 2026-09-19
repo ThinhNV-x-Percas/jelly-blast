@@ -45,14 +45,14 @@ public class FluidDisplay : FluidRendererBase
 		//IL_0299: Expected O, but got I4
 		nint num = (nint)typeof(CollectParticleData[]);
 		nint num2 = 0;
+		object obj2 = null;
+		object obj4 = null;
 		base.Init();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj = (nint)this + 128;
 		int[] array = default(int[]);
 		particleIds = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj2 = (nint)this + 112;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v84 @ X0_v11+30]");
 		solver = (FluidSolver)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -62,9 +62,7 @@ public class FluidDisplay : FluidRendererBase
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v132 @ X8_v7+28]");
 		fixedDeltaTime = 0f;
 		FluidSolver fluidSolver = solver;
-		nint num3 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num4 = 0;
-		object obj4 = (nint)solver + 600;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v222 @ X25_v5 (Il2CppMethodInfo)+548]");
 		global::System.Delegate b = new global::System.Action<object>(this, (global::System.IntPtr)0);
 		global::System.Delegate obj5 = global::System.Delegate.Combine(fluidSolver.OnAddParticles, b);
@@ -101,7 +99,6 @@ public class FluidDisplay : FluidRendererBase
 		}
 		goto IL_0198;
 		IL_0198:
-		nint num5 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num6 = 0;
 		obj2 = (nint)fluidSolver2 + 608;
 		FluidDisplay fluidDisplay2 = fluidDisplay;
@@ -165,7 +162,6 @@ public class FluidDisplay : FluidRendererBase
 		if (hashSet != null)
 		{
 			nint num = 0;
-			nint num2 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			nint num3 = 0;
 			nint num4 = 0;
 			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = hashSet.GetEnumerator();
@@ -181,11 +177,9 @@ public class FluidDisplay : FluidRendererBase
 					object obj2 = new object();
 					if (obj2 != null)
 					{
-						object obj3 = (nint)obj2 + 24;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 						if ((object)solver != null)
 						{
-							object obj4 = (nint)solver + 504;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 							FluidSolver fluidSolver = solver;
 							nint num6;
@@ -227,7 +221,6 @@ public class FluidDisplay : FluidRendererBase
 												int num8 = activeCount;
 												array[num8] = num7;
 												FluidCompute fluidCompute = compute;
-												nint num9 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 												global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v426 @ X8_v28 (Il2CppMethodInfo)+D30]");
 												global::System.Action<ParticleInitData> action = new global::System.Action<ParticleInitData>(obj2, (global::System.IntPtr)0);
 												nint num10 = 0;
@@ -425,7 +418,6 @@ public class FluidDisplay : FluidRendererBase
 			do
 			{
 				int[] array = particleIds;
-				object obj3 = (nint)solver + 504;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 				FluidSolver fluidSolver2 = solver;
 				int num8 = (int)((nint)obj4 << 3);

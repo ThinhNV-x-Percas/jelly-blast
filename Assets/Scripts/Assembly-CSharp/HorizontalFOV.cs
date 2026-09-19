@@ -19,7 +19,6 @@ public class HorizontalFOV : global::UnityEngine.MonoBehaviour
 		//IL_00f0: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 40;
 		global::UnityEngine.Camera camera = default(global::UnityEngine.Camera);
 		cam = camera;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");

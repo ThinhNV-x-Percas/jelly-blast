@@ -33,12 +33,10 @@ public class PathCollider2D : global::UnityEngine.MonoBehaviour
 		nint num = 0;
 		nint num2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 40;
 		global::PathCreation.PathCreator pathCreator = default(global::PathCreation.PathCreator);
 		this.pathCreator = pathCreator;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj2 = (nint)this + 48;
 		global::UnityEngine.PolygonCollider2D polygonCollider2D = default(global::UnityEngine.PolygonCollider2D);
 		polyCollider = polygonCollider2D;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -92,7 +90,6 @@ public class PathCollider2D : global::UnityEngine.MonoBehaviour
 			return;
 		}
 		bool flag = !path.isClosedLoop;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::System.Collections.Generic.List<global::UnityEngine.Vector2> list = new global::System.Collections.Generic.List<global::UnityEngine.Vector2>(resolution);
 		global::System.Collections.Generic.List<global::UnityEngine.Vector2> list2 = new global::System.Collections.Generic.List<global::UnityEngine.Vector2>(resolution);
 		int num2 = resolution;
@@ -132,7 +129,6 @@ public class PathCollider2D : global::UnityEngine.MonoBehaviour
 				}
 				else
 				{
-					nint num12 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v545 @ X8_v36 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 					object obj = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v547 @ X8_v38+B8]");
@@ -197,7 +193,6 @@ public class PathCollider2D : global::UnityEngine.MonoBehaviour
 				}
 			}
 		}
-		nint num19 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		int capacity = default(int);
 		global::System.Collections.Generic.List<global::UnityEngine.Vector2> list3 = new global::System.Collections.Generic.List<global::UnityEngine.Vector2>(capacity);
 		capacity = num2 << 1;

@@ -12,7 +12,6 @@ public class ImageSliceWithUV : global::UnityEngine.UI.BaseMeshEffect
 		//IL_0051: Expected I, but got O
 		//IL_0061: Expected O, but got I
 		//IL_0071: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::UnityEngine.UI.Graphic graphic = base.graphic;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X21_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj = 0;
@@ -34,7 +33,6 @@ public class ImageSliceWithUV : global::UnityEngine.UI.BaseMeshEffect
 		goto IL_003a;
 		IL_003a:
 		global::UnityEngine.UI.Graphic graphic2 = base.graphic;
-		nint num2 = (nint)graphic2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v95 @ X8_v4 (Il2CppClass<UnityEngine.UI.Graphic>)+2F8]");
 		object obj2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v95 @ X8_v4 (Il2CppClass<UnityEngine.UI.Graphic>)+300]");
@@ -75,14 +73,12 @@ public class ImageSliceWithUV : global::UnityEngine.UI.BaseMeshEffect
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::System.Collections.Generic.List<global::UnityEngine.UIVertex> list = new global::System.Collections.Generic.List<global::UnityEngine.UIVertex>();
 		vh.GetUIVertexStream(list);
 		if (list.Count == 0)
 		{
 			return;
 		}
-		nint num2 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v372 @ X23_v3 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+E48]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v374 @ X0_v10+E0]");
@@ -114,7 +110,6 @@ public class ImageSliceWithUV : global::UnityEngine.UI.BaseMeshEffect
 				goto IL_0154;
 			}
 		}
-		nint num3 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		object obj4 = obj2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v448 @ X8_v36 (Il2CppMethodInfo)+F40]");
 		global::System.Func<global::UnityEngine.UIVertex, float> func = new global::System.Func<global::UnityEngine.UIVertex, float>(obj4, (global::System.IntPtr)0);
@@ -199,7 +194,6 @@ public class ImageSliceWithUV : global::UnityEngine.UI.BaseMeshEffect
 				goto IL_02a9;
 			}
 		}
-		nint num6 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		object obj15 = obj13;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v566 @ X8_v25 (Il2CppMethodInfo)+F48]");
 		global::System.Func<global::UnityEngine.UIVertex, float> func2 = new global::System.Func<global::UnityEngine.UIVertex, float>(obj15, (global::System.IntPtr)0);

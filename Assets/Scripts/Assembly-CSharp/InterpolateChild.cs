@@ -50,7 +50,6 @@ public class InterpolateChild : global::UnityEngine.MonoBehaviour
 		//IL_019f: Expected O, but got I
 		//IL_019f: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA5F]");
 		object obj2;
 		global::UnityEngine.Object obj4;
@@ -220,7 +219,6 @@ public class InterpolateChild : global::UnityEngine.MonoBehaviour
 		//IL_0090: Expected O, but got F4
 		//IL_021c: Expected F4, but got O
 		nint num = 0;
-		nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		float fixedDeltaTime = global::UnityEngine.Time.fixedDeltaTime;
 		bool flag = !(fixedDeltaTime > 0f);
 		float num3 = 1f;
@@ -308,7 +306,6 @@ public class InterpolateChild : global::UnityEngine.MonoBehaviour
 		//IL_005a: Expected O, but got I
 		//IL_00d9: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA61]");
 		global::UnityEngine.Object obj3;
 		global::UnityEngine.Object obj4;

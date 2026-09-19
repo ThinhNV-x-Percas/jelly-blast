@@ -57,7 +57,6 @@ public class FixedFluid : global::UnityEngine.MonoBehaviour
 		//IL_01cc: Expected O, but got I4
 		//IL_019b: Expected O, but got I4
 		//IL_01a4: Expected O, but got I4
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A9E1]");
 		int num2 = (int)((nint)0 & (nint)1);
@@ -159,13 +158,10 @@ public class FixedFluid : global::UnityEngine.MonoBehaviour
 		//IL_0330: Expected O, but got F4
 		//IL_034d: Expected O, but got I
 		//IL_0440: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		nint num2 = 0;
-		object obj2 = (nint)obj + 24;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj3 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v186 @ X0_v16+30]");
 		_ = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");

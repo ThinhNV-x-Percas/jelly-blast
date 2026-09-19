@@ -101,9 +101,7 @@ public class WinScreen : Viewport
 			_003C_003E1__state = -1;
 			global::UnityEngine.GameObject gameObject2 = winScreen.titleTextEffect.gameObject;
 			gameObject2.SetActive(value: false);
-			nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.1f);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = waitForSeconds;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -122,15 +120,7 @@ public class WinScreen : Viewport
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = Facebook.Unity.Windows.IWindowsFacebook + 0xF30;\n\tv11 = 0xF3F22C(v10, methodInfo, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tv27 = new v11();\n\tSystem.NotSupportedException::.ctor(v27);\n\tv31 = Il2CppMethodInfo + 0x718;\n\tv32 = 0xF3F22C(v31, 0, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tthrow v27;\n// 13 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		void global::System.Collections.IEnumerator.Reset()
 		{
-			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0014: Expected O, but got Unknown
-			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			global::System.NotSupportedException ex = new global::System.NotSupportedException();
-			object obj2 = (nint)0 + (nint)1816;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			throw ex;
+			throw new global::System.NotSupportedException();
 		}
 	}
 
@@ -143,14 +133,7 @@ public class WinScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Sponge+<>c__DisplayClass7_0;\n\tgoto L_0017;\n\tv23 = Sponge+<>c__DisplayClass7_0;\n\tv24 = v23 + 0x770;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAFC]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+770])();\n\tSystem.Object::.ctor(v45);\n\t*([v45 @ X0_v3 (System.Object)+10]) = 0;\n\tv49 = v45 + 0x20;\n\t*([v45 @ X0_v3 (System.Object)+20]) = this;\n\tv51 = 0xF3F1B4(v49, this, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv61 = UnityEngine.MonoBehaviour::StartCoroutine(this, v45);\n\treturn;\n// 30 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	protected internal override void OnStartShow()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0041: Expected O, but got I
-		nint num = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
-		object obj = new object();
-		_ = 0;
-		object obj2 = (nint)obj + 32;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
+		global::UnityEngine.Coroutine coroutine = StartCoroutine(HandleStartShow());
 	}
 
 	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(WinScreen._003CHandleStartShow_003Ed__2))]
@@ -159,14 +142,9 @@ public class WinScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Sponge+<>c__DisplayClass7_0;\n\tgoto L_0017;\n\tv23 = Sponge+<>c__DisplayClass7_0;\n\tv24 = v23 + 0x770;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAFC]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+770])();\n\tSystem.Object::.ctor(v45);\n\t*([v45 @ X0_v3 (System.Object)+10]) = 0;\n\tv49 = v45 + 0x20;\n\t*([v45 @ X0_v3 (System.Object)+20]) = this;\n\tv51 = 0xF3F1B4(v49, this, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\treturn v45;\n// 28 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private global::System.Collections.IEnumerator HandleStartShow()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
-		object obj = new object();
-		_ = 0;
-		object obj2 = (nint)obj + 32;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return (global::System.Collections.IEnumerator)obj;
+		WinScreen._003CHandleStartShow_003Ed__2 _003CHandleStartShow_003Ed__ = new WinScreen._003CHandleStartShow_003Ed__2(0);
+		_003CHandleStartShow_003Ed__._003C_003E4__this = this;
+		return _003CHandleStartShow_003Ed__;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000488")]
@@ -174,37 +152,5 @@ public class WinScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv16 = 0x302A000;\n\tv18 = System.Xml.ValidateNames;\n\tv20 = *([302AAFD]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_0023;\n\tv22 = *([v18 @ X21_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv24 = *([v22 @ X0_v10+E0]) == 0;\n\tif (v24) goto L_0033;\nL_001D:\n\tViewport::.ctor(this);\n\treturn;\nL_0023:\n\t*([v16 @ X20_v1+AFD]) = 1;\n\tv44 = *([v18 @ X21_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv62 = *([v44 @ X0_v7+E0]) == 0;\n\tv46 = ~v62;\n\tif (v46) goto L_001D;\nL_0033:\n\tViewport::.ctor(this);\n\treturn;\n// 36 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public WinScreen()
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_009c: Expected O, but got I
-		//IL_005a: Expected O, but got I
-		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAFD]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X21_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]");
-			object obj2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v22 @ X0_v10+E0]");
-			if ((nint)0 != 0)
-			{
-				goto IL_007f;
-			}
-		}
-		else
-		{
-			_ = 1;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X21_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X0_v7+E0]");
-			if ((nint)0 != 0)
-			{
-				goto IL_007f;
-			}
-		}
-		base._002Ector();
-		return;
-		IL_007f:
-		base._002Ector();
 	}
 }

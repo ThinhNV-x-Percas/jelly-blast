@@ -44,12 +44,10 @@ public class SettingsScreen : Viewport
 		//IL_0137: Expected I, but got O
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 104;
 		UIButtonStyler uIButtonStyler = default(UIButtonStyler);
 		hapticButtonStyler = uIButtonStyler;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj2 = (nint)this + 120;
 		UIButtonStyler uIButtonStyler2 = default(UIButtonStyler);
 		soundsButtonStyler = uIButtonStyler2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -59,7 +57,6 @@ public class SettingsScreen : Viewport
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v89 @ X0_v17+28]");
 		gameObject.SetActive(value: false);
 		UIButton uIButton = resetButton;
-		nint num3 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 		nint num4 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v188 @ X23_v2 (Il2CppMethodInfo)+6C8]");
 		global::UnityEngine.Events.UnityAction call = new global::UnityEngine.Events.UnityAction(this, (global::System.IntPtr)0);
@@ -96,13 +93,9 @@ public class SettingsScreen : Viewport
 		//IL_0022: Expected O, but got I
 		//IL_0040: Expected O, but got I
 		//IL_0062: Expected I, but got O
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
-		object obj2 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj3 = (nint)obj + 24;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		nint num2 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 		nint num3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v115 @ X21_v3 (Il2CppMethodInfo)+8B0]");
 		global::UnityEngine.Events.UnityAction call = new global::UnityEngine.Events.UnityAction(obj, (global::System.IntPtr)0);
@@ -229,7 +222,6 @@ public class SettingsScreen : Viewport
 		//IL_0056: Expected O, but got I
 		//IL_0066: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAF7]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -290,7 +282,6 @@ public class SettingsScreen : Viewport
 		//IL_009c: Expected O, but got I
 		//IL_005a: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAF8]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

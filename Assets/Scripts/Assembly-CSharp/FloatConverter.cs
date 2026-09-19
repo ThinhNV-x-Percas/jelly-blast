@@ -60,13 +60,11 @@ public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
 		//IL_00fb: Expected O, but got Unknown
 		//IL_0105: Unknown result type (might be due to invalid IL or missing references)
 		//IL_010a: Expected O, but got Unknown
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Newtonsoft.Json.Linq.JObject jObject = new global::Newtonsoft.Json.Linq.JObject();
 		bool flag = value == null;
 		string text = null;
 		if (!flag)
 		{
-			nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v68 @ X8_v30 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
 			float num4;
 			object obj2;
@@ -74,7 +72,6 @@ public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
 			global::Newtonsoft.Json.Linq.JToken value3;
 			if (value != null)
 			{
-				nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v151 @ X9_v5 (Il2CppClass<System.Xml.ValidateNames>)+D50]");
 				bool flag2 = value != null;
 				text = null;
@@ -175,7 +172,6 @@ public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
 		IL_02b5:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v277 @ X0_v17+B8]");
 		object obj14 = 0;
-		nint num8 = (nint)jObject;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v282 @ X8_v20 (Il2CppClass<Newtonsoft.Json.Linq.JObject>)+248] (should have been resolved before IL gen)");
 		goto IL_02d7;
 		IL_0173:
@@ -281,7 +277,6 @@ public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11466B4 (Newtonsoft.Json.Linq.Extensions::Value, and 1 more at this address)");
 			num7 = num5;
 		}
-		nint num8 = (nint)this;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v239 @ X8_v15 (Il2CppClass<FloatConverter`1<T>>)+1D8] (should have been resolved before IL gen)");
 		object obj5 = default(object);
 		if ((nint)obj5 == 3)
@@ -292,13 +287,8 @@ public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
 		{
 			int num9 = 0;
 		}
-		nint num10 = (nint)this;
-		object obj6 = (nint)obj - 140;
-		object obj7 = (nint)obj - 144;
-		object obj8 = (nint)obj - 148;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v255 @ X8_v16 (Il2CppClass<FloatConverter`1<T>>)+1D0]");
 		object obj9 = 0;
-		object obj10 = (nint)obj - 136;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v258 @ X1_v10+10] (should have been resolved before IL gen)");
 		object result = (global::System.IntPtr)jsonSerializer;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2C38708]");

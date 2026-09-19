@@ -95,14 +95,12 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		//IL_0b8b: Expected O, but got I
 		//IL_0bd1: Expected O, but got I
 		nint num = 0;
-		nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v77 @ X8_v5 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v79 @ X8_v7+B8]");
 		object obj2 = 0;
 		sdfCenter = (global::UnityEngine.Vector2)obj2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num3 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v100 @ X24_v2 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v103 @ X0_v9+E0]");
@@ -132,7 +130,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_0142;
 		IL_0875:
-		nint num4 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		double num5;
 		double num6;
 		global::UnityEngine.RenderTexture renderTexture = new global::UnityEngine.RenderTexture((int)num5, (int)num6, 0, global::UnityEngine.RenderTextureFormat.ARGBHalf);
@@ -145,7 +142,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		renderTexture.autoGenerateMips = false;
 		object obj6 = renderTexture;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		nint num7 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		string text2 = "Parent table name is missing in relation '{0}'.";
 		bool flag3 = ((global::UnityEngine.RenderTexture)obj6).Create();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v866 @ X22_v6 (System.String)+DE8]");
@@ -161,8 +157,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		transform.position = position;
 		global::UnityEngine.Transform transform2 = component.transform;
 		nint num9 = 0;
-		nint num10 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
-		nint num11 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v884 @ X8_v22 (Il2CppClass<System.Runtime.Serialization.ObjectHolderList>)+538]");
 		object obj8 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v886 @ X8_v24+B8]");
@@ -200,7 +194,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		((global::UnityEngine.Camera)component).targetTexture = null;
 		global::UnityEngine.Object.DestroyImmediate(obj7);
 		SDFTextureGenerator sDFTextureGenerator = new SDFTextureGenerator();
-		object obj10 = (nint)this + 64;
 		generator = sDFTextureGenerator;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		generator.Update(outputSDF, sourceValueThreshold, downSampling, precision);
@@ -266,7 +259,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 			if ((nint)0 != 0)
 			{
 				num23 = num22 * (float)maxResolution;
-				nint num24 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v399 @ X8_v66 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 				object obj17 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v401 @ X0_v102+E0]");
@@ -281,7 +273,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 			{
 				_ = 1;
 				num23 = num22 * (float)maxResolution;
-				nint num26 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v435 @ X8_v60 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 				object obj18 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v419 @ X0_v97+E0]");
@@ -312,7 +303,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		if ((nint)0 != 0)
 		{
 			num33 = (float)maxResolution / num22;
-			nint num34 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v408 @ X8_v49 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj19 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v410 @ X0_v85+E0]");
@@ -327,7 +317,6 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		{
 			_ = 1;
 			num33 = (float)maxResolution / num22;
-			nint num36 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v457 @ X8_v43 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj20 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v441 @ X0_v80+E0]");

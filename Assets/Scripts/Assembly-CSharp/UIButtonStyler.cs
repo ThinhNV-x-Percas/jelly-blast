@@ -25,12 +25,10 @@ public class UIButtonStyler : global::UnityEngine.MonoBehaviour
 		nint num = 0;
 		nint num2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 40;
 		global::UnityEngine.UI.Image image = default(global::UnityEngine.UI.Image);
 		this.image = image;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj2 = (nint)this + 48;
 		SecondaryImageColor secondaryImageColor = default(SecondaryImageColor);
 		this.secondaryImageColor = secondaryImageColor;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -50,7 +48,6 @@ public class UIButtonStyler : global::UnityEngine.MonoBehaviour
 	public void SetStyle(UIButtonStyle _buttonStyle)
 	{
 		//IL_000c: Expected O, but got I
-		object obj = (nint)this + 32;
 		buttonStyle = _buttonStyle;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		UIButtonStyle uIButtonStyle = buttonStyle;

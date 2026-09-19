@@ -38,7 +38,6 @@ public struct FixedRadiusNeighborSearchJob : global::Unity.Jobs.IJobParallelFor
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4429]");
 		if ((nint)0 != 0)
 		{
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v54 @ X22_v8 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj2 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X0_v19+E0]");
@@ -50,7 +49,6 @@ public struct FixedRadiusNeighborSearchJob : global::Unity.Jobs.IJobParallelFor
 		else
 		{
 			_ = 1;
-			nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X22_v5 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj3 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X0_v16+E0]");

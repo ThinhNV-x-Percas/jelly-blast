@@ -20,7 +20,6 @@ public class UserInputPanel : global::UnityEngine.MonoBehaviour, global::UnityEn
 		//IL_0056: Expected O, but got I
 		//IL_0066: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAFB]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

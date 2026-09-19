@@ -17,7 +17,6 @@ public static class JsonHelper
 		//IL_0108: Expected O, but got I
 		//IL_0118: Expected O, but got I
 		object obj2 = 50507776;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302B07A]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -63,7 +62,6 @@ public static class JsonHelper
 		//IL_0018: Expected I, but got O
 		//IL_0028: Expected O, but got I
 		//IL_0080: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X21_v5 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+418]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v62 @ X0_v1+B8]");
@@ -102,15 +100,10 @@ public static class JsonHelper
 		//IL_024d: Expected O, but got I
 		//IL_01cd: Expected O, but got I
 		//IL_01dc: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new global::Newtonsoft.Json.JsonSerializerSettings();
-		nint num2 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		jsonSerializerSettings.ReferenceLoopHandling = global::Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 		global::System.Collections.Generic.IList<global::Newtonsoft.Json.JsonConverter> converters = jsonSerializerSettings.Converters;
 		FloatConverter<global::Unity.Mathematics.float3> floatConverter = new FloatConverter<global::Unity.Mathematics.float3>();
-		nint num3 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
-		nint num4 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
-		nint num5 = (nint)converters;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v204 @ X8_v5 (Il2CppClass<System.Collections.Generic.IList`1<Newtonsoft.Json.JsonConverter>>)+12E]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v204 @ X8_v5 (Il2CppClass<System.Collections.Generic.IList`1<Newtonsoft.Json.JsonConverter>>)+12E]");
@@ -141,8 +134,8 @@ public static class JsonHelper
 		}
 		object obj4 = obj2 + 2;
 		int num7 = (int)((nint)obj4 << 4);
+		nint num5 = 0;
 		object obj5 = num5 + num7;
-		object obj6 = (nint)obj5 + 312;
 		goto IL_0293;
 		IL_010a:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F7087C");
@@ -151,8 +144,6 @@ public static class JsonHelper
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v264 @ X0_v11] (should have been resolved before IL gen)");
 		global::System.Collections.Generic.IList<global::Newtonsoft.Json.JsonConverter> converters2 = jsonSerializerSettings.Converters;
 		FloatConverter<global::Unity.Mathematics.float2> floatConverter2 = new FloatConverter<global::Unity.Mathematics.float2>();
-		nint num8 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		nint num9 = (nint)converters2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v285 @ X8_v10 (Il2CppClass<System.Collections.Generic.IList`1<Newtonsoft.Json.JsonConverter>>)+12E]");
 		object obj7 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v285 @ X8_v10 (Il2CppClass<System.Collections.Generic.IList`1<Newtonsoft.Json.JsonConverter>>)+12E]");
@@ -183,8 +174,8 @@ public static class JsonHelper
 		}
 		object obj10 = obj8 + 2;
 		int num11 = (int)((nint)obj10 << 4);
+		nint num9 = 0;
 		object obj11 = num9 + num11;
-		object obj12 = (nint)obj11 + 312;
 		goto IL_02eb;
 		IL_02eb:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v344 @ X0_v18] (should have been resolved before IL gen)");

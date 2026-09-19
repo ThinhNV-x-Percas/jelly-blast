@@ -151,8 +151,6 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 		//IL_077c: Expected O, but got I
 		//IL_0caa: Expected F4, but got O
 		//IL_0cc4: Expected F4, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		nint num2 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		object obj = 0;
 		global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray = predicted;
 		int num3 = (int)(i & 0xFFFFFFFFL);
@@ -172,7 +170,6 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 		int num8;
 		if ((nint)0 != 0)
 		{
-			nint num6 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v117 @ X8_v131 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj7 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v119 @ X0_v90+E0]");
@@ -187,7 +184,6 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 		else
 		{
 			_ = 1;
-			nint num9 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v143 @ X8_v126 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 			object obj8 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v131 @ X0_v88+E0]");
@@ -292,7 +288,7 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 								nint num33 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v526 @ X10_v11 (Unity.Collections.NativeArray`1<System.Int32>)+i @ X1 (System.Int32)*4]");
 								ulong key = (ulong)(num33 | 0);
-								if (((global::Unity.Collections.NativeHashMap<ulong, byte>*)nativeParallelHashMap)->ContainsKey(key))
+								if (nativeParallelHashMap.ContainsKey(key))
 								{
 									goto IL_0b9f;
 								}
@@ -311,7 +307,6 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4420]");
 								if ((nint)0 != 0)
 								{
-									nint num35 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v793 @ X8_v109 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 									object obj19 = 0;
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v795 @ X0_v75+E0]");
@@ -323,7 +318,6 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 								else
 								{
 									_ = 1;
-									nint num36 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v815 @ X8_v41 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 									object obj20 = 0;
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v802 @ X0_v26+E0]");

@@ -25,7 +25,6 @@ public class QuadFitToCamera : global::UnityEngine.MonoBehaviour
 		//IL_0066: Expected O, but got I
 		//IL_01a3: Expected O, but got I4
 		object obj = 50503680;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA7F]");
 		global::UnityEngine.Object obj4;
 		global::UnityEngine.Object obj5;
@@ -111,7 +110,6 @@ public class QuadFitToCamera : global::UnityEngine.MonoBehaviour
 		//IL_005a: Expected O, but got I
 		//IL_02bf: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA80]");
 		global::UnityEngine.Object obj3;
 		global::UnityEngine.Object obj4;

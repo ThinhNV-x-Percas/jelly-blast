@@ -77,7 +77,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 			//IL_0066: Expected O, but got I
 			//IL_018c: Expected O, but got I4
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A8CE]");
 			object obj2;
 			global::UnityEngine.Object canvasGroup;
@@ -167,7 +166,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		//IL_0018: Expected I, but got O
 		//IL_0028: Expected O, but got I
 		//IL_00a6: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v43 @ X20_v6 (Il2CppClass<System.Xml.ValidateNames>)+198]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v62 @ X0_v1+B8]");
@@ -212,11 +210,9 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000c: Expected O, but got I
 		//IL_003d: Expected I, but got O
-		object obj = (nint)this + 64;
 		global::BFS.Essential.Tween tShowHide = m_TShowHide;
 		if (m_TShowHide != null)
 		{
-			nint num = (nint)tShowHide;
 			m_TShowHide.Kill();
 			m_TShowHide = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -249,22 +245,17 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		//IL_0447: Expected O, but got I
 		nint num = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
 		object obj = new object();
-		object obj2 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj3 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj4 = (nint)this + 64;
 		global::BFS.Essential.Tween tShowHide = m_TShowHide;
 		if (m_TShowHide != null)
 		{
-			nint num2 = (nint)tShowHide;
 			m_TShowHide.Kill();
 			m_TShowHide = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		}
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v61 @ X0_v3 (System.Object)+18]");
 		m_IsShow = false;
-		nint num3 = (nint)this;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v61 @ X0_v3 (System.Object)+18]");
 		if ((nint)0 == 0)
 		{
@@ -288,9 +279,7 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		float num6 = (((nint)0 != 0) ? 1f : 0f);
 		if (ShouldAnimate)
 		{
-			nint num7 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 			nint num8 = 0;
-			nint num9 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 			nint num10 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v61 @ X0_v3 (System.Object)+18]");
 			float start = (((nint)0 != 0) ? 0f : 1f);
@@ -304,7 +293,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 			global::BFS.Essential.Tween tween2 = tween.SetInterpolator(interpolator);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v440 @ X24_v5 (Il2CppMethodInfo)+5F0]");
 			global::System.Action callback3 = new global::System.Action(obj, (global::System.IntPtr)0);
-			nint num13 = (nint)tween2;
 			global::BFS.Essential.Tween tShowHide2 = tween2.OnComplete(callback3);
 			m_TShowHide = tShowHide2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -326,7 +314,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		float num19 = ((!(flag4 && flag5)) ? num16 : 1f);
 		float alpha = ((!(num16 < 0f)) ? num19 : 0f);
 		canvasGroup.alpha = alpha;
-		nint num20 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v434 @ X8_v9 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj7 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v436 @ X0_v18+E0]");
@@ -343,7 +330,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_0588;
 		IL_0588:
-		nint num21 = (nint)this;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v61 @ X0_v3 (System.Object)+18]");
 		if ((nint)0 == 0)
 		{
@@ -380,7 +366,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 			if (transitionType == Viewport.TransitionType.Scale)
 			{
 				global::UnityEngine.Transform transform = main.transform;
-				nint num24 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v541 @ X8_v22 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj9 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v543 @ X8_v24+B8]");
@@ -485,7 +470,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		//IL_0051: Expected O, but got I
 		//IL_011e: Expected O, but got I
 		//IL_012e: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A8D0]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -544,12 +528,9 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		//IL_0043: Expected O, but got I
 		//IL_00ae: Expected O, but got I
 		//IL_000d: Expected I, but got O
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		object obj = (nint)this + 64;
 		global::BFS.Essential.Tween tShowHide = m_TShowHide;
 		if (m_TShowHide != null)
 		{
-			nint num2 = (nint)tShowHide;
 			m_TShowHide.Kill();
 			m_TShowHide = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -584,8 +565,6 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		//IL_003d: Expected O, but got I
 		//IL_004d: Expected O, but got I
 		//IL_0065: Expected O, but got I
-		nint num = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
-		nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 		object obj = new global::System.Collections.Generic.Dictionary<object, object>();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v20 @ X20_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]");
 		object obj2 = 0;

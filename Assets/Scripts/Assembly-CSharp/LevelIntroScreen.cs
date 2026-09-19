@@ -82,9 +82,7 @@ public class LevelIntroScreen : Viewport
 					ElasticScale elasticScale = default(ElasticScale);
 					elasticScale.SetScale(0f);
 					elasticScale.Pop();
-					nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.2f);
-					object obj = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 2;
@@ -97,9 +95,7 @@ public class LevelIntroScreen : Viewport
 					gameObject2.SetActive(value: false);
 					global::UnityEngine.GameObject gameObject3 = levelIntroScreen.goalDialog.gameObject;
 					gameObject3.SetActive(value: false);
-					nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::UnityEngine.WaitForSeconds waitForSeconds2 = new global::UnityEngine.WaitForSeconds(0.5f);
-					object obj2 = (nint)this + 24;
 					_003C_003E2__current = waitForSeconds2;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 1;
@@ -132,7 +128,6 @@ public class LevelIntroScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)312;
@@ -172,12 +167,11 @@ public class LevelIntroScreen : Viewport
 		nint num = 0;
 		base.Awake();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num2 = (nint)typeof(CollectParticleData[]);
 		nint num3 = 0;
 		object obj = default(object);
 		object a = (nint)obj + 144;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v73 @ X24_v1 (Il2CppMethodInfo)+F60]");
-		global::System.Action b = new global::System.Action(this, (global::System.IntPtr)0);
+		global::System.Action b = null;
 		global::System.Delegate obj2 = global::System.Delegate.Combine((global::System.Delegate)a, b);
 		if ((object)obj2 != null)
 		{
@@ -215,7 +209,6 @@ public class LevelIntroScreen : Viewport
 		//IL_030e: Expected O, but got I
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAF0]");
 		int num = 0;
-		nint num2 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAF0]");
 		object obj3;
 		object obj;
@@ -262,10 +255,8 @@ public class LevelIntroScreen : Viewport
 		num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v194 @ X8_v12 (System.Int32)+50]");
 		num = 0;
-		nint num3 = (nint)typeof(CollectParticleData[]);
 		nint num4 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj5 = (nint)this + 104;
 		GoalUI[] array = default(GoalUI[]);
 		goals = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -298,7 +289,6 @@ public class LevelIntroScreen : Viewport
 					break;
 				}
 				array2[num6] = (GoalUI)component;
-				object obj7 = (nint)array2 + num5;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				num6++;
 				num5 += 8;
@@ -310,7 +300,7 @@ public class LevelIntroScreen : Viewport
 			string text = (num + 1).ToString();
 			string text2 = "IsCyrillic";
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v393 @ X8_v16 (System.String)+7E8]");
-			string text3 = (string)0 + text;
+			string text3 = (string)null + text;
 			levelText.text = text3;
 			return;
 		}
@@ -333,12 +323,7 @@ public class LevelIntroScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0041: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
-		object obj = new object();
-		_ = 0;
-		object obj2 = (nint)obj + 32;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
+		global::UnityEngine.Coroutine coroutine = StartCoroutine(HandleStartShow());
 	}
 
 	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(LevelIntroScreen._003CHandleStartShow_003Ed__8))]
@@ -349,12 +334,9 @@ public class LevelIntroScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
-		object obj = new object();
-		_ = 0;
-		object obj2 = (nint)obj + 32;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return (global::System.Collections.IEnumerator)obj;
+		_003CHandleStartShow_003Ed__8 stateMachine = new _003CHandleStartShow_003Ed__8(0);
+		stateMachine._003C_003E4__this = this;
+		return stateMachine;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600046E")]
@@ -367,7 +349,6 @@ public class LevelIntroScreen : Viewport
 		//IL_009c: Expected O, but got I
 		//IL_005a: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAF2]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -390,9 +371,8 @@ public class LevelIntroScreen : Viewport
 				goto IL_007f;
 			}
 		}
-		base._002Ector();
 		return;
 		IL_007f:
-		base._002Ector();
+		;
 	}
 }

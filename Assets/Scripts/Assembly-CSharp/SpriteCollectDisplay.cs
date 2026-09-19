@@ -59,7 +59,6 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 			return;
 		}
 		nint num2 = 0;
-		nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 		object obj5 = default(object);
 		object obj6 = default(object);
 		do
@@ -207,7 +206,6 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 			if (num3 < 0f)
 			{
 			}
-			nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::UnityEngine.Component component = default(global::UnityEngine.Component);
 			global::UnityEngine.Vector3 position = default(global::UnityEngine.Vector3);
 			global::UnityEngine.Vector3 position2 = default(global::UnityEngine.Vector3);
@@ -412,7 +410,6 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 		//IL_03ad: Expected O, but got I
 		//IL_03bc: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A9D4]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -451,7 +448,6 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 		IL_015b:
 		global::UnityEngine.Component component = default(global::UnityEngine.Component);
 		global::UnityEngine.Transform transform = component.transform;
-		nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v264 @ X8_v6 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 		object obj6 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v266 @ X8_v8+B8]");
@@ -478,28 +474,10 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 		float num3 = global::UnityEngine.Random.Range(minApplyForceDuration, maxApplyForceDuration);
 		float time = global::UnityEngine.Time.time;
 		float num4 = time + delay;
-		object obj8 = (nint)component + 88;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj9 = (nint)component + 96;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.List<CollectSprite> list = sprites;
-		int version = list._version + 1;
-		list._version = version;
-		CollectSprite[] items = list._items;
-		if (list.Count < items.Length)
-		{
-			int size = list.Count + 1;
-			list._size = size;
-			int num5 = list.Count << 3;
-			object obj10 = (nint)items + num5;
-			object obj11 = (nint)obj10 + 32;
-			obj11 = component;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		}
-		else
-		{
-			list.Add((CollectSprite)component);
-		}
+		list.Add((CollectSprite)component);
 		return;
 		IL_00a7:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1171058 (UnityEngine.Object::Instantiate, and 1 more at this address)");
@@ -522,7 +500,6 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 		{
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v47.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
 		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		bool flag = sprites.Remove(sprite);
 		global::UnityEngine.GameObject obj = sprite.gameObject;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v67 @ X20_v2 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
@@ -547,9 +524,7 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 		//IL_0059: Expected O, but got I
 		//IL_002c: Expected F4, but got I
 		base._002Ector();
-		nint num = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		global::System.Collections.Generic.List<CollectSprite> list = new global::System.Collections.Generic.List<CollectSprite>();
-		object obj = (nint)this + 32;
 		sprites = list;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875910]");

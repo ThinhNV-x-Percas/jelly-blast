@@ -188,10 +188,8 @@ internal struct OctUF_UnionJob : global::Unity.Jobs.IJob
 		{
 			return;
 		}
-		nint num2 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		nint num3 = 0;
 		object obj2 = (object)global::System.Runtime.CompilerServices.Unsafe.AsPointer(ref global::System.Runtime.CompilerServices.Unsafe.AddByteOffset(ref this, 32));
-		nint num4 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		int num5 = 48054272;
 		int num6 = 0;
 		object obj17 = default(object);

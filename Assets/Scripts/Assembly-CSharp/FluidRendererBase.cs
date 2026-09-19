@@ -64,26 +64,21 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 		nint num = (nint)typeof(CollectParticleData[]);
 		nint num2 = (nint)typeof(CollectParticleData[]);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj = (nint)this + 56;
 		global::UnityEngine.Vector2[] array = default(global::UnityEngine.Vector2[]);
 		positions = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj2 = (nint)this + 48;
 		global::UnityEngine.Vector2[] array2 = default(global::UnityEngine.Vector2[]);
 		interpPositions = array2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj3 = (nint)this + 64;
 		float[] array3 = default(float[]);
 		scales = array3;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidCompute fluidCompute = compute;
 		nint num3 = (nint)typeof(CollectParticleData[]);
-		object obj4 = (nint)compute + 248;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v88 @ X8_v3 (Il2CppClass<FluidRendererBase>)+190]");
 		global::System.Action b = new global::System.Action(this, (global::System.IntPtr)0);
-		nint num4 = (nint)this;
 		global::System.Delegate obj5 = global::System.Delegate.Combine(fluidCompute.OnPreUpdate, b);
 		if ((object)obj5 != null)
 		{
@@ -241,7 +236,6 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 		}
 		else
 		{
-			nint num23 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v72 @ X8_v6 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 			object obj2 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X8_v8+B8]");
@@ -256,7 +250,6 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 			vector4.z = vector3.z;
 			transform6.position = vector4;
 			global::UnityEngine.Transform transform8 = mr.transform;
-			nint num24 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v465 @ X8_v12 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj4 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v467 @ X8_v14+B8]");
@@ -287,8 +280,7 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 		//IL_006e: Expected O, but got I
 		//IL_00fc: Expected I, but got O
 		//IL_0117: Expected I, but got O
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		global::System.Delegate obj = (global::System.Delegate)(typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 4056);
+		global::System.Delegate obj = default(global::System.Delegate);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A9FD]");
 		int num2 = (int)((nint)0 & (nint)1);
 		bool flag = num2 == 0;
@@ -311,7 +303,6 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 		else
 		{
 			_ = 1;
-			nint num4 = (nint)obj;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v114 @ X0_v13 (Il2CppClass<System.Delegate>)+E0]");
 			bool flag3 = (nint)0 == 0;
 			bool flag4 = !flag3;
@@ -336,7 +327,6 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 		nint num5 = (nint)typeof(CollectParticleData[]);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v257 @ X8_v8 (Il2CppClass<FluidRendererBase>)+190]");
 		global::System.Action value = new global::System.Action(this, (global::System.IntPtr)0);
-		nint num6 = (nint)this;
 		global::System.Delegate obj5 = global::System.Delegate.Remove(fluidCompute.OnPreUpdate, value);
 		if ((object)obj5 != null)
 		{

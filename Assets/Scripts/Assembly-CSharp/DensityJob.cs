@@ -89,7 +89,6 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 		//IL_064e: Expected O, but got I
 		//IL_069e: Expected O, but got I
 		//IL_06ae: Expected O, but got I
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		object obj = 0;
 		int num2 = i << 3;
 		object obj2 = predicted + num2;
@@ -128,7 +127,6 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 			}
 		}
 		_ = 1;
-		nint num3 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v146 @ X8_v87 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj9 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v126 @ X0_v64+E0]");
@@ -214,7 +212,7 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 							nint num23 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v470 @ X10_v8 (Unity.Collections.NativeArray`1<System.Int32>)+i @ X1 (System.Int32)*4]");
 							ulong key = (ulong)(num23 | 0);
-							if (((global::Unity.Collections.NativeHashMap<ulong, byte>*)nativeParallelHashMap)->ContainsKey(key))
+							if (nativeParallelHashMap.ContainsKey(key))
 							{
 								goto IL_0a71;
 							}
@@ -232,7 +230,6 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4420]");
 						if ((nint)0 != 0)
 						{
-							nint num26 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v635 @ X8_v66 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 							object obj22 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v637 @ X0_v50+E0]");
@@ -244,7 +241,6 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 						else
 						{
 							_ = 1;
-							nint num27 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v658 @ X8_v37 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 							object obj23 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v644 @ X0_v27+E0]");
@@ -441,7 +437,6 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 		}
 		goto IL_09d6;
 		IL_0058:
-		nint num48 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v107 @ X8_v97 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj39 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v109 @ X0_v73+E0]");

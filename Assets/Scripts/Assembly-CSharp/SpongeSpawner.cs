@@ -32,7 +32,6 @@ public class SpongeSpawner : global::UnityEngine.MonoBehaviour
 		//IL_01cc: Expected O, but got I4
 		//IL_019b: Expected O, but got I4
 		//IL_01a4: Expected O, but got I4
-		nint num = (nint)0;
 		object obj = (nint)0 + (nint)2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA93]");
 		int num2 = (int)((nint)0 & (nint)1);
@@ -78,7 +77,6 @@ public class SpongeSpawner : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_00c6;
 		IL_00c6:
-		nint num3 = (nint)0;
 		nint num4 = 0;
 		obj = (nint)obj8 + 144;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v183 @ X24_v8 (Il2CppMethodInfo)+B98]");
@@ -127,7 +125,6 @@ public class SpongeSpawner : global::UnityEngine.MonoBehaviour
 		//IL_003f: Expected O, but got I
 		//IL_011a: Expected O, but got F4
 		//IL_0137: Expected O, but got I
-		nint num = (nint)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
 		global::Unity.Mathematics.float2[] array = new global::Unity.Mathematics.float2[subSpongeParticleCount];
 		if (subSpongeParticleCount >= 1)

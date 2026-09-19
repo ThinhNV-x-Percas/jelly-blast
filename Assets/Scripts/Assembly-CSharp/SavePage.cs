@@ -51,26 +51,22 @@ public class SavePage : global::UnityEngine.MonoBehaviour
 		string persistentDataPath = global::UnityEngine.Application.persistentDataPath;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v49 @ X23_v1 (System.String)+5F8]");
 		string lOGS_FOLDER_PATH = string.Format((string)0, persistentDataPath);
-		object obj = (nint)this + 56;
 		LOGS_FOLDER_PATH = lOGS_FOLDER_PATH;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		string identifier = global::UnityEngine.Application.identifier;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X21_v1 (System.String)+748]");
 		string pLAYER_PREFS_PATH = string.Format((string)0, identifier);
-		object obj2 = (nint)this + 64;
 		PLAYER_PREFS_PATH = pLAYER_PREFS_PATH;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		string persistentDataPath2 = global::UnityEngine.Application.persistentDataPath;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v53 @ X20_v2 (System.String)+788]");
 		string sAVE_FILE_PATH = persistentDataPath2 + (string)0;
-		object obj3 = (nint)this + 72;
 		SAVE_FILE_PATH = sAVE_FILE_PATH;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Transform transform = base.transform;
 		global::UnityEngine.Transform root = transform.root;
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj4 = (nint)this + 80;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v110 @ X0_v29+20]");
 		_logScroller = (LogScroller)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -144,7 +140,6 @@ public class SavePage : global::UnityEngine.MonoBehaviour
 			{
 				global::System.IO.DirectoryInfo directoryInfo = global::System.IO.Directory.CreateDirectory(LOGS_FOLDER_PATH);
 			}
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			string text2 = "x-cp50227";
 			long num2 = global::System.DateTimeOffset.Now.ToUnixTimeSeconds();
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v84 @ X22_v2 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+1B8]");
@@ -282,7 +277,6 @@ public class SavePage : global::UnityEngine.MonoBehaviour
 			string[] array = global::System.IO.File.ReadAllLines(SAVE_FILE_PATH);
 			if (array != null)
 			{
-				nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 				object obj = array.Length;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"il2cpp_vm_object_box\"");
 				nint num2 = 0;

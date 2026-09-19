@@ -144,7 +144,6 @@ public class Fish : SpecialFluid
 				}
 				_003C_003E1__state = -1;
 				global::UnityEngine.Transform transform = fish.fish.transform;
-				nint num = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v653 @ X8_v127 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v655 @ X8_v129+B8]");
@@ -197,7 +196,6 @@ public class Fish : SpecialFluid
 				float deltaTime = global::UnityEngine.Time.deltaTime;
 				float num7 = _003Celapsed_003E5__2 + deltaTime;
 				_003Celapsed_003E5__2 = num7;
-				object obj7 = (nint)this + 24;
 				_003C_003E2__current = null;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				_003C_003E1__state = 1;
@@ -210,7 +208,6 @@ public class Fish : SpecialFluid
 			animator.SetBool((string)0, value: false);
 			fish.faceRenderer.SetBlendShapeWeight(1, 0f);
 			fish.faceRenderer.SetBlendShapeWeight(2, 100f);
-			object obj8 = (nint)fish + 248;
 			fish.OnMenuReached = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::UnityEngine.Quaternion endValue = default(global::UnityEngine.Quaternion);
@@ -292,7 +289,6 @@ public class Fish : SpecialFluid
 					goto IL_11fe;
 				}
 			}
-			nint num13 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			object obj14 = obj12;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1041 @ X8_v91 (Il2CppMethodInfo)+CF0]");
 			global::System.Predicate<object> predicate = new global::System.Predicate<object>(obj14, (global::System.IntPtr)0);
@@ -425,7 +421,6 @@ public class Fish : SpecialFluid
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B14BC (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
 			global::DG.Tweening.Tween t5 = default(global::DG.Tweening.Tween);
 			global::DG.Tweening.Sequence sequence6 = global::DG.Tweening.TweenSettingsExtensions.Insert(sequence, num16, t5);
-			nint num68 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1185 @ X8_v41 (Il2CppMethodInfo)+518]");
 			global::DG.Tweening.TweenCallback callback = new global::DG.Tweening.TweenCallback(fish, (global::System.IntPtr)0);
 			nint num69 = 0;
@@ -480,7 +475,7 @@ public class Fish : SpecialFluid
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
 			object obj20 = default(object);
 			int num72 = (int)((nint)obj20 + 372);
-			string text3 = ((int*)num72)->ToString();
+			string text3 = num72.ToString();
 			string text4 = "<'width'>";
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v701 @ X8_v20 (System.String)+A00]");
 			string message = (string)0 + text3;
@@ -488,7 +483,6 @@ public class Fish : SpecialFluid
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v404 @ X0_v39+78]");
 			object obj21 = 0;
-			nint num73 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v741 @ X26_v5 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+B18]");
 			object obj22 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v742 @ X0_v40+E0]");
@@ -519,7 +513,6 @@ public class Fish : SpecialFluid
 					goto IL_033a;
 				}
 			}
-			nint num74 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			object obj25 = obj23;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v794 @ X8_v116 (Il2CppMethodInfo)+CF8]");
 			global::System.Predicate<object> predicate2 = new global::System.Predicate<object>(obj25, (global::System.IntPtr)0);
@@ -547,9 +540,7 @@ public class Fish : SpecialFluid
 					goto IL_0779;
 				}
 			}
-			nint num76 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			object obj29 = new object();
-			object obj30 = (nint)obj29 + 56;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::DG.Tweening.Sequence sequence12 = global::DG.Tweening.DOTween.Sequence();
 			float num77 = fish.centerMoveDuration + fish.menuMoveDuration;
@@ -562,7 +553,6 @@ public class Fish : SpecialFluid
 			_ = fish.pendingCenter.z;
 			_ = fish.pendingMenu.z;
 			_ = fish.pendingMenu;
-			nint num80 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1169 @ X8_v63 (Il2CppMethodInfo)+D00]");
 			global::DG.Tweening.TweenCallback<float> onVirtualUpdate = new global::DG.Tweening.TweenCallback<float>(obj29, (global::System.IntPtr)0);
 			nint num81 = 0;
@@ -571,7 +561,6 @@ public class Fish : SpecialFluid
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1590 (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
 			global::DG.Tweening.Tween t9 = default(global::DG.Tweening.Tween);
 			global::DG.Tweening.Sequence sequence13 = global::DG.Tweening.TweenSettingsExtensions.Append(sequence12, t9);
-			nint num83 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1237 @ X8_v69 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj31 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1239 @ X8_v71+B8]");
@@ -591,7 +580,6 @@ public class Fish : SpecialFluid
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1590 (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
 			global::DG.Tweening.Tween t10 = default(global::DG.Tweening.Tween);
 			global::DG.Tweening.Sequence sequence14 = global::DG.Tweening.TweenSettingsExtensions.Join(sequence12, t10);
-			nint num85 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1284 @ X8_v77 (Il2CppMethodInfo)+D08]");
 			global::DG.Tweening.TweenCallback callback2 = new global::DG.Tweening.TweenCallback(obj29, (global::System.IntPtr)0);
 			nint num86 = 0;
@@ -662,7 +650,6 @@ public class Fish : SpecialFluid
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3344;
@@ -786,7 +773,6 @@ public class Fish : SpecialFluid
 			float num5 = num4 + -1f;
 			float rot = num5 * 0.5f;
 			_003C_003E4__this._003CRotateBlob_003Eg__SetRot_007C31_0(rot);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -808,7 +794,6 @@ public class Fish : SpecialFluid
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3352;
@@ -941,7 +926,6 @@ public class Fish : SpecialFluid
 			//IL_009a: Expected I, but got O
 			//IL_00a6: Expected O, but got I
 			nint num = (nint)typeof(CollectParticleData[]);
-			object obj = (nint)this + 248;
 			global::System.Delegate obj2 = this.m_OnMenuReached;
 			bool flag;
 			global::System.Delegate obj4 = default(global::System.Delegate);
@@ -971,7 +955,6 @@ public class Fish : SpecialFluid
 			//IL_009a: Expected I, but got O
 			//IL_00a6: Expected O, but got I
 			nint num = (nint)typeof(CollectParticleData[]);
-			object obj = (nint)this + 248;
 			global::System.Delegate obj2 = this.m_OnMenuReached;
 			bool flag;
 			global::System.Delegate obj4 = default(global::System.Delegate);
@@ -1069,11 +1052,9 @@ public class Fish : SpecialFluid
 			nint num25 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1590 (DG.Tweening.TweenSettingsExtensions::SetEase, and 1 more at this address)");
 			global::Unity.Jobs.JobHandle jobHandle = (global::Unity.Jobs.JobHandle)((nint)solver + 544);
-			((global::Unity.Jobs.JobHandle*)jobHandle)->Complete();
-			nint num26 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
+			jobHandle.Complete();
 			object obj2 = new object();
 			_ = 0;
-			object obj3 = (nint)obj2 + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_ = localRotation.y;
 			_ = localRotation.z;
@@ -1128,7 +1109,6 @@ public class Fish : SpecialFluid
 					{
 						break;
 					}
-					object obj3 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num4 = (int)((nint)obj4 & 1);
 					bool flag2 = num4 == 0;
@@ -1194,10 +1174,8 @@ public class Fish : SpecialFluid
 	{
 		//IL_000e: Expected I, but got O
 		//IL_005a: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		_ = uprightRot.y;
 		_ = uprightRot.z;
@@ -1224,7 +1202,6 @@ public class Fish : SpecialFluid
 		if (hasSwum)
 		{
 			global::UnityEngine.Transform transform = fish.transform;
-			nint num = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v173 @ X8_v12 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v175 @ X8_v14+B8]");
@@ -1250,7 +1227,6 @@ public class Fish : SpecialFluid
 		}
 		else
 		{
-			nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v102 @ X8_v5 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj7 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v104 @ X8_v7+B8]");
@@ -1297,10 +1273,8 @@ public class Fish : SpecialFluid
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -1316,15 +1290,12 @@ public class Fish : SpecialFluid
 		//IL_00de: Expected F4, but got I
 		base._002Ector();
 		global::UnityEngine.AnimationCurve animationCurve = global::UnityEngine.AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-		object obj = (nint)this + 256;
 		centerEase = animationCurve;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.AnimationCurve animationCurve2 = global::UnityEngine.AnimationCurve.Linear(0f, 0f, 1f, 1f);
-		object obj2 = (nint)this + 264;
 		menuEase = animationCurve2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.AnimationCurve animationCurve3 = global::UnityEngine.AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-		object obj3 = (nint)this + 272;
 		scaleEase = animationCurve3;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [28759A0]");

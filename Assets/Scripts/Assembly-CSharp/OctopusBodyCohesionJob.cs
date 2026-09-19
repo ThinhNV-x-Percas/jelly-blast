@@ -50,9 +50,7 @@ internal struct OctopusBodyCohesionJob : global::Unity.Jobs.IJobParallelFor
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v55 @ X8_v5 (Unity.Collections.NativeArray`1<System.Boolean>)+index @ X1 (System.Int32)]");
 		if ((nint)0 == 0)
 		{
-			global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = (global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>)global::System.Runtime.CompilerServices.Unsafe.AsPointer(ref global::System.Runtime.CompilerServices.Unsafe.AddByteOffset(ref this, 64));
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X8_v3 (Unity.Collections.NativeArray`1<System.Int32>)+index @ X1 (System.Int32)*4]");
-			global::Unity.Mathematics.float2 float5 = (*(global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>*)nativeParallelHashMap)[0];
+			global::Unity.Mathematics.float2 float5 = octopusHeadMidpoints[nativeArray[index]];
 			global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray3 = positions;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4420]");
 			float num2;

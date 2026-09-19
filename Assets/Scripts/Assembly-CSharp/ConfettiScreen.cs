@@ -109,22 +109,16 @@ public class ConfettiScreen : Viewport
 				{
 					global::UnityEngine.Component component = _003C_003E4__this;
 					_003C_003E1__state = -1;
-					nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-					object obj = (nint)component + 112;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					nint num2 = (nint)typeof(CollectParticleData[]);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-					object obj2 = (nint)component + 120;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-					object obj3 = (nint)component + 128;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v95 @ X19_v5 (UnityEngine.Component)+60]");
 					if ((nint)0 >= (nint)1)
 					{
-						nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
-						nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 						int num5 = 32;
 						int num6 = 0;
 						global::UnityEngine.Component component2 = default(global::UnityEngine.Component);
@@ -265,9 +259,7 @@ public class ConfettiScreen : Viewport
 			else
 			{
 				_003C_003E1__state = -1;
-				nint num38 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.1f);
-				object obj21 = (nint)this + 24;
 				_003C_003E2__current = waitForSeconds;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				_003C_003E1__state = 1;
@@ -290,7 +282,6 @@ public class ConfettiScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)408;
@@ -355,10 +346,8 @@ public class ConfettiScreen : Viewport
 		//IL_0014: Expected I, but got O
 		//IL_0047: Expected O, but got I
 		base.OnStartShow();
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 	}
@@ -371,10 +360,8 @@ public class ConfettiScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -396,9 +383,6 @@ public class ConfettiScreen : Viewport
 		//IL_03d6: Expected O, but got I
 		//IL_03ec: Expected O, but got I
 		CoinParticle[] array = particles;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
-		nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
 		object obj8 = default(object);
 		for (int i = 0; i < array.Length; i++, array = particles)
@@ -489,25 +473,9 @@ public class ConfettiScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = System.Xml.ValidateNames;\n\tgoto L_0017;\n\tv23 = System.Xml.ValidateNames;\n\tv24 = v23 + 0x198;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAD7]) = v43;\nL_0017:\n\tthis.count = 0x64;\n\tthis.maxVel = -52776567239680d;\n\tthis.maxStartDelay = *([2875AD0]);\n\tv49 = *([v18 @ X20_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv51 = *([v49 @ X0_v2+E0]) == 0;\n\tif (v51) goto L_0037;\n\tViewport::.ctor(this);\n\treturn;\nL_0037:\n\tViewport::.ctor(this);\n\treturn;\n// 40 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public ConfettiScreen()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0059: Expected F4, but got I
-		//IL_0069: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		count = 100;
 		maxVel = 4000f;
 		gravity = -100f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875AD0]");
 		maxStartDelay = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v49 @ X0_v2+E0]");
-		if ((nint)0 != 0)
-		{
-			base._002Ector();
-		}
-		else
-		{
-			base._002Ector();
-		}
 	}
 }

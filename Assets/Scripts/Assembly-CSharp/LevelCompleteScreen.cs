@@ -109,7 +109,6 @@ public class LevelCompleteScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)296;
@@ -153,7 +152,6 @@ public class LevelCompleteScreen : Viewport
 		string text3 = (string)0 + text2;
 		levelText.text = text3;
 		UIButton uIButton = nextButton;
-		nint num = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 		nint num2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v122 @ X22_v2 (Il2CppMethodInfo)+F50]");
 		global::UnityEngine.Events.UnityAction call = new global::UnityEngine.Events.UnityAction(this, (global::System.IntPtr)0);
@@ -167,10 +165,8 @@ public class LevelCompleteScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0041: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 	}
@@ -183,10 +179,8 @@ public class LevelCompleteScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -201,7 +195,6 @@ public class LevelCompleteScreen : Viewport
 		//IL_0022: Expected I4, but got Unknown
 		//IL_00a7: Expected O, but got I
 		//IL_005a: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		if ((typeof(_00210) & 1) != 0)
 		{
 			conversionDuration = 1f;

@@ -126,7 +126,6 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 				elasticScale.SetScale(0f);
 				elasticScale.Pop();
 				global::UnityEngine.Transform transform4 = _003Ceffect_003E5__2.transform;
-				nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v300 @ X8_v20 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 				object obj4 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v302 @ X8_v22+B8]");
@@ -141,9 +140,7 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 				endValue.y = (float)obj6;
 				endValue.z = 0f;
 				global::DG.Tweening.Core.TweenerCore<global::UnityEngine.Vector3, global::UnityEngine.Vector3, global::DG.Tweening.Plugins.Options.VectorOptions> tweenerCore2 = global::DG.Tweening.ShortcutExtensions.DOMove(transform4, endValue, 0.5f);
-				nint num8 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.5f);
-				object obj7 = (nint)this + 24;
 				_003C_003E2__current = waitForSeconds;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				_003C_003E1__state = 1;
@@ -166,7 +163,6 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)72;
@@ -206,7 +202,6 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		//IL_01cc: Expected O, but got I4
 		//IL_019b: Expected O, but got I4
 		//IL_01a4: Expected O, but got I4
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A99B]");
 		int num2 = (int)((nint)0 & (nint)1);
@@ -321,7 +316,6 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		//IL_03ae: Expected O, but got I4
 		//IL_037d: Expected O, but got I4
 		//IL_0386: Expected O, but got I4
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A99C]");
 		object obj4;
@@ -361,7 +355,6 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return;
 		IL_028b:
-		nint num2 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		obj2 = typeof(global::System.Collections.Generic.NullableComparer<>) + 3456;
 		nint num3 = 0;
 		object obj6 = default(object);
@@ -412,12 +405,10 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		}
 		goto IL_03fe;
 		IL_014b:
-		object obj12 = (nint)this + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v78 @ X0_v7+30]");
 		solver = (FluidSolver)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidSolver fluidSolver = solver;
-		nint num6 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num7 = 0;
 		obj = (nint)solver + 624;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v157 @ X25_v5 (Il2CppMethodInfo)+2A0]");
@@ -474,13 +465,10 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 			position.z = 0f;
 			global::UnityEngine.Vector3 vector2 = main.WorldToScreenPoint(position);
 			string text = "Expected ComplexType. Schema was not generated using this tool.";
-			nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			object obj = new object();
 			_ = 0;
-			object obj2 = (nint)obj + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_ = vector2.y;
-			object obj3 = (nint)obj + 40;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v103 @ X8_v3 (System.String)+C38]");
 			_ = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -504,13 +492,10 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		position.y = wPos.y;
 		position.z = 0f;
 		global::UnityEngine.Vector3 vector2 = main.WorldToScreenPoint(position);
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		_ = vector2.y;
-		object obj3 = (nint)obj + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X20_v2 (System.String)+930]");
 		_ = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -526,13 +511,10 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 		//IL_000e: Expected I, but got O
 		//IL_0064: Expected O, but got I
 		//IL_0031: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		_ = pos.y;
-		object obj3 = (nint)obj + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}

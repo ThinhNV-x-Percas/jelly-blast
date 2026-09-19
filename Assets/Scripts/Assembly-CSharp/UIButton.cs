@@ -39,7 +39,6 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		set
 		{
 			//IL_000c: Expected O, but got I
-			object obj = (nint)this + 32;
 			m_OnClick = value;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		}
@@ -52,12 +51,9 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0030: Expected O, but got I
-		nint num = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
 		global::UnityEngine.Events.UnityEvent unityEvent = new global::UnityEngine.Events.UnityEvent();
-		object obj = (nint)this + 32;
 		m_OnClick = (UIButton.UIButtonClickedEvent)unityEvent;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		base._002Ector();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003FA")]
@@ -68,7 +64,6 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		//IL_0021: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 40;
 		ElasticScale elasticScale = default(ElasticScale);
 		this.elasticScale = elasticScale;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -94,7 +89,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		//IL_0066: Expected O, but got I
 		//IL_0151: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
+		AudioManager audioManager = default(AudioManager);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAA3]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -129,8 +124,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		IL_0133:
 		string text = "focus";
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v75 @ X8_v4 (System.String)+4E0]");
-		AudioManager audioManager = default(AudioManager);
-		audioManager.PlayClip((string)0);
+		audioManager.PlayClip((string)null);
 		ElasticScale elasticScale = this.elasticScale;
 		elasticScale.targetScale = 0.8f;
 		return;
@@ -159,7 +153,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		string text = "__sort-indicator";
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v67 @ X8_v5 (System.String)+CE8]");
 		AudioManager audioManager = default(AudioManager);
-		audioManager.PlayClip((string)0);
+		audioManager.PlayClip((string)null);
 		ElasticScale elasticScale = this.elasticScale;
 		elasticScale.targetScale = 1f;
 		elasticScale.Pop();

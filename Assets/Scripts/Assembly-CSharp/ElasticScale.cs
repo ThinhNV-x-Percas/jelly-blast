@@ -67,22 +67,12 @@ public class ElasticScale : global::UnityEngine.MonoBehaviour
 		float fixedTime = global::UnityEngine.Time.fixedTime;
 		float fixedDeltaTime = global::UnityEngine.Time.fixedDeltaTime;
 		global::UnityEngine.Transform transform = base.transform;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v63 @ X8_v3 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X8_v5+B8]");
-		object obj2 = 0;
 		float num2 = scale - prevScale;
 		float num3 = time - fixedTime;
 		float num4 = num3 / fixedDeltaTime;
 		float num5 = num4 - 1f;
-		bool flag = num5 < 0f;
 		bool flag2 = num5 == 0f;
-		object obj3 = num4 ^ 1f;
-		object obj4 = num4 ^ num5;
-		int num6 = (int)((nint)obj3 & (nint)obj4);
-		bool flag3 = num6 < 0;
-		bool flag4 = flag == flag3;
+		bool flag4 = num4 > 1f;
 		bool flag5 = !flag2;
 		float num7 = ((!(flag4 && flag5)) ? num4 : 1f);
 		if (num4 < 0f)
@@ -93,14 +83,11 @@ public class ElasticScale : global::UnityEngine.MonoBehaviour
 		float num9 = prevScale + num8;
 		float num10 = ((!(num9 < 0f)) ? num9 : 0f);
 		float num11 = num10;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v66 @ X8_v6+14]");
-		float z = num11 * 0f;
+		float z = num11 * 1f;
 		float num12 = num10;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v66 @ X8_v6+10]");
-		float y = num12 * 0f;
+		float y = num12 * 1f;
 		float num13 = num10;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v66 @ X8_v6+C]");
-		float x = num13 * 0f;
+		float x = num13 * 1f;
 		global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
 		localScale.x = x;
 		localScale.y = y;
@@ -119,20 +106,12 @@ public class ElasticScale : global::UnityEngine.MonoBehaviour
 		prevScale = _scale;
 		scale = _scale;
 		global::UnityEngine.Transform transform = base.transform;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v45 @ X8_v3 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X8_v5+B8]");
-		object obj2 = 0;
 		float num2 = scale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v48 @ X8_v6+14]");
-		float z = num2 * 0f;
+		float z = num2 * 1f;
 		float num3 = scale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v48 @ X8_v6+10]");
-		float y = num3 * 0f;
+		float y = num3 * 1f;
 		float num4 = scale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v48 @ X8_v6+C]");
-		float x = num4 * 0f;
+		float x = num4 * 1f;
 		global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
 		localScale.x = x;
 		localScale.y = y;
@@ -168,7 +147,6 @@ public class ElasticScale : global::UnityEngine.MonoBehaviour
 	public ElasticScale()
 	{
 		//IL_0018: Expected F4, but got I
-		base._002Ector();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875990]");
 		scaleStiffness = 0f;
 		popScaleVel = 20f;

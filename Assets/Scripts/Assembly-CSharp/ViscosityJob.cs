@@ -109,8 +109,6 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 		//IL_041b: Expected O, but got I
 		//IL_046f: Expected O, but got I
 		//IL_047e: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
-		nint num2 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		object obj = 0;
 		int num3 = (int)(i & 0xFFFFFFFFL);
 		int num4 = num3 << 3;
@@ -155,7 +153,6 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 			}
 		}
 		_ = 1;
-		nint num5 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v154 @ X8_v79 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj12 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v134 @ X0_v54+E0]");
@@ -249,7 +246,7 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 								nint num25 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v488 @ X10_v13 (Unity.Collections.NativeArray`1<System.Int32>)+v210 @ X25_v1 (System.Int32)*4]");
 								ulong key = (ulong)(num25 | 0);
-								if (((global::Unity.Collections.NativeHashMap<ulong, byte>*)nativeParallelHashMap)->ContainsKey(key))
+								if (nativeParallelHashMap.ContainsKey(key))
 								{
 									goto IL_07c2;
 								}
@@ -271,7 +268,6 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4420]");
 							if ((nint)0 != 0)
 							{
-								nint num28 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v635 @ X8_v62 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 								object obj25 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v637 @ X0_v43+E0]");
@@ -282,7 +278,6 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 							else
 							{
 								_ = 1;
-								nint num29 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v657 @ X8_v35 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 								object obj26 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v644 @ X0_v24+E0]");
@@ -353,7 +348,6 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 		}
 		goto IL_073a;
 		IL_0066:
-		nint num36 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v114 @ X8_v89 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj38 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v116 @ X0_v63+E0]");

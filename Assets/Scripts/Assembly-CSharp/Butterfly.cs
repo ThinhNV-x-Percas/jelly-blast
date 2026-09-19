@@ -67,17 +67,13 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 		pos.y = _position.y;
 		startPos = pos;
 		prevPos = pos;
-		object obj = (nint)this + 88;
 		getTargetPos = _getTargetPos;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj2 = (nint)this + 96;
 		onComplete = _onComplete;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Transform transform = base.transform;
 		global::UnityEngine.Transform child = transform.GetChild(0);
 		global::UnityEngine.Transform transform2 = child.transform;
-		nint num = 0;
-		nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v146 @ X8_v7 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 		object obj3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v148 @ X8_v9+B8]");
@@ -123,20 +119,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 		float num = time - startTime;
 		float num2 = num / applyForceDuration;
 		float num3 = num2 - 1f;
-		bool flag = num3 < 0f;
-		bool flag2 = num3 == 0f;
-		object obj = num2 ^ 1f;
-		object obj2 = num2 ^ num3;
-		int num4 = (int)((nint)obj & (nint)obj2);
-		bool flag3 = num4 < 0;
-		bool flag4 = flag == flag3;
-		bool flag5 = !flag2;
-		if (flag4 && flag5)
-		{
-		}
-		if (num2 < 0f)
-		{
-		}
 		object obj3 = 48054272;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4421]");
 		float num5;
@@ -161,7 +143,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 		}
 		else
 		{
-			nint num8 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v240 @ X8_v20 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 			object obj5 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v242 @ X8_v22+B8]");
@@ -174,16 +155,16 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 		object obj8 = default(object);
 		float num10 = num9 * (float)obj8;
 		float num11 = vel.x + num10;
-		vel = (global::UnityEngine.Vector2)num11;
+		vel.x = num11;
 		float num12 = num11 * (float)obj8;
 		float fixedDeltaTime2 = global::UnityEngine.Time.fixedDeltaTime;
 		float num13 = num12 * (float)obj8;
 		float num14 = num11 - num13;
-		vel = (global::UnityEngine.Vector2)num14;
+		vel.x = num14;
 		float fixedDeltaTime3 = global::UnityEngine.Time.fixedDeltaTime;
 		float num15 = num14 * (float)obj8;
 		float num16 = pos.x + num15;
-		pos = (global::UnityEngine.Vector2)num16;
+		pos.x = num16;
 		float num17 = num16 - (float)obj4;
 		float num18 = (float)obj4 - startPos.x;
 		float num19 = num17 * num18;
@@ -207,7 +188,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 	{
 		//IL_003b: Expected I, but got O
 		//IL_007e: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::System.Action action = onComplete;
 		if (onComplete != null)
 		{
@@ -256,7 +236,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 			position2.z = position.z;
 			transform2.position = position2;
 			global::UnityEngine.Transform transform3 = base.transform;
-			nint num = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v221 @ X8_v4 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v223 @ X8_v6+B8]");
@@ -272,23 +251,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 		}
 		global::UnityEngine.Transform transform4 = base.transform;
 		float num2 = pos.x - prevPos.x;
-		float num3 = time - fixedTime;
-		float num4 = num3 / fixedDeltaTime;
-		float num5 = num4 - 1f;
-		bool flag = num5 < 0f;
-		bool flag2 = num5 == 0f;
-		object obj3 = num4 ^ 1f;
-		object obj4 = num4 ^ num5;
-		int num6 = (int)((nint)obj3 & (nint)obj4);
-		bool flag3 = num6 < 0;
-		bool flag4 = flag == flag3;
-		bool flag5 = !flag2;
-		if (flag4 && flag5)
-		{
-		}
-		if (num4 < 0f)
-		{
-		}
 		object obj5 = default(object);
 		float num7 = num2 * (float)obj5;
 		float x = prevPos.x + num7;
@@ -306,7 +268,6 @@ public class Butterfly : global::UnityEngine.MonoBehaviour
 	public Butterfly()
 	{
 		//IL_0018: Expected F4, but got I
-		base._002Ector();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875900]");
 		damping = 0f;
 	}

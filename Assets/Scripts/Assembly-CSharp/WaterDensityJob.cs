@@ -63,7 +63,6 @@ public struct WaterDensityJob : global::Unity.Jobs.IJobParallelFor
 		//IL_0180: Expected O, but got I
 		//IL_036f: Expected O, but got I
 		//IL_039a: Expected O, but got I
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		object obj = 0;
 		int num2 = i << 3;
 		object obj2 = predicted + num2;
@@ -102,8 +101,7 @@ public struct WaterDensityJob : global::Unity.Jobs.IJobParallelFor
 			}
 		}
 		_ = 1;
-		nint num3 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		object obj9 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+		object obj9 = (nint)0 + 2328;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v140 @ X21_v5 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj10 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v119 @ X0_v50+E0]");
@@ -238,8 +236,7 @@ public struct WaterDensityJob : global::Unity.Jobs.IJobParallelFor
 		}
 		goto IL_05c9;
 		IL_0058:
-		nint num27 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		obj9 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+		obj9 = (nint)0 + 2328;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v101 @ X21_v9 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 		object obj29 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v103 @ X0_v59+E0]");

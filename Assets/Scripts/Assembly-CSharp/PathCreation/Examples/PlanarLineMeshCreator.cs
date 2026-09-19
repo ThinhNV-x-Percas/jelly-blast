@@ -63,7 +63,6 @@ namespace PathCreation.Examples
 			//IL_02b7: Expected O, but got I
 			//IL_02c7: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AB04]");
 			global::UnityEngine.Object obj3;
 			global::UnityEngine.Object obj4;
@@ -139,7 +138,6 @@ namespace PathCreation.Examples
 			}
 			return;
 			IL_00b9:
-			object obj11 = (nint)this + 72;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 			object obj12 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v79 @ X0_v17+E0]");
@@ -258,7 +256,6 @@ namespace PathCreation.Examples
 			//IL_218b: Expected O, but got I
 			//IL_22a4: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AB05]");
 			global::UnityEngine.Object obj4;
 			object obj5;
@@ -344,7 +341,7 @@ namespace PathCreation.Examples
 			global::System.Collections.Generic.List<int> list8;
 			global::System.Collections.Generic.List<float> list9;
 			float num37;
-			int num45;
+			int num45 = 0;
 			global::System.Collections.Generic.List<global::UnityEngine.Vector2> list10;
 			int num56 = default(int);
 			global::UnityEngine.Vector2 item5 = default(global::UnityEngine.Vector2);
@@ -370,7 +367,6 @@ namespace PathCreation.Examples
 				}
 				else
 				{
-					nint num11 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2250 @ X8_v140 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 					object obj11 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2252 @ X8_v142+B8]");
@@ -400,90 +396,22 @@ namespace PathCreation.Examples
 				position2.y = y2;
 				position2.z = z2;
 				global::UnityEngine.Vector3 vector2 = transform2.InverseTransformPoint(position2);
-				int version = list._version + 1;
-				list._version = version;
-				global::UnityEngine.Vector3[] items = list._items;
-				int num15;
-				if (list.Count < items.Length)
-				{
-					num15 = list.Count + 1;
-					int num16 = list.Count * 12;
-					object obj13 = (nint)items + num16;
-					items[list.Count].y = vector.y;
-					items[list.Count].z = planarLineMeshCreator3.localZ;
-					int version2 = list._version + 2;
-					list._size = num15;
-					list._version = version2;
-				}
-				else
-				{
 					item.x = vector.x;
 					item.y = vector.y;
 					item.z = planarLineMeshCreator3.localZ;
 					list.Add(item);
-					items = list._items;
-					num15 = list.Count;
-					int version3 = list._version + 1;
-					list._version = version3;
-				}
-				if (num15 < items.Length)
-				{
-					int size = num15 + 1;
-					list._size = size;
-					int num17 = num15 * 12;
-					object obj14 = (nint)items + num17;
-					items[num15].y = vector2.y;
-					items[num15].z = planarLineMeshCreator3.localZ;
-				}
-				else
-				{
 					item2.x = vector2.x;
 					item2.y = vector2.y;
 					item2.z = planarLineMeshCreator3.localZ;
 					list.Add(item2);
-				}
-				int version4 = list4._version + 1;
-				list4._version = version4;
-				global::UnityEngine.Vector3[] items2 = list4._items;
-				int num18;
-				if (list4.Count < items2.Length)
-				{
-					num18 = list4.Count + 1;
-					int num19 = list4.Count * 12;
-					object obj15 = (nint)items2 + num19;
-					items2[list4.Count].y = y3;
-					items2[list4.Count].z = z3;
-					int version5 = list4._version + 2;
-					list4._size = num18;
-					list4._version = version5;
-				}
-				else
-				{
 					item3.x = x3;
 					item3.y = y3;
 					item3.z = z3;
 					list4.Add(item3);
-					items2 = list4._items;
-					num18 = list4.Count;
-					int version6 = list4._version + 1;
-					list4._version = version6;
-				}
-				if (num18 < items2.Length)
-				{
-					int size2 = num18 + 1;
-					list4._size = size2;
-					int num20 = num18 * 12;
-					object obj16 = (nint)items2 + num20;
-					items2[num18].y = y3;
-					items2[num18].z = z3;
-				}
-				else
-				{
 					item4.x = x3;
 					item4.y = y3;
 					item4.z = z3;
 					list4.Add(item4);
-				}
 				float num21 = planarLineMeshCreator3.innerSegmentLengthRatio + planarLineMeshCreator3.innerSegmentLengthRatio;
 				float num22 = num21 + 1f;
 				float num23 = 1f / num22;
@@ -553,32 +481,9 @@ namespace PathCreation.Examples
 				float x4 = (planarLineMeshCreator3.flipU ? num53 : num44);
 				float y4 = (planarLineMeshCreator3.flipV ? 1f : 0f);
 				float y5 = (planarLineMeshCreator3.flipV ? 0f : 1f);
-				int version7 = list10._version + 1;
-				list10._version = version7;
-				global::UnityEngine.Vector2[] items3 = list10._items;
-				int num54;
-				if (list10.Count < items3.Length)
-				{
-					num54 = list10.Count + 1;
-					int num55 = list10.Count << 3;
-					object obj23 = (nint)items3 + num55;
-					items3[num56].y = y4;
-					int version8 = list10._version + 2;
-					list10._size = num54;
-					list10._version = version8;
-				}
-				else
-				{
 					item5.x = x4;
 					item5.y = y4;
 					list10.Add(item5);
-					items3 = list10._items;
-					num54 = list10.Count;
-					int version9 = list10._version + 1;
-					list10._version = version9;
-				}
-				if (num54 >= items3.Length)
-				{
 					item6.x = x4;
 					item6.y = y5;
 					list10.Add(item6);
@@ -591,20 +496,6 @@ namespace PathCreation.Examples
 						break;
 					}
 					continue;
-				}
-				int size3 = num54 + 1;
-				list10._size = size3;
-				int num57 = num54 << 3;
-				object obj24 = (nint)items3 + num57;
-				items3[num54].y = y5;
-				num3++;
-				bool flag23 = list6.Count != num3;
-				num2 = 0;
-				list4 = list5;
-				if (!flag23)
-				{
-					break;
-				}
 			}
 			bool flag24 = list6.Count < 2;
 			uvs = list10;
@@ -645,103 +536,15 @@ namespace PathCreation.Examples
 					int num66 = list7[num65];
 					if (num64 == num66)
 					{
-						int version10 = list2._version + 1;
-						list2._version = version10;
-						int[] items4 = list2._items;
-						int count = list2.Count;
-						if (list2.Count < items4.Length)
-						{
-							int size4 = list2.Count + 1;
-							list2._size = size4;
-							items4[count] = num62;
-							int version11 = list2._version + 1;
-							list2._version = version11;
-						}
-						else
-						{
 							list2.Add(num62);
-							items4 = list2._items;
-							int version12 = list2._version + 1;
-							list2._version = version12;
-						}
 						int num67 = num62 + 1;
-						int count2 = list2.Count;
-						if (list2.Count < items4.Length)
-						{
-							int size5 = list2.Count + 1;
-							list2._size = size5;
-							items4[count2] = num67;
-							int version13 = list2._version + 1;
-							list2._version = version13;
-						}
-						else
-						{
-							list2.Add(num67);
-							items4 = list2._items;
-							int version14 = list2._version + 1;
-							list2._version = version14;
-						}
+						list2.Add(num67);
 						int num68 = num62 + 2;
-						int count3 = list2.Count;
-						if (list2.Count < items4.Length)
-						{
-							int size6 = list2.Count + 1;
-							list2._size = size6;
-							items4[count3] = num68;
-							int version15 = list2._version + 1;
-							list2._version = version15;
-						}
-						else
-						{
-							list2.Add(num68);
-							items4 = list2._items;
-							int version16 = list2._version + 1;
-							list2._version = version16;
-						}
-						int count4 = list2.Count;
-						if (list2.Count < items4.Length)
-						{
-							int size7 = list2.Count + 1;
-							list2._size = size7;
-							items4[count4] = num68;
-							int version17 = list2._version + 1;
-							list2._version = version17;
-						}
-						else
-						{
-							list2.Add(num68);
-							items4 = list2._items;
-							int version18 = list2._version + 1;
-							list2._version = version18;
-						}
-						int count5 = list2.Count;
-						if (list2.Count < items4.Length)
-						{
-							int size8 = list2.Count + 1;
-							list2._size = size8;
-							items4[count5] = num67;
-							int version19 = list2._version + 1;
-							list2._version = version19;
-						}
-						else
-						{
-							list2.Add(num67);
-							items4 = list2._items;
-							int version20 = list2._version + 1;
-							list2._version = version20;
-						}
+						list2.Add(num68);
+						list2.Add(num68);
+						list2.Add(num67);
 						int num69 = num62 + 3;
-						int count6 = list2.Count;
-						if (list2.Count >= items4.Length)
-						{
-							list2.Add(num69);
-						}
-						else
-						{
-							int size9 = list2.Count + 1;
-							list2._size = size9;
-							items4[count6] = num69;
-						}
+						list2.Add(num69);
 					}
 					num62 += 2;
 					num63 = num65 + 2;
@@ -789,15 +592,12 @@ namespace PathCreation.Examples
 			planarLineMeshCreator = planarLineMeshCreator2;
 			goto IL_0215;
 			IL_00f2:
-			nint num76 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::UnityEngine.Mesh mesh = new global::UnityEngine.Mesh();
 			obj2 = mesh;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			goto IL_0215;
 			IL_0215:
 			vertexPath = planarLineMeshCreator.pathCreator.path;
-			nint num77 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-			nint num78 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			float num79 = planarLineMeshCreator.thickness + planarLineMeshCreator.thickness;
 			float num80 = vertexPath.length - num79;
 			float num81 = ((!(num80 < 0f)) ? num80 : 0f);
@@ -811,7 +611,6 @@ namespace PathCreation.Examples
 				float num85;
 				if ((nint)0 != 0)
 				{
-					nint num83 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1250 @ X8_v251 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 					object obj25 = 0;
 					num84 = num81 / num82;
@@ -826,7 +625,6 @@ namespace PathCreation.Examples
 				else
 				{
 					_ = 1;
-					nint num86 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1307 @ X8_v245 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 					object obj26 = 0;
 					num84 = num81 / num82;
@@ -859,54 +657,12 @@ namespace PathCreation.Examples
 			global::System.Collections.Generic.List<float> list11;
 			while (true)
 			{
-				int version21 = list9._version + 1;
-				list9._version = version21;
-				float[] items5 = list9._items;
-				float num91 = num37 * (float)num90;
-				float num92 = planarLineMeshCreator.thickness + num91;
-				int count7 = list9.Count;
-				if (list9.Count < items5.Length)
-				{
-					int size10 = list9.Count + 1;
-					list9._size = size10;
-					items5[count7] = num92;
-				}
-				else
-				{
-					list9.Add(num92);
-				}
-				int version22 = list11._version + 1;
-				list11._version = version22;
-				float[] items6 = list11._items;
-				float num93 = num37 + num92;
-				int count8 = list11.Count;
-				if (list11.Count < items6.Length)
-				{
-					int size11 = list11.Count + 1;
-					list11._size = size11;
-					items6[count8] = num93;
-				}
-				else
-				{
-					list11.Add(num93);
-				}
-				int version23 = list8._version + 1;
-				list8._version = version23;
-				int[] items7 = list8._items;
+				float num92 = 0f;
+				list9.Add(num92);
+				float num93 = 0f;
+				list11.Add(num93);
 				num90++;
-				int count9 = list8.Count;
-				if (list8.Count >= items7.Length)
-				{
-					list8.Add(num90);
-					if (num89 == num90)
-					{
-						break;
-					}
-					continue;
-				}
-				int size12 = list8.Count + 1;
-				list8._size = size12;
-				items7[count9] = num90;
+				list8.Add(num90);
 				if (num89 == num90)
 				{
 					break;
@@ -914,20 +670,16 @@ namespace PathCreation.Examples
 			}
 			goto IL_0b4c;
 			IL_135f:
-			nint num94 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-			nint num95 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			int capacity = default(int);
 			list3 = new global::System.Collections.Generic.List<global::UnityEngine.Vector3>(capacity);
 			capacity = list6.Count << 1;
 			list10 = new global::System.Collections.Generic.List<global::UnityEngine.Vector2>(capacity);
 			list5 = new global::System.Collections.Generic.List<global::UnityEngine.Vector3>(capacity);
-			nint num96 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			int capacity2 = default(int);
 			list2 = new global::System.Collections.Generic.List<int>(capacity2);
 			int num97 = list6.Count * 6;
 			capacity2 = (int)(4294967290L + num97);
 			global::UnityEngine.Transform transform3 = base.transform;
-			nint num98 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1880 @ X8_v31 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj27 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1882 @ X8_v33+B8]");
@@ -968,7 +720,6 @@ namespace PathCreation.Examples
 			}
 			else
 			{
-				nint num105 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2047 @ X8_v148 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj29 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2049 @ X8_v150+B8]");
@@ -992,8 +743,8 @@ namespace PathCreation.Examples
 			if ((double)num88 == -0.5)
 			{
 				num71 = -1.0;
-				num72 = num73;
-				num74 = num73;
+				num72 = 0.0;
+				num74 = 0.0;
 				goto IL_2ba1;
 			}
 			double a = (double)num87 + -0.5;
@@ -1003,56 +754,13 @@ namespace PathCreation.Examples
 			list9 = new global::System.Collections.Generic.List<float>();
 			list11 = new global::System.Collections.Generic.List<float>();
 			list8 = new global::System.Collections.Generic.List<int>();
-			int version24 = list9._version + 1;
-			list9._version = version24;
-			float[] items8 = list9._items;
-			int count10 = list9.Count;
-			if (list9.Count < items8.Length)
-			{
-				int size13 = list9.Count + 1;
-				list9._size = size13;
-				items8[count10] = 0f;
-			}
-			else
-			{
-				list9.Add(0f);
-			}
-			int version25 = list11._version + 1;
-			list11._version = version25;
-			float[] items9 = list11._items;
-			int count11 = list11.Count;
-			if (list11.Count < items9.Length)
-			{
-				int size14 = list11.Count + 1;
-				list11._size = size14;
-				items9[count11] = planarLineMeshCreator.thickness;
-			}
-			else
-			{
-				list11.Add(planarLineMeshCreator.thickness);
-			}
-			int version26 = list8._version + 1;
-			list8._version = version26;
-			int[] items10 = list8._items;
-			int count12 = list8.Count;
-			if (list8.Count < items10.Length)
-			{
-				int size15 = list8.Count + 1;
-				list8._size = size15;
-				items10[count12] = 0;
+			list9.Add(0f);
+			list11.Add(planarLineMeshCreator.thickness);
+			list8.Add(0);
 				if (num89 != 0)
 				{
 					goto IL_08d6;
 				}
-			}
-			else
-			{
-				list8.Add(0);
-				if (num89 != 0)
-				{
-					goto IL_08d6;
-				}
-			}
 			goto IL_0b4c;
 			IL_2ba1:
 			double num106 = num72 + num71;
@@ -1062,52 +770,11 @@ namespace PathCreation.Examples
 			}
 			goto IL_0556;
 			IL_0b4c:
-			int version27 = list9._version + 1;
-			list9._version = version27;
-			float[] items11 = list9._items;
-			float num107 = vertexPath.length - planarLineMeshCreator.thickness;
-			int count13 = list9.Count;
-			if (list9.Count < items11.Length)
-			{
-				int size16 = list9.Count + 1;
-				list9._size = size16;
-				items11[count13] = num107;
-			}
-			else
-			{
-				list9.Add(num107);
-			}
-			int version28 = list11._version + 1;
-			list11._version = version28;
-			float[] items12 = list11._items;
-			int count14 = list11.Count;
-			if (list11.Count < items12.Length)
-			{
-				int size17 = list11.Count + 1;
-				list11._size = size17;
-				items12[count14] = vertexPath.length;
-			}
-			else
-			{
-				list11.Add(vertexPath.length);
-			}
-			int version29 = list8._version + 1;
-			list8._version = version29;
-			int[] items13 = list8._items;
-			num45 = num89 + 1;
-			int count15 = list8.Count;
-			if (list8.Count < items13.Length)
-			{
-				int size18 = list8.Count + 1;
-				list8._size = size18;
-				items13[count15] = num45;
-			}
-			else
-			{
-				list8.Add(num45);
-			}
+			float num107 = 0f;
+			list9.Add(num107);
+			list11.Add(vertexPath.length);
+			list8.Add(0);
 			list6 = new global::System.Collections.Generic.List<float>();
-			nint num108 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			list7 = new global::System.Collections.Generic.List<int>();
 			if (list9.Count < 1)
 			{
@@ -1135,34 +802,8 @@ namespace PathCreation.Examples
 				int num119;
 				if (num109 != 0)
 				{
-					int version30 = list6._version + 1;
-					list6._version = version30;
-					float[] items14 = list6._items;
-					int count16 = list6.Count;
-					if (list6.Count < items14.Length)
-					{
-						int size19 = list6.Count + 1;
-						list6._size = size19;
-						items14[count16] = num110;
-					}
-					else
-					{
-						list6.Add(num110);
-					}
-					int version31 = list7._version + 1;
-					list7._version = version31;
-					int[] items15 = list7._items;
-					int count17 = list7.Count;
-					if (list7.Count < items15.Length)
-					{
-						int size20 = list7.Count + 1;
-						list7._size = size20;
-						items15[count17] = num109;
-					}
-					else
-					{
-						list7.Add(num109);
-					}
+					list6.Add(num110);
+					list7.Add(num109);
 					num117 = num111 - num110;
 					num118 = num116;
 					num119 = 1;
@@ -1191,39 +832,8 @@ namespace PathCreation.Examples
 					bool flag44 = !flag41;
 					float num125 = ((!(flag43 && flag44)) ? ((float)num120) : 1f);
 					float num126 = ((num120 >= 0) ? num125 : 0f);
-					int version32 = list6._version + 1;
-					list6._version = version32;
-					float[] items16 = list6._items;
-					float num127 = num117 * num126;
-					float num128 = num110 + num127;
-					int count18 = list6.Count;
-					if (list6.Count < items16.Length)
-					{
-						int size21 = list6.Count + 1;
-						list6._size = size21;
-						items16[count18] = num128;
-					}
-					else
-					{
-						list6.Add(num128);
-					}
-					int version33 = list7._version + 1;
-					list7._version = version33;
-					int[] items17 = list7._items;
-					int count19 = list7.Count;
-					if (list7.Count >= items17.Length)
-					{
-						list7.Add(num109);
-						num119++;
-						if (num119 > num116)
-						{
-							break;
-						}
-						continue;
-					}
-					int size22 = list7.Count + 1;
-					list7._size = size22;
-					items17[count19] = num109;
+					list6.Add(num126);
+					list7.Add(num109);
 					num119++;
 					if (num119 > num116)
 					{
@@ -1249,19 +859,8 @@ namespace PathCreation.Examples
 			bool flag49 = !flag46;
 			float num134 = ((!(flag48 && flag49)) ? ((float)num129) : 1f);
 			float num135 = ((num129 >= 0) ? num134 : 0f);
-			int version34 = list6._version + 1;
-			list6._version = version34;
-			float[] items18 = list6._items;
 			float num136 = num117 * num135;
 			float num137 = num110 + num136;
-			int count20 = list6.Count;
-			if (list6.Count < items18.Length)
-			{
-				int size23 = list6.Count + 1;
-				list6._size = size23;
-				items18[count20] = num137;
-				throw list11;
-			}
 			list6.Add(num137);
 			goto IL_2b79;
 			IL_2b79:

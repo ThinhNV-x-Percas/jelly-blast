@@ -50,7 +50,6 @@ public class CollectSprite : global::UnityEngine.MonoBehaviour
 		//IL_0031: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 32;
 		global::UnityEngine.SpriteRenderer spriteRenderer = default(global::UnityEngine.SpriteRenderer);
 		this.spriteRenderer = spriteRenderer;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");

@@ -58,7 +58,6 @@ namespace PathCreation.Examples
 			//IL_0229: Expected O, but got I
 			//IL_010d: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AB3D]");
 			global::UnityEngine.Object obj3;
 			global::UnityEngine.Object obj4;
@@ -237,8 +236,6 @@ namespace PathCreation.Examples
 			//IL_1496: Expected O, but got I
 			//IL_14a6: Expected O, but got I
 			//IL_14b6: Expected O, but got I
-			nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-			nint num2 = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v46 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+530]");
 			global::System.Collections.Generic.List<global::UnityEngine.Vector3> list = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
 			list = new global::System.Collections.Generic.List<global::UnityEngine.Vector3>();
@@ -258,8 +255,7 @@ namespace PathCreation.Examples
 			if ((nint)0 != 0)
 			{
 				num3 = vertexPath.length * resolutionV;
-				nint num4 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-				obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+				obj2 = (nint)0 + 2328;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v663 @ X23_v27 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 				list = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X0_v3 (System.Collections.Generic.List`1<UnityEngine.Vector3>)+E0]");
@@ -275,8 +271,7 @@ namespace PathCreation.Examples
 			{
 				_ = 1;
 				num3 = vertexPath.length * resolutionV;
-				nint num6 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-				obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
+				obj2 = (nint)0 + 2328;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v693 @ X23_v23 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
 				list = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X0_v3 (System.Collections.Generic.List`1<UnityEngine.Vector3>)+E0]");
@@ -312,7 +307,6 @@ namespace PathCreation.Examples
 			}
 			goto IL_0332;
 			IL_1655:
-			nint num15 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1162 @ X8_v19 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+9E8]");
 			list = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
 			global::UnityEngine.Mesh mesh = new global::UnityEngine.Mesh();
@@ -349,9 +343,9 @@ namespace PathCreation.Examples
 			if ((double)num9 == 0.5)
 			{
 				num13 = 1.0;
-				num12 = num16;
+				num12 = 0.0;
 				obj2 = obj3;
-				num14 = num16;
+				num14 = 0.0;
 				goto IL_17a3;
 			}
 			double d = (double)num10 + 0.5;
@@ -467,7 +461,6 @@ namespace PathCreation.Examples
 						}
 						else
 						{
-							nint num56 = (nint)typeof(global::System.Xml.ValidateNames);
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1184 @ X8_v109 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 							object obj8 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1186 @ X8_v111+B8]");
@@ -486,22 +479,7 @@ namespace PathCreation.Examples
 						position.y = y3;
 						position.z = z3;
 						global::UnityEngine.Vector3 item = transform.InverseTransformPoint(position);
-						int version = list._version + 1;
-						list._version = version;
-						global::UnityEngine.Vector3[] items = list._items;
-						if (list.Count < items.Length)
-						{
-							int size = list.Count + 1;
-							list._size = size;
-							int num57 = list.Count * 12;
-							object obj10 = (nint)items + num57;
-							items[list.Count].y = item.y;
-							items[list.Count].z = item.z;
-						}
-						else
-						{
-							list.Add(item);
-						}
+						list.Add(item);
 						global::UnityEngine.Transform transform2 = base.transform;
 						direction2.x = x;
 						direction2.y = y2;
@@ -531,7 +509,6 @@ namespace PathCreation.Examples
 						}
 						else
 						{
-							nint num64 = (nint)typeof(global::System.Xml.ValidateNames);
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1274 @ X8_v95 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 							object obj11 = 0;
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1276 @ X8_v97+B8]");
@@ -542,222 +519,36 @@ namespace PathCreation.Examples
 							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1267 @ X8_v98+8]");
 							z = 0f;
 						}
-						object obj13 = obj6;
-						int version2 = list3._version + 1;
-						list3._version = version2;
-						global::UnityEngine.Vector3[] items2 = list3._items;
-						int num66;
-						if (list3.Count < items2.Length)
+						int num66 = 0;
+						item2.x = num63;
+						item2.y = y;
+						item2.z = z;
+						list3.Add(item2);
+						list = list3;
+						if (!((double)num37 < num22))
 						{
-							int size2 = list3.Count + 1;
-							list3._size = size2;
-							int num65 = list3.Count * 12;
-							object obj14 = (nint)items2 + num65;
-							items2[list3.Count].y = y;
-							items2[list3.Count].z = z;
-							bool flag11 = !((double)num37 < num22);
-							num66 = 0;
-							if (flag11)
-							{
-								goto IL_06c7;
-							}
+							goto IL_06c7;
 						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v635 @ X8_v43+20]");
-							object obj15 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1302 @ X8_v86+C0]");
-							object obj16 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1303 @ X8_v87+70]");
-							num66 = 0;
-							item2.x = num63;
-							item2.y = y;
-							item2.z = z;
-							list3.Add(item2);
-							bool flag12 = !((double)num37 < num22);
-							list = list3;
-							list = list3;
-							if (flag12)
-							{
-								goto IL_06c7;
-							}
-						}
-						nint num67 = 0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1370 @ X8_v49 (Il2CppMethodInfo)+410]");
-						object obj17 = 0;
-						int version3 = triangles._version + 1;
-						triangles._version = version3;
-						int[] items3 = triangles._items;
-						int num68 = resolutionU * num37;
+						int num68 = num37 * resolutionU;
 						int num69 = num68 + num38;
-						int count = triangles.Count;
-						global::System.Collections.Generic.List<int> list4;
-						if (triangles.Count < items3.Length)
-						{
-							int size3 = triangles.Count + 1;
-							triangles._size = size3;
-							items3[count] = num69;
-							int version4 = triangles._version + 1;
-							triangles._version = version4;
-							list4 = (global::System.Collections.Generic.List<int>)(object)list;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj18 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1382 @ X8_v81+C0]");
-							object obj19 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1383 @ X8_v82+70]");
-							obj7 = 0;
-							triangles.Add(num69);
-							nint num70 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1395 @ X8_v83 (Il2CppMethodInfo)+410]");
-							obj17 = 0;
-							items3 = triangles._items;
-							int version5 = triangles._version + 1;
-							triangles._version = version5;
-							list4 = triangles;
-						}
+						triangles.Add(num69);
 						int num71 = num38 + 1;
 						int num72 = num71 / resolutionU;
 						int num73 = num72 * resolutionU;
 						int num74 = num71 - num73;
 						int num75 = num74 + num68;
-						int count2 = triangles.Count;
-						if (triangles.Count < items3.Length)
-						{
-							int size4 = triangles.Count + 1;
-							triangles._size = size4;
-							items3[count2] = num75;
-							int version6 = triangles._version + 1;
-							triangles._version = version6;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj20 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1403 @ X8_v76+C0]");
-							object obj21 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1404 @ X8_v77+70]");
-							obj7 = 0;
-							triangles.Add(num75);
-							nint num76 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1415 @ X8_v78 (Il2CppMethodInfo)+410]");
-							obj17 = 0;
-							items3 = triangles._items;
-							int version7 = triangles._version + 1;
-							triangles._version = version7;
-							list4 = triangles;
-						}
+						triangles.Add(num75);
 						int num77 = num68 + resolutionU;
 						int num78 = num77 + num38;
-						int count3 = triangles.Count;
-						if (triangles.Count < items3.Length)
-						{
-							int size5 = triangles.Count + 1;
-							triangles._size = size5;
-							items3[count3] = num78;
-							int version8 = triangles._version + 1;
-							triangles._version = version8;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj22 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1423 @ X8_v71+C0]");
-							object obj23 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1424 @ X8_v72+70]");
-							obj7 = 0;
-							triangles.Add(num78);
-							nint num79 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1435 @ X8_v73 (Il2CppMethodInfo)+410]");
-							obj17 = 0;
-							items3 = triangles._items;
-							int version9 = triangles._version + 1;
-							triangles._version = version9;
-							list4 = triangles;
-						}
-						int count4 = triangles.Count;
-						if (triangles.Count < items3.Length)
-						{
-							int size6 = triangles.Count + 1;
-							triangles._size = size6;
-							items3[count4] = num75;
-							int version10 = triangles._version + 1;
-							triangles._version = version10;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj24 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1443 @ X8_v66+C0]");
-							object obj25 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1444 @ X8_v67+70]");
-							obj7 = 0;
-							triangles.Add(num75);
-							nint num80 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1455 @ X8_v68 (Il2CppMethodInfo)+410]");
-							obj17 = 0;
-							items3 = triangles._items;
-							int version11 = triangles._version + 1;
-							triangles._version = version11;
-							list4 = triangles;
-						}
+						triangles.Add(num78);
+						triangles.Add(num75);
 						num66 = num77 + num74;
-						int count5 = triangles.Count;
-						if (triangles.Count < items3.Length)
-						{
-							int size7 = triangles.Count + 1;
-							triangles._size = size7;
-							items3[count5] = num66;
-							int version12 = triangles._version + 1;
-							triangles._version = version12;
-							obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
-							obj6 = (nint)0 + (nint)2976;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj26 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1467 @ X8_v61+C0]");
-							object obj27 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1468 @ X8_v62+70]");
-							obj7 = 0;
-							triangles.Add(num66);
-							nint num81 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1473 @ X8_v63 (Il2CppMethodInfo)+410]");
-							obj17 = 0;
-							items3 = triangles._items;
-							int version13 = triangles._version + 1;
-							triangles._version = version13;
-							obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
-							obj6 = (nint)0 + (nint)2976;
-							list4 = triangles;
-						}
-						int count6 = triangles.Count;
-						if (triangles.Count < items3.Length)
-						{
-							int size8 = triangles.Count + 1;
-							triangles._size = size8;
-							items3[count6] = num78;
-							num37 = num23;
-							vertexPath4 = (global::PathCreation.VertexPath)(object)list4;
-							list3 = list;
-						}
-						else
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1471 @ X8_v56+20]");
-							object obj28 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1479 @ X8_v57+C0]");
-							object obj29 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1367 @ X8_v58+70]");
-							obj7 = 0;
-							triangles.Add(num78);
-							num37 = num23;
-							num66 = num78;
-							vertexPath4 = (global::PathCreation.VertexPath)(object)triangles;
-							list3 = list;
-						}
+						triangles.Add(num66);
+						triangles.Add(num78);
+						num37 = num23;
+						num66 = num78;
+						vertexPath4 = (global::PathCreation.VertexPath)(object)triangles;
+						list3 = list;
 						goto IL_18e7;
 						IL_18e7:
 						num26 = resolutionU;
@@ -813,8 +604,6 @@ namespace PathCreation.Examples
 				cylinderMeshCreator.AddHemisphereCap(1f, startCap: false, ref list, ref list, ref triangles, list2.Count);
 				global::UnityEngine.Vector3 direction = (global::UnityEngine.Vector3)1f;
 			}
-			object obj30 = (nint)cylinderMeshCreator + 96;
-			nint num87 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1107 @ X8_v15 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 			list = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X0_v3 (System.Collections.Generic.List`1<UnityEngine.Vector3>)+E0]");
@@ -920,22 +709,7 @@ namespace PathCreation.Examples
 			position.z = z;
 			global::UnityEngine.Vector3 item = transform.InverseTransformPoint(position);
 			nint num8 = 0;
-			int version = list._version + 1;
-			list._version = version;
-			global::UnityEngine.Vector3[] items = list._items;
-			if (list.Count < items.Length)
-			{
-				int size = list.Count + 1;
-				list._size = size;
-				int num9 = list.Count * 12;
-				object obj = (nint)items + num9;
-				items[list.Count].y = item.y;
-				items[list.Count].z = item.z;
-			}
-			else
-			{
-				list.Add(item);
-			}
+			list.Add(item);
 			global::System.Collections.Generic.List<global::UnityEngine.Vector3> list2 = normals;
 			global::UnityEngine.Transform transform2 = base.transform;
 			global::UnityEngine.Vector3 direction2 = default(global::UnityEngine.Vector3);
@@ -947,18 +721,12 @@ namespace PathCreation.Examples
 			object obj2;
 			if ((nint)0 != 0)
 			{
-				nint num10 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-				obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1030 @ X25_v22 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
-				global::System.Collections.Generic.List<global::UnityEngine.Vector3> list3 = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
+				obj2 = (nint)0 + 2328;
 			}
 			else
 			{
 				_ = 1;
-				nint num11 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-				obj2 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 2328;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1057 @ X25_v4 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+918]");
-				global::System.Collections.Generic.List<global::UnityEngine.Vector3> list3 = (global::System.Collections.Generic.List<global::UnityEngine.Vector3>)0;
+				obj2 = (nint)0 + 2328;
 			}
 			float num12 = vector3.x * vector3.x;
 			float num13 = vector3.y * vector3.y;
@@ -977,7 +745,6 @@ namespace PathCreation.Examples
 			}
 			else
 			{
-				nint num17 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1083 @ X8_v206 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj3 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1085 @ X8_v208+B8]");
@@ -990,21 +757,6 @@ namespace PathCreation.Examples
 			}
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1004 @ X23_v2 (Il2CppMethodInfo)+BA0]");
 			object obj5 = 0;
-			int version2 = list2._version + 1;
-			list2._version = version2;
-			global::UnityEngine.Vector3[] items2 = list2._items;
-			if (list2.Count < items2.Length)
-			{
-				int size2 = list2.Count + 1;
-				list2._size = size2;
-				int num18 = list2.Count * 12;
-				object obj6 = (nint)items2 + num18;
-				items2[list2.Count].y = y2;
-				items2[list2.Count].z = z2;
-				object obj7 = 0;
-			}
-			else
-			{
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v801 @ X8_v17+20]");
 				object obj8 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1103 @ X8_v199+C0]");
@@ -1017,7 +769,6 @@ namespace PathCreation.Examples
 				item2.z = z2;
 				list2.Add(item2);
 				global::System.Collections.Generic.List<global::UnityEngine.Vector3> list3 = list2;
-			}
 			int num19 = vertOffset + 1;
 			int num20 = capSegmentsV;
 			int num21 = resolutionU;
@@ -1036,7 +787,6 @@ namespace PathCreation.Examples
 				float num28 = num22 - num23;
 				float num29 = num24 - num25;
 				float num30 = num26 - num27;
-				nint num31 = (nint)typeof(global::System.Xml.ValidateNames);
 				float num32 = num28;
 				int num33 = resolutionU;
 				int num34 = 1;
@@ -1052,11 +802,9 @@ namespace PathCreation.Examples
 					if (num33 >= 1)
 					{
 						int num37 = 0;
-						object obj19;
+						object obj19 = null;
 						int num69;
 						global::System.Collections.Generic.List<global::UnityEngine.Vector3> list6;
-						object obj7;
-						global::System.Collections.Generic.List<global::UnityEngine.Vector3> list3;
 						while (true)
 						{
 							int num38 = num37 / num33;
@@ -1130,22 +878,7 @@ namespace PathCreation.Examples
 							position2.y = y4;
 							position2.z = z4;
 							global::UnityEngine.Vector3 item3 = transform3.InverseTransformPoint(position2);
-							int version3 = list4._version + 1;
-							list4._version = version3;
-							global::UnityEngine.Vector3[] items3 = list4._items;
-							if (list4.Count < items3.Length)
-							{
-								int size3 = list4.Count + 1;
-								list4._size = size3;
-								int num63 = list4.Count * 12;
-								object obj13 = (nint)items3 + num63;
-								items3[list4.Count].y = item3.y;
-								items3[list4.Count].z = item3.z;
-							}
-							else
-							{
-								list4.Add(item3);
-							}
+							list4.Add(item3);
 							global::System.Collections.Generic.List<global::UnityEngine.Vector3> list5 = normals;
 							global::UnityEngine.Transform transform4 = base.transform;
 							direction3.x = x3;
@@ -1188,56 +921,21 @@ namespace PathCreation.Examples
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2023 @ X8_v185+8]");
 								num24 = 0f;
 							}
-							object obj16 = obj10;
-							int version4 = list5._version + 1;
-							list5._version = version4;
-							global::UnityEngine.Vector3[] items4 = list5._items;
-							if (list5.Count >= items4.Length)
+							item4.x = x5;
+							item4.y = y5;
+							item4.z = num24;
+							list5.Add(item4);
+							num37++;
+							num69 = resolutionU;
+							bool flag2 = num37 >= resolutionU;
+							list6 = list5;
+							num32 = num30;
+							num33 = resolutionU;
+							obj7 = 0;
+							list3 = list5;
+							if (flag2)
 							{
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v805 @ X8_v175+20]");
-								object obj17 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v2047 @ X8_v179+C0]");
-								object obj18 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1570 @ X8_v180+70]");
-								obj19 = 0;
-								item4.x = x5;
-								item4.y = y5;
-								item4.z = num24;
-								list5.Add(item4);
-								num37++;
-								num69 = resolutionU;
-								bool flag2 = num37 >= resolutionU;
-								list6 = list5;
-								num32 = num30;
-								num33 = resolutionU;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v1570 @ X8_v180+70]");
-								obj7 = 0;
-								list3 = list5;
-								if (flag2)
-								{
-									break;
-								}
-							}
-							else
-							{
-								int size4 = list5.Count + 1;
-								list5._size = size4;
-								int num70 = list5.Count * 12;
-								object obj20 = (nint)items4 + num70;
-								items4[list5.Count].y = y5;
-								items4[list5.Count].z = num24;
-								num37++;
-								num33 = resolutionU;
-								bool flag3 = num37 < resolutionU;
-								num32 = num30;
-								obj7 = 0;
-								if (!flag3)
-								{
-									num69 = resolutionU;
-									obj19 = 0;
-									list6 = list3;
-									break;
-								}
+								break;
 							}
 						}
 						num20 = capSegmentsV;
@@ -1261,63 +959,14 @@ namespace PathCreation.Examples
 					while (true)
 					{
 						global::System.Collections.Generic.List<int> list7 = triangles;
-						int version5 = list7._version + 1;
-						list7._version = version5;
-						int[] items5 = list7._items;
-						int count = list7.Count;
-						if (list7.Count < items5.Length)
-						{
-							int size5 = list7.Count + 1;
-							list7._size = size5;
-							items5[count] = vertOffset;
-						}
-						else
-						{
-							list7.Add(vertOffset);
-							list7 = triangles;
-						}
-						int version6 = list7._version + 1;
-						list7._version = version6;
-						int[] items6 = list7._items;
+						list7.Add(vertOffset);
 						int num73 = num72 / num71;
 						int num74 = num73 * num71;
 						int num75 = num72 - num74;
 						int num76 = num75 + num19;
-						int count2 = list7.Count;
-						if (list7.Count < items6.Length)
-						{
-							int size6 = list7.Count + 1;
-							list7._size = size6;
-							items6[count2] = num76;
-						}
-						else
-						{
-							list7.Add(num76);
-							list7 = triangles;
-						}
-						int version7 = list7._version + 1;
-						list7._version = version7;
-						int[] items7 = list7._items;
+						list7.Add(num76);
 						int num77 = vertOffset + num72;
-						int count3 = list7.Count;
-						if (list7.Count < items7.Length)
-						{
-							int size7 = list7.Count + 1;
-							list7._size = size7;
-							items7[count3] = num77;
-							num71 = resolutionU;
-							int num78 = num72 + 1;
-							bool flag5 = num72 >= resolutionU;
-							num72 = num78;
-							num21 = resolutionU;
-							if (flag5)
-							{
-								break;
-							}
-						}
-						else
-						{
-							list7.Add(num77);
+						list7.Add(num77);
 							num71 = resolutionU;
 							int num79 = num72 + 1;
 							bool flag6 = num72 < resolutionU;
@@ -1327,7 +976,6 @@ namespace PathCreation.Examples
 								num21 = resolutionU;
 								break;
 							}
-						}
 					}
 				}
 				else
@@ -1337,62 +985,14 @@ namespace PathCreation.Examples
 					while (true)
 					{
 						global::System.Collections.Generic.List<int> list8 = triangles;
-						int version8 = list8._version + 1;
-						list8._version = version8;
-						int[] items8 = list8._items;
-						int count4 = list8.Count;
-						if (list8.Count < items8.Length)
-						{
-							int size8 = list8.Count + 1;
-							list8._size = size8;
-							items8[count4] = vertOffset;
-						}
-						else
-						{
-							list8.Add(vertOffset);
-							list8 = triangles;
-						}
-						int version9 = list8._version + 1;
-						list8._version = version9;
-						int[] items9 = list8._items;
+						list8.Add(vertOffset);
 						int num82 = vertOffset + num81;
-						int count5 = list8.Count;
-						if (list8.Count < items9.Length)
-						{
-							int size9 = list8.Count + 1;
-							list8._size = size9;
-							items9[count5] = num82;
-						}
-						else
-						{
-							list8.Add(num82);
-							list8 = triangles;
-						}
-						int version10 = list8._version + 1;
-						list8._version = version10;
-						int[] items10 = list8._items;
+						list8.Add(num82);
 						int num83 = num81 / num80;
 						int num84 = num83 * num80;
 						int num85 = num81 - num84;
 						int num86 = num85 + num19;
-						int count6 = list8.Count;
-						if (list8.Count >= items10.Length)
-						{
-							list8.Add(num86);
-							num80 = resolutionU;
-							int num87 = num81 + 1;
-							bool flag7 = num81 >= resolutionU;
-							num81 = num87;
-							num21 = resolutionU;
-							if (flag7)
-							{
-								break;
-							}
-							continue;
-						}
-						int size10 = list8.Count + 1;
-						list8._size = size10;
-						items10[count6] = num86;
+						list8.Add(num86);
 						num80 = resolutionU;
 						int num88 = num81 + 1;
 						bool flag8 = num81 < resolutionU;
@@ -1433,110 +1033,30 @@ namespace PathCreation.Examples
 						while (true)
 						{
 							global::System.Collections.Generic.List<int> list9 = triangles;
-							int version11 = list9._version + 1;
-							list9._version = version11;
-							int[] items11 = list9._items;
-							int num102 = num99 + num101;
-							int count7 = list9.Count;
-							if (list9.Count < items11.Length)
-							{
-								int size11 = list9.Count + 1;
-								list9._size = size11;
-								items11[count7] = num102;
-							}
-							else
-							{
-								list9.Add(num102);
-								list9 = triangles;
-							}
-							int version12 = list9._version + 1;
-							list9._version = version12;
-							int[] items12 = list9._items;
 							int num103 = num101 / num100;
 							int num104 = num103 * num100;
 							int num105 = num101 - num104;
-							int num106 = num105 + num93;
-							int count8 = list9.Count;
-							if (list9.Count < items12.Length)
-							{
-								int size12 = list9.Count + 1;
-								list9._size = size12;
-								items12[count8] = num106;
-							}
-							else
-							{
-								list9.Add(num106);
+							int num102 = num97 + num105;
+								list9.Add(num102);
 								list9 = triangles;
-							}
-							int version13 = list9._version + 1;
-							list9._version = version13;
-							int[] items13 = list9._items;
-							int num107 = num97 + num101;
-							int count9 = list9.Count;
-							if (list9.Count < items13.Length)
-							{
-								int size13 = list9.Count + 1;
-								list9._size = size13;
-								items13[count9] = num107;
-							}
-							else
-							{
+							int version12 = list9._version + 1;
+							list9._version = version12;
+							int[] items12 = list9._items;
+							int num106 = num105 + num93;
+							list9.Add(num106);
+								list9 = triangles;
+								int num107 = num99 + num105;
 								list9.Add(num107);
 								list9 = triangles;
-							}
-							int version14 = list9._version + 1;
-							list9._version = version14;
-							int[] items14 = list9._items;
-							int count10 = list9.Count;
-							if (list9.Count < items14.Length)
-							{
-								int size14 = list9.Count + 1;
-								list9._size = size14;
-								items14[count10] = num106;
-							}
-							else
-							{
 								list9.Add(num106);
 								list9 = triangles;
-							}
-							int version15 = list9._version + 1;
-							list9._version = version15;
-							int[] items15 = list9._items;
-							int num108 = num105 + num95;
-							int count11 = list9.Count;
-							if (list9.Count < items15.Length)
-							{
-								int size15 = list9.Count + 1;
-								list9._size = size15;
-								items15[count11] = num108;
-							}
-							else
-							{
+								int num108 = num99 + num105;
 								list9.Add(num108);
 								list9 = triangles;
-							}
 							int version16 = list9._version + 1;
 							list9._version = version16;
 							int[] items16 = list9._items;
-							int count12 = list9.Count;
-							if (list9.Count < items16.Length)
-							{
-								int size16 = list9.Count + 1;
-								list9._size = size16;
-								items16[count12] = num107;
-								num21 = resolutionU;
-								int num109 = num101 + 1;
-								bool flag9 = num101 >= resolutionU;
-								num100 = resolutionU;
-								num101 = num109;
-								if (flag9)
-								{
-									break;
-								}
-							}
-							else
-							{
-								list9.Add(num107);
+							list9.Add(num107);
 								num100 = resolutionU;
 								int num110 = num101 + 1;
 								bool flag10 = num101 < resolutionU;
@@ -1546,7 +1066,6 @@ namespace PathCreation.Examples
 									num21 = resolutionU;
 									break;
 								}
-							}
 						}
 					}
 					else
@@ -1556,87 +1075,25 @@ namespace PathCreation.Examples
 						while (true)
 						{
 							global::System.Collections.Generic.List<int> list10 = triangles;
-							int version17 = list10._version + 1;
-							list10._version = version17;
-							int[] items17 = list10._items;
-							int num113 = num99 + num112;
-							int count13 = list10.Count;
-							if (list10.Count < items17.Length)
-							{
-								int size17 = list10.Count + 1;
-								list10._size = size17;
-								items17[count13] = num113;
-							}
-							else
-							{
-								list10.Add(num113);
-								list10 = triangles;
-							}
-							int version18 = list10._version + 1;
-							list10._version = version18;
-							int[] items18 = list10._items;
-							int num114 = num97 + num112;
-							int count14 = list10.Count;
-							if (list10.Count < items18.Length)
-							{
-								int size18 = list10.Count + 1;
-								list10._size = size18;
-								items18[count14] = num114;
-							}
-							else
-							{
-								list10.Add(num114);
-								list10 = triangles;
-							}
-							int version19 = list10._version + 1;
-							list10._version = version19;
-							int[] items19 = list10._items;
 							int num115 = num112 / num111;
 							int num116 = num115 * num111;
 							int num117 = num112 - num116;
-							int num118 = num117 + num93;
-							int count15 = list10.Count;
-							if (list10.Count < items19.Length)
-							{
-								int size19 = list10.Count + 1;
-								list10._size = size19;
-								items19[count15] = num118;
-							}
-							else
-							{
-								list10.Add(num118);
+							int num113 = num97 + num117;
+								list10.Add(num113);
 								list10 = triangles;
-							}
-							int version20 = list10._version + 1;
-							list10._version = version20;
-							int[] items20 = list10._items;
-							int count16 = list10.Count;
-							if (list10.Count < items20.Length)
-							{
-								int size20 = list10.Count + 1;
-								list10._size = size20;
-								items20[count16] = num118;
-							}
-							else
-							{
-								list10.Add(num118);
-								list10 = triangles;
-							}
-							int version21 = list10._version + 1;
-							list10._version = version21;
-							int[] items21 = list10._items;
-							int count17 = list10.Count;
-							if (list10.Count < items21.Length)
-							{
-								int size21 = list10.Count + 1;
-								list10._size = size21;
-								items21[count17] = num114;
-							}
-							else
-							{
+								int num114 = num99 + num117;
 								list10.Add(num114);
 								list10 = triangles;
-							}
+							int version19 = list10._version + 1;
+							list10._version = version19;
+							int[] items19 = list10._items;
+							int num118 = num117 + num93;
+							list10.Add(num118);
+								list10 = triangles;
+								list10.Add(num118);
+								list10 = triangles;
+								list10.Add(num114);
+								list10 = triangles;
 							int version22 = list10._version + 1;
 							list10._version = version22;
 							int[] items22 = list10._items;
@@ -1656,9 +1113,7 @@ namespace PathCreation.Examples
 								}
 								continue;
 							}
-							int size22 = list10.Count + 1;
-							list10._size = size22;
-							items22[count18] = num119;
+							list10.Add(num119);
 							num111 = resolutionU;
 							int num121 = num112 + 1;
 							bool flag12 = num112 < resolutionU;
@@ -1695,9 +1150,7 @@ namespace PathCreation.Examples
 			//IL_01e5: Expected O, but got I4
 			global::UnityEngine.GameObject gameObject = base.gameObject;
 			nint num = 0;
-			nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @114831C (UnityEngine.GameObject::GetComponent, and 1 more at this address)");
-			object obj = (nint)this + 80;
 			global::UnityEngine.MeshFilter meshFilter = default(global::UnityEngine.MeshFilter);
 			this.meshFilter = meshFilter;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -1734,7 +1187,6 @@ namespace PathCreation.Examples
 			global::UnityEngine.GameObject gameObject2 = base.gameObject;
 			nint num3 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @114831C (UnityEngine.GameObject::GetComponent, and 1 more at this address)");
-			object obj5 = (nint)this + 88;
 			global::UnityEngine.MeshRenderer meshRenderer = default(global::UnityEngine.MeshRenderer);
 			this.meshRenderer = meshRenderer;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -1790,7 +1242,6 @@ namespace PathCreation.Examples
 			//IL_00e2: Expected O, but got I
 			//IL_005a: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AB3E]");
 			global::UnityEngine.Object obj3;
 			global::UnityEngine.Object obj4;

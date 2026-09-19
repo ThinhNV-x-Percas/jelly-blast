@@ -119,7 +119,6 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 				}
 				int num6 = (int)((nint)obj7 << 4);
 				object obj9 = (nint)obj5 + num6;
-				object obj10 = (nint)obj9 + 312;
 				num7 = num;
 				goto IL_06f0;
 			}
@@ -205,7 +204,6 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 			}
 			int num13 = (int)((nint)obj21 << 4);
 			object obj23 = (nint)obj19 + num13;
-			object obj24 = (nint)obj23 + 312;
 			num12 = num7;
 			goto IL_07bd;
 			IL_02ce:
@@ -278,7 +276,6 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 					object obj32 = (nint)obj30 + 1;
 					int num18 = (int)((nint)obj32 << 4);
 					object obj33 = (nint)obj28 + num18;
-					object obj34 = (nint)obj33 + 312;
 					num12 = num7;
 					goto IL_0752;
 				}
@@ -395,13 +392,10 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 		//IL_002f: Expected O, but got I
 		//IL_0041: Expected O, but got I
 		base._002Ector();
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		string text = "IsCyrillic";
 		global::System.Collections.Generic.List<string> list = new global::System.Collections.Generic.List<string>();
-		object obj = (nint)this + 40;
 		texts = list;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj2 = (nint)this + 48;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v26 @ X21_v1 (System.String)+AE8]");
 		DATE_FORMAT = (string)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");

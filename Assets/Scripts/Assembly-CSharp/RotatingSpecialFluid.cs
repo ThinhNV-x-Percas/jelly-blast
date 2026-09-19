@@ -96,7 +96,6 @@ public class RotatingSpecialFluid : SpecialFluid
 				object obj10;
 				if ((object)solver != null)
 				{
-					object obj5 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v90 @ X25_v6 (Il2CppMethodInfo)+C28]");
 					obj6 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
@@ -259,9 +258,7 @@ public class RotatingSpecialFluid : SpecialFluid
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0031: Expected O, but got I
-		nint num = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
 		global::System.Collections.Generic.Dictionary<int, global::UnityEngine.Vector2> dictionary = new global::System.Collections.Generic.Dictionary<int, global::UnityEngine.Vector2>();
-		object obj = (nint)this + 184;
 		prevOffset = dictionary;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		base._002Ector();

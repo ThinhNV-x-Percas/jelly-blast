@@ -103,7 +103,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
 		string text = "l1";
-		object obj2 = (nint)this + 88;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v189 @ X0_v36+20]");
 		_logScroller = (LogScroller)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -138,9 +137,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		mutedBtnImg.sprite = (global::UnityEngine.Sprite)0;
 		_bgMusic.mute = _muted;
 		global::UnityEngine.Transform transform2 = _pages.transform;
-		nint num8 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
-		nint num9 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-		nint num10 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		object obj3 = typeof(global::UnityEngine.UIElements.EnumFieldHelpers) + 2544;
 		global::System.Collections.IEnumerator enumerator = transform2.GetEnumerator();
 		object obj4 = 0;
@@ -188,7 +184,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 				}
 				int num12 = obj8 << 4;
 				object obj10 = (nint)obj6 + num12;
-				object obj11 = (nint)obj10 + 312;
 				obj12 = obj4;
 				goto IL_0931;
 			}
@@ -270,7 +265,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v714 @ X0_v55] (should have been resolved before IL gen)");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v500 @ X23_v7 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+AA8]");
 			flag14 = false;
-			nint num18 = (nint)component;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v718 @ X8_v28 (Il2CppClass<UnityEngine.Component>)+130]");
 			nint num19 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v177 @ X1_v24 (System.Boolean)+130]");
@@ -338,7 +332,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 					object obj27 = obj25 + 1;
 					int num22 = (int)((nint)obj27 << 4);
 					object obj28 = (nint)obj23 + num22;
-					object obj29 = (nint)obj28 + 312;
 					obj20 = obj12;
 					goto IL_0993;
 				}
@@ -401,7 +394,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 			}
 			int num23 = obj34 << 4;
 			object obj36 = (nint)obj32 + num23;
-			object obj37 = (nint)obj36 + 312;
 			obj20 = obj12;
 			goto IL_0a13;
 			IL_0a13:
@@ -432,7 +424,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		//IL_00a4: Expected O, but got I
 		//IL_017c: Expected O, but got I
 		//IL_017c: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::UnityEngine.Transform transform = _pages.transform;
 		global::UnityEngine.GameObject gameObject = ((Menu)(object)transform)._FindChild(transform, pageName);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v49 @ X22_v2 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
@@ -458,7 +449,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		_logScroller.Log(text3);
 		return;
 		IL_0098:
-		object obj2 = (nint)this + 80;
 		_currentPage.SetActive(value: false);
 		nint num3 = 0;
 		_pagesStack.Push(_currentPage);
@@ -478,7 +468,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		global::System.Collections.Generic.Stack<global::UnityEngine.GameObject> pagesStack = _pagesStack;
 		if (pagesStack.Count >= 1)
 		{
-			object obj = (nint)this + 80;
 			_currentPage.SetActive(value: false);
 			global::UnityEngine.GameObject gameObject = (_currentPage = _pagesStack.Pop());
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -569,9 +558,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		//IL_05bd: Expected I4, but got O
 		//IL_05d2: Expected I4, but got O
 		object obj = 0;
-		nint num = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
-		nint num2 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-		nint num3 = (nint)typeof(global::UnityEngine.UIElements.EnumFieldHelpers);
 		object obj2 = typeof(global::UnityEngine.UIElements.EnumFieldHelpers) + 2544;
 		global::System.Collections.IEnumerator enumerator = target.GetEnumerator();
 		string text = name;
@@ -621,7 +607,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 				}
 				int num5 = obj6 << 4;
 				object obj8 = (nint)obj4 + num5;
-				object obj9 = (nint)obj8 + 312;
 				text2 = text;
 				goto IL_0616;
 			}
@@ -665,7 +650,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 					object obj15 = obj13 + 1;
 					int num7 = (int)((nint)obj15 << 4);
 					object obj16 = (nint)obj11 + num7;
-					object obj17 = (nint)obj16 + 312;
 					text3 = text2;
 					goto IL_0678;
 				}
@@ -679,7 +663,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v609 @ X0_v38] (should have been resolved before IL gen)");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v55 @ X23_v7 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+AA8]");
 			text4 = (string)0;
-			nint num9 = (nint)component;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v621 @ X8_v24 (Il2CppClass<UnityEngine.Component>)+130]");
 			nint num10 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v116 @ X1_v10 (System.String)+130]");
@@ -782,7 +765,6 @@ public class Menu : global::UnityEngine.MonoBehaviour
 		}
 		int num14 = obj29 << 4;
 		object obj31 = (nint)obj27 + num14;
-		object obj32 = (nint)obj31 + 312;
 		text3 = text2;
 		goto IL_0799;
 		IL_0799:
@@ -880,9 +862,7 @@ public class Menu : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0031: Expected O, but got I
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::System.Collections.Generic.Stack<global::UnityEngine.GameObject> pagesStack = new global::System.Collections.Generic.Stack<global::UnityEngine.GameObject>();
-		object obj = (nint)this + 104;
 		_pagesStack = pagesStack;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		base._002Ector();

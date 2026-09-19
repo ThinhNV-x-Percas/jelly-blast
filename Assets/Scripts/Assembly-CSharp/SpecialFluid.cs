@@ -111,7 +111,6 @@ public class SpecialFluid : FluidRendererBase
 			IL_00be:
 			float time3 = global::UnityEngine.Time.time;
 			_003C_003E4__this._003CHandleFlash_003Eg__SetAlpha_007C15_0(time3);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -133,7 +132,6 @@ public class SpecialFluid : FluidRendererBase
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)4024;
@@ -252,7 +250,6 @@ public class SpecialFluid : FluidRendererBase
 			float t = num3 / _003CshowDuration_003E5__3;
 			float scale = EasingFunction.EaseOutElastic(t, 1.75f);
 			_003C_003E4__this._003CHandlePopIn_003Eg__SetScale_007C13_0(scale);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -274,7 +271,6 @@ public class SpecialFluid : FluidRendererBase
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)4032;
@@ -382,7 +378,6 @@ public class SpecialFluid : FluidRendererBase
 		//IL_02e5: Expected O, but got I4
 		nint num = 0;
 		object obj = 0;
-		object obj2 = (nint)this + 112;
 		solver = _solver;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
@@ -394,25 +389,20 @@ public class SpecialFluid : FluidRendererBase
 		int num2 = (int)((nint)this + 136);
 		particleIds = _particleIds;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj4 = (nint)this + 32;
 		compute = _compute;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		nint num3 = (nint)typeof(CollectParticleData[]);
-		nint num4 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		maxParticles = _particleIds.Count;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj5 = (nint)this + 152;
 		int[] array = default(int[]);
 		solverIds = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj6 = (nint)this + 160;
 		int[] array2 = default(int[]);
 		computeIds = array2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		base.Init();
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj7 = (nint)this + 128;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		mr.GetPropertyBlock(_propBlock);
@@ -426,11 +416,8 @@ public class SpecialFluid : FluidRendererBase
 		propBlock3.SetFloat((string)0, 1f);
 		mr.SetPropertyBlock(_propBlock);
 		FluidSolver fluidSolver = solver;
-		nint num5 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
-		object obj8 = (nint)solver + 608;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v129 @ X8_v13 (Il2CppClass<SpecialFluid>)+1C0]");
 		global::System.Delegate b = new global::System.Action<object, bool>(this, (global::System.IntPtr)0);
-		nint num6 = (nint)this;
 		global::System.Delegate obj9 = global::System.Delegate.Combine(fluidSolver.OnStartRemoveParticles, b);
 		global::System.Collections.Generic.HashSet<int> hashSet;
 		int num8;
@@ -472,7 +459,7 @@ public class SpecialFluid : FluidRendererBase
 			{
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-				num10 = ((int*)num2)->m_value;
+				num10 = num2;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
 				object obj12 = default(object);
 				if (obj12 == null)
@@ -526,10 +513,8 @@ public class SpecialFluid : FluidRendererBase
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -549,10 +534,8 @@ public class SpecialFluid : FluidRendererBase
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -640,21 +623,17 @@ public class SpecialFluid : FluidRendererBase
 		//IL_0022: Expected O, but got I
 		//IL_008a: Expected O, but got I
 		//IL_00d3: Expected I, but got O
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
-		object obj2 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		EnsureCapacity(activeCount);
 		int[] array = solverIds;
 		int num2 = activeCount;
 		array[num2] = id;
 		nint num3 = 0;
-		object obj3 = (nint)solver + 504;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 		int num4 = IdGenerator.Next();
 		int[] array2 = computeIds;
 		int num5 = activeCount;
-		nint num6 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num7 = 0;
 		array2[num5] = num4;
 		FluidCompute fluidCompute = compute;
@@ -851,7 +830,6 @@ public class SpecialFluid : FluidRendererBase
 			do
 			{
 				int[] array = solverIds;
-				object obj3 = (nint)solver + 504;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 				if (obj4 != null)
 				{
@@ -1019,7 +997,6 @@ public class SpecialFluid : FluidRendererBase
 					{
 						break;
 					}
-					object obj3 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num5 = (int)((nint)obj4 & 1);
 					bool flag2 = num5 == 0;
@@ -1107,7 +1084,6 @@ public class SpecialFluid : FluidRendererBase
 					{
 						break;
 					}
-					object obj3 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num5 = (int)((nint)obj4 & 1);
 					bool flag2 = num5 == 0;

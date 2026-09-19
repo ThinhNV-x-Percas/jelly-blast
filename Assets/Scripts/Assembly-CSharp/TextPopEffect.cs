@@ -56,7 +56,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 			//IL_0056: Expected O, but got I
 			//IL_0066: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
 			object obj2;
 			global::UnityEngine.Object obj4;
@@ -156,7 +155,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		obj3 = _text;
 		goto IL_008a;
 		IL_008a:
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num2 = 0;
 		if (!obj3)
 		{
@@ -171,7 +169,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		object obj4 = new global::System.Action<object>(this, (global::System.IntPtr)0);
 		if ((object)_text != null)
 		{
-			nint num4 = (nint)textMeshProUGUI2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618] (should have been resolved before IL gen)");
 			goto IL_0153;
 		}
@@ -218,7 +215,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		obj3 = _text;
 		goto IL_008a;
 		IL_008a:
-		nint num = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num2 = 0;
 		if (!obj3)
 		{
@@ -233,7 +229,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		object obj4 = new global::System.Action<object>(this, (global::System.IntPtr)0);
 		if ((object)_text != null)
 		{
-			nint num4 = (nint)textMeshProUGUI2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628] (should have been resolved before IL gen)");
 			goto IL_0153;
 		}
@@ -262,9 +257,7 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		//IL_013a: Expected O, but got I
 		//IL_013a: Expected O, but got I
 		global::TMPro.TMP_MeshInfo[] meshInfo = textInfo.meshInfo;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj = (nint)this + 72;
 		global::UnityEngine.Vector3[][] array = default(global::UnityEngine.Vector3[][]);
 		cachedVertexPositions = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -331,7 +324,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		show = true;
 		float time = global::UnityEngine.Time.time;
 		transitionStartTime = time;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
 		object obj;
 		global::UnityEngine.Object obj3;
@@ -556,7 +548,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
 		object obj;
 		global::UnityEngine.Object obj3;
@@ -780,7 +771,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		}
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v198 @ X26_v4+60]");
 		object obj54 = 0;
-		nint num59 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		int num60 = 0;
 		global::TMPro.TextMeshProUGUI textMeshProUGUI = default(global::TMPro.TextMeshProUGUI);
 		object obj65;

@@ -97,7 +97,6 @@ public class FluidCollectDisplay : FluidRendererBase
 		//IL_0030: Expected O, but got I
 		nint num = (nint)typeof(CollectParticleData[]);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj = (nint)this + 112;
 		CollectParticleData[] array = default(CollectParticleData[]);
 		particles = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -116,9 +115,7 @@ public class FluidCollectDisplay : FluidRendererBase
 		fluidType = value;
 		if (value + 1 != 0)
 		{
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-			object obj = (nint)this + 176;
 			_propBlock = propBlock;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			mr.GetPropertyBlock(_propBlock);
@@ -169,7 +166,6 @@ public class FluidCollectDisplay : FluidRendererBase
 		int num3 = num2 + 4;
 		int num4 = num2 * 72;
 		int num5 = num4 + 52;
-		nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 		object obj13 = default(object);
 		object obj15 = default(object);
 		while (true)
@@ -597,9 +593,7 @@ public class FluidCollectDisplay : FluidRendererBase
 		//IL_0243: Expected native int or pointer, but got O
 		//IL_0250: Expected native int or pointer, but got O
 		//IL_025d: Expected native int or pointer, but got O
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		FluidCollectDisplay._003C_003Ec__DisplayClass21_0 _003C_003Ec__DisplayClass21_1 = new FluidCollectDisplay._003C_003Ec__DisplayClass21_0();
-		object obj = (nint)_003C_003Ec__DisplayClass21_1 + 16;
 		_003C_003Ec__DisplayClass21_1._003C_003E4__this = this;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		_003C_003Ec__DisplayClass21_1.type = type;
@@ -613,7 +607,6 @@ public class FluidCollectDisplay : FluidRendererBase
 		object obj3 = (nint)interpPositions + num4;
 		array2[num2].y = position.y;
 		float[] array3 = scales;
-		nint num5 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num6 = 0;
 		array3[num2] = particleSize;
 		float num7 = global::UnityEngine.Random.Range(minApplyForceDuration, maxApplyForceDuration);
@@ -627,21 +620,14 @@ public class FluidCollectDisplay : FluidRendererBase
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v353 @ X26_v7 (Il2CppMethodInfo)+D28]");
 		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass21_1, (global::System.IntPtr)0);
 		compute.AddParticle(id, onInit);
-		int num8 = activeCount * 72;
-		object obj6 = (nint)particles + num8;
-		object obj7 = (nint)obj6 + 32;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274AA04");
-		object obj8 = (nint)obj6 + 88;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		CollectParticleData collectParticleData = default(CollectParticleData);
+		collectParticleData.explodeDuration = explodeDuration;
+		collectParticleData.getTargetPos = getTargetPos;
+		collectParticleData.mode = collectParticleMode;
+		particles[activeCount] = collectParticleData;
 		int num9 = activeCount + 1;
 		activeCount = num9;
-		CollectParticleData collectParticleData = default(CollectParticleData);
-		((CollectParticleData*)(nint)collectParticleData)->explodeDuration = explodeDuration;
-		global::System.Runtime.CompilerServices.Unsafe.Write(&((CollectParticleData*)(nint)collectParticleData)->getTargetPos, getTargetPos);
-		((CollectParticleData*)(nint)collectParticleData)->mode = collectParticleMode;
-		_ = vel.y;
-		CollectParticleData result = default(CollectParticleData);
-		return result;
+		return collectParticleData;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60001D0")]
@@ -680,9 +666,7 @@ public class FluidCollectDisplay : FluidRendererBase
 				int num4 = index * 72;
 				object obj5 = (nint)obj3 + num4;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274AA04");
-				object obj6 = (nint)obj5 + 56;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				object obj7 = (nint)positions + 32;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v321 @ X8_v13+v46 @ X23_v6 (System.Int32)*8]");
 				_ = 0;
 				float[] array2 = scales;

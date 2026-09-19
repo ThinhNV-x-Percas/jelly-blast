@@ -33,16 +33,13 @@ public class BlinkingEyes : global::UnityEngine.MonoBehaviour
 		//IL_000e: Expected I, but got O
 		//IL_0025: Expected O, but got I
 		//IL_0054: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		nint num2 = 0;
 		float num3 = global::UnityEngine.Random.Range(0f, blinkPeriod);
 		blinkStartTime = num3;
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj = (nint)this + 56;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj2 = (nint)this + 48;
 		global::UnityEngine.MeshRenderer meshRenderer = default(global::UnityEngine.MeshRenderer);
 		mr = meshRenderer;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -167,7 +164,6 @@ public class BlinkingEyes : global::UnityEngine.MonoBehaviour
 	public BlinkingEyes()
 	{
 		//IL_001a: Expected F4, but got O
-		base._002Ector();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction DUP not yet implemented.\"");
 		object obj = default(object);
 		blinkDuration = (float)obj;

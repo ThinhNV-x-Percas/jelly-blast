@@ -19,11 +19,8 @@ public class LevelSection
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0031: Expected O, but got I
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::System.Collections.Generic.List<Lock> list = new global::System.Collections.Generic.List<Lock>();
-		object obj = (nint)this + 24;
 		locks = list;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		base._002Ector();
 	}
 }

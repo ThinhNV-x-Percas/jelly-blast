@@ -89,7 +89,6 @@ public class Utility
 				if (_003C_003E1__state == 0)
 				{
 					_003C_003E1__state = -1;
-					nint num = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X20_v5 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+F78]");
 					object obj = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v155 @ X0_v19+B8]");
@@ -107,11 +106,9 @@ public class Utility
 						return false;
 					}
 					global::UnityEngine.Networking.UnityWebRequest texture = global::UnityEngine.Networking.UnityWebRequestTexture.GetTexture(url);
-					object obj6 = (nint)this + 56;
 					_003Cwww_003E5__2 = texture;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					global::UnityEngine.Networking.UnityWebRequestAsyncOperation unityWebRequestAsyncOperation = _003Cwww_003E5__2.SendWebRequest();
-					object obj7 = (nint)this + 24;
 					_003C_003E2__current = unityWebRequestAsyncOperation;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 					_003C_003E1__state = 1;
@@ -150,7 +147,6 @@ public class Utility
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)1152;
@@ -175,11 +171,8 @@ public class Utility
 		nint num = (nint)typeof(Sponge._003C_003Ec__DisplayClass7_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj3 = (nint)obj + 48;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj4 = (nint)obj + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -201,8 +194,6 @@ public class Utility
 		//IL_003d: Expected O, but got I
 		//IL_004d: Expected O, but got I
 		//IL_0065: Expected O, but got I
-		nint num = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
-		nint num2 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 		object obj = new global::System.Collections.Generic.Dictionary<object, object>();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v20 @ X20_v1 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+F78]");
 		object obj2 = 0;

@@ -30,7 +30,6 @@ internal static class SPHKernels
 		//IL_0119: Expected O, but got I
 		//IL_0129: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA8A]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -99,7 +98,6 @@ internal static class SPHKernels
 		//IL_0119: Expected O, but got I
 		//IL_0129: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA8B]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -169,7 +167,6 @@ internal static class SPHKernels
 		//IL_011c: Expected O, but got I
 		//IL_012c: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA8C]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -240,7 +237,6 @@ internal static class SPHKernels
 		//IL_012c: Expected O, but got I
 		//IL_0187: Expected O, but got F4
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA8D]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -310,7 +306,6 @@ internal static class SPHKernels
 		//IL_015c: Expected O, but got I
 		//IL_016c: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA8E]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -384,7 +379,6 @@ internal static class SPHKernels
 		//IL_0023: Expected O, but got I
 		//IL_0033: Expected O, but got I
 		//IL_0043: Expected O, but got I
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v12 @ X20_v1 (Il2CppClass<System.Runtime.Serialization.ObjectHolderList>)+D20]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v39 @ X8_v3+B8]");

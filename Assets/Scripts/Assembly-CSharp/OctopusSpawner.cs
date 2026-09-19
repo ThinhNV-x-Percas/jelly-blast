@@ -37,7 +37,6 @@ public class OctopusSpawner : global::UnityEngine.MonoBehaviour
 		//IL_01cc: Expected O, but got I4
 		//IL_019b: Expected O, but got I4
 		//IL_01a4: Expected O, but got I4
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A9C5]");
 		int num2 = (int)((nint)0 & (nint)1);

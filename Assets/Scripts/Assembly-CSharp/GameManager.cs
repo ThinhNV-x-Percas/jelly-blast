@@ -490,7 +490,6 @@ public class GameManager : Singleton<GameManager>
 			//IL_0090: Expected I, but got O
 			//IL_009c: Expected O, but got I
 			nint num = 0;
-			object obj = (nint)this + 40;
 			global::System.Delegate obj2 = this.m_OnGameStateChanged;
 			int num3 = default(int);
 			bool flag3;
@@ -528,7 +527,6 @@ public class GameManager : Singleton<GameManager>
 			//IL_0090: Expected I, but got O
 			//IL_009c: Expected O, but got I
 			nint num = 0;
-			object obj = (nint)this + 40;
 			global::System.Delegate obj2 = this.m_OnGameStateChanged;
 			int num3 = default(int);
 			bool flag3;
@@ -583,38 +581,10 @@ public class GameManager : Singleton<GameManager>
 		//IL_0341: Expected O, but got I4
 		//IL_0485: Expected O, but got I4
 		//IL_03b2: Expected O, but got I4
-		nint num = 0;
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+78]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v67 @ X8_v5+B8]");
-		object obj2 = 0;
-		obj2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
 		ApplicationData appData = ApplicationManager.appData;
 		PlayerData playerData = appData.playerData;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v79 @ X0_v6+28]");
-		global::System.Delegate obj3 = (global::System.Delegate)0;
-		int num3 = playerData.levelIndex;
-		int num4 = (int)(playerData.levelIndex - (nint)obj3.invoke_impl);
-		bool flag = playerData.levelIndex >= (nint)obj3.invoke_impl;
-		object obj5 = default(object);
-		object obj4 = obj5;
-		if (!flag)
-		{
-			goto IL_0099;
-		}
-		goto IL_03e0;
-		IL_0099:
-		num4 = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 4056;
-		nint num5 = 0;
-		int num6 = num3 << 3;
-		object obj6 = (nint)obj3 + num6;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1171058 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		object obj7 = (nint)this + 120;
-		Level level = default(Level);
-		this.level = level;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		Level levelPrefab = global::Singleton<LevelSequenceManager>.Instance.GetLevelPrefab(playerData.levelIndex);
+		this.level = global::UnityEngine.Object.Instantiate(levelPrefab);
 		global::UnityEngine.Transform transform = this.level.transform;
 		global::UnityEngine.Transform parent = base.transform;
 		transform.SetParent(parent);
@@ -622,98 +592,13 @@ public class GameManager : Singleton<GameManager>
 		coupler.Init();
 		display.Init();
 		honeyTest.Init();
-		global::System.IntPtr method = default(global::System.IntPtr);
 		if (_gameState != GameState.EstablishingShot)
 		{
 			_gameState = GameState.EstablishingShot;
-			global::System.Action<GameState, GameState> action = this.m_OnGameStateChanged;
-			if (this.m_OnGameStateChanged != null)
-			{
-				action(this._gameState, GameState.EstablishingShot);
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.EstablishingShot);
 		}
-		ApplicationData appData2 = ApplicationManager.appData;
-		nint num7 = 0;
-		int num8 = (int)((nint)appData2.playerData + 20);
-		nint num9 = 0;
-		string text = ((int*)num8)->ToString();
-		string progression;
-		if (text == null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v483 @ X21_v14 (Il2CppFieldInfo)+960]");
-			progression = (string)0;
-		}
-		else
-		{
-			progression = text;
-		}
-		global::GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(global::GameAnalyticsSDK.GAProgressionStatus.Start, progression);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		UIIconGenerator uIIconGenerator = default(UIIconGenerator);
-		uIIconGenerator.UpdateIcons();
-		global::System.Action onInit = OnInit;
-		if (OnInit != null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v501.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-		}
-		nint num10 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v216 @ X0_v50+30]");
-		object obj8 = 0;
-		nint num11 = 0;
-		nint num12 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v216 @ X0_v50+30]");
-		obj4 = (nint)0 + (nint)1136;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v516 @ X24_v8 (Il2CppMethodInfo)+898]");
-		global::System.Action b = null;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v241 @ X8_v26+470]");
-		global::System.Delegate obj9 = global::System.Delegate.Combine((global::System.Delegate)0, b);
-		bool flag2 = (object)obj9 == null;
-		global::System.IntPtr intPtr = default(global::System.IntPtr);
-		object obj10 = 0;
-		global::System.Delegate obj11 = obj9;
-		if (!flag2)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v515 @ X23_v8 (Il2CppClass<CollectParticleData[]>)+990]");
-			if ((object)obj9 == null)
-			{
-				obj4 = obj9;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v515 @ X23_v8 (Il2CppClass<CollectParticleData[]>)+990]");
-				bool flag3 = (object)obj9 == null;
-				intPtr = default(global::System.IntPtr);
-				obj10 = 0;
-				obj11 = obj9;
-				if (flag3)
-				{
-					goto IL_04c9;
-				}
-			}
-			global::System.InvalidCastException ex = new global::System.InvalidCastException();
-			method = default(global::System.IntPtr);
-			goto IL_03e0;
-		}
-		obj4 = 0;
-		goto IL_04c9;
-		IL_04c9:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return;
-		IL_03e0:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v460 @ X20_v6+30]");
-		obj3 = (global::System.Delegate)0;
-		int num13 = (int)(num4 / (nint)obj3.invoke_impl);
-		int num14 = (int)(num13 * (nint)obj3.invoke_impl);
-		num3 = num4 - num14;
-		bool flag4 = num3 < (nint)obj3.invoke_impl;
-		bool flag5 = !flag4;
-		bool flag6 = !flag5;
-		intPtr = method;
-		obj10 = 0;
-		obj11 = obj3;
-		if (!flag6)
-		{
-			throw new global::System.IndexOutOfRangeException();
-		}
-		goto IL_0099;
+		global::Singleton<UIIconGenerator>.Instance.UpdateIcons();
+		OnInit?.Invoke();
 	}
 
 	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(GameManager._003CHandleIntro_003Ed__54))]
@@ -727,7 +612,6 @@ public class GameManager : Singleton<GameManager>
 		nint num = 0;
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -759,12 +643,7 @@ public class GameManager : Singleton<GameManager>
 		if (!(flag2 && flag4))
 		{
 			_gameState = GameState.Gameplay;
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::System.IntPtr method = action.method;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v74.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.Gameplay);
 		}
 		Level level = this.level;
 		if (level.moveCount < 1)
@@ -962,22 +841,12 @@ public class GameManager : Singleton<GameManager>
 				int num2 = global::UnityEngine.Random.Range(4, 7);
 				global::System.Collections.Generic.List<ParticleQueueData> list = particleQueue;
 				float time = global::UnityEngine.Time.time;
-				int version = list._version + 1;
-				list._version = version;
-				ParticleQueueData[] items = list._items;
-				float num3 = time + 1f;
-				ParticleQueueData item = (ParticleQueueData)(num2 | num3);
-				if (list.Count < items.Length)
+				ParticleQueueData item = new ParticleQueueData
 				{
-					int size = list.Count + 1;
-					list._size = size;
-					int num4 = list.Count << 3;
-					object obj = (nint)items + num4;
-				}
-				else
-				{
-					list.Add(item);
-				}
+					count = num2,
+					time = time
+				};
+				list.Add(item);
 				int num5 = queuedCount + num2;
 				queuedCount = num5;
 			}
@@ -1145,7 +1014,6 @@ public class GameManager : Singleton<GameManager>
 			nint num = 0;
 			object obj = new object();
 			_ = 0;
-			object obj2 = (nint)obj + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 		}
@@ -1162,7 +1030,6 @@ public class GameManager : Singleton<GameManager>
 		nint num = 0;
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -1252,16 +1119,11 @@ public class GameManager : Singleton<GameManager>
 		if (_gameState != GameState.IntroScreen)
 		{
 			_gameState = GameState.IntroScreen;
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v27.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.IntroScreen);
 		}
 		nint num = 0;
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 	}
@@ -1274,11 +1136,7 @@ public class GameManager : Singleton<GameManager>
 		if (_gameState != GameState.Gameplay)
 		{
 			_gameState = GameState.Gameplay;
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: v12.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.Gameplay);
 		}
 	}
 
@@ -1291,11 +1149,7 @@ public class GameManager : Singleton<GameManager>
 		if (_gameState != GameState.Win)
 		{
 			_gameState = GameState.Win;
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v49.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.Win);
 		}
 		ApplicationData appData = ApplicationManager.appData;
 		PlayerData playerData = appData.playerData;
@@ -1312,7 +1166,7 @@ public class GameManager : Singleton<GameManager>
 		ApplicationData appData4 = ApplicationManager.appData;
 		nint num2 = 0;
 		int num3 = (int)((nint)appData4.playerData + 20);
-		string text = ((int*)num3)->ToString();
+		string text = num3.ToString();
 		string progression;
 		if (text == null)
 		{
@@ -1323,7 +1177,6 @@ public class GameManager : Singleton<GameManager>
 		{
 			progression = text;
 		}
-		global::GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(global::GameAnalyticsSDK.GAProgressionStatus.Complete, progression);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002F7")]
@@ -1335,16 +1188,12 @@ public class GameManager : Singleton<GameManager>
 		if (_gameState != GameState.Fail)
 		{
 			_gameState = GameState.Fail;
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v49.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, GameState.Fail);
 		}
 		ApplicationData appData = ApplicationManager.appData;
 		nint num = 0;
 		int num2 = (int)((nint)appData.playerData + 20);
-		string text = ((int*)num2)->ToString();
+		string text = num2.ToString();
 		string progression;
 		if (text == null)
 		{
@@ -1355,7 +1204,6 @@ public class GameManager : Singleton<GameManager>
 		{
 			progression = text;
 		}
-		global::GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(global::GameAnalyticsSDK.GAProgressionStatus.Fail, progression);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002F8")]
@@ -1366,11 +1214,7 @@ public class GameManager : Singleton<GameManager>
 		if (_gameState != GameState.None)
 		{
 			_gameState = default(GameState);
-			global::System.Action<GameState, GameState> action = this.OnGameStateChanged;
-			if (this.OnGameStateChanged != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v45.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			}
+			m_OnGameStateChanged?.Invoke(_gameState, default(GameState));
 		}
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
@@ -1437,9 +1281,7 @@ public class GameManager : Singleton<GameManager>
 				{
 					throw obj4;
 				}
-				object obj5 = (nint)obj4 + 24;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				object obj6 = (nint)obj4 + 16;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v478 @ X0_v28 (System.Object)+10]");
 				object obj7 = 0;
@@ -1487,13 +1329,12 @@ public class GameManager : Singleton<GameManager>
 									num7 = (int)action;
 									break;
 								}
-								object obj12 = (nint)solver + 504;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X28_v6 (Il2CppMethodInfo)+C28]");
 								obj10 = 0;
 								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 								int num10 = (int)((nint)obj13 & 1);
 								bool flag4 = num10 == 0;
-								num9 = (nint)(&obj14);
+								num9 = (nint)obj14;
 								enumerator5 = enumerator4;
 								if (!flag4)
 								{
@@ -1522,8 +1363,8 @@ public class GameManager : Singleton<GameManager>
 									bool flag7 = (nint)0 == 0;
 									bool flag8 = !flag7;
 									bool flag9 = flag6 && flag8;
-									num9 = (nint)(&obj14);
-									num6 = (nint)(&obj14);
+									num9 = (nint)obj14;
+									num6 = (nint)obj14;
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X28_v6 (Il2CppMethodInfo)+C28]");
 									obj8 = 0;
 									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v630 @ X8_v49 (Unity.Collections.NativeArray`1<System.Single>)+v382 @ stack_-A4_v9*4]");
@@ -1580,7 +1421,7 @@ public class GameManager : Singleton<GameManager>
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
 				num4 = (int)obj17;
 			}
-			((global::System.Collections.Generic.List<object>.Enumerator*)obj3)->Dispose();
+			obj3.Dispose();
 			if (num4 == 0)
 			{
 				return;
@@ -1720,7 +1561,6 @@ public class GameManager : Singleton<GameManager>
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		failTimerDuration = 3f;
 		global::System.Collections.Generic.List<ParticleQueueData> list2 = new global::System.Collections.Generic.List<ParticleQueueData>();
-		object obj2 = (nint)obj + 192;
 		particleQueue = list2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18ABE40 (Singleton`1::.ctor, and 1 more at this address)");

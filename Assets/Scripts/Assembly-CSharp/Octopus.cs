@@ -16,7 +16,6 @@ public class Octopus : SpecialFluid
 	{
 		//IL_0016: Expected O, but got I
 		id = _id;
-		object obj = (nint)this + 176;
 		headParticleIds = _headIds;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		splitIndex = _splitIndex;
@@ -33,7 +32,7 @@ public class Octopus : SpecialFluid
 		base.OnPreComputeUpdate();
 		mr.GetPropertyBlock(_propBlock);
 		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = (global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>)((nint)solver + 952);
-		global::Unity.Mathematics.float2 float5 = (*(global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2>*)nativeParallelHashMap)[id];
+		global::Unity.Mathematics.float2 float5 = nativeParallelHashMap[id];
 		global::UnityEngine.Vector2 vector = float5;
 		string text = "Writing object reference to Id '{0}' for {1}.";
 		global::UnityEngine.Vector4 value = default(global::UnityEngine.Vector4);
@@ -92,7 +91,6 @@ public class Octopus : SpecialFluid
 		//IL_026f: Expected O, but got I
 		//IL_028d: Expected O, but got I
 		//IL_0905: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		FluidSolver fluidSolver = solver;
 		bool flag = (object)solver == null;
@@ -133,12 +131,10 @@ public class Octopus : SpecialFluid
 					num2 = (int)particleIds;
 					if (!flag4)
 					{
-						nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 						nint num5 = 0;
 						nint num6 = 0;
 						nint num7 = 0;
 						obj3 = (nint)0 + (nint)2408;
-						object obj4 = (nint)obj + 32;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v215 @ X8_v37 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
 						object obj5 = 0;
 						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v229 @ X8_v39+B8]");
@@ -250,7 +246,6 @@ public class Octopus : SpecialFluid
 		float num39 = 1f / num38;
 		float num40 = num11 * num39;
 		num3 = num15 * num39;
-		nint num41 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		object obj17 = obj2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v592 @ X8_v15 (Il2CppMethodInfo)+3C0]");
 		global::System.Func<int, float> keySelector = new global::System.Func<int, float>(obj17, (global::System.IntPtr)0);
@@ -345,17 +340,14 @@ public class Octopus : SpecialFluid
 					num3 = (int)ex;
 					fluidSolver = solver;
 				}
-				object obj3 = (nint)fluidSolver + 504;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 				throw new global::System.NullReferenceException();
 			}
-			object obj4 = (nint)array + 32;
 			int num4 = 0;
 			do
 			{
 				int num5 = ids[num4];
 				FluidSolver fluidSolver2 = solver;
-				object obj5 = (nint)solver + 504;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray = fluidSolver2.positions;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v301 @ X8_v17 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v215 @ X0_v31*8]");
@@ -366,10 +358,8 @@ public class Octopus : SpecialFluid
 		}
 		int num6 = splitIndex - 1;
 		Octopus octopus = solver.AddOctopus(array, num6);
-		nint num7 = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj6 = new object();
 		_ = 0;
-		object obj7 = (nint)obj6 + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Coroutine coroutine = octopus.StartCoroutine((global::System.Collections.IEnumerator)obj6);
 	}
@@ -382,9 +372,7 @@ public class Octopus : SpecialFluid
 		//IL_0014: Expected I, but got O
 		//IL_0052: Expected O, but got I
 		base._002Ector();
-		nint num = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 		global::System.Collections.Generic.HashSet<int> hashSet = new global::System.Collections.Generic.HashSet<int>();
-		object obj = (nint)this + 176;
 		headParticleIds = hashSet;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		zPos = -1f;

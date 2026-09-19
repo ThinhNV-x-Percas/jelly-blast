@@ -70,7 +70,6 @@ public class FluidSoundFX : global::UnityEngine.MonoBehaviour
 		//IL_01cc: Expected O, but got I4
 		//IL_019b: Expected O, but got I4
 		//IL_01a4: Expected O, but got I4
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA43]");
 		int num2 = (int)((nint)0 & (nint)1);
@@ -173,7 +172,6 @@ public class FluidSoundFX : global::UnityEngine.MonoBehaviour
 		//IL_0260: Expected I, but got O
 		//IL_0276: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA44]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -208,7 +206,6 @@ public class FluidSoundFX : global::UnityEngine.MonoBehaviour
 		IL_0252:
 		nint num2 = (nint)typeof(CollectParticleData[]);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj6 = (nint)this + 72;
 		global::Unity.Mathematics.float2[] array = default(global::Unity.Mathematics.float2[]);
 		smoothedVel = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -216,14 +213,12 @@ public class FluidSoundFX : global::UnityEngine.MonoBehaviour
 		IL_02d8:
 		throw new global::System.NullReferenceException();
 		IL_0133:
-		object obj7 = (nint)this + 64;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v78 @ X0_v6+30]");
 		solver = (FluidSolver)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidSolver fluidSolver = solver;
 		nint num3 = (nint)typeof(CollectParticleData[]);
 		nint num4 = 0;
-		object obj8 = (nint)solver + 1136;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v193 @ X25_v3 (Il2CppMethodInfo)+588]");
 		global::System.Action b = new global::System.Action(this, (global::System.IntPtr)0);
 		global::System.Delegate obj9 = global::System.Delegate.Combine(fluidSolver.OnStep, b);
@@ -284,7 +279,6 @@ public class FluidSoundFX : global::UnityEngine.MonoBehaviour
 		//IL_04f4: Unknown result type (might be due to invalid IL or missing references)
 		//IL_04f9: Expected I4, but got Unknown
 		FluidSolver fluidSolver = solver;
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		int num2 = 0;
 		object obj5 = default(object);
 		while (true)

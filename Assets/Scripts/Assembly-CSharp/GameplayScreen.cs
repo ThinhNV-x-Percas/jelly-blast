@@ -137,7 +137,6 @@ public class GameplayScreen : Viewport
 			localScale.y = num15;
 			localScale.z = 1f;
 			transform.localScale = localScale;
-			object obj5 = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -159,7 +158,6 @@ public class GameplayScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3720;
@@ -262,7 +260,6 @@ public class GameplayScreen : Viewport
 				_003C_003E1__state = -1;
 				nint num2 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-				object obj = (nint)this + 40;
 				global::UnityEngine.GameObject gameObject = default(global::UnityEngine.GameObject);
 				_003Ceffect_003E5__2 = gameObject;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -279,7 +276,6 @@ public class GameplayScreen : Viewport
 				elasticScale.Pop();
 				global::UnityEngine.Transform transform3 = _003Ceffect_003E5__2.transform;
 				global::UnityEngine.Vector3 position2 = transform2.position;
-				nint num5 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v296 @ X8_v17 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj2 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v298 @ X8_v19+B8]");
@@ -298,9 +294,7 @@ public class GameplayScreen : Viewport
 				endValue.y = y;
 				endValue.z = z;
 				global::DG.Tweening.Core.TweenerCore<global::UnityEngine.Vector3, global::UnityEngine.Vector3, global::DG.Tweening.Plugins.Options.VectorOptions> tweenerCore2 = global::DG.Tweening.ShortcutExtensions.DOMove(transform3, endValue, 2f);
-				nint num6 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(1f);
-				object obj7 = (nint)this + 24;
 				_003C_003E2__current = waitForSeconds;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				_003C_003E1__state = 1;
@@ -323,7 +317,6 @@ public class GameplayScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3728;
@@ -444,7 +437,6 @@ public class GameplayScreen : Viewport
 		//IL_0477: Expected I, but got O
 		//IL_0529: Expected O, but got I4
 		//IL_02ce: Expected O, but got I
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AADD]");
 		object obj3;
 		object obj;
@@ -505,7 +497,6 @@ public class GameplayScreen : Viewport
 		nint num2 = (nint)typeof(CollectParticleData[]);
 		nint num3 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj8 = (nint)this + 104;
 		GoalUI[] array = default(GoalUI[]);
 		goals = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -545,7 +536,6 @@ public class GameplayScreen : Viewport
 			goto IL_053c;
 		}
 		UIButton uIButton = settingsButton;
-		nint num7 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v416 @ X23_v5 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+CE0]");
 		object obj13 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v417 @ X0_v17+E0]");
@@ -577,7 +567,6 @@ public class GameplayScreen : Viewport
 				goto IL_0390;
 			}
 		}
-		nint num8 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 		object obj16 = obj14;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v456 @ X8_v24 (Il2CppMethodInfo)+E80]");
 		global::UnityEngine.Events.UnityAction unityAction = new global::UnityEngine.Events.UnityAction(obj16, (global::System.IntPtr)0);
@@ -664,7 +653,6 @@ public class GameplayScreen : Viewport
 		//IL_028e: Expected F4, but got I
 		//IL_02a3: Expected F4, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AB38]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -700,7 +688,6 @@ public class GameplayScreen : Viewport
 		global::TMPro.TextMeshProUGUI textMeshProUGUI = moveCounter;
 		int num2 = default(int);
 		string text = num2.ToString();
-		nint num3 = (nint)textMeshProUGUI;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v151 @ X8_v6 (Il2CppClass<TMPro.TextMeshProUGUI>)+560]");
 		object obj6 = 0;
 		textMeshProUGUI.text = text;
@@ -718,7 +705,6 @@ public class GameplayScreen : Viewport
 				StopCoroutine(pulseCoroutine);
 				isPulsing = false;
 				global::UnityEngine.Transform transform = moveCounter.transform;
-				nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v309 @ X8_v26 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 				object obj7 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v311 @ X8_v28+B8]");
@@ -736,10 +722,8 @@ public class GameplayScreen : Viewport
 		}
 		if (num2 == 5)
 		{
-			nint num5 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			object obj9 = new object();
 			_ = 0;
-			object obj10 = (nint)obj9 + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj9);
 			obj6 = 0;
@@ -752,13 +736,10 @@ public class GameplayScreen : Viewport
 		moveCounter.color = color2;
 		if (!isPulsing)
 		{
-			nint num6 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 			object obj11 = new object();
 			_ = 0;
-			object obj12 = (nint)obj11 + 32;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::UnityEngine.Coroutine coroutine2 = StartCoroutine((global::System.Collections.IEnumerator)obj11);
-			object obj13 = (nint)this + 144;
 			pulseCoroutine = coroutine2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		}
@@ -781,10 +762,8 @@ public class GameplayScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -797,10 +776,8 @@ public class GameplayScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -820,7 +797,6 @@ public class GameplayScreen : Viewport
 		//IL_01a8: Expected O, but got I
 		//IL_01b8: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AADF]");
 		global::TMPro.TextMeshProUGUI textMeshProUGUI;
 		global::TMPro.TextMeshProUGUI textMeshProUGUI2;
@@ -864,8 +840,7 @@ public class GameplayScreen : Viewport
 		IL_0168:
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X0_v3+78]");
 		int num2 = (int)((nint)0 + (nint)32);
-		string text = ((int*)num2)->ToString();
-		nint num3 = (nint)textMeshProUGUI;
+		string text = num2.ToString();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v109 @ X8_v5 (Il2CppClass<TMPro.TextMeshProUGUI>)+558]");
 		object obj6 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v109 @ X8_v5 (Il2CppClass<TMPro.TextMeshProUGUI>)+560]");
@@ -892,7 +867,6 @@ public class GameplayScreen : Viewport
 		//IL_009c: Expected O, but got I
 		//IL_005a: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAE0]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

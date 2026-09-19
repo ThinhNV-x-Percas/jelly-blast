@@ -76,12 +76,9 @@ public class Lock : global::UnityEngine.MonoBehaviour
 		global::TMPro.TextMeshPro textMeshPro = counterText;
 		int num = (int)((nint)goalData + 28);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v364 @ X9_v5 (System.String)+E78]");
-		string text2 = ((int*)num)->ToString((string)0);
-		nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
-		nint num3 = (nint)textMeshPro;
+		string text2 = num.ToString((string)0);
 		textMeshPro.text = text2;
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj = (nint)this + 40;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.MeshRenderer[] array = colorMeshRenderers;
@@ -164,7 +161,6 @@ public class Lock : global::UnityEngine.MonoBehaviour
 			}
 			while (num5 < array.Length);
 		}
-		nint num9 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v579 @ X8_v12 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj8 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v581 @ X8_v14+B8]");
@@ -200,7 +196,7 @@ public class Lock : global::UnityEngine.MonoBehaviour
 		string text = "Cannot load image: download failed";
 		int num = (int)((nint)goalData + 28);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v69 @ X9_v5 (System.String)+E78]");
-		string text2 = ((int*)num)->ToString((string)0);
+		string text2 = num.ToString((string)0);
 		counterText.text = text2;
 		counterElasticScale.Pop();
 		GoalData goalData2 = this.goalData;
@@ -223,8 +219,7 @@ public class Lock : global::UnityEngine.MonoBehaviour
 		global::TMPro.TextMeshPro textMeshPro = counterText;
 		int num = (int)((nint)goalData + 28);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v40 @ X9_v2 (System.String)+E78]");
-		string text2 = ((int*)num)->ToString((string)0);
-		nint num2 = (nint)textMeshPro;
+		string text2 = num.ToString((string)0);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v57 @ X8_v4 (Il2CppClass<TMPro.TextMeshPro>)+558]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v57 @ X8_v4 (Il2CppClass<TMPro.TextMeshPro>)+560]");

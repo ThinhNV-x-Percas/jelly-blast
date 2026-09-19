@@ -195,19 +195,12 @@ public class Chain : global::UnityEngine.MonoBehaviour
 			while (num > 0);
 			links = _links;
 		}
-		int version = links._version + 1;
-		links._size = 0;
-		links._version = version;
-		if (links.Count >= 1)
-		{
-			global::System.Array.Clear(links._items, 0, links.Count);
-		}
+		links.Clear();
 		global::UnityEngine.Vector2 position = startPoint.position;
 		global::UnityEngine.Vector2 position2 = endPoint.position;
 		float num2 = position.x + position2.x;
 		float num3 = num2 * 8.8E-44f;
 		global::UnityEngine.Vector2 vector = position;
-		nint num4 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v352 @ X8_v8 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj4 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v354 @ X8_v10+B8]");
@@ -218,7 +211,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		float num6 = num3 + num5;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4425]");
 		int num7 = 0;
-		nint num8 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::UnityEngine.Vector2 vector2 = position;
 		float num9 = 0f;
 		int num10 = 1;
@@ -280,7 +272,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 				goto IL_030f;
 			}
 		}
-		object obj11 = (nint)obj2 - 88;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274AA58");
 		bool flag5 = num20 < 0f;
 		float num21 = num20;
@@ -369,7 +360,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		vector3 = position;
 		goto IL_055c;
 		IL_030f:
-		object obj15 = (nint)obj2 - 88;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274AA58");
 		bool flag11 = !(num19 < 0f);
 		num21 = num19;
@@ -420,7 +410,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 			global::UnityEngine.Vector2 vector3 = default(global::UnityEngine.Vector2);
 			float num3 = vector3.x - vector.x;
 			float num4 = p2.y - p1.y;
-			nint num5 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			float[] array = ts;
 			int num6 = 1;
 			int num7 = 0;
@@ -465,7 +454,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 				}
 				else
 				{
-					nint num22 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v508 @ X8_v47 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 					object obj2 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v510 @ X8_v49+B8]");
@@ -511,7 +499,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 				}
 				else
 				{
-					nint num37 = (nint)typeof(global::System.Xml.ValidateNames);
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v553 @ X8_v40 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 					object obj4 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v555 @ X8_v42+B8]");
@@ -555,13 +542,7 @@ public class Chain : global::UnityEngine.MonoBehaviour
 					}
 					continue;
 				}
-				int size = links.Count + 1;
-				links._size = size;
-				int num39 = links.Count << 3;
-				object obj9 = (nint)items + num39;
-				object obj10 = (nint)obj9 + 32;
-				obj10 = rigidbody2D3;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+				links.Add(rigidbody2D3);
 				num7++;
 				bool flag2 = num7 < ts.Length;
 				w = rot.w;
@@ -579,7 +560,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		int index = links2.Count - 1;
 		global::UnityEngine.Rigidbody2D rigidbody2D4 = links2[index];
 		float y3 = anchorOffset * -0.5f;
-		nint num40 = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v462 @ X8_v10 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj11 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v464 @ X8_v12+B8]");
@@ -781,7 +761,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		}
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2DD4425]");
 		int num8 = 0;
-		nint num9 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		float num10 = a.y;
 		global::UnityEngine.Vector2 vector4 = a;
 		int num11 = 1;
@@ -868,7 +847,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		goto IL_0773;
 		IL_092e:
 		global::System.IndexOutOfRangeException ex;
-		object obj6 = (nint)ex + 32;
 		int num38;
 		float num48;
 		float num50;
@@ -948,7 +926,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 				int num57 = table - 1;
 				if (array != null)
 				{
-					object obj11 = (nint)obj2 + 36;
 					int num58 = 0;
 					while (true)
 					{
@@ -1038,7 +1015,6 @@ public class Chain : global::UnityEngine.MonoBehaviour
 					}
 					goto IL_0773;
 				}
-				object obj16 = (nint)obj2 + 36;
 				int num81 = 0;
 				do
 				{
@@ -1176,11 +1152,9 @@ public class Chain : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0047: Expected O, but got I
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		sagDepth = 0.25f;
 		anchorOffset = 0.15f;
 		global::System.Collections.Generic.List<global::UnityEngine.Rigidbody2D> links = new global::System.Collections.Generic.List<global::UnityEngine.Rigidbody2D>();
-		object obj = (nint)this + 64;
 		_links = links;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		base._002Ector();

@@ -39,7 +39,6 @@ public class AudioManager : Singleton<AudioManager>
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v53 @ X22_v4 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v55 @ X0_v3+E0]");
@@ -147,7 +146,6 @@ public class AudioManager : Singleton<AudioManager>
 		//IL_0056: Expected O, but got I
 		//IL_0066: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A96D]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

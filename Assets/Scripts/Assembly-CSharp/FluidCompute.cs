@@ -193,7 +193,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		object a = (nint)obj6 + 144;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v98 @ X8_v4 (Il2CppClass<FluidCompute>)+180]");
 		global::System.Action b = null;
-		nint num3 = (nint)this;
 		global::System.Delegate obj7 = global::System.Delegate.Combine((global::System.Delegate)a, b);
 		if ((object)obj7 != null)
 		{
@@ -289,7 +288,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		int height2 = global::UnityEngine.Screen.height;
 		float num8 = fieldDownscale * (float)height2;
 		float num9 = ((num8 != float.PositiveInfinity) ? num8 : -0f);
-		object obj = (nint)this + 168;
 		H = (int)num9;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X24_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj2 = 0;
@@ -365,7 +363,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		goto IL_0de2;
 		IL_0677:
 		bool flag3 = fluidRT.Create();
-		object obj5 = (nint)this + 160;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X24_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj6 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v799 @ X0_v20+E0]");
@@ -399,7 +396,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		string text = "Parent table name is missing in relation '{0}'.";
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v882 @ X8_v18 (System.String)+AE0]");
 		commandBuffer.name = (string)0;
-		object obj7 = (nint)this + 48;
 		cmd = commandBuffer;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		string text2 = "IsCyrillic";
@@ -443,7 +439,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		goto IL_0f45;
 		IL_0398:
 		bool flag8 = rawFieldRT.Create();
-		object obj10 = (nint)this + 192;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X24_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
 		object obj11 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v722 @ X0_v16+E0]");
@@ -534,37 +529,30 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		nint num29 = 0;
 		main.AddCommandBuffer(global::UnityEngine.Rendering.CameraEvent.BeforeImageEffectsOpaque, cmd);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj14 = (nint)this + 104;
 		int[] array = default(int[]);
 		particleIds = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj15 = (nint)this + 56;
 		global::UnityEngine.Vector2[] array2 = default(global::UnityEngine.Vector2[]);
 		positions = array2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj16 = (nint)this + 64;
 		float[] array3 = default(float[]);
 		particleTypes = array3;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj17 = (nint)this + 72;
 		float[] array4 = default(float[]);
 		isRounded = array4;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj18 = (nint)this + 80;
 		global::UnityEngine.Vector4[] array5 = default(global::UnityEngine.Vector4[]);
 		emissionColors = array5;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj19 = (nint)this + 88;
 		float[] array6 = default(float[]);
 		scales = array6;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj20 = (nint)this + 96;
 		float[] array7 = default(float[]);
 		innerRadii = array7;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -576,17 +564,14 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		nint num30 = 0;
 		nint num31 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj23 = (nint)this + 240;
 		global::UnityEngine.Vector4[] array8 = default(global::UnityEngine.Vector4[]);
 		colorsVec = array8;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj24 = (nint)this + 136;
 		global::UnityEngine.Matrix4x4[] array9 = default(global::UnityEngine.Matrix4x4[]);
 		particleMatrices = array9;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.MaterialPropertyBlock materialPropertyBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj25 = (nint)this + 176;
 		props = materialPropertyBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return;
@@ -975,7 +960,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		rawFieldRT.Release();
 		fluidRT.Release();
 		emissionRT.Release();
-		object obj = (nint)this + 48;
 		if (cmd != null)
 		{
 			cmd.Release();
@@ -1275,7 +1259,7 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 			{
 				global::System.OutOfMemoryException ex4 = new global::System.OutOfMemoryException();
 				num7 = (int)obj7;
-				hashSet = (global::System.Collections.Generic.HashSet<int>)((int*)num4)->m_value;
+				hashSet = default(global::System.Collections.Generic.HashSet<int>);
 				ex3 = (global::System.NullReferenceException)(object)ex4;
 				break;
 			}
@@ -1312,7 +1296,6 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 		layerCount = 0;
 		maxParticles = 1.086461844978E-311 >> 32;
 		global::System.Collections.Generic.Dictionary<int, int> dictionary = new global::System.Collections.Generic.Dictionary<int, int>();
-		object obj = (nint)this + 112;
 		idToIndex = dictionary;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		rawFieldDownscale = 0.125f;

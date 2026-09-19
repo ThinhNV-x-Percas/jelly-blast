@@ -25,7 +25,6 @@ public class SecondaryImageColor : global::UnityEngine.UI.BaseMeshEffect
 			//IL_000e: Expected I, but got O
 			//IL_00f3: Expected O, but got I
 			//IL_0051: Expected I, but got O
-			nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			secondaryColor = value;
 			secondaryColor.g = value.g;
 			secondaryColor.b = value.b;
@@ -51,7 +50,6 @@ public class SecondaryImageColor : global::UnityEngine.UI.BaseMeshEffect
 			goto IL_003a;
 			IL_003a:
 			global::UnityEngine.UI.Graphic graphic2 = base.graphic;
-			nint num2 = (nint)graphic2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v111 @ X8_v4 (Il2CppClass<UnityEngine.UI.Graphic>)+2F8] (should have been resolved before IL gen)");
 			goto IL_005b;
 		}
@@ -69,7 +67,6 @@ public class SecondaryImageColor : global::UnityEngine.UI.BaseMeshEffect
 		{
 			return;
 		}
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::System.Collections.Generic.List<global::UnityEngine.UIVertex> list = new global::System.Collections.Generic.List<global::UnityEngine.UIVertex>();
 		vh.GetUIVertexStream(list);
 		if (list.Count >= 1)

@@ -15,10 +15,9 @@ public class ApplicationData : global::UnityEngine.ScriptableObject
 	public void SavePlayerData()
 	{
 		//IL_0031: Expected O, but got I
-		string text = "papayawhip";
 		string persistentDataPath = global::UnityEngine.Application.persistentDataPath;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v60 @ X23_v1 (System.String)+1A8]");
-		string path = global::System.IO.Path.Combine(persistentDataPath, (string)0);
+		string path = global::System.IO.Path.Combine(persistentDataPath, playerDataFileName);
 		string contents = global::Newtonsoft.Json.JsonConvert.SerializeObject(playerData, global::Newtonsoft.Json.Formatting.Indented);
 		global::System.IO.File.WriteAllText(path, contents);
 	}
@@ -32,26 +31,22 @@ public class ApplicationData : global::UnityEngine.ScriptableObject
 		//IL_00b6: Expected I, but got O
 		//IL_00d7: Expected O, but got I
 		//IL_008e: Expected O, but got I
-		string text = "papayawhip";
 		string persistentDataPath = global::UnityEngine.Application.persistentDataPath;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X22_v1 (System.String)+1A8]");
-		string path = global::System.IO.Path.Combine(persistentDataPath, (string)0);
+		string path = global::System.IO.Path.Combine(persistentDataPath, playerDataFileName);
 		if (global::System.IO.File.Exists(path))
 		{
 			nint num = 0;
 			string text2 = global::System.IO.File.ReadAllText(path);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1151500 (Newtonsoft.Json.JsonConvert::DeserializeObject, and 1 more at this address)");
-			object obj = (nint)this + 24;
 			PlayerData playerData = default(PlayerData);
 			this.playerData = playerData;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		}
 		else
 		{
-			nint num2 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 			object obj2 = new object();
 			_ = 257;
-			object obj3 = (nint)this + 24;
 			this.playerData = (PlayerData)obj2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			SavePlayerData();
@@ -66,18 +61,15 @@ public class ApplicationData : global::UnityEngine.ScriptableObject
 		//IL_002a: Expected I, but got O
 		//IL_003f: Expected O, but got I
 		//IL_009d: Expected O, but got I
-		string text = "papayawhip";
 		string persistentDataPath = global::UnityEngine.Application.persistentDataPath;
-		nint num = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X22_v1 (System.String)+1A8]");
-		string path = global::System.IO.Path.Combine(persistentDataPath, (string)0);
+		string path = global::System.IO.Path.Combine(persistentDataPath, playerDataFileName);
 		if (global::System.IO.File.Exists(path))
 		{
 			global::System.IO.File.Delete(path);
 		}
 		object obj = new object();
 		_ = 257;
-		object obj2 = (nint)this + 24;
 		playerData = (PlayerData)obj;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		SavePlayerData();

@@ -95,9 +95,7 @@ public class FailScreen : Viewport
 			_003C_003E1__state = -1;
 			global::UnityEngine.GameObject gameObject2 = failScreen.titleTextEffect.gameObject;
 			gameObject2.SetActive(value: false);
-			nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 			global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.1f);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = waitForSeconds;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -119,7 +117,6 @@ public class FailScreen : Viewport
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)3248;
@@ -139,10 +136,8 @@ public class FailScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0041: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
 	}
@@ -155,10 +150,8 @@ public class FailScreen : Viewport
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -173,7 +166,6 @@ public class FailScreen : Viewport
 		//IL_009c: Expected O, but got I
 		//IL_005a: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AADA]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{

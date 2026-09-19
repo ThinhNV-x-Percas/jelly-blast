@@ -59,7 +59,6 @@ public class Honey : FluidRendererBase
 		//IL_04e4: Expected O, but got I4
 		//IL_04bc: Expected O, but got I4
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		object obj2 = typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>) + 2632;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA55]");
 		object obj5;
@@ -158,22 +157,18 @@ public class Honey : FluidRendererBase
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v126 @ X0_v11+38]");
 		object obj11 = 0;
 		nint num5 = (nint)typeof(CollectParticleData[]);
-		nint num6 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v145 @ X8_v6+28]");
 		fixedDeltaTime = 0f;
 		base.Init();
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj12 = (nint)this + 128;
 		int[] array = default(int[]);
 		solverIds = array;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		object obj13 = (nint)this + 136;
 		int[] array2 = default(int[]);
 		computeIds = array2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj14 = (nint)this + 152;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		mr.GetPropertyBlock(_propBlock);
@@ -184,7 +179,6 @@ public class Honey : FluidRendererBase
 		propBlock2.SetInt((string)0, fluidSolver2.honeyFluidType);
 		mr.SetPropertyBlock(_propBlock);
 		FluidSolver fluidSolver3 = solver;
-		nint num7 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		nint num8 = 0;
 		obj9 = (nint)solver + 608;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v278 @ X25_v5 (Il2CppMethodInfo)+40]");
@@ -234,9 +228,7 @@ public class Honey : FluidRendererBase
 		//IL_00c4: Expected I, but got O
 		//IL_016e: Expected O, but got I
 		//IL_00e6: Expected I, but got O
-		nint num = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 		object obj = new object();
-		object obj2 = (nint)obj + 16;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidSolver fluidSolver = solver;
 		global::Unity.Collections.NativeArray<bool> isHoneyCoated = fluidSolver.isHoneyCoated;
@@ -247,14 +239,12 @@ public class Honey : FluidRendererBase
 			int num2 = activeCount;
 			int num3 = (object)solverContext >> 32;
 			array[num2] = num3;
-			nint num4 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v230 @ X22_v6 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+78]");
 			object obj3 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v240 @ X8_v13+B8]");
 			int num5 = global::System.Threading.Interlocked.Increment(ref *(int*)null);
 			int[] array2 = computeIds;
 			int num6 = activeCount;
-			nint num7 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 			nint num8 = 0;
 			array2[num6] = num5;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v244 @ X24_v5 (Il2CppMethodInfo)+F20]");
@@ -435,7 +425,6 @@ public class Honey : FluidRendererBase
 			do
 			{
 				int[] array = solverIds;
-				object obj3 = (nint)solver + 504;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E75E4 (Unity.Collections.NativeHashMap`2::get_Item, and 1 more at this address)");
 				FluidSolver fluidSolver2 = solver;
 				int num8 = (int)((nint)obj4 << 3);

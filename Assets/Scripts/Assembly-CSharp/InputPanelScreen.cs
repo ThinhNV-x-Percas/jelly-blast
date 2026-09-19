@@ -11,7 +11,6 @@ public class InputPanelScreen : Viewport
 		//IL_009c: Expected O, but got I
 		//IL_005a: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAE4]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -34,9 +33,8 @@ public class InputPanelScreen : Viewport
 				goto IL_007f;
 			}
 		}
-		base._002Ector();
 		return;
 		IL_007f:
-		base._002Ector();
+		;
 	}
 }

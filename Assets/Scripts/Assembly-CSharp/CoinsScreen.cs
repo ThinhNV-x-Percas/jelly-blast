@@ -268,7 +268,7 @@ public class CoinsScreen : Viewport
 		string text = "__sort-indicator";
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v469 @ X8_v11 (System.String)+D70]");
 		AudioManager audioManager = default(AudioManager);
-		audioManager.PlayClip(null, audioClipSettings);
+		audioManager.PlayClip((string)null, audioClipSettings);
 		CoinParticle[] array = new CoinParticle[particleCount];
 		coinParticles = array;
 		float[] array2 = new float[particleCount];
@@ -531,7 +531,7 @@ public class CoinsScreen : Viewport
 					}
 					string text2 = "__sort-indicator";
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v846 @ X8_v45 (System.String)+D68]");
-					audioManager.PlayClip(null, audioClipSettings);
+					audioManager.PlayClip((string)null, audioClipSettings);
 				}
 			}
 			goto IL_00ad;

@@ -42,8 +42,6 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 			//IL_013f: Expected O, but got I
 			//IL_014f: Expected O, but got I
 			object obj = 50503680;
-			nint num = (nint)typeof(CollectParticleData[]);
-			nint num2 = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A967]");
 			global::UnityEngine.Object obj4;
 			global::UnityEngine.Object obj6;
@@ -103,7 +101,7 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
 			object obj13 = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v128 @ X8_v19+B8]");
-			return (AudioClipManager)0;
+			return audioClipManager;
 			IL_0200:
 			string text = "Argument must be of type {0}.";
 			nint num3 = 0;
@@ -124,7 +122,7 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 			audioClipManager = (AudioClipManager)obj19;
 			if (obj19 == null)
 			{
-				return (AudioClipManager)(object)new global::System.NullReferenceException();
+				throw new global::System.NullReferenceException();
 			}
 			goto IL_0126;
 			IL_00bd:
@@ -147,9 +145,7 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 	{
 		//IL_000e: Expected I, but got O
 		//IL_012a: Expected O, but got I
-		nint num = (nint)typeof(global::System.Linq.Expressions.Interpreter.CastInstruction.CastInstructionT<char>);
 		global::System.Collections.Generic.Dictionary<string, global::UnityEngine.AudioClip> clipData = new global::System.Collections.Generic.Dictionary<string, global::UnityEngine.AudioClip>();
-		object obj = (nint)this + 32;
 		m_ClipData = clipData;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::UnityEngine.AudioClip[] array = clips;
@@ -179,37 +175,28 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 		//IL_00ed: Expected I4, but got O
 		//IL_008b: Expected O, but got I4
 		result = null;
-		global::UnityEngine.AudioClip audioClip2;
-		string text;
+		bool result2;
 		if (id != null)
 		{
-			nint num = 0;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X8_v5 (Il2CppMethodInfo)+810]");
-			ref global::UnityEngine.AudioClip reference = ref *(global::UnityEngine.AudioClip*)null;
 			if (m_ClipData.ContainsKey(id))
 			{
-				nint num2 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v98 @ X8_v7 (Il2CppMethodInfo)+818]");
-				reference = ref *(global::UnityEngine.AudioClip*)null;
 				global::UnityEngine.AudioClip audioClip = m_ClipData[id];
-				audioClip2 = audioClip;
-				text = (string)1;
+				result = audioClip;
+				result2 = true;
 			}
 			else
 			{
-				audioClip2 = null;
-				text = null;
+				result2 = false;
 			}
 		}
 		else
 		{
-			audioClip2 = null;
-			ref global::UnityEngine.AudioClip reference = ref result;
-			text = id;
+			result2 = false;
 		}
-		ref global::UnityEngine.AudioClip reference2 = ref *(global::UnityEngine.AudioClip*)audioClip2;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return (byte)(int)text != 0;
+		return result2;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000164")]

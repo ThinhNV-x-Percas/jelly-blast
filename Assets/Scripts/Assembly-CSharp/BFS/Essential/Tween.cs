@@ -59,7 +59,6 @@ namespace BFS.Essential
 				//IL_009a: Expected I, but got O
 				//IL_00a6: Expected O, but got I
 				nint num = (nint)typeof(CollectParticleData[]);
-				object obj = (nint)this + 16;
 				global::System.Delegate obj2 = this.m_m_OnComplete;
 				bool flag;
 				global::System.Delegate obj4 = default(global::System.Delegate);
@@ -89,7 +88,6 @@ namespace BFS.Essential
 				//IL_009a: Expected I, but got O
 				//IL_00a6: Expected O, but got I
 				nint num = (nint)typeof(CollectParticleData[]);
-				object obj = (nint)this + 16;
 				global::System.Delegate obj2 = this.m_m_OnComplete;
 				bool flag;
 				global::System.Delegate obj4 = default(global::System.Delegate);
@@ -176,8 +174,6 @@ namespace BFS.Essential
 			}
 			goto IL_02ce;
 			IL_01ac:
-			nint num2 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-			object obj5 = (nint)this + 40;
 			m_Interpolator = interpolator;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v98 @ X21_v3 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+B38]");
@@ -215,7 +211,6 @@ namespace BFS.Essential
 			}
 			goto IL_01ac;
 			IL_02ce:
-			nint num5 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 			object obj14 = obj4;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v134 @ X8_v16 (Il2CppMethodInfo)+2F0]");
 			global::System.Func<float, float> func = new global::System.Func<float, float>(obj14, (global::System.IntPtr)0);
@@ -247,7 +242,6 @@ namespace BFS.Essential
 		public virtual global::BFS.Essential.Tween OnComplete(global::System.Action callback)
 		{
 			//IL_000c: Expected O, but got I
-			object obj = (nint)this + 16;
 			this.m_OnComplete = callback;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			return this;
@@ -268,13 +262,10 @@ namespace BFS.Essential
 			while (true)
 			{
 				object obj = new object();
-				nint num2 = (nint)typeof(global::System.Func<global::UnityEngine.UIElements.ValidateCommandEvent>);
 				nint num3 = 0;
-				object obj2 = (nint)obj + 16;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v62 @ X23_v1 (Il2CppMethodInfo)+2F8]");
 				global::System.Func<float, float> func = new global::System.Func<float, float>(obj, (global::System.IntPtr)0);
-				nint num4 = (nint)this;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v92 @ X8_v3 (Il2CppClass<BFS.Essential.Tween>)+198]");
 				object obj3 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v92 @ X8_v3 (Il2CppClass<BFS.Essential.Tween>)+1A0]");
@@ -289,7 +280,6 @@ namespace BFS.Essential
 		public virtual global::BFS.Essential.Tween SetInterpolator(global::System.Func<float, float> interpolator)
 		{
 			//IL_000c: Expected O, but got I
-			object obj = (nint)this + 40;
 			m_Interpolator = interpolator;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			return this;
@@ -305,8 +295,6 @@ namespace BFS.Essential
 			//IL_00a8: Expected O, but got I
 			//IL_00c9: Expected O, but got I
 			//IL_00de: Expected O, but got I
-			nint num = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
-			object obj = (nint)this + 32;
 			m_Task = null;
 			m_Run = false;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -318,7 +306,6 @@ namespace BFS.Essential
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v53.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
 				}
 			}
-			object obj2 = (nint)this + 16;
 			this.m_OnComplete = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X21_v2 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+B38]");
@@ -338,8 +325,6 @@ namespace BFS.Essential
 			//IL_003d: Expected O, but got I
 			//IL_004d: Expected O, but got I
 			//IL_0065: Expected O, but got I
-			nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
-			nint num2 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 			object obj = new global::System.Collections.Generic.List<object>();
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v20 @ X20_v1 (Il2CppClass<System.Net.Configuration.SettingsSectionInternal>)+B38]");
 			object obj2 = 0;

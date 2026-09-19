@@ -33,7 +33,6 @@ public class GoalUI : global::UnityEngine.MonoBehaviour
 		//IL_006b: Expected O, but got I
 		nint num = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj = (nint)this + 72;
 		ElasticScale elasticScale = default(ElasticScale);
 		this.elasticScale = elasticScale;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
@@ -58,7 +57,6 @@ public class GoalUI : global::UnityEngine.MonoBehaviour
 		//IL_0179: Expected O, but got I
 		//IL_0189: Expected O, but got I
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA9D]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -97,13 +95,11 @@ public class GoalUI : global::UnityEngine.MonoBehaviour
 		object obj6 = 0;
 		nint num2 = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v76 @ X8_v4+50]");
-		GoalData goalData = (GoalData)((global::System.Collections.Generic.List<object>)0)[goalIndex];
-		object obj7 = (nint)this + 64;
+		GoalData goalData = (GoalData)default(global::System.Collections.Generic.List<object>)[goalIndex];
 		goal = goalData;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		int num3 = (int)((nint)goal + 24);
-		_ = ((int*)num3)->m_value;
-		string text = ((int*)num3)->ToString();
+		goal.displayedCount = goal.count;
+		string text = goal.count.ToString();
 		goalText.text = text;
 		GoalData goalData2 = goal;
 		goalImage.sprite = goalData2.sprite;
@@ -135,11 +131,10 @@ public class GoalUI : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv14 = this.goal + 0x1C;\n\tv16 = v14.m_value - 1;\n\tv14.m_value = v16;\n\tv28 = v16 <= 0;\n\tif (v28) goto L_002F;\n\tv77 = System.Int32::ToString(v14);\n\tv128 = TMPro.TMP_Text::set_text(this.goalText, v77);\n\tv122 = this.elasticScale;\n\tv129 = this.elasticScale == 0;\n\tv70 = ~v129;\n\tif (v70) goto L_0048;\n\tgoto L_004A;\nL_002F:\n\tv80 = UnityEngine.GameObject::get_gameObject(this.tick);\n\tUnityEngine.GameObject::SetActive(v80, 1);\n\tv82 = UnityEngine.Component::get_gameObject(this.goalText);\n\tUnityEngine.GameObject::SetActive(v82, 0);\n\tv122 = this.elasticScale;\nL_0048:\n\tElasticScale::Pop(v122);\n\treturn;\nL_004A:\n\tthrow System.NullReferenceException;\n// 56 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public unsafe void RecieveParticle()
 	{
-		int num = (int)((nint)goal + 28);
 		ElasticScale elasticScale;
-		if (--((int*)num)->m_value > 0)
+		if (--goal.displayedCount > 0)
 		{
-			string text = ((int*)num)->ToString();
+			string text = goal.displayedCount.ToString();
 			goalText.text = text;
 			elasticScale = this.elasticScale;
 			if ((object)this.elasticScale == null)

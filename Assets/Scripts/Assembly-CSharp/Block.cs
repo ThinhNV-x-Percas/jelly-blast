@@ -44,7 +44,6 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 		//IL_01c6: Expected O, but got I
 		//IL_01e1: Expected I, but got O
 		object obj = 50503680;
-		nint num = (nint)typeof(global::System.Collections.Generic.List<global::UnityEngine.UIElements.StyleSheets.Syntax.Expression>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A970]");
 		if ((uint)((nuint)0u & (nuint)1u) != 0)
 		{
@@ -78,21 +77,16 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 		goto IL_0133;
 		IL_0133:
 		nint num2 = 0;
-		object obj6 = (nint)this + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X0_v6+30]");
 		solver = (FluidSolver)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		object obj7 = (nint)this + 40;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v92 @ X0_v11+28]");
 		visual = (global::UnityEngine.Transform)0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		FluidSolver fluidSolver = solver;
-		nint num3 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
-		object obj8 = (nint)solver + 608;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v127 @ X8_v6 (Il2CppClass<Block>)+1A0]");
 		global::System.Delegate b = new global::System.Action<object, bool>(this, (global::System.IntPtr)0);
-		nint num4 = (nint)this;
 		global::System.Delegate obj9 = global::System.Delegate.Combine(fluidSolver.OnStartRemoveParticles, b);
 		if ((object)obj9 != null)
 		{
@@ -167,11 +161,8 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 		goto IL_00a1;
 		IL_00a1:
 		FluidSolver fluidSolver = solver;
-		object obj4 = (nint)solver + 608;
-		nint num2 = (nint)typeof(global::System.Collections.Generic.NullableComparer<>);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v107 @ X8_v9 (Il2CppClass<Block>)+1A0]");
 		global::System.Delegate value = new global::System.Action<object, bool>(this, (global::System.IntPtr)0);
-		nint num3 = (nint)this;
 		global::System.Delegate obj5 = global::System.Delegate.Remove(fluidSolver.OnStartRemoveParticles, value);
 		if ((object)obj5 != null)
 		{
@@ -241,17 +232,16 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 					if ((object)solver == null)
 					{
 						global::System.NullReferenceException ex = new global::System.NullReferenceException();
-						flag2 = (byte)(&obj2) != 0;
+						flag2 = obj2 != null;
 						hashSet = null;
 						break;
 					}
-					object obj3 = (nint)solver + 504;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v76 @ X23_v4 (Il2CppMethodInfo)+C28]");
 					num7 = 0;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
 					int num8 = (int)((nint)obj4 & 1);
 					bool flag3 = num8 == 0;
-					flag2 = (byte)(&obj2) != 0;
+					flag2 = obj2 != null;
 					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v76 @ X23_v4 (Il2CppMethodInfo)+C28]");
 					num9 = 0;
 					if (flag3)
@@ -265,7 +255,7 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 					{
 						global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
 						z = position.z;
-						flag2 = (byte)(&obj2) != 0;
+						flag2 = obj2 != null;
 						y = position.y;
 						num5 = position.x;
 						hashSet = null;
@@ -298,7 +288,7 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 					float f = y + num14;
 					num5 = global::UnityEngine.Mathf.Sqrt(f);
 					bool flag4 = num5 < 0.5f;
-					flag2 = (byte)(&obj2) != 0;
+					flag2 = obj2 != null;
 					num9 = num7;
 					if (!flag4)
 					{
@@ -368,7 +358,6 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 		float y = position.y;
 		float z = position.z;
 		nint num = 0;
-		nint num2 = (nint)typeof(global::System.Runtime.Serialization.ObjectHolderList);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v339 @ X8_v6 (Il2CppClass<System.Runtime.Serialization.ObjectHolderList>)+538]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v341 @ X8_v8+B8]");
@@ -409,11 +398,9 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 		{
 			if (num9 < list.Count)
 			{
-				nint num10 = (nint)typeof(global::Facebook.Unity.AsyncRequestString._003CStart_003Ed__9);
 				object obj3 = new object();
 				nint num11 = 0;
 				global::UnityEngine.Rigidbody rigidbody = fragments[num9];
-				object obj4 = (nint)obj3 + 16;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v479 @ X0_v43 (System.Object)+10]");
 				global::UnityEngine.GameObject gameObject = ((global::UnityEngine.Component)0).gameObject;
@@ -443,7 +430,6 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 				global::DG.Tweening.Core.TweenerCore<global::UnityEngine.Vector3, global::UnityEngine.Vector3, global::DG.Tweening.Plugins.Options.VectorOptions> tweenerCore = global::DG.Tweening.ShortcutExtensions.DOScale(target, 0f, 1f);
 				nint num15 = 0;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11B1314 (DG.Tweening.TweenSettingsExtensions::SetDelay, and 1 more at this address)");
-				nint num16 = (nint)typeof(global::System.Net.Configuration.SettingsSectionInternal);
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v565 @ X8_v50 (Il2CppMethodInfo)+FA0]");
 				global::DG.Tweening.TweenCallback tweenCallback = new global::DG.Tweening.TweenCallback(obj3, (global::System.IntPtr)0);
 				nint num17 = 0;

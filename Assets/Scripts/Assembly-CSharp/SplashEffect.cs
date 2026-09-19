@@ -16,9 +16,7 @@ public class SplashEffect : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_002a: Expected O, but got I
-		nint num = (nint)typeof(global::Facebook.Unity.Windows.IWindowsFacebook);
 		global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-		object obj = (nint)this + 32;
 		_propBlock = propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 	}
@@ -33,7 +31,7 @@ public class SplashEffect : global::UnityEngine.MonoBehaviour
 		string text = "Writing object reference to Id '{0}' for {1}.";
 		global::UnityEngine.MaterialPropertyBlock propBlock = _propBlock;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v78 @ X8_v4 (System.String)+900]");
-		propBlock.SetColor((string)0, color);
+		propBlock.SetColor(null, color);
 		mr.SetPropertyBlock(_propBlock);
 	}
 

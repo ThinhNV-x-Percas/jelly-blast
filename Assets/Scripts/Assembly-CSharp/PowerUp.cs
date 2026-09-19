@@ -75,9 +75,7 @@ public class PowerUp : SpecialFluid
 			else
 			{
 				_003C_003E1__state = -1;
-				nint num2 = (nint)typeof(global::System.Xml.ValidateNames);
 				global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.1f);
-				object obj = (nint)this + 24;
 				_003C_003E2__current = waitForSeconds;
 				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 				num = 1;
@@ -103,7 +101,6 @@ public class PowerUp : SpecialFluid
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)1312;
@@ -227,7 +224,6 @@ public class PowerUp : SpecialFluid
 			float num5 = num4 + -1f;
 			float rot = num5 * 0.5f;
 			_003C_003E4__this._003CRotateBlob_003Eg__SetRot_007C13_0(rot);
-			object obj = (nint)this + 24;
 			_003C_003E2__current = null;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 			_003C_003E1__state = 1;
@@ -249,7 +245,6 @@ public class PowerUp : SpecialFluid
 			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_0014: Expected O, but got Unknown
 			//IL_0039: Expected O, but got I
-			object obj = typeof(global::Facebook.Unity.Windows.IWindowsFacebook) + 3888;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
 			global::System.NotSupportedException ex = new global::System.NotSupportedException();
 			object obj2 = (nint)0 + (nint)1320;
@@ -314,7 +309,6 @@ public class PowerUp : SpecialFluid
 		InitArrows();
 		if (mergeIndex >= 1)
 		{
-			nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 			object routine = new object();
 			_ = 0;
 			global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)routine);
@@ -329,7 +323,6 @@ public class PowerUp : SpecialFluid
 	public global::System.Collections.IEnumerator HandleInAnim()
 	{
 		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object result = new object();
 		_ = 0;
 		return (global::System.Collections.IEnumerator)result;
@@ -362,10 +355,8 @@ public class PowerUp : SpecialFluid
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		nint num = (nint)typeof(global::TMPro.KerningTable._003C_003Ec__DisplayClass3_0);
 		object obj = new object();
 		_ = 0;
-		object obj2 = (nint)obj + 32;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		return (global::System.Collections.IEnumerator)obj;
 	}
@@ -426,7 +417,6 @@ public class PowerUp : SpecialFluid
 		//IL_0135: Expected O, but got I
 		//IL_01a6: Expected O, but got I
 		//IL_01b6: Expected O, but got I
-		nint num = (nint)typeof(global::System.Xml.ValidateNames);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v42 @ X21_v2 (Il2CppClass<System.Xml.ValidateNames>)+98]");
 		object obj = 0;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v44 @ X8_v3+B8]");
@@ -489,7 +479,6 @@ public class PowerUp : SpecialFluid
 			global::UnityEngine.Transform transform3 = mr.transform;
 			global::UnityEngine.Vector3 localScale = transform3.localScale;
 			float num2 = localScale.z * 0f;
-			nint num3 = (nint)typeof(global::System.Xml.ValidateNames);
 			float num4 = vector.z + num2;
 			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v148 @ X8_v4 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
 			object obj9 = 0;

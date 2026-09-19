@@ -3158,121 +3158,56 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		_lastJob.Complete();
 		int activeCount = ActiveCount;
 		int num2 = maxParticles - ActiveCount;
-		int num3 = spawnPositions.Length - num2;
-		bool flag = num3 < 0;
-		int num4 = spawnPositions.Length ^ num2;
-		int num5 = spawnPositions.Length ^ num3;
-		int num6 = num4 & num5;
-		bool flag2 = num6 < 0;
-		if (flag != flag2)
+		if (num2 > spawnPositions.Length)
 		{
 			num2 = spawnPositions.Length;
 		}
-		bool flag3 = num2 < 1;
-		global::System.Collections.Generic.HashSet<int> hashSet2 = hashSet;
-		if (!flag3)
+		if (num2 >= 1)
 		{
 			int num7 = 0;
-			hashSet2 = hashSet;
-			global::System.Action<ParticleInitData> action = default(global::System.Action<ParticleInitData>);
 			do
 			{
 				int num8 = activeCount + num7;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray = positions;
-				int num9 = num8 << 3;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v284 @ X8_v11+v133 @ X24_v5 (System.Int32)*8]");
-				_ = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray2 = positionsPrev;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v284 @ X8_v11+v133 @ X24_v5 (System.Int32)*8]");
-				_ = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray3 = positions;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray4 = predicted;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v344 @ X8_v16 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v191 @ X22_v7 (System.Int32)]");
-				_ = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v347 @ X10_v5 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
-				object obj3 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v348 @ X8_v18+B8]");
-				object obj4 = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray5 = velocities;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v347 @ X10_v5 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
-				object obj5 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v352 @ X8_v21+B8]");
-				object obj6 = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray6 = densities;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v347 @ X10_v5 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
-				object obj7 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v356 @ X8_v24+B8]");
-				object obj8 = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray7 = deltaVel;
-				global::Unity.Collections.NativeArray<int> nativeArray8 = particleTypes;
-				int num11 = num8 << 2;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v362 @ X8_v28 (Il2CppClass<System.Xml.ValidateNames>)+D58]");
-				object obj9 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v364 @ X8_v30+B8]");
-				object obj10 = 0;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float4> nativeArray9 = emissionColors;
-				global::Unity.Collections.NativeArray<float> nativeArray10 = scales;
-				_ = 1065353216;
+				positions[num8] = spawnPositions[num7];
+				positionsPrev[num8] = spawnPositions[num7];
+				predicted[num8] = spawnPositions[num7];
+				velocities[num8] = default(global::Unity.Mathematics.float2);
+				densities[num8] = default(global::Unity.Mathematics.float2);
+				deltaVel[num8] = default(global::Unity.Mathematics.float2);
+				particleTypes[num8] = type;
 				int num13 = IdGenerator.Next();
-				global::Unity.Collections.NativeArray<int> nativeArray11 = particleIds;
-				global::Unity.Collections.NativeArray<int> nativeArray12 = powerUpIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<int> nativeArray13 = fishIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<int> nativeArray14 = octopusIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<bool> nativeArray15 = inOctopusHead;
-				_ = 0;
-				global::Unity.Collections.NativeArray<bool> nativeArray16 = isWater;
-				_ = 0;
-				global::Unity.Collections.NativeArray<bool> nativeArray17 = isHoneyCoated;
-				_ = 0;
-				global::Unity.Collections.NativeArray<int> nativeArray18 = clumpIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<int> nativeArray19 = spongeIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<int> nativeArray20 = caterpillarIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<int> nativeArray21 = beeIds;
-				_ = 4294967295L;
-				global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray22 = gravities;
-				_ = defaultGravity;
-				global::Unity.Collections.NativeArray<bool> nativeArray23 = isStatic;
-				_ = 0;
-				global::Unity.Collections.NativeArray<float> nativeArray24 = nearPressureMultipliers;
-				_ = nearPressureMultiplier;
-				global::Unity.Collections.NativeArray<float> nativeArray25 = viscosityStrengths;
-				_ = viscosityStrength;
-				global::Unity.Collections.NativeArray<int> nativeArray26 = particleIds;
-				nint num14 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v390 @ X8_v49 (Il2CppMethodInfo)+C20]");
-				nint num15 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E74A8 (Unity.Collections.NativeHashMap`2::TryAdd, and 1 more at this address)");
-				global::Unity.Collections.NativeArray<int> nativeArray27 = particleIds;
-				global::System.Collections.Generic.HashSet<int> hashSet3 = hashSet2;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v392 @ X8_v51 (Unity.Collections.NativeArray`1<System.Int32>)+v194 @ X26_v6 (System.Int32)*4]");
-				bool flag4 = hashSet3.Add(0);
-				if (action != null)
+				particleIds[num8] = num13;
+				powerUpIds[num8] = -1;
+				fishIds[num8] = -1;
+				octopusIds[num8] = -1;
+				inOctopusHead[num8] = false;
+				isWater[num8] = false;
+				isHoneyCoated[num8] = false;
+				clumpIds[num8] = -1;
+				spongeIds[num8] = -1;
+				caterpillarIds[num8] = -1;
+				beeIds[num8] = -1;
+				gravities[num8] = defaultGravity;
+				isStatic[num8] = false;
+				nearPressureMultipliers[num8] = nearPressureMultiplier;
+				viscosityStrengths[num8] = viscosityStrength;
+				emissionColors[num8] = default(global::Unity.Mathematics.float4);
+				scales[num8] = 1f;
+				idToIndex.TryAdd(num13, num8);
+				hashSet.Add(num13);
+				if (onInit != null)
 				{
-					global::Unity.Collections.NativeArray<int> nativeArray28 = particleIds;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v399 @ X8_v54 (Unity.Collections.NativeArray`1<System.Int32>)+v194 @ X26_v6 (System.Int32)*4]");
-					ParticleInitData particleInitData = new ParticleInitData(num8, 0, num7);
-					num15 = action.method;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v223.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
+					ParticleInitData particleInitData = new ParticleInitData(num8, num13, num7);
+					onInit(particleInitData);
 				}
 				num7++;
 			}
 			while (num2 != num7);
 			activeCount = ActiveCount;
 		}
-		int num16 = activeCount + num2;
-		ActiveCount = num16;
-		global::System.Action<global::System.Collections.Generic.HashSet<int>> onAddParticles = OnAddParticles;
-		if (OnAddParticles != null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v271.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-		}
-		return hashSet2;
+		ActiveCount = activeCount + num2;
+		OnAddParticles?.Invoke(hashSet);
+		return hashSet;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000277")]
@@ -3292,20 +3227,17 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			int num4 = 0;
 			do
 			{
-				object obj = positions + num4;
+				global::Unity.Mathematics.float2 float4 = positions[num3];
 				global::Unity.Mathematics.float2 float5 = worldPos;
-				float num5 = (float)obj - float5.x;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v161 @ X8_v6+4]");
-				float num6 = 0f - float5.y;
+				float num5 = float4.x - float5.x;
+				float num6 = float4.y - float5.y;
 				float num7 = num5 * num5;
 				float num8 = num6 * num6;
 				float num9 = num7 + num8;
-				global::Unity.Collections.NativeArray<bool> nativeArray = isWater;
 				bool flag;
 				if (num9 < num)
 				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v7 (Unity.Collections.NativeArray`1<System.Boolean>)+v146 @ X22_v4 (System.Int32)]");
-					flag = (nint)0 == 0;
+					flag = !isWater[num3];
 				}
 				else
 				{
@@ -3363,219 +3295,39 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv42 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tgoto L_0042;\n\tv47 = System.Collections.Generic.NullableComparer`1;\n\tv48 = v47 + 0xC48;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v48, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv67 = Il2CppMethodInfo;\n\tv68 = v67 + 0x968;\n\tv69 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0x970;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv76 = Il2CppMethodInfo;\n\tv77 = v76 + 0x978;\n\tv78 = \"il2cpp_codegen_initialize_runtime_metadata\"(v77, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv174 = Il2CppMethodInfo;\n\tv175 = v174 + 0x980;\n\tv176 = \"il2cpp_codegen_initialize_runtime_metadata\"(v175, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv179 = Il2CppMethodInfo;\n\tv180 = v179 + 0x998;\n\tv181 = \"il2cpp_codegen_initialize_runtime_metadata\"(v180, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv194 = Il2CppMethodInfo;\n\tv195 = v194 + 0x968;\n\tv196 = \"il2cpp_codegen_initialize_runtime_metadata\"(v195, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv213 = Il2CppMethodInfo;\n\tv214 = v213 + 0x9B0;\n\tv215 = \"il2cpp_codegen_initialize_runtime_metadata\"(v214, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv220 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv221 = v220 + 0x5D8;\n\tv222 = \"il2cpp_codegen_initialize_runtime_metadata\"(v221, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv237 = Il2CppMethodInfo;\n\tv238 = v237 + 0xD38;\n\tv239 = \"il2cpp_codegen_initialize_runtime_metadata\"(v238, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv242 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv243 = v242 + 0xB70;\n\tv62 = \"il2cpp_codegen_initialize_runtime_metadata\"(v243, ids, touchId, methodInfo, v51, v52, v53, v54, wPos, v0, delay, v56, v57, v58, v59, v60);\n\tv64 = 1;\n\t*([302AA04]) = v64;\nL_0042:\n\tv66 = new *([v42 @ X23_v1 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+B70])();\n\tFluidSolver+<>c__DisplayClass140_0::.ctor(v66);\n\tv75 = v66 == 0;\n\tif (v75) goto L_0119;\n\tv79 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv150 = Il2CppMethodInfo + 0x968;\n\tv84 = v66 + 0x20;\n\tv66.<>4__this = this;\n\tv86 = 0xF3F1B4(v84, this, v464, methodInfo, v51, v52, v53, v54, wPos, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv66.touchId = v464;\n\tv178 = new *([v79 @ X23_v10 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+5D8])();\n\tSystem.Collections.Generic.HashSet`1<System.Int32>::.ctor(v178);\n\tv172 = v66 + 0x18;\n\tv66.fresh = v178;\n\tv157 = 0xF3F1B4(v172, v178, v464, methodInfo, v51, v52, v53, v54, wPos, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv161 = ids == 0;\n\tif (v161) goto L_0119;\n\tv225 = Il2CppMethodInfo;\n\tv226 = Il2CppMethodInfo;\n\tv141 = System.Collections.Generic.NullableComparer`1 + 0xC48;\n\tv150 = Il2CppMethodInfo + 0xD38;\n\tv229 = Il2CppMethodInfo;\n\tv138 = Il2CppMethodInfo + 0x968;\n\tv234 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(ids);\nL_0078:\n\tv260 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v232 @ stack_-A8_v5 (UnityEngine.Vector2), *([v225 @ X27_v4 (Il2CppMethodInfo)+970]));\n\tv348 = v260 & 1;\n\tv265 = v348 == 0;\n\tif (v265) goto L_008D;\n\tv352 = this._pendingRemovalIds == 0;\n\tif (v352) goto L_0115;\n\tv251 = System.Collections.Generic.HashSet`1<System.Int32>::Add(this._pendingRemovalIds, v241);\n\tv254 = v251 == 0;\n\tif (v254) goto L_0078;\n\tv464 = *([v226 @ X28_v4 (Il2CppMethodInfo)+980]);\n\tv252 = System.Collections.Generic.HashSet`1<System.Int32>::Add(v66.fresh, v241);\n\tgoto L_0078;\nL_008D:\n\tv152 = *([v229 @ X26_v4 (Il2CppMethodInfo)+968]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v232 @ stack_-A8_v5 (UnityEngine.Vector2), *([v229 @ X26_v4 (Il2CppMethodInfo)+968]));\nL_0090:\n\tv169 = v172.m_value;\n\tv162 = v172.m_value == 0;\n\tif (v162) goto L_0119;\n\tv350 = *([v169 @ X8_v5 (System.Int32)+20]) == 0;\n\tif (v350) goto L_0102;\n\tv354 = ~this.isClumped;\n\tif (v354) goto L_0103;\n\tv383 = *([v169 @ X8_v5 (System.Int32)+20]) - 0x10;\n\tv384 = v383 < 0;\n\tv386 = *([v169 @ X8_v5 (System.Int32)+20]) ^ 0x10;\n\tv387 = *([v169 @ X8_v5 (System.Int32)+20]) ^ v383;\n\tv388 = v386 & v387;\n\tv389 = v388 < 0;\n\tv390 = v384 == v389;\n\tv66.createPowerup = v390;\n\tv410 = this.OnRemoveRegionStart;\n\tv393 = this.OnRemoveRegionStart == 0;\n\tif (v393) goto L_00BB;\nL_00AB:\n\tv425 = *([v169 @ X8_v5 (System.Int32)+20]) - v421;\n\tv426 = v425 < 0;\n\tv428 = *([v169 @ X8_v5 (System.Int32)+20]) ^ v421;\n\tv429 = *([v169 @ X8_v5 (System.Int32)+20]) ^ v425;\n\tv430 = v428 & v429;\n\tv431 = v430 < 0;\n\tv432 = v426 == v431;\n\tv410.invoke_impl(v439, v410.method_code, v432, v410.method, methodInfo, v51, v52, v53, v54, wPos, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv359 = v66.createPowerup;\nL_00BB:\n\tv457 = ~v359;\n\tif (v457) goto L_00C9;\n\tv460 = this.OnCreatePowerup;\n\tv461 = this.OnCreatePowerup == 0;\n\tif (v461) goto L_00C9;\n\tv460.invoke_impl(v471, v460.method_code, ids, v460.method, methodInfo, v51, v52, v53, v54, wPos, wPos.y, delay, v56, v57, v58, v59, v60);\nL_00C9:\n\tv356 = v66.touchId << 3;\n\tv476 = this.positions + v356;\n\t// 206 MakeStruct v355 @ AGG1002814_0_v2 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), [v476 @ X8_v11], [v476 @ X8_v11+4]\n\tv480 = Unity.Mathematics.float2::op_Implicit(v355);\n\tv66.touchPos = v480;\n\tv66.touchPos.y = v480.y;\n\tFluidSolver::HandleSplashDestroy(this, ids);\n\tv485 = new *([v141 @ X25_v2])();\n\tSystem.Action`1<System.Collections.Generic.HashSet`1<System.Int32>>::.ctor(v485, v66, *([v150 @ X24_v2]));\n\tv365 = v66.createPowerup == 0;\n\tv495 = FluidSolver::HandleRemove(this, ids, v485, v365, 0.2f);\n\tv373 = UnityEngine.MonoBehaviour::StartCoroutine(this, v495);\nL_0102:\n\treturn;\nL_0103:\n\tv421 = this.powerUpThreshold;\n\tv397 = *([v169 @ X8_v5 (System.Int32)+20]) - this.powerUpThreshold;\n\tv398 = v397 < 0;\n\tv400 = *([v169 @ X8_v5 (System.Int32)+20]) ^ this.powerUpThreshold;\n\tv401 = *([v169 @ X8_v5 (System.Int32)+20]) ^ v397;\n\tv402 = v400 & v401;\n\tv403 = v402 < 0;\n\tv404 = v398 == v403;\n\tv66.createPowerup = v404;\n\tv410 = this.OnRemoveRegionStart;\n\tv407 = this.OnRemoveRegionStart == 0;\n\tv408 = ~v407;\n\tif (v408) goto L_00AB;\n\tgoto L_00BB;\nL_0115:\n\tv379 = new System.NullReferenceException();\n\tgoto L_0118;\n\tv459 = new System.NullReferenceException();\nL_0118:\n\t// 280 Interrupt\nL_0119:\n\tv173 = new System.NullReferenceException();\n\tgoto L_0128;\n\tgoto L_0128;\n\tgoto L_0128;\n\tgoto L_0128;\nL_0128:\n\tv193 = v152 != 1;\n\tif (v193) goto L_0138;\n\tv200 = 0x274A080(v173, v152, v464, methodInfo, v51, v52, v53, v54, v131, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv217 = 0x274A098(v200, v152, v464, methodInfo, v51, v52, v53, v54, v131, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv152 = *([v138 @ X26_v2]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(v120, *([v138 @ X26_v2]));\n\tv208 = *([v200 @ X0_v13]) == 0;\n\tif (v208) goto L_0090;\n\tv206 = new System.OutOfMemoryException();\nL_0138:\n\tv212 = 0xBF092C(&v134 @ stack_-A8 (System.Int32), v152, v464, methodInfo, v51, v52, v53, v54, v131, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv219 = 0x27498DC(v209, v152, v464, methodInfo, v51, v52, v53, v54, v131, wPos.y, delay, v56, v57, v58, v59, v60);\n\tv236 = 0xD6F8(v219, v152, v464, methodInfo, v51, v52, v53, v54, v131, wPos.y, delay, v56, v57, v58, v59, v60);\n\treturn;\n// 160 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public unsafe void UserRemoveRegion(global::System.Collections.Generic.HashSet<int> ids, int touchId, global::UnityEngine.Vector2 wPos, float delay = 0.3f)
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0021: Expected I, but got O
-		//IL_002e: Expected O, but got I
-		//IL_003d: Expected O, but got I
-		//IL_00b7: Expected I4, but got O
-		//IL_059c: Expected I4, but got O
-		//IL_05bd: Expected I4, but got O
-		//IL_00e1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00e6: Expected O, but got Unknown
-		//IL_00f2: Expected O, but got I
-		//IL_0104: Expected O, but got I
-		//IL_05dc: Expected I4, but got O
-		//IL_0459: Expected O, but got I
-		//IL_031e: Expected O, but got I
-		//IL_025d: Expected O, but got I
-		//IL_06a4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06a9: Expected O, but got Unknown
-		//IL_06b6: Expected F4, but got O
-		//IL_06cb: Expected F4, but got I
-		//IL_0713: Expected I, but got O
-		FluidSolver._003C_003Ec__DisplayClass140_0 _003C_003Ec__DisplayClass140_1 = new FluidSolver._003C_003Ec__DisplayClass140_0();
-		bool flag = _003C_003Ec__DisplayClass140_1 == null;
-		global::UnityEngine.Vector2 vector = wPos;
-		int num2 = 0;
-		int num4 = default(int);
-		int num3 = num4;
-		object obj = default(object);
-		object obj4 = default(object);
-		int num9 = default(int);
-		global::UnityEngine.Vector2 vector2 = default(global::UnityEngine.Vector2);
-		object obj6;
-		int num10;
-		if (!flag)
+		FluidSolver._003C_003Ec__DisplayClass140_0 displayClass = new FluidSolver._003C_003Ec__DisplayClass140_0();
+		displayClass._003C_003E4__this = this;
+		displayClass.touchId = touchId;
+		global::System.Collections.Generic.HashSet<int> fresh = new global::System.Collections.Generic.HashSet<int>();
+		displayClass.fresh = fresh;
+		if (ids != null)
 		{
-			obj = (nint)0 + (nint)2408;
-			_003C_003Ec__DisplayClass140_1._003C_003E4__this = this;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			_003C_003Ec__DisplayClass140_1.touchId = num4;
-			global::System.Collections.Generic.HashSet<int> hashSet = new global::System.Collections.Generic.HashSet<int>();
-			num3 = (int)((nint)_003C_003Ec__DisplayClass140_1 + 24);
-			_003C_003Ec__DisplayClass140_1.fresh = hashSet;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			bool flag2 = ids == null;
-			vector = wPos;
-			num2 = (int)hashSet;
-			if (!flag2)
+			foreach (int id in ids)
 			{
-				nint num6 = 0;
-				nint num7 = 0;
-				object obj3 = typeof(global::System.Collections.Generic.NullableComparer<>) + 3144;
-				obj = (nint)0 + (nint)3384;
-				nint num8 = 0;
-				obj4 = (nint)0 + (nint)2408;
-				global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = ids.GetEnumerator();
-				object obj5 = default(object);
-				while (true)
+				if (_pendingRemovalIds.Add(id))
 				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-					if ((int)((nint)obj5 & 1) == 0)
-					{
-						break;
-					}
-					if (_pendingRemovalIds != null)
-					{
-						bool flag3 = _pendingRemovalIds.Add(num9);
-						bool flag4 = !flag3;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X28_v4 (Il2CppMethodInfo)+980]");
-						num4 = 0;
-						if (!flag4)
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X28_v4 (Il2CppMethodInfo)+980]");
-							num4 = 0;
-							bool flag5 = _003C_003Ec__DisplayClass140_1.fresh.Add(num9);
-						}
-						continue;
-					}
-					goto IL_050d;
+					fresh.Add(id);
 				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v229 @ X26_v4 (Il2CppMethodInfo)+968]");
-				num2 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-				obj6 = vector2;
-				vector = vector2;
-				num10 = 0;
-				goto IL_01d8;
 			}
-		}
-		goto IL_062a;
-		IL_050d:
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		num2 = num9;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X28_v4 (Il2CppMethodInfo)+980]");
-		num4 = 0;
-		obj6 = vector2;
-		vector = vector2;
-		num10 = 0;
-		goto IL_062a;
-		IL_062a:
-		global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
-		bool flag6 = num2 != 1;
-		global::System.NullReferenceException ex3 = ex2;
-		if (!flag6)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			num2 = (int)obj4;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			object obj7 = default(object);
-			bool flag7 = obj7 == null;
-			num10 = (int)obj7;
-			if (flag7)
-			{
-				goto IL_01d8;
-			}
-			global::System.OutOfMemoryException ex4 = new global::System.OutOfMemoryException();
-			num10 = (int)obj7;
-			ex3 = (global::System.NullReferenceException)(object)ex4;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
-		return;
-		IL_0309:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-		int num11;
-		object obj8 = -num11;
-		bool flag8 = (nint)obj8 < 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-		int num12 = (int)((nint)0 ^ (nint)num11);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-		int num13 = (int)(0 ^ (nint)obj8);
-		int num14 = num12 & num13;
-		bool flag9 = num14 < 0;
-		bool flag10 = flag8 == flag9;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v410.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-		bool flag11 = _003C_003Ec__DisplayClass140_1.createPowerup;
-		global::System.Action<bool, global::UnityEngine.Vector2> onRemoveRegionStart;
-		num4 = (int)(nint)onRemoveRegionStart.method;
-		goto IL_066e;
-		IL_01d8:
-		int value = num3;
-		if (num3 == 0)
-		{
-			goto IL_062a;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-		if ((nint)0 == 0)
-		{
-			return;
 		}
 		if (isClumped)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			object obj9 = -16;
-			bool flag12 = (nint)obj9 < 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			int num15 = (int)((nint)0 ^ (nint)0x10);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			int num16 = (int)(0 ^ (nint)obj9);
-			int num17 = num15 & num16;
-			bool flag13 = num17 < 0;
-			bool flag14 = (_003C_003Ec__DisplayClass140_1.createPowerup = flag12 == flag13);
-			onRemoveRegionStart = OnRemoveRegionStart;
-			bool flag15 = OnRemoveRegionStart == null;
-			num11 = 16;
-			flag11 = flag14;
-			if (!flag15)
-			{
-				goto IL_0309;
-			}
+			displayClass.createPowerup = fresh.Count >= bigPowerUpThreshold;
 		}
 		else
 		{
-			num11 = powerUpThreshold;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			object obj10 = -powerUpThreshold;
-			bool flag16 = (nint)obj10 < 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			int num18 = (int)((nint)0 ^ (nint)powerUpThreshold);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v169 @ X8_v5 (System.Int32)+20]");
-			int num19 = (int)(0 ^ (nint)obj10);
-			int num20 = num18 & num19;
-			bool flag17 = num20 < 0;
-			bool flag18 = (_003C_003Ec__DisplayClass140_1.createPowerup = flag16 == flag17);
-			onRemoveRegionStart = OnRemoveRegionStart;
-			if (OnRemoveRegionStart != null)
-			{
-				goto IL_0309;
-			}
-			flag11 = flag18;
+			displayClass.createPowerup = fresh.Count >= powerUpThreshold;
 		}
-		goto IL_066e;
-		IL_066e:
-		if (flag11)
+		OnRemoveRegionStart?.Invoke(displayClass.createPowerup, wPos);
+		if (displayClass.createPowerup)
 		{
-			global::System.Action<global::System.Collections.Generic.HashSet<int>, global::UnityEngine.Vector2> onCreatePowerup = OnCreatePowerup;
-			if (OnCreatePowerup != null)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v460.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-				num4 = (int)(nint)onCreatePowerup.method;
-			}
+			OnCreatePowerup?.Invoke(fresh, wPos);
 		}
-		int num21 = _003C_003Ec__DisplayClass140_1.touchId << 3;
-		object obj11 = positions + num21;
-		global::Unity.Mathematics.float2 float5 = default(global::Unity.Mathematics.float2);
-		float5.x = (float)obj11;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v476 @ X8_v11+4]");
-		float5.y = 0f;
-		global::UnityEngine.Vector2 vector3 = (_003C_003Ec__DisplayClass140_1.touchPos = float5);
-		_003C_003Ec__DisplayClass140_1.touchPos.y = vector3.y;
+		global::Unity.Mathematics.float2 float5 = positions[displayClass.touchId];
+		global::UnityEngine.Vector2 vector3 = (displayClass.touchPos = float5);
 		HandleSplashDestroy(ids);
-		global::System.Action<global::System.Collections.Generic.HashSet<int>> onRemove = new global::System.Action<global::System.Collections.Generic.HashSet<int>>(_003C_003Ec__DisplayClass140_1, (global::System.IntPtr)obj);
-		bool explode = !_003C_003Ec__DisplayClass140_1.createPowerup;
+		global::System.Action<global::System.Collections.Generic.HashSet<int>> onRemove = displayClass._003CUserRemoveRegion_003Eb__0;
+		bool explode = !displayClass.createPowerup;
 		global::System.Collections.IEnumerator routine = HandleRemove(ids, onRemove, explode);
 		global::UnityEngine.Coroutine coroutine = StartCoroutine(routine);
 	}
@@ -3607,290 +3359,55 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv34 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv36 = Il2CppMethodInfo;\n\tv37 = Il2CppMethodInfo + 0x968;\n\tgoto L_0044;\n\tv41 = Il2CppMethodInfo;\n\tv42 = v41 + 0x968;\n\tv43 = \"il2cpp_codegen_initialize_runtime_metadata\"(v42, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv67 = Il2CppMethodInfo;\n\tv68 = v67 + 0x970;\n\tv69 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0x978;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv76 = Il2CppMethodInfo;\n\tv77 = v76 + 0x980;\n\tv78 = \"il2cpp_codegen_initialize_runtime_metadata\"(v77, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv171 = Il2CppMethodInfo;\n\tv172 = v171 + 0x990;\n\tv173 = \"il2cpp_codegen_initialize_runtime_metadata\"(v172, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv178 = Il2CppMethodInfo;\n\tv179 = v178 + 0x998;\n\tv180 = \"il2cpp_codegen_initialize_runtime_metadata\"(v179, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv203 = Il2CppMethodInfo;\n\tv204 = v203 + 0x968;\n\tv205 = \"il2cpp_codegen_initialize_runtime_metadata\"(v204, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv240 = Il2CppMethodInfo;\n\tv241 = v240 + 0x9B0;\n\tv242 = \"il2cpp_codegen_initialize_runtime_metadata\"(v241, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv257 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv258 = v257 + 0x5D8;\n\tv259 = \"il2cpp_codegen_initialize_runtime_metadata\"(v258, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv278 = Il2CppMethodInfo;\n\tv279 = v278 + 0xC18;\n\tv280 = \"il2cpp_codegen_initialize_runtime_metadata\"(v279, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv298 = Il2CppMethodInfo;\n\tv299 = v298 + 0xC28;\n\tv300 = \"il2cpp_codegen_initialize_runtime_metadata\"(v299, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv304 = Il2CppMethodInfo;\n\tv305 = v304 + 0xC38;\n\tv58 = \"il2cpp_codegen_initialize_runtime_metadata\"(v305, ids, onRemove, methodInfo, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56);\n\tv60 = 1;\n\t*([302AA06]) = v60;\nL_0044:\n\tv64 = 0;\n\tv66 = new *([v34 @ X20_v1 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+5D8])();\n\tSystem.Collections.Generic.HashSet`1::.ctor /* +1 sharing this address */(v66, *([v36 @ X21_v1 (Il2CppMethodInfo)+968]));\n\tv75 = ids == 0;\n\tif (v75) goto L_014E;\n\tv81 = Il2CppMethodInfo;\n\tv147 = Il2CppMethodInfo + 0x968;\n\tv83 = Il2CppMethodInfo;\n\tv145 = Il2CppMethodInfo + 0x970;\n\tv89 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(ids);\n\tv159 = this + 0x1F8;\n\tv176 = Il2CppMethodInfo;\n\tv177 = v66 == 0;\n\tif (v177) goto L_0082;\n\tv181 = Il2CppMethodInfo;\nL_0066:\n\tv223 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v140 @ stack_-A0_v1 (System.Int32), *([v83 @ X26_v8 (Il2CppMethodInfo)+970]));\n\tv243 = v223 & 1;\n\tv244 = v243 == 0;\n\tif (v244) goto L_0088;\n\tv124 = *([v176 @ X24_v14 (Il2CppMethodInfo)+C28]);\n\tv217 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v159, v175, &v64 @ stack_-84_v1, *([v176 @ X24_v14 (Il2CppMethodInfo)+C28]));\n\tv281 = v217 & 1;\n\tv220 = v281 == 0;\n\tif (v220) goto L_0066;\n\tv121 = *([v181 @ X28_v5 (Il2CppMethodInfo)+980]);\n\tv218 = System.Collections.Generic.HashSet`1::Add /* +1 sharing this address */(v66, v64, *([v181 @ X28_v5 (Il2CppMethodInfo)+980]));\n\tgoto L_0066;\nL_0078:\n\tv124 = *([v176 @ X24_v14 (Il2CppMethodInfo)+C28]);\n\tv187 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v159, v175, &v64 @ stack_-84_v1, *([v176 @ X24_v14 (Il2CppMethodInfo)+C28]));\nL_0082:\n\tv191 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v140 @ stack_-A0_v1 (System.Int32), *([v83 @ X26_v8 (Il2CppMethodInfo)+970]));\n\tv224 = v191 == 0;\n\tv225 = ~v224;\n\tif (v225) goto L_0078;\nL_0088:\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v140 @ stack_-A0_v1 (System.Int32), *([v81 @ X25_v8 (Il2CppMethodInfo)+968]));\nL_0089:\n\tv273 = v272 == 0;\n\tif (v273) goto L_0090;\n\tv272.invoke_impl(v286, v272.method_code, ids, v272.method, v124, v45, v46, v47, v48, v265, v50, v51, v52, v53, v54, v55, v56);\nL_0090:\n\tv291 = Il2CppMethodInfo;\n\tv296 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(ids);\nL_009F:\n\tv315 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v140 @ stack_-A0_v1 (System.Int32), *([v145 @ X26_v2]));\n\tv392 = v315 & 1;\n\tv312 = v392 == 0;\n\tif (v312) goto L_00AA;\n\tv121 = *([v291 @ X23_v4 (Il2CppMethodInfo)+C18]);\n\tv310 = Unity.Collections.NativeHashMap`2::Remove /* +1 sharing this address */(v161, v175, *([v291 @ X23_v4 (Il2CppMethodInfo)+C18]));\n\tgoto L_009F;\nL_00AA:\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v140 @ stack_-A0_v1 (System.Int32), *([v147 @ X25_v2]));\nL_00AB:\n\tv158 = v66 == 0;\n\tif (v158) goto L_014E;\n\tv395 = *([v66 @ X0_v3+20]) == 0;\n\tif (v395) goto L_014B;\n\tv407 = this.<ActiveCount>k__BackingField < 1;\n\tif (v407) goto L_FFFFFFFF;\n\tv442 = Il2CppMethodInfo;\n\tv444 = Il2CppMethodInfo;\n\tgoto L_0129;\nL_00C5:\n\tv538 = this.positions;\n\tv539 = v493 << 3;\n\tv542 = v492 & 0xFFFFFFFF;\n\tv543 = v542 << 3;\n\t*([v538 @ X8_v18 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v538 @ X8_v18 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv544 = this.positionsPrev;\n\t*([v544 @ X8_v19 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v544 @ X8_v19 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv546 = this.predicted;\n\t*([v546 @ X8_v20 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v546 @ X8_v20 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv548 = this.velocities;\n\t*([v548 @ X8_v21 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v548 @ X8_v21 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv550 = this.densities;\n\t*([v550 @ X8_v22 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v550 @ X8_v22 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv552 = this.deltaVel;\n\t*([v552 @ X8_v23 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v543 @ X12_v6 (System.Int32)]) = *([v552 @ X8_v23 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]);\n\tv554 = this.particleTypes;\n\tv555 = v493 << 2;\n\tv557 = v492 & 0xFFFFFFFF;\n\tv558 = v557 << 2;\n\t*([v554 @ X8_v24 (Unity.Collections.NativeArray`1<System.Int32>)+v558 @ X12_v7 (System.Int32)]) = *([v554 @ X8_v24 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]);\n\tv559 = this.emissionColors;\n\t*([v559 @ X8_v25 (Unity.Collections.NativeArray`1<Unity.Mathematics.float4>)+v492 @ X22_v8 (System.Int32)*16]) = *([v559 @ X8_v25 (Unity.Collections.NativeArray`1<Unity.Mathematics.float4>)+v489 @ X24_v12 (System.Int32)]);\n\tv561 = this.scales;\n\t*([v561 @ X8_v26 (Unity.Collections.NativeArray`1<System.Single>)+v558 @ X12_v7 (System.Int32)]) = *([v561 @ X8_v26 (Unity.Collections.NativeArray`1<System.Single>)+v555 @ X10_v11 (System.Int32)]);\n\tv533 = this.particleIds;\n\t*([v533 @ X8_v16 (Unity.Collections.NativeArray`1<System.Int32>)+v558 @ X12_v7 (System.Int32)]) = *([v533 @ X8_v16 (Unity.Collections.NativeArray`1<\n// ... truncated")]
 	public void RemoveParticles(global::System.Collections.Generic.HashSet<int> ids, global::System.Action<global::System.Collections.Generic.HashSet<int>> onRemove = null)
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0020: Expected O, but got I
-		//IL_0698: Expected O, but got I4
-		//IL_06c6: Expected O, but got I4
-		//IL_06ce: Expected O, but got I4
-		//IL_0039: Expected O, but got I
-		//IL_004b: Expected O, but got I
-		//IL_0064: Expected O, but got I
-		//IL_018a: Expected O, but got I4
-		//IL_0668: Expected I4, but got O
-		//IL_01d3: Expected O, but got I
-		//IL_0251: Expected O, but got I
-		//IL_0110: Expected O, but got I
-		//IL_01e8: Expected O, but got I
-		//IL_0309: Expected I4, but got I8
-		//IL_03c1: Expected I4, but got I8
-		nint num2 = 0;
-		object obj = (nint)0 + (nint)2408;
-		object obj2 = 0;
-		object obj3 = null;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @15C269C (System.Collections.Generic.HashSet`1::.ctor, and 1 more at this address)");
-		bool flag = ids == null;
-		global::System.Action<global::System.Collections.Generic.HashSet<int>> action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)obj2;
-		int num3 = default(int);
-		object obj4 = num3;
-		object obj5 = num3;
-		num3 = 0;
-		object obj7 = default(object);
-		object obj6 = obj7;
-		global::System.Action<global::System.Collections.Generic.HashSet<int>> action2 = onRemove;
-		global::System.IntPtr intPtr = default(global::System.IntPtr);
-		object obj8 = default(object);
-		object obj10 = default(object);
-		nint num7;
-		object obj9;
-		if (!flag)
+		if (ids == null)
 		{
-			nint num4 = 0;
-			obj8 = (nint)0 + (nint)2408;
-			nint num5 = 0;
-			obj9 = (nint)0 + (nint)2416;
-			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = ids.GetEnumerator();
-			obj10 = idToIndex;
-			nint num6 = 0;
-			bool flag2 = obj3 == null;
-			action = onRemove;
-			num7 = intPtr;
-			if (!flag2)
-			{
-				nint num8 = 0;
-				action = onRemove;
-				num7 = intPtr;
-				object obj11 = default(object);
-				object obj12 = default(object);
-				while (true)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-					if ((int)((nint)obj11 & 1) == 0)
-					{
-						break;
-					}
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v176 @ X24_v14 (Il2CppMethodInfo)+C28]");
-					num7 = 0;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
-					int num9 = (int)((nint)obj12 & 1);
-					bool flag3 = num9 == 0;
-					action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)obj2;
-					if (!flag3)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v181 @ X28_v5 (Il2CppMethodInfo)+980]");
-						action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @15C3C78 (System.Collections.Generic.HashSet`1::Add, and 1 more at this address)");
-					}
-				}
-			}
-			else
-			{
-				object obj13 = default(object);
-				while (true)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-					if (obj13 != null)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v176 @ X24_v14 (Il2CppMethodInfo)+C28]");
-						num7 = 0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
-						action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)obj2;
-						continue;
-					}
-					break;
-				}
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			obj5 = num3;
-			object obj14 = obj10;
-			action2 = onRemove;
-			goto IL_019f;
-		}
-		goto IL_06f5;
-		IL_06f5:
-		global::System.NullReferenceException ex = new global::System.NullReferenceException();
-		bool flag4 = (nint)obj6 != 1;
-		global::System.NullReferenceException ex2 = ex;
-		if (!flag4)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			obj6 = obj8;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			object obj15 = default(object);
-			bool flag5 = obj15 == null;
-			object obj14 = obj10;
-			if (flag5)
-			{
-				goto IL_019f;
-			}
-			global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-			num3 = (int)obj15;
-			ex2 = (global::System.NullReferenceException)(object)ex3;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
-		return;
-		IL_019f:
-		if (action2 != null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v272.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-			action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)(nint)action2.method;
-		}
-		nint num10 = 0;
-		global::System.Collections.Generic.HashSet<int>.Enumerator enumerator2 = ids.GetEnumerator();
-		object obj16 = default(object);
-		while (true)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-			if ((int)((nint)obj16 & 1) == 0)
-			{
-				break;
-			}
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v291 @ X23_v4 (Il2CppMethodInfo)+C18]");
-			action = (global::System.Action<global::System.Collections.Generic.HashSet<int>>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E7508 (Unity.Collections.NativeHashMap`2::Remove, and 1 more at this address)");
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-		bool flag6 = obj3 == null;
-		action = onRemove;
-		num7 = intPtr;
-		object obj17 = default(object);
-		obj4 = obj17;
-		object obj18 = default(object);
-		obj5 = obj18;
-		object obj19 = default(object);
-		obj9 = obj19;
-		object obj20 = default(object);
-		obj8 = obj20;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v36 @ X21_v1 (Il2CppMethodInfo)+968]");
-		obj6 = 0;
-		obj10 = obj;
-		action2 = onRemove;
-		if (!flag6)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v66 @ X0_v3+20]");
-			if ((nint)0 == 0)
-			{
-				return;
-			}
-			int num23;
-			if (ActiveCount >= 1)
-			{
-				nint num11 = 0;
-				nint num12 = 0;
-				int num13 = 0;
-				int num14 = 0;
-				int num15 = 0;
-				object obj21 = default(object);
-				bool flag7;
-				do
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @15C2F88 (System.Collections.Generic.HashSet`1::Contains, and 1 more at this address)");
-					if ((int)((nint)obj21 & 1) == 0)
-					{
-						if (num15 != num14)
-						{
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray = positions;
-							int num16 = num15 << 3;
-							int num17 = (int)(num14 & 0xFFFFFFFFL);
-							int num18 = num17 << 3;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v538 @ X8_v18 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray2 = positionsPrev;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v544 @ X8_v19 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray3 = predicted;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v546 @ X8_v20 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray4 = velocities;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v548 @ X8_v21 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray5 = densities;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v550 @ X8_v22 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray6 = deltaVel;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v552 @ X8_v23 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v539 @ X9_v7 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray7 = particleTypes;
-							int num19 = num15 << 2;
-							int num20 = (int)(num14 & 0xFFFFFFFFL);
-							int num21 = num20 << 2;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v554 @ X8_v24 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<global::Unity.Mathematics.float4> nativeArray8 = emissionColors;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v559 @ X8_v25 (Unity.Collections.NativeArray`1<Unity.Mathematics.float4>)+v489 @ X24_v12 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<float> nativeArray9 = scales;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v561 @ X8_v26 (Unity.Collections.NativeArray`1<System.Single>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray10 = particleIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v533 @ X8_v16 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray11 = powerUpIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v565 @ X9_v11 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray12 = caterpillarIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v567 @ X9_v12 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray13 = beeIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v569 @ X9_v13 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray14 = fishIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v571 @ X9_v14 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray15 = octopusIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v573 @ X9_v15 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<bool> nativeArray16 = inOctopusHead;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v576 @ X11_v7 (Unity.Collections.NativeArray`1<System.Boolean>)+v493 @ X23_v10 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<bool> nativeArray17 = isHoneyCoated;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v578 @ X11_v8 (Unity.Collections.NativeArray`1<System.Boolean>)+v493 @ X23_v10 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray18 = spongeIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v580 @ X11_v9 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<bool> nativeArray19 = isWater;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v582 @ X11_v10 (Unity.Collections.NativeArray`1<System.Boolean>)+v493 @ X23_v10 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<float> nativeArray20 = viscosityStrengths;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v584 @ X11_v11 (Unity.Collections.NativeArray`1<System.Single>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<float> nativeArray21 = nearPressureMultipliers;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v586 @ X11_v12 (Unity.Collections.NativeArray`1<System.Single>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<int> nativeArray22 = clumpIds;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v588 @ X11_v13 (Unity.Collections.NativeArray`1<System.Int32>)+v555 @ X10_v11 (System.Int32)]");
-							_ = 0;
-							global::Unity.Collections.NativeArray<bool> nativeArray23 = isStatic;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v590 @ X10_v13 (Unity.Collections.NativeArray`1<System.Boolean>)+v493 @ X23_v10 (System.Int32)]");
-							_ = 0;
-							int num22 = num14;
-						}
-						else
-						{
-							global::Unity.Collections.NativeArray<int> nativeArray10 = particleIds;
-							int num22 = num14;
-						}
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E7648 (Unity.Collections.NativeHashMap`2::set_Item, and 1 more at this address)");
-						num14++;
-					}
-					num15++;
-					num13 += 16;
-					flag7 = num15 >= ActiveCount;
-					num23 = num14;
-				}
-				while (!flag7);
-			}
-			else
-			{
-				num23 = 0;
-			}
-			ActiveCount = num23;
 			return;
 		}
-		goto IL_06f5;
+		onRemove?.Invoke(ids);
+		foreach (int id in ids)
+		{
+			idToIndex.Remove(id);
+		}
+		int writeIndex = 0;
+		if (ActiveCount >= 1)
+		{
+			for (int readIndex = 0; readIndex < ActiveCount; readIndex++)
+			{
+				if (ids.Contains(particleIds[readIndex]))
+				{
+					continue;
+				}
+				if (readIndex != writeIndex)
+				{
+					positions[writeIndex] = positions[readIndex];
+					positionsPrev[writeIndex] = positionsPrev[readIndex];
+					predicted[writeIndex] = predicted[readIndex];
+					velocities[writeIndex] = velocities[readIndex];
+					densities[writeIndex] = densities[readIndex];
+					deltaVel[writeIndex] = deltaVel[readIndex];
+					particleTypes[writeIndex] = particleTypes[readIndex];
+					emissionColors[writeIndex] = emissionColors[readIndex];
+					scales[writeIndex] = scales[readIndex];
+					particleIds[writeIndex] = particleIds[readIndex];
+					powerUpIds[writeIndex] = powerUpIds[readIndex];
+					caterpillarIds[writeIndex] = caterpillarIds[readIndex];
+					beeIds[writeIndex] = beeIds[readIndex];
+					fishIds[writeIndex] = fishIds[readIndex];
+					octopusIds[writeIndex] = octopusIds[readIndex];
+					inOctopusHead[writeIndex] = inOctopusHead[readIndex];
+					isHoneyCoated[writeIndex] = isHoneyCoated[readIndex];
+					spongeIds[writeIndex] = spongeIds[readIndex];
+					isWater[writeIndex] = isWater[readIndex];
+					viscosityStrengths[writeIndex] = viscosityStrengths[readIndex];
+					nearPressureMultipliers[writeIndex] = nearPressureMultipliers[readIndex];
+					clumpIds[writeIndex] = clumpIds[readIndex];
+					isStatic[writeIndex] = isStatic[readIndex];
+				}
+				idToIndex[particleIds[writeIndex]] = writeIndex;
+				writeIndex++;
+			}
+		}
+		ActiveCount = writeIndex;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600027D")]

@@ -362,8 +362,7 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 		string text5 = "x-cp50227";
 		transform4.SetAsFirstSibling();
 		string arg = global::System.DateTime.Now.ToString(DATE_FORMAT);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v201 @ X22_v6 (System.String)+4C0]");
-		string text6 = string.Format((string)0, arg, text);
+		string text6 = string.Format("[{0}] {1}", arg, text);
 		nint num3 = 0;
 		texts.Insert(0, text6);
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11481F4 (UnityEngine.GameObject::AddComponent, and 1 more at this address)");
@@ -387,17 +386,7 @@ public class LogScroller : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv26 = \"IsCyrillic\";\n\tgoto L_0023;\n\tv31 = Il2CppMethodInfo;\n\tv32 = v31 + 0x2F0;\n\tv33 = \"il2cpp_codegen_initialize_runtime_metadata\"(v32, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv55 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv56 = v55 + 0x3C8;\n\tv57 = \"il2cpp_codegen_initialize_runtime_metadata\"(v56, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv60 = \"IsCyrillic\";\n\tv61 = v60 + 0xAE8;\n\tv50 = \"il2cpp_codegen_initialize_runtime_metadata\"(v61, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv52 = 1;\n\t*([302A8E6]) = v52;\nL_0023:\n\tv54 = new *([v22 @ X23_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+3C8])();\n\tSystem.Collections.Generic.List`1<System.String>::.ctor(v54);\n\tv63 = this + 0x28;\n\tthis.texts = v54;\n\tv65 = 0xF3F1B4(v63, v54, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv68 = this + 0x30;\n\tthis.DATE_FORMAT = *([v26 @ X21_v1 (System.String)+AE8]);\n\tv69 = 0xF3F1B4(v68, *([v26 @ X21_v1 (System.String)+AE8]), v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tUnityEngine.MonoBehaviour::.ctor(this);\n\treturn;\n// 38 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public LogScroller()
 	{
-		//IL_0014: Expected I, but got O
-		//IL_0067: Expected O, but got I
-		//IL_002f: Expected O, but got I
-		//IL_0041: Expected O, but got I
-		base._002Ector();
-		string text = "IsCyrillic";
-		global::System.Collections.Generic.List<string> list = new global::System.Collections.Generic.List<string>();
-		texts = list;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v26 @ X21_v1 (System.String)+AE8]");
-		DATE_FORMAT = (string)0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		texts = new global::System.Collections.Generic.List<string>();
+		DATE_FORMAT = "HH:mm:ss";
 	}
 }

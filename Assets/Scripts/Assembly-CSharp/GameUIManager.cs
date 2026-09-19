@@ -296,47 +296,7 @@ public class GameUIManager : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0021;\n\tv27 = System.Collections.Generic.NullableComparer`1;\n\tv28 = v27 + 0xDF8;\n\tv29 = \"il2cpp_codegen_initialize_runtime_metadata\"(v28, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv59 = Il2CppMethodInfo;\n\tv60 = v59 + 0xBB0;\n\tv61 = \"il2cpp_codegen_initialize_runtime_metadata\"(v60, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv66 = Il2CppMethodInfo;\n\tv67 = v66 + 0xC90;\n\tv68 = \"il2cpp_codegen_initialize_runtime_metadata\"(v67, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv72 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv73 = v72 + 0xA48;\n\tv46 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv48 = 1;\n\t*([302AAC4]) = v48;\nL_0021:\n\tv49 = Il2CppMethodInfo;\n\tv51 = System.Collections.Generic.NullableComparer`1;\n\tv53 = Il2CppMethodInfo;\n\tgoto L_002E;\n\tv62 = \"il2cpp_codegen_runtime_class_init\"(v55, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\nL_002E:\n\tv65 = Singleton`1::get_Instance /* +1 sharing this address */(*([v49 @ X20_v2 (Il2CppMethodInfo)+C90]));\n\tv71 = new *([v51 @ X24_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+DF8])();\n\tSystem.Action`2<System.Int32Enum, System.Int32Enum>::.ctor(v71, this, *([v53 @ X22_v1 (Il2CppMethodInfo)+BB0]));\n\tv78 = v65 == 0;\n\tif (v78) goto L_0071;\n\tgoto L_0044;\n\tv85 = System.Collections.Generic.NullableComparer`1;\n\tv86 = v85 + 0xDF8;\n\tv87 = \"il2cpp_codegen_initialize_runtime_metadata\"(v86, v76, v75, v77, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv90 = 1;\n\t*([302AAB4]) = v90;\nL_0044:\n\tv91 = v65 + 0x28;\n\tv129 = *([v91 @ X19_v4]);\n\tgoto L_0059;\nL_004A:\n\tv126 = 0xFAC9D8(v91, v122, v129, 0, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv110 = v126 == v129;\n\tif (v110) goto L_0070;\nL_0059:\n\tv134 = System.Delegate::Combine(v129, v71);\n\tv176 = v134 == 0;\n\tif (v176) goto L_FFFFFFFF;\n\tv180 = 0xF3F36C(v134, *([v51 @ X24_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+DF8]), 0, 0, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv183 = v180 == 0;\n\tv184 = ~v183;\n\tif (v184) goto L_004A;\n\tthrow System.InvalidCastException;\nL_0070:\n\treturn;\nL_0071:\n\tthrow v71;\n// 68 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Awake()
 	{
-		//IL_00e3: Expected I, but got O
-		//IL_00fd: Expected O, but got I
-		nint num = 0;
-		nint num3 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v53 @ X22_v1 (Il2CppMethodInfo)+BB0]");
-		global::System.Delegate obj = new global::System.Action<global::System.Int32Enum, global::System.Int32Enum>(this, (global::System.IntPtr)0);
-		object obj2 = default(object);
-		if (obj2 != null)
-		{
-			object obj3 = (nint)obj2 + 40;
-			global::System.Delegate obj4 = (global::System.Delegate)obj3;
-			int num5 = default(int);
-			bool flag3;
-			global::System.Delegate obj6 = default(global::System.Delegate);
-			do
-			{
-				global::System.Delegate obj5 = global::System.Delegate.Combine(obj4, obj);
-				if ((object)obj5 == null)
-				{
-					int num4 = 0;
-				}
-				else
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F36C");
-					bool flag = num5 == 0;
-					bool flag2 = !flag;
-					int num4 = num5;
-					if (!flag2)
-					{
-						throw new global::System.InvalidCastException();
-					}
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @FAC9D8");
-				flag3 = (object)obj6 == obj4;
-				obj4 = obj6;
-			}
-			while (!flag3);
-			return;
-		}
-		throw obj;
+		Singleton<GameManager>.Instance.OnGameStateChanged += OnGameStateChanged;
 	}
 
 	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(GameUIManager._003CHandleWin_003Ed__1))]

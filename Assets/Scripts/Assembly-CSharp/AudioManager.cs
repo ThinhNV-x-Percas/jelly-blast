@@ -18,14 +18,9 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0013;\n\tv17 = \"l1\";\n\tv18 = v17 + 0x450;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302A9B0]) = v37;\nL_0013:\n\tv39 = ApplicationManager::get_appData();\n\tv41 = v39.playerData;\n\tv47 = \"l1\";\n\tif (v41.soundsOn) goto L_FFFFFFFF;\n\tgoto L_0038;\nL_0038:\n\tv93 = UnityEngine.Audio.AudioMixer::SetFloat(v35.masterMixer, *([v47 @ X9_v1 (System.String)+450]), v73);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 45 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Start()
 	{
-		//IL_0078: Expected O, but got I
-		ApplicationData appData = ApplicationManager.appData;
-		PlayerData playerData = appData.playerData;
-		string text = "l1";
-		float value = (playerData.soundsOn ? 0f : (-80f));
-		global::UnityEngine.Audio.AudioMixer audioMixer = masterMixer;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X9_v1 (System.String)+450]");
-		bool flag = audioMixer.SetFloat((string)0, value);
+		PlayerData playerData = ApplicationManager.appData.playerData;
+		float value = playerData.soundsOn ? 0f : (-80f);
+		masterMixer.SetFloat("MasterVolume", value);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000166")]
@@ -57,15 +52,13 @@ public class AudioManager : Singleton<AudioManager>
 		PlayerData playerData = appData.playerData;
 		if (playerData.soundsOn)
 		{
-			nint num2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1171058 (UnityEngine.Object::Instantiate, and 1 more at this address)");
 			float timeScale = global::UnityEngine.Time.timeScale;
 			float minInclusive = settings.pitchVariance * -0.5f;
 			float maxInclusive = settings.pitchVariance * 0.5f;
 			float num3 = global::UnityEngine.Random.Range(minInclusive, maxInclusive);
 			float num4 = settings.pitch + num3;
 			float pitch = timeScale * num4;
-			global::UnityEngine.AudioSource audioSource = default(global::UnityEngine.AudioSource);
+			global::UnityEngine.AudioSource audioSource = global::UnityEngine.Object.Instantiate(sourcePrefab);
 			audioSource.pitch = pitch;
 			audioSource.volume = settings.volume;
 			audioSource.clip = clip;
@@ -82,12 +75,7 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = CollectParticleData[];\n\tgoto L_0018;\n\tv25 = CollectParticleData[];\n\tv26 = v25 + 0xCF8;\n\tv27 = \"il2cpp_codegen_initialize_runtime_metadata\"(v26, clip, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41);\n\tv44 = 1;\n\t*([302A96B]) = v44;\nL_0018:\n\tv46 = new *([v20 @ X22_v1 (Il2CppClass<CollectParticleData[]>)+CF8])();\n\t*([v46 @ X0_v3 (System.Object)+10]) = 0x3F800000;\n\t*([v46 @ X0_v3 (System.Object)+18]) = 0x3F800000;\n\tSystem.Object::.ctor(v46);\n\tAudioManager::PlayClip(this, clip, v46);\n\treturn;\n// 30 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void PlayClip(global::UnityEngine.AudioClip clip)
 	{
-		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(CollectParticleData[]);
-		object settings = new object();
-		_ = 1065353216;
-		_ = 1065353216;
-		PlayClip(clip, (AudioClipSettings)settings);
+		PlayClip(clip, new AudioClipSettings());
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000168")]
@@ -95,15 +83,10 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = CollectParticleData[];\n\tgoto L_0018;\n\tv25 = CollectParticleData[];\n\tv26 = v25 + 0xCF8;\n\tv27 = \"il2cpp_codegen_initialize_runtime_metadata\"(v26, clipName, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41);\n\tv44 = 1;\n\t*([302A96C]) = v44;\nL_0018:\n\tv46 = new *([v20 @ X22_v1 (Il2CppClass<CollectParticleData[]>)+CF8])();\n\t*([v46 @ X0_v3 (System.Object)+10]) = 0x3F800000;\n\t*([v46 @ X0_v3 (System.Object)+18]) = 0x3F800000;\n\tSystem.Object::.ctor(v46);\n\tv51 = AudioClipManager::get_Instance();\n\tv56 = AudioClipManager::GetAudioClip(v51, clipName, &v54 @ stack_-38_v2 (UnityEngine.AudioClip));\n\tv58 = ~v56;\n\tif (v58) goto L_0033;\n\tAudioManager::PlayClip(this, v54, v46);\nL_0033:\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 35 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void PlayClip(string clipName)
 	{
-		//IL_000e: Expected I, but got O
-		nint num = (nint)typeof(CollectParticleData[]);
-		object settings = new object();
-		_ = 1065353216;
-		_ = 1065353216;
 		AudioClipManager instance = AudioClipManager.Instance;
 		if (instance.GetAudioClip(clipName, out var result))
 		{
-			PlayClip(result, (AudioClipSettings)settings);
+			PlayClip(result, new AudioClipSettings());
 		}
 	}
 
@@ -124,14 +107,9 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0013;\n\tv17 = \"l1\";\n\tv18 = v17 + 0x450;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302A9B0]) = v37;\nL_0013:\n\tv39 = ApplicationManager::get_appData();\n\tv41 = v39.playerData;\n\tv47 = \"l1\";\n\tif (v41.soundsOn) goto L_FFFFFFFF;\n\tgoto L_0038;\nL_0038:\n\tv93 = UnityEngine.Audio.AudioMixer::SetFloat(v35.masterMixer, *([v47 @ X9_v1 (System.String)+450]), v73);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 45 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void UpdateVolume()
 	{
-		//IL_0078: Expected O, but got I
-		ApplicationData appData = ApplicationManager.appData;
-		PlayerData playerData = appData.playerData;
-		string text = "l1";
-		float value = (playerData.soundsOn ? 0f : (-80f));
-		global::UnityEngine.Audio.AudioMixer audioMixer = masterMixer;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X9_v1 (System.String)+450]");
-		bool flag = audioMixer.SetFloat((string)0, value);
+		PlayerData playerData = ApplicationManager.appData.playerData;
+		float value = playerData.soundsOn ? 0f : (-80f);
+		masterMixer.SetFloat("MasterVolume", value);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600016B")]
@@ -139,45 +117,5 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv16 = 0x302A000;\n\tv18 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv20 = *([302A96D]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_0028;\n\tv51 = Il2CppMethodInfo + 0xC68;\n\tv24 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv26 = *([v24 @ X0_v13+E0]) == 0;\n\tif (v26) goto L_003A;\nL_001F:\n\tSingleton`1::.ctor /* +1 sharing this address */(this, *([v51 @ X21_v6]));\n\treturn;\nL_0028:\n\t*([v16 @ X21_v1+96D]) = 1;\n\tv51 = Il2CppMethodInfo + 0xC68;\n\tv46 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv79 = *([v46 @ X0_v10+E0]) == 0;\n\tv48 = ~v79;\n\tif (v48) goto L_001F;\nL_003A:\n\tSingleton`1::.ctor /* +1 sharing this address */(this, *([v64 @ X21_v2]));\n\treturn;\n// 41 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public AudioManager()
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_00b0: Expected O, but got I
-		//IL_00c0: Expected O, but got I
-		//IL_0056: Expected O, but got I
-		//IL_0066: Expected O, but got I
-		object obj = 50503680;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A96D]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			object obj2 = (nint)0 + (nint)3176;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X0_v13+E0]");
-			bool flag = (nint)0 == 0;
-			object obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
-		}
-		else
-		{
-			_ = 1;
-			object obj2 = (nint)0 + (nint)3176;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v46 @ X0_v10+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			object obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18ABE40 (Singleton`1::.ctor, and 1 more at this address)");
-		return;
-		IL_0093:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18ABE40 (Singleton`1::.ctor, and 1 more at this address)");
 	}
 }

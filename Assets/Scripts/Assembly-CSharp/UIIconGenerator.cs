@@ -100,183 +100,64 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0044;\n\tv37 = System.Collections.Generic.NullableComparer`1;\n\tv38 = v37 + 0xCE8;\n\tv39 = \"il2cpp_codegen_initialize_runtime_metadata\"(v38, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv64 = Il2CppMethodInfo;\n\tv65 = v64 + 0x7E8;\n\tv66 = \"il2cpp_codegen_initialize_runtime_metadata\"(v65, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv178 = Il2CppMethodInfo;\n\tv179 = v178 + 0x7F0;\n\tv180 = \"il2cpp_codegen_initialize_runtime_metadata\"(v179, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv184 = Il2CppMethodInfo;\n\tv185 = v184 + 0x7F8;\n\tv186 = \"il2cpp_codegen_initialize_runtime_metadata\"(v185, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv190 = Il2CppMethodInfo;\n\tv191 = v190 + 0xC0;\n\tv192 = \"il2cpp_codegen_initialize_runtime_metadata\"(v191, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv292 = Il2CppMethodInfo;\n\tv293 = v292 + 0xC90;\n\tv294 = \"il2cpp_codegen_initialize_runtime_metadata\"(v293, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv306 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv307 = v306 + 0xA48;\n\tv308 = \"il2cpp_codegen_initialize_runtime_metadata\"(v307, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv325 = Il2CppMethodInfo;\n\tv326 = v325 + 0x3F8;\n\tv327 = \"il2cpp_codegen_initialize_runtime_metadata\"(v326, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv332 = Il2CppMethodInfo;\n\tv333 = v332 + 0x400;\n\tv334 = \"il2cpp_codegen_initialize_runtime_metadata\"(v333, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv345 = Il2CppMethodInfo;\n\tv346 = v345 + 0x408;\n\tv347 = \"il2cpp_codegen_initialize_runtime_metadata\"(v346, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv353 = Sponge+<>c__DisplayClass7_0;\n\tv354 = v353 + 0x450;\n\tv355 = \"il2cpp_codegen_initialize_runtime_metadata\"(v354, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv456 = Il2CppMethodInfo;\n\tv457 = v456 + 0x408;\n\tv458 = \"il2cpp_codegen_initialize_runtime_metadata\"(v457, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv460 = Il2CppMethodInfo;\n\tv461 = v460 + 0x410;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v461, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv58 = 1;\n\t*([302AAA7]) = v58;\nL_0044:\n\tv63 = this.renderCamera == 0;\n\tif (v63) goto L_0242;\n\tv69 = Il2CppMethodInfo;\n\tUnityEngine.Behaviour::set_enabled(this.renderCamera, 1);\n\tv182 = UnityEngine.RenderTexture::GetTemporary(this.resolution, this.resolution, 0, 0);\n\tgoto L_005B;\n\tv193 = \"il2cpp_codegen_runtime_class_init\"(v187, v155, v152, v149, v146, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\nL_005B:\n\tv162 = Singleton`1::get_Instance /* +1 sharing this address */(*([v69 @ X27_v5 (Il2CppMethodInfo)+C90]));\n\tv166 = v162 == 0;\n\tif (v166) goto L_0242;\n\tv172 = *([v162 @ X0_v27+78]);\n\tv167 = *([v162 @ X0_v27+78]) == 0;\n\tif (v167) goto L_0242;\n\tv168 = *([v172 @ X8_v10+50]) == 0;\n\tif (v168) goto L_0242;\n\tv337 = Il2CppMethodInfo;\n\tv341 = System.Collections.Generic.List`1<System.Object>::GetEnumerator(*([v172 @ X8_v10+50]));\n\tv249 = 0x2875000 + 0xAA0;\n\tgoto L_007B;\n\tX1 = *([X19+68]);\n\tX21 = X21 + 0x28;\n\t*([X21]) = X1;\n\tX0 = X21;\n\tX0 = 0xF3F1B4(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_007B:\n\tv315 = *([v337 @ X28_v5 (Il2CppMethodInfo)+7F0]);\n\tv378 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v340 @ stack_-A8_v6 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv385 = v378 == 0;\n\tif (v385) goto L_021E;\n\tv284 = v350 == 0;\n\tif (v284) goto L_023C;\n\tv449 = *([v350 @ stack_-98+10]);\n\tv463 = *([v350 @ stack_-98+10]) < 8;\n\tv245 = ~v463;\n\tv242 = *([v350 @ stack_-98+10]) - 8;\n\tv236 = v242 == 0;\n\tv464 = ~v236;\n\tv221 = v245 & v464;\n\tif (v221) goto L_015B;\n\tv407 = *([v249 @ X26_v6 (System.Int32)+v449 @ X8_v19]) << 2;\n\tv413 = 0x100A848 + v407;\n\t// 149 IndirectJump v413 @ X9_v8 (System.Int32), v378 @ X0_v32 (System.Boolean), v378 @ X0_v32 (System.Boolean), v315 @ X1_v2 (UnityEngine.RenderTexture), v272 @ X2_v8 (System.Int32), v267 @ X3_v1 (UnityEngine.RenderTextureFormat), 0, v44 @ X5, v45 @ X6, v46 @ X7, v259 @ V0_v5 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>), 0, v482 @ X0_v43 (System.Int32), v485 @ X0_v45 (System.Int32), 0.5f, 0.5f, 1120403456, v54 @ V7\n\tX22 = *([X21+14]);\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_009D;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_009D:\n\tX0 = *([X27]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_0251;\n\tX8 = *([X0+78]);\n\tif (TEMP) goto L_024B;\n\tX8 = *([X8+28]);\n\tif (TEMP) goto L_0243;\n\tX9 = *([X8+18]);\n\tC = X22 < X9;\n\tC = ~C;\n\tTEMP1 = X22 - X9;\n\tN = TEMP1 < 0;\n\tTEMP2 = X22 ^ X9;\n\tTEMP3 = X22 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tif (C) goto L_0253;\n\tTEMPSHIFT = X22 << 4;\n\tX8 = X8 + TEMPSHIFT;\n\tV0 = *([X8+20]);\n\tV1 = *([X8+24]);\n\tV2 = *([X8+28]);\n\tV3 = *([X8+2C]);\n\tX0 = X19;\n\tX1 = X20;\n\t// 186 MakeStruct AGG100A8DC_2, typeof(UnityEngine.Color), V0, V1, V2, V3\n\tUIIconGenerator::RenderColorIcon(X0, X1, AGG100A8DC_2, X2);\n\tgoto L_01FB;\n\tX0 = X19;\n\tX1 = X20;\n\tUIIconGenerator::RenderSnowIcon(X0, X1, X2);\n\tgoto L_01FB;\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00C7;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_00C7:\n\tX0 = *([X27]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_024F;\n\tX0 = *([X0+F0]);\n\tif (TEMP) goto L_024D;\n\tX1 = 0;\n\tX0 = UnityEngine.Component::get_gameObject(X0, X1);\n\tX22 = X0;\n\tX8 = X8 + 0xCE8;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX23 = X0;\n\tX8 = X8 + 0x410;\n\tX2 = *([X8]);\n\tX1 = X19;\n\tX3 = 0;\n\tSystem.Action`1<System.Object>::.ctor(X0, X1, X2, X3);\n\tX8 = 0x999A;\n\tX8 = X8 | 0x3E990000;\n\tV0 = X8;\n\tX0 = X19;\n\tX1 = X20;\n\tX2 = X22;\n\tX3 = X23;\n\tUIIconGenerator::RenderObjectIcon(X0, X1, X2, V0, X3, X4);\n\tgoto L_01FB;\n\tX0 = X19;\n\tX1 = X20;\n\tUIIconGenerator::RenderMudIcon(X0, X1, X2);\n\tgoto L_01FB;\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00EF;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_00EF:\n\tX0 = *([X27]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_0255;\n\tX0 = *([X0+100]);\n\tif (TEMP) goto L_0247;\n\tX1 = 0;\n\tX0 = UnityEngine.Component::get_gameObject(X0, X1);\n\tX22 = X0;\n\tX8 = X8 + 0x450;\n\tX0 = *([X8]);\n\tX8 = *([X0+E0]);\n\tif (TEMP) goto L_01CA;\n\tX8 = *([X0+B8]);\n\tX23 = *([X8+18]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_01F2;\n\tgoto L_01D3;\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_010B;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_010B:\n\tX0 = *([X27]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_0245;\n\tX0 = *([X0+E8]);\n\tif (TEMP) goto L_0259;\n\tX1 = 0;\n\tX0 = UnityEngine.Component::get_gameObject(X0, X1);\n\tX22 = X0;\n\tX8 = X8 + 0xCE8;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX23 = X0;\n\tX8 = X8 + 0x408;\n\tX2 = *([X8]);\n\tX1 = X19;\n\tX3 = 0;\n\tSystem.Action`1<System.Object>::.ctor(X0, X1, X2, X3);\n\tX8 = 0x999A;\n\tX8 = X8 | 0x3E990000;\n\tV0 = X8;\n\tX0 = X19;\n\tX1 = X20;\n\tX2 = X22;\n\tX3 = X23;\n\tUIIconGenerator::RenderObjectIcon(X0, X1, X2, V0, X3, X4);\n\tgoto L_01FB;\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_012F;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_012F:\n\tX0 = *([X27]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_0257;\n\tX22 = *([X0+148]);\n\tX8 = X8 + 0x450;\n\n// ... truncated")]
 	public unsafe void UpdateIcons()
 	{
-		//IL_0084: Expected O, but got I
-		//IL_00e6: Expected O, but got I
-		//IL_0129: Expected O, but got I
-		//IL_0453: Expected F4, but got O
-		//IL_0465: Expected O, but got I4
-		//IL_0180: Expected O, but got I
-		//IL_01b8: Expected O, but got I
-		//IL_0234: Expected F4, but got O
-		//IL_04df: Expected O, but got I4
-		//IL_0557: Expected O, but got I
-		//IL_0596: Expected I4, but got O
-		//IL_049e: Expected O, but got I4
-		//IL_03b1: Expected O, but got I
-		if ((object)renderCamera != null)
+		if ((object)renderCamera == null)
 		{
-			nint num = 0;
-			renderCamera.enabled = true;
-			global::UnityEngine.RenderTexture temporary = global::UnityEngine.RenderTexture.GetTemporary(resolution, resolution, 0, default(global::UnityEngine.RenderTextureFormat));
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-			object obj = default(object);
-			if (obj != null)
+			throw new global::System.NullReferenceException();
+		}
+		renderCamera.enabled = true;
+		global::UnityEngine.RenderTexture temporary = global::UnityEngine.RenderTexture.GetTemporary(resolution, resolution, 0, default(global::UnityEngine.RenderTextureFormat));
+		GameManager instance = global::Singleton<GameManager>.Instance;
+		if (instance == null || instance.level == null || instance.level.goals == null)
+		{
+			throw new global::System.NullReferenceException();
+		}
+		foreach (GoalData goalData in instance.level.goals)
+		{
+			switch (goalData.goalType)
 			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v162 @ X0_v27+78]");
-				object obj2 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v162 @ X0_v27+78]");
-				if ((nint)0 != 0)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v172 @ X8_v10+50]");
-					if ((nint)0 != 0)
-					{
-						nint num2 = 0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v172 @ X8_v10+50]");
-						object enumerator = ((global::System.Collections.Generic.List<object>)0).GetEnumerator();
-						int num3 = 42422272 + 2720;
-						global::System.Collections.Generic.List<object>.Enumerator enumerator3 = default(global::System.Collections.Generic.List<object>.Enumerator);
-						global::System.Collections.Generic.List<object>.Enumerator enumerator2 = enumerator3;
-						global::UnityEngine.RenderTextureFormat renderTextureFormat = default(global::UnityEngine.RenderTextureFormat);
-						int num4 = 0;
-						object obj3 = default(object);
-						global::UnityEngine.Rect rect = default(global::UnityEngine.Rect);
-						global::UnityEngine.Vector2 pivot = default(global::UnityEngine.Vector2);
-						global::UnityEngine.RenderTexture temp;
-						object obj9 = default(object);
-						while (true)
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v337 @ X28_v5 (Il2CppMethodInfo)+7F0]");
-							global::UnityEngine.RenderTexture renderTexture = (global::UnityEngine.RenderTexture)0;
-							global::System.NullReferenceException ex;
-							object obj7;
-							if (enumerator3.MoveNext())
-							{
-								if (obj3 != null)
-								{
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v350 @ stack_-98+10]");
-									object obj4 = 0;
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v350 @ stack_-98+10]");
-									bool flag = (nint)0 < (nint)8;
-									bool flag2 = !flag;
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v350 @ stack_-98+10]");
-									object obj5 = -8;
-									bool flag3 = obj5 == null;
-									bool flag4 = !flag3;
-									if (!(flag2 && flag4))
-									{
-										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v249 @ X26_v6 (System.Int32)+v449 @ X8_v19]");
-										int num5 = (int)((nint)0 << 2);
-										int num6 = 16820296 + num5;
-										global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: v413 @ X9_v8 (System.Int32) (should have been resolved before IL gen)");
-									}
-									bool flag5 = (object)renderCamera == null;
-									float num7 = (float)enumerator2;
-									int num8;
-									object obj8;
-									if (!flag5)
-									{
-										renderCamera.orthographicSize = 0.3f;
-										bool flag6 = (object)renderCamera == null;
-										num7 = 0.3f;
-										renderTexture = null;
-										if (!flag6)
-										{
-											renderCamera.targetTexture = temporary;
-											bool flag7 = (object)renderCamera == null;
-											num7 = 0.3f;
-											num4 = 0;
-											renderTexture = temporary;
-											if (!flag7)
-											{
-												renderCamera.Render();
-												global::UnityEngine.Texture2D texture2D = ((UIIconGenerator)(object)renderCamera).ConvertRenderTextureToTexture2D(temporary);
-												if ((object)texture2D != null)
-												{
-													int width = texture2D.width;
-													int height = texture2D.height;
-													rect.m_XMin = 0f;
-													rect.m_YMin = 0f;
-													rect.m_Width = width;
-													rect.m_Height = height;
-													pivot.x = 0.5f;
-													pivot.y = 0.5f;
-													global::UnityEngine.Sprite sprite = global::UnityEngine.Sprite.Create(texture2D, rect, pivot, 100f, 0u, default(global::UnityEngine.SpriteMeshType));
-													object obj6 = (nint)obj3 + 40;
-													obj6 = sprite;
-													global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-													enumerator2 = default(global::System.Collections.Generic.List<object>.Enumerator);
-													renderTextureFormat = default(global::UnityEngine.RenderTextureFormat);
-													num4 = 0;
-													continue;
-												}
-												ex = new global::System.NullReferenceException();
-												obj7 = enumerator3;
-												num7 = 0.3f;
-												num8 = 0;
-												obj8 = 0;
-												num4 = 0;
-												renderTexture = temporary;
-												temp = temporary;
-												goto IL_0500;
-											}
-										}
-									}
-									ex = new global::System.NullReferenceException();
-									obj7 = enumerator3;
-									num8 = 0;
-									obj8 = 0;
-									temp = temporary;
-								}
-								else
-								{
-									ex = new global::System.NullReferenceException();
-									obj7 = enumerator3;
-									float num7 = (float)enumerator2;
-									int num8 = 0;
-									object obj8 = 0;
-									temp = temporary;
-								}
-								goto IL_0500;
-							}
-							enumerator3.Dispose();
-							temp = temporary;
-							break;
-							IL_0500:
-							bool flag8 = (nint)renderTexture != 1;
-							global::System.NullReferenceException ex2 = ex;
-							if (!flag8)
-							{
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-								nint num9 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v343 @ X8_v5 (Il2CppMethodInfo)+7E8]");
-								renderTexture = (global::UnityEngine.RenderTexture)0;
-								obj7.Dispose();
-								if (obj9 == null)
-								{
-									break;
-								}
-								global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-								ex2 = (global::System.NullReferenceException)(object)ex3;
-								int num8 = (int)obj9;
-							}
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF138C");
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
-							return;
-						}
-						global::UnityEngine.RenderTexture.ReleaseTemporary(temp);
-						if ((object)renderCamera != null)
-						{
-							renderCamera.enabled = false;
-							return;
-						}
-					}
-				}
+			case GoalType.Fluid:
+				RenderColorIcon(temporary, instance.level.colors[goalData.fluidType]);
+				break;
+			case GoalType.Ice:
+				RenderObjectIcon(temporary, instance.icePrefab.gameObject);
+				break;
+			case GoalType.Stone:
+				RenderObjectIcon(temporary, instance.stonePrefab.gameObject);
+				break;
+			case GoalType.Mud:
+				RenderMudIcon(temporary);
+				break;
+			case GoalType.Snow:
+				RenderSnowIcon(temporary);
+				break;
+			case GoalType.Fish:
+				RenderObjectIcon(temporary, instance.fishPrefab.gameObject);
+				break;
+			case GoalType.Octopus:
+				RenderObjectIcon(temporary, instance.octopusPrefab.gameObject);
+				break;
+			case GoalType.Butterfly:
+				RenderObjectIcon(temporary, instance.butterflyPrefab.gameObject);
+				break;
+			case GoalType.Bee:
+				RenderObjectIcon(temporary, instance.beePrefab.gameObject);
+				break;
+			}
+			global::UnityEngine.Texture2D texture2D = ConvertRenderTextureToTexture2D(temporary);
+			if ((object)texture2D != null)
+			{
+				int width = texture2D.width;
+				int height = texture2D.height;
+				global::UnityEngine.Rect rect = new global::UnityEngine.Rect(0f, 0f, width, height);
+				global::UnityEngine.Vector2 pivot = default(global::UnityEngine.Vector2);
+				pivot.x = 0.5f;
+				pivot.y = 0.5f;
+				global::UnityEngine.Sprite sprite = global::UnityEngine.Sprite.Create(texture2D, rect, pivot, 100f, 0u, default(global::UnityEngine.SpriteMeshType));
+				goalData.sprite = sprite;
 			}
 		}
-		global::System.NullReferenceException ex4 = new global::System.NullReferenceException();
-		throw ex4;
+		global::UnityEngine.RenderTexture.ReleaseTemporary(temporary);
+		renderCamera.enabled = false;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000406")]

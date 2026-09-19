@@ -304,122 +304,7 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = 0x302A000;\n\tv24 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv26 = *([302AAA9]) & 1;\n\tv27 = v26 == 0;\n\tif (v27) goto L_002F;\n\tv56 = Il2CppMethodInfo + 0xC90;\n\tv30 = *([v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv32 = *([v30 @ X0_v41+E0]) == 0;\n\tif (v32) goto L_0039;\nL_001A:\n\tv75 = Singleton`1::get_Instance /* +1 sharing this address */(*([v56 @ X22_v14]));\n\tv68 = v75 == 0;\n\tv69 = ~v68;\n\tif (v69) goto L_003C;\n\tgoto L_007E;\nL_002F:\n\t*([v22 @ X22_v1+AA9]) = 1;\n\tv56 = Il2CppMethodInfo + 0xC90;\n\tv51 = *([v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv136 = *([v51 @ X0_v37+E0]) == 0;\n\tv53 = ~v136;\n\tif (v53) goto L_001A;\nL_0039:\n\tv75 = Singleton`1::get_Instance /* +1 sharing this address */(*([v63 @ X22_v11]));\nL_003C:\n\tv80 = Sponge+<>c__DisplayClass7_0;\n\tv83 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv85 = *([v83 @ X0_v4+E0]) == 0;\n\tif (v85) goto L_005C;\n\tv179 = *([v83 @ X0_v4+B8]);\n\tv175 = *([v179 @ X8_v6+20]);\n\tv117 = *([v179 @ X8_v6+20]) == 0;\n\tif (v117) goto L_0065;\nL_0059:\n\tUIIconGenerator::RenderFluidIcon(this, targetRT, *([v75 @ X0_v3+128]), 0.3f, v175);\n\treturn;\nL_005C:\n\tv122 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv179 = *([v122 @ X0_v14+B8]);\n\tv175 = *([v179 @ X8_v6+20]);\n\tv133 = *([v179 @ X8_v6+20]) == 0;\n\tv124 = ~v133;\n\tif (v124) goto L_0059;\nL_0065:\n\tgoto L_006A;\n\tv177 = \"il2cpp_codegen_runtime_class_init\"(v127, targetRT, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv185 = *([v81 @ X24_v3]);\n\tv180 = *([v185 @ X8_v12+B8]);\nL_006A:\n\tv181 = System.Collections.Generic.NullableComparer`1;\n\tv184 = new *([v181 @ X8_v7 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+CE8])();\n\tv186 = Il2CppMethodInfo;\n\tSystem.Action`1<UnityEngine.MaterialPropertyBlock>::.ctor(v184, *([v179 @ X8_v6]), *([v186 @ X8_v9 (Il2CppMethodInfo)+3E8]));\n\tv109 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv190 = *([v109 @ X8_v11+B8]) + 0x20;\n\t*([v190 @ X0_v10]) = v184;\n\tv102 = 0xF3F1B4(v190, v184, *([v186 @ X8_v9 (Il2CppMethodInfo)+3E8]), 0, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv191 = this == 0;\n\tv105 = ~v191;\n\tif (v105) goto L_0059;\nL_007E:\n\tthrow System.NullReferenceException;\n// 75 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void RenderMudIcon(global::UnityEngine.RenderTexture targetRT)
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_00dc: Expected O, but got I
-		//IL_00ec: Expected O, but got I
-		//IL_0056: Expected O, but got I
-		//IL_0066: Expected O, but got I
-		//IL_0141: Expected I, but got O
-		//IL_0151: Expected O, but got I
-		//IL_01eb: Expected O, but got I
-		//IL_01fb: Expected O, but got I
-		//IL_020b: Expected O, but got I
-		//IL_01da: Expected O, but got I
-		//IL_0186: Expected O, but got I
-		//IL_0196: Expected O, but got I
-		//IL_0281: Expected I, but got O
-		//IL_02b1: Expected O, but got I
-		//IL_02c7: Expected O, but got I
-		object obj = 50503680;
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAA9]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			object obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X0_v41+E0]");
-			bool flag = (nint)0 == 0;
-			object obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
-		}
-		else
-		{
-			_ = 1;
-			object obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X0_v37+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			object obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		goto IL_0133;
-		IL_01bb:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v75 @ X0_v3+128]");
-		global::System.Action<global::UnityEngine.MaterialPropertyBlock> pb;
-		RenderFluidIcon(targetRT, (global::UnityEngine.Material)0, 0.3f, pb);
-		return;
-		IL_026d:
-		throw new global::System.NullReferenceException();
-		IL_0133:
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-		object obj6 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X0_v4+E0]");
-		object obj7;
-		if ((nint)0 != 0)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X0_v4+B8]");
-			obj7 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+20]");
-			pb = (global::System.Action<global::UnityEngine.MaterialPropertyBlock>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+20]");
-			if ((nint)0 != 0)
-			{
-				goto IL_01bb;
-			}
-		}
-		else
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-			object obj8 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v122 @ X0_v14+B8]");
-			obj7 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+20]");
-			pb = (global::System.Action<global::UnityEngine.MaterialPropertyBlock>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+20]");
-			if ((nint)0 != 0)
-			{
-				goto IL_01bb;
-			}
-		}
-		nint num3 = 0;
-		object obj9 = obj7;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v186 @ X8_v9 (Il2CppMethodInfo)+3E8]");
-		global::System.Action<global::UnityEngine.MaterialPropertyBlock> action = null;
-		nint num4 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-		object obj10 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v109 @ X8_v11+B8]");
-		object obj11 = (nint)0 + (nint)32;
-		obj11 = action;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		bool flag4 = (object)this == null;
-		bool flag5 = !flag4;
-		pb = action;
-		if (flag5)
-		{
-			goto IL_01bb;
-		}
-		goto IL_026d;
-		IL_0093:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj12 = default(object);
-		if (obj12 != null)
-		{
-			goto IL_0133;
-		}
-		goto IL_026d;
+		RenderFluidIcon(targetRT, global::Singleton<GameManager>.Instance.mudMaterial, 0.3f, null);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000408")]
@@ -427,122 +312,7 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = 0x302A000;\n\tv24 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv26 = *([302AAAA]) & 1;\n\tv27 = v26 == 0;\n\tif (v27) goto L_002F;\n\tv56 = Il2CppMethodInfo + 0xC90;\n\tv30 = *([v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv32 = *([v30 @ X0_v41+E0]) == 0;\n\tif (v32) goto L_0039;\nL_001A:\n\tv75 = Singleton`1::get_Instance /* +1 sharing this address */(*([v56 @ X22_v14]));\n\tv68 = v75 == 0;\n\tv69 = ~v68;\n\tif (v69) goto L_003C;\n\tgoto L_007E;\nL_002F:\n\t*([v22 @ X22_v1+AAA]) = 1;\n\tv56 = Il2CppMethodInfo + 0xC90;\n\tv51 = *([v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv136 = *([v51 @ X0_v37+E0]) == 0;\n\tv53 = ~v136;\n\tif (v53) goto L_001A;\nL_0039:\n\tv75 = Singleton`1::get_Instance /* +1 sharing this address */(*([v63 @ X22_v11]));\nL_003C:\n\tv80 = Sponge+<>c__DisplayClass7_0;\n\tv83 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv85 = *([v83 @ X0_v4+E0]) == 0;\n\tif (v85) goto L_005C;\n\tv179 = *([v83 @ X0_v4+B8]);\n\tv175 = *([v179 @ X8_v6+28]);\n\tv117 = *([v179 @ X8_v6+28]) == 0;\n\tif (v117) goto L_0065;\nL_0059:\n\tUIIconGenerator::RenderFluidIcon(this, targetRT, *([v75 @ X0_v3+138]), 0.3f, v175);\n\treturn;\nL_005C:\n\tv122 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv179 = *([v122 @ X0_v14+B8]);\n\tv175 = *([v179 @ X8_v6+28]);\n\tv133 = *([v179 @ X8_v6+28]) == 0;\n\tv124 = ~v133;\n\tif (v124) goto L_0059;\nL_0065:\n\tgoto L_006A;\n\tv177 = \"il2cpp_codegen_runtime_class_init\"(v127, targetRT, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv185 = *([v81 @ X24_v3]);\n\tv180 = *([v185 @ X8_v12+B8]);\nL_006A:\n\tv181 = System.Collections.Generic.NullableComparer`1;\n\tv184 = new *([v181 @ X8_v7 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+CE8])();\n\tv186 = Il2CppMethodInfo;\n\tSystem.Action`1<UnityEngine.MaterialPropertyBlock>::.ctor(v184, *([v179 @ X8_v6]), *([v186 @ X8_v9 (Il2CppMethodInfo)+3F0]));\n\tv109 = *([v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]);\n\tv190 = *([v109 @ X8_v11+B8]) + 0x28;\n\t*([v190 @ X0_v10]) = v184;\n\tv102 = 0xF3F1B4(v190, v184, *([v186 @ X8_v9 (Il2CppMethodInfo)+3F0]), 0, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv191 = this == 0;\n\tv105 = ~v191;\n\tif (v105) goto L_0059;\nL_007E:\n\tthrow System.NullReferenceException;\n// 75 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void RenderSnowIcon(global::UnityEngine.RenderTexture targetRT)
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_00dc: Expected O, but got I
-		//IL_00ec: Expected O, but got I
-		//IL_0056: Expected O, but got I
-		//IL_0066: Expected O, but got I
-		//IL_0141: Expected I, but got O
-		//IL_0151: Expected O, but got I
-		//IL_01eb: Expected O, but got I
-		//IL_01fb: Expected O, but got I
-		//IL_020b: Expected O, but got I
-		//IL_01da: Expected O, but got I
-		//IL_0186: Expected O, but got I
-		//IL_0196: Expected O, but got I
-		//IL_0281: Expected I, but got O
-		//IL_02b1: Expected O, but got I
-		//IL_02c7: Expected O, but got I
-		object obj = 50503680;
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAAA]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			object obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v30 @ X0_v41+E0]");
-			bool flag = (nint)0 == 0;
-			object obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
-		}
-		else
-		{
-			_ = 1;
-			object obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X21_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v51 @ X0_v37+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			object obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		goto IL_0133;
-		IL_01bb:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v75 @ X0_v3+138]");
-		global::System.Action<global::UnityEngine.MaterialPropertyBlock> pb;
-		RenderFluidIcon(targetRT, (global::UnityEngine.Material)0, 0.3f, pb);
-		return;
-		IL_026d:
-		throw new global::System.NullReferenceException();
-		IL_0133:
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-		object obj6 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X0_v4+E0]");
-		object obj7;
-		if ((nint)0 != 0)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v83 @ X0_v4+B8]");
-			obj7 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+28]");
-			pb = (global::System.Action<global::UnityEngine.MaterialPropertyBlock>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+28]");
-			if ((nint)0 != 0)
-			{
-				goto IL_01bb;
-			}
-		}
-		else
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-			object obj8 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v122 @ X0_v14+B8]");
-			obj7 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+28]");
-			pb = (global::System.Action<global::UnityEngine.MaterialPropertyBlock>)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v179 @ X8_v6+28]");
-			if ((nint)0 != 0)
-			{
-				goto IL_01bb;
-			}
-		}
-		nint num3 = 0;
-		object obj9 = obj7;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v186 @ X8_v9 (Il2CppMethodInfo)+3F0]");
-		global::System.Action<global::UnityEngine.MaterialPropertyBlock> action = null;
-		nint num4 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v80 @ X24_v2 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+450]");
-		object obj10 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v109 @ X8_v11+B8]");
-		object obj11 = (nint)0 + (nint)40;
-		obj11 = action;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		bool flag4 = (object)this == null;
-		bool flag5 = !flag4;
-		pb = action;
-		if (flag5)
-		{
-			goto IL_01bb;
-		}
-		goto IL_026d;
-		IL_0093:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj12 = default(object);
-		if (obj12 != null)
-		{
-			goto IL_0133;
-		}
-		goto IL_026d;
+		RenderFluidIcon(targetRT, global::Singleton<GameManager>.Instance.snowMaterial, 0.3f, null);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000409")]
@@ -550,102 +320,45 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_003B;\n\tv43 = Il2CppMethodInfo;\n\tv44 = v43 + 0xB0;\n\tv45 = \"il2cpp_codegen_initialize_runtime_metadata\"(v44, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv67 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv68 = v67 + 0xFD8;\n\tv69 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv75 = Il2CppMethodInfo;\n\tv76 = v75 + 0xC90;\n\tv77 = \"il2cpp_codegen_initialize_runtime_metadata\"(v76, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv84 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv85 = v84 + 0xA48;\n\tv86 = \"il2cpp_codegen_initialize_runtime_metadata\"(v85, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv88 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv89 = v88 + 0x9D8;\n\tv90 = \"il2cpp_codegen_initialize_runtime_metadata\"(v89, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv205 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv206 = v205 + 0x9B0;\n\tv207 = \"il2cpp_codegen_initialize_runtime_metadata\"(v206, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv211 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv212 = v211 + 0x9E0;\n\tv213 = \"il2cpp_codegen_initialize_runtime_metadata\"(v212, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv259 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv260 = v259 + 0x958;\n\tv261 = \"il2cpp_codegen_initialize_runtime_metadata\"(v260, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv267 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv268 = v267 + 0xA98;\n\tv269 = \"il2cpp_codegen_initialize_runtime_metadata\"(v268, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv272 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv273 = v272 + 0xB40;\n\tv58 = \"il2cpp_codegen_initialize_runtime_metadata\"(v273, targetRT, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv60 = 1;\n\t*([302AAAB]) = v60;\nL_003B:\n\tv61 = Il2CppMethodInfo;\n\tv66 = UnityEngine.Component::get_transform(this);\n\tgoto L_004B;\n\tv78 = \"il2cpp_codegen_runtime_class_init\"(v71, v65, mat, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\nL_004B:\n\tv83 = UnityEngine.Object::Instantiate /* +1 sharing this address */(this.quadPrefab, v66, *([v61 @ X26_v1 (Il2CppMethodInfo)+B0]));\n\tv93 = UnityEngine.Component::get_transform(v83);\n\tgoto L_005E;\n\tv214 = System.Xml.ValidateNames;\n\tv215 = v214 + 0xD0;\n\tv216 = \"il2cpp_codegen_initialize_runtime_metadata\"(v215, v92, v80, pb, methodInfo, v47, v48, v49, orthoScale, v50, v51, v52, v53, v54, v55, v56);\n\tv217 = 1;\n\t*([2DD4419]) = v217;\nL_005E:\n\tv262 = System.Xml.ValidateNames;\n\tv263 = *([v262 @ X27_v2 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv264 = *([v263 @ X8_v7+B8]);\n\t// 103 MakeStruct v112 @ AGG101B1BC_1_v2 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), [v264 @ X8_v8], [v264 @ X8_v8+4], [v264 @ X8_v8+8]\n\tUnityEngine.Transform::set_localPosition(v93, v112);\n\tv271 = UnityEngine.Component::get_transform(v83);\n\tgoto L_007B;\n\tv277 = System.Xml.ValidateNames;\n\tv278 = v277 + 0xD0;\n\tv279 = \"il2cpp_codegen_initialize_runtime_metadata\"(v278, v148, v80, pb, methodInfo, v47, v48, v49, v119, v129, v124, v52, v53, v54, v55, v56);\n\tv280 = 1;\n\t*([2DD441A]) = v280;\nL_007B:\n\tv282 = Il2CppMethodInfo;\n\tv283 = *([v262 @ X27_v2 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv284 = *([v283 @ X8_v11+B8]);\n\tv287 = *([v284 @ X8_v12+14]) * orthoScale;\n\tv121 = v287 + v287;\n\tv289 = *([v284 @ X8_v12+C]) * v290;\n\tv114 = v289 + v289;\n\t// 137 MakeStruct v107 @ AGG101B234_1_v2 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), v114 @ V0_v7, v291 @ V0.S1, v121 @ V2_v3 (System.Single)\n\tUnityEngine.Transform::set_localScale(v271, v107);\n\tUnityEngine.Renderer::set_material(v83, mat);\n\tUnityEngine.Renderer::GetPropertyBlock(v83, this._propBlock);\n\tgoto L_009B;\n\tv301 = \"il2cpp_codegen_runtime_class_init\"(v298, v137, v150, pb, methodInfo, v47, v48, v49, v114, v126, v121, v52, v53, v54, v55, v56);\nL_009B:\n\tv162 = Singleton`1::get_Instance /* +1 sharing this address */(*([v282 @ X26_v6 (Il2CppMethodInfo)+C90]));\n\tv164 = UnityEngine.Component::get_transform(*([v162 @ X0_v22+158]));\n\tv115 = UnityEngine.Transform::get_forward(v164);\n\tv304 = \"Writing object reference to Id '{0}' for {1}.\";\n\t// 177 MakeStruct v101 @ AGG101B2B0_2_v2 (UnityEngine.Vector4), typeof(UnityEngine.Vector4), v115 @ V0_v8 (UnityEngine.Vector3), v115.y (System.Single), v115.z (System.Single), 0\n\tUnityEngine.MaterialPropertyBlock::SetVector(this._propBlock, *([v304 @ X8_v14 (System.String)+A98]), v101);\n\tv306 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetTexture(this._propBlock, *([v306 @ X8_v16 (System.String)+B40]), this.fluidTexArray);\n\tv311 = 0x101B51C(0, *([v306 @ X8_v16 (System.String)+B40]), this.fluidTexArray, 0, methodInfo, v47, v48, v49, 0, 0, 0, 0, v53, v54, v55, v56);\n\tv166 = UIIconGenerator::SolidColor(v311, v311, 1, 0);\n\tv312 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetTexture(this._propBlock, *([v312 @ X8_v18 (System.String)+958]), v166);\n\tv314 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetTexture(this._propBlock, *([v314 @ X8_v20 (System.String)+9D8]), this.reflectionTex);\n\tv315 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetInt(this._propBlock, *([v315 @ X8_v22 (System.String)+9E0]), 0);\n\tv316 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetFloat(this._propBlock, *([v316 @ X8_v24 (System.String)+9B0]), -1f);\n\tv320 = pb == 0;\n\tif (v320) goto L_00F5;\n\tpb.invoke_impl(v325, pb.method_code, this._propBlock, pb.method, 0, methodInfo, v47, v48, v49, -1f, 0, 0, 0, v53, v54, v55, v56);\nL_00F5:\n\tUnityEngine.Renderer::SetPropertyBlock(v83, this._propBlock);\n\tv334 = UnityEngine.Component::get_gameObject(v83);\n\tUIIconGenerator::SetLayerRecursive(this, v334, this.renderLayer);\n\tUnityEngine.Camera::set_orthographicSize(this.renderCamera, orthoScale);\n\tUnityEngine.Camera::set_targetTexture(this.renderCamera, targetRT);\n\tUnityEngine.Camera::Render(this.renderCamera);\n\tv339 = UnityEngine.Component::get_gameObject(v83);\n\tgoto L_0127;\n\tv343 = \"il2cpp_codegen_runtime_class_init\"(v341, v338, v157, v98, methodInfo, v47, v48, v49, v118, v128, v123, v104, v53, v54, v55, v56);\nL_0127:\n\tUnityEngine.Object::DestroyImmediate(v339);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 195 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void RenderFluidIcon(global::UnityEngine.RenderTexture targetRT, global::UnityEngine.Material mat, float orthoScale = 0.3f, global::System.Action<global::UnityEngine.MaterialPropertyBlock> pb = null)
 	{
-		//IL_0034: Expected I, but got O
-		//IL_0044: Expected O, but got I
-		//IL_0054: Expected O, but got I
-		//IL_0061: Expected F4, but got O
-		//IL_0076: Expected F4, but got I
-		//IL_008b: Expected F4, but got I
-		//IL_00c5: Expected O, but got I
-		//IL_00d5: Expected O, but got I
-		//IL_0111: Expected O, but got I
-		//IL_0120: Expected O, but got I
-		//IL_012d: Expected F4, but got O
-		//IL_013a: Expected F4, but got O
-		//IL_019a: Expected O, but got I
-		//IL_021d: Expected O, but got I
-		//IL_0248: Expected O, but got I
-		//IL_029b: Expected O, but got I
-		//IL_02c6: Expected O, but got I
-		//IL_02f0: Expected O, but got I
-		//IL_031a: Expected O, but got I
-		nint num = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::UnityEngine.Component component = default(global::UnityEngine.Component);
+		global::UnityEngine.MeshRenderer component = global::UnityEngine.Object.Instantiate(quadPrefab, transform);
 		global::UnityEngine.Transform transform2 = component.transform;
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v262 @ X27_v2 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v263 @ X8_v7+B8]");
-		object obj2 = 0;
 		global::UnityEngine.Vector3 localPosition = default(global::UnityEngine.Vector3);
-		localPosition.x = (float)obj2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v264 @ X8_v8+4]");
+		localPosition.x = 0f;
 		localPosition.y = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v264 @ X8_v8+8]");
 		localPosition.z = 0f;
 		transform2.localPosition = localPosition;
 		global::UnityEngine.Transform transform3 = component.transform;
-		nint num3 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v262 @ X27_v2 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj3 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v283 @ X8_v11+B8]");
-		object obj4 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v284 @ X8_v12+14]");
-		float num4 = 0f * orthoScale;
-		float z = num4 + num4;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v284 @ X8_v12+C]");
-		object obj6 = default(object);
-		object obj5 = 0 * (nint)obj6;
-		object obj7 = (nint)obj5 + (nint)obj5;
 		global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
-		localScale.x = (float)obj7;
-		object obj8 = default(object);
-		localScale.y = (float)obj8;
-		localScale.z = z;
+		localScale.x = orthoScale * 2f;
+		localScale.y = orthoScale * 2f;
+		localScale.z = 1f;
 		transform3.localScale = localScale;
 		((global::UnityEngine.Renderer)component).material = mat;
 		((global::UnityEngine.Renderer)component).GetPropertyBlock(_propBlock);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v162 @ X0_v22+158]");
-		global::UnityEngine.Transform transform4 = ((global::UnityEngine.Component)0).transform;
+		global::UnityEngine.Transform transform4 = global::Singleton<GameManager>.Instance.light.transform;
 		global::UnityEngine.Vector3 forward = transform4.forward;
-		string text = "Writing object reference to Id '{0}' for {1}.";
 		global::UnityEngine.Vector4 value = default(global::UnityEngine.Vector4);
 		value.x = forward.x;
 		value.y = forward.y;
 		value.z = forward.z;
 		value.w = 0f;
 		global::UnityEngine.MaterialPropertyBlock propBlock = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v304 @ X8_v14 (System.String)+A98]");
-		propBlock.SetVector((string)0, value);
-		string text2 = "Writing object reference to Id '{0}' for {1}.";
+		propBlock.SetVector("_LightDirection", value);
 		global::UnityEngine.MaterialPropertyBlock propBlock2 = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v306 @ X8_v16 (System.String)+B40]");
-		propBlock2.SetTexture((string)0, fluidTexArray);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @101B51C (inside UIIconGenerator::ConvertRenderTextureToSprite +0x80)");
-		UIIconGenerator uIIconGenerator = default(UIIconGenerator);
-		global::UnityEngine.Texture2D value2 = uIIconGenerator.SolidColor((global::UnityEngine.Color32)uIIconGenerator);
-		string text3 = "Writing object reference to Id '{0}' for {1}.";
+		propBlock2.SetTexture("_FluidTexArray", fluidTexArray);
+		global::UnityEngine.Texture2D value2 = SolidColor(global::UnityEngine.Color.white);
 		global::UnityEngine.MaterialPropertyBlock propBlock3 = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v312 @ X8_v18 (System.String)+958]");
-		propBlock3.SetTexture((string)0, value2);
-		string text4 = "Writing object reference to Id '{0}' for {1}.";
+		propBlock3.SetTexture("_ReflectionTex", value2);
 		global::UnityEngine.MaterialPropertyBlock propBlock4 = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v314 @ X8_v20 (System.String)+9D8]");
-		propBlock4.SetTexture((string)0, reflectionTex);
-		string text5 = "Writing object reference to Id '{0}' for {1}.";
+		propBlock4.SetTexture("_ReflectionTexOverride", reflectionTex);
 		global::UnityEngine.MaterialPropertyBlock propBlock5 = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v315 @ X8_v22 (System.String)+9E0]");
-		propBlock5.SetInt((string)0, 0);
-		string text6 = "Writing object reference to Id '{0}' for {1}.";
+		propBlock5.SetInt("_Layer", 0);
 		global::UnityEngine.MaterialPropertyBlock propBlock6 = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v316 @ X8_v24 (System.String)+9B0]");
-		propBlock6.SetFloat((string)0, -1f);
+		propBlock6.SetFloat("_HighlightAlpha", -1f);
 		if (pb != null)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: pb.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
+			pb(_propBlock);
 		}
 		((global::UnityEngine.Renderer)component).SetPropertyBlock(_propBlock);
 		global::UnityEngine.GameObject obj9 = component.gameObject;
@@ -662,93 +375,45 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0034;\n\tv47 = Il2CppMethodInfo;\n\tv48 = v47 + 0xB18;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v48, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv70 = Il2CppMethodInfo;\n\tv71 = v70 + 0xB70;\n\tv72 = \"il2cpp_codegen_initialize_runtime_metadata\"(v71, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv78 = Il2CppMethodInfo;\n\tv79 = v78 + 0xA8;\n\tv80 = \"il2cpp_codegen_initialize_runtime_metadata\"(v79, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv87 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv88 = v87 + 0xFD8;\n\tv89 = \"il2cpp_codegen_initialize_runtime_metadata\"(v88, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv91 = Il2CppMethodInfo;\n\tv92 = v91 + 0xC90;\n\tv93 = \"il2cpp_codegen_initialize_runtime_metadata\"(v92, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv250 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv251 = v250 + 0xA48;\n\tv252 = \"il2cpp_codegen_initialize_runtime_metadata\"(v251, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv256 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv257 = v256 + 0xA98;\n\tv62 = \"il2cpp_codegen_initialize_runtime_metadata\"(v257, targetRT, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv64 = 1;\n\t*([302AAAC]) = v64;\nL_0034:\n\tv65 = Il2CppMethodInfo;\n\tv69 = UnityEngine.Component::get_transform(this);\n\tgoto L_0043;\n\tv81 = \"il2cpp_codegen_runtime_class_init\"(v74, v68, prefab, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\nL_0043:\n\tv86 = UnityEngine.Object::Instantiate /* +1 sharing this address */(prefab, v69, *([v65 @ X20_v2 (Il2CppMethodInfo)+A8]));\n\tv96 = UnityEngine.GameObject::get_transform(v86);\n\tgoto L_0056;\n\tv258 = System.Xml.ValidateNames;\n\tv259 = v258 + 0xD0;\n\tv260 = \"il2cpp_codegen_initialize_runtime_metadata\"(v259, v95, v83, pb, methodInfo, v51, v52, v53, orthoScale, v54, v55, v56, v57, v58, v59, v60);\n\tv261 = 1;\n\t*([2DD4419]) = v261;\nL_0056:\n\tv317 = System.Xml.ValidateNames;\n\tv318 = *([v317 @ X20_v6 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv319 = *([v318 @ X8_v7+B8]);\n\t// 95 MakeStruct v157 @ AGG101AE54_1_v2 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), [v319 @ X8_v8], [v319 @ X8_v8+4], [v319 @ X8_v8+8]\n\tUnityEngine.Transform::set_localPosition(v96, v157);\n\tv323 = UnityEngine.GameObject::get_transform(v86);\n\tgoto L_0072;\n\tv327 = System.Xml.ValidateNames;\n\tv328 = v327 + 0xD0;\n\tv329 = \"il2cpp_codegen_initialize_runtime_metadata\"(v328, v188, v83, pb, methodInfo, v51, v52, v53, v164, v176, v170, v56, v57, v58, v59, v60);\n\tv330 = 1;\n\t*([2DD441A]) = v330;\nL_0072:\n\tv331 = Il2CppMethodInfo;\n\tv332 = Il2CppMethodInfo;\n\tv333 = *([v317 @ X20_v6 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv226 = *([v333 @ X8_v11+B8]);\n\tv159 = *([v226 @ X8_v12+C]) * orthoScale;\n\tv172 = *([v226 @ X8_v12+10]) * orthoScale;\n\tv166 = *([v226 @ X8_v12+14]) * orthoScale;\n\t// 128 MakeStruct v154 @ AGG101AEC4_1_v2 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), v159 @ V0_v4 (System.Single), v172 @ V1_v4 (System.Single), v166 @ V2_v4 (System.Single)\n\tUnityEngine.Transform::set_localScale(v323, v154);\n\tv341 = UnityEngine.GameObject::GetComponentInChildren /* +1 sharing this address */(v86, *([v331 @ X22_v4 (Il2CppMethodInfo)+B18]));\n\tUnityEngine.Object::Destroy(v341);\n\tv199 = UnityEngine.GameObject::GetComponentsInChildren /* +1 sharing this address */(v86, *([v332 @ X24_v4 (Il2CppMethodInfo)+B70]));\n\tv355 = *([v199 @ X0_v20+18]) < 1;\n\tif (v355) goto L_00E6;\n\tv358 = Il2CppMethodInfo;\n\tv234 = v199 + 0x20;\n\tv359 = \"Writing object reference to Id '{0}' for {1}.\";\n\tgoto L_00BB;\nL_00A7:\n\tUnityEngine.Renderer::SetPropertyBlock(*([v234 @ X20_v12+v111 @ X27_v5 (System.Int32)*8]), this._propBlock);\n\tv111 = v111 + 1;\n\tv363 = v111 >= *([v199 @ X0_v20+18]);\n\tif (v363) goto L_00E6;\nL_00BB:\n\tUnityEngine.Renderer::GetPropertyBlock(*([v234 @ X20_v12+v111 @ X27_v5 (System.Int32)*8]), this._propBlock);\n\tgoto L_00C4;\n\tv390 = \"il2cpp_codegen_runtime_class_init\"(v386, v183, v191, pb, methodInfo, v51, v52, v53, v160, v173, v167, v105, v57, v58, v59, v60);\nL_00C4:\n\tv201 = Singleton`1::get_Instance /* +1 sharing this address */(*([v358 @ X26_v5 (Il2CppMethodInfo)+C90]));\n\tv203 = UnityEngine.Component::get_transform(*([v201 @ X0_v35+158]));\n\tv161 = UnityEngine.Transform::get_forward(v203);\n\t// 216 MakeStruct v360 @ AGG101AFAC_2_v4 (UnityEngine.Vector4), typeof(UnityEngine.Vector4), v161 @ V0_v8 (UnityEngine.Vector3), v161.y (System.Single), v161.z (System.Single), 0\n\tUnityEngine.MaterialPropertyBlock::SetVector(this._propBlock, *([v359 @ X22_v8 (System.String)+A98]), v360);\n\tv379 = pb == 0;\n\tif (v379) goto L_00A7;\n\tpb.invoke_impl(v405, pb.method_code, this._propBlock, pb.method, pb, methodInfo, v51, v52, v53, v161, v161.y, v161.z, 0, v57, v58, v59, v60);\n\tgoto L_00A7;\nL_00E6:\n\tUIIconGenerator::SetLayerRecursive(this, v86, this.renderLayer);\n\tUnityEngine.Camera::set_orthographicSize(this.renderCamera, orthoScale);\n\tUnityEngine.Camera::set_targetTexture(this.renderCamera, targetRT);\n\tUnityEngine.Camera::Render(this.renderCamera);\n\tgoto L_0111;\n\tv396 = \"il2cpp_codegen_runtime_class_init\"(v394, v393, v193, pb, methodInfo, v51, v52, v53, v163, v175, v169, v106, v57, v58, v59, v60);\nL_0111:\n\tUnityEngine.Object::DestroyImmediate(v86);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 185 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void RenderObjectIcon(global::UnityEngine.RenderTexture targetRT, global::UnityEngine.GameObject prefab, float orthoScale = 0.3f, global::System.Action<global::UnityEngine.MaterialPropertyBlock> pb = null)
 	{
-		//IL_0034: Expected I, but got O
-		//IL_0044: Expected O, but got I
-		//IL_0054: Expected O, but got I
-		//IL_0061: Expected F4, but got O
-		//IL_0076: Expected F4, but got I
-		//IL_008b: Expected F4, but got I
-		//IL_00cb: Expected O, but got I
-		//IL_00db: Expected O, but got I
-		//IL_01b5: Expected O, but got I
-		//IL_022f: Expected O, but got I
-		//IL_0254: Expected O, but got I
-		//IL_02ce: Expected O, but got I
-		//IL_01e3: Expected O, but got I
-		nint num = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::UnityEngine.GameObject gameObject = default(global::UnityEngine.GameObject);
+		global::UnityEngine.GameObject gameObject = global::UnityEngine.Object.Instantiate(prefab, transform);
 		global::UnityEngine.Transform transform2 = gameObject.transform;
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v317 @ X20_v6 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v318 @ X8_v7+B8]");
-		object obj2 = 0;
 		global::UnityEngine.Vector3 localPosition = default(global::UnityEngine.Vector3);
-		localPosition.x = (float)obj2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v319 @ X8_v8+4]");
+		localPosition.x = 0f;
 		localPosition.y = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v319 @ X8_v8+8]");
 		localPosition.z = 0f;
 		transform2.localPosition = localPosition;
 		global::UnityEngine.Transform transform3 = gameObject.transform;
-		nint num3 = 0;
-		nint num4 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v317 @ X20_v6 (Il2CppClass<System.Xml.ValidateNames>)+D0]");
-		object obj3 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v333 @ X8_v11+B8]");
-		object obj4 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X8_v12+C]");
-		float x = 0f * orthoScale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X8_v12+10]");
-		float y = 0f * orthoScale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v226 @ X8_v12+14]");
-		float z = 0f * orthoScale;
+		global::UnityEngine.Vector3 prefabScale = prefab.transform.localScale;
 		global::UnityEngine.Vector3 localScale = default(global::UnityEngine.Vector3);
-		localScale.x = x;
-		localScale.y = y;
-		localScale.z = z;
+		localScale.x = prefabScale.x * orthoScale;
+		localScale.y = prefabScale.y * orthoScale;
+		localScale.z = prefabScale.z * orthoScale;
 		transform3.localScale = localScale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1148514 (UnityEngine.GameObject::GetComponentInChildren, and 1 more at this address)");
-		global::UnityEngine.Object obj5 = default(global::UnityEngine.Object);
-		global::UnityEngine.Object.Destroy(obj5);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1148F64 (UnityEngine.GameObject::GetComponentsInChildren, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v199 @ X0_v20+18]");
-		if ((nint)0 >= (nint)1)
+		global::UnityEngine.Light componentInChildren = gameObject.GetComponentInChildren<global::UnityEngine.Light>();
+		global::UnityEngine.Object.Destroy(componentInChildren);
+		global::UnityEngine.Renderer[] componentsInChildren = gameObject.GetComponentsInChildren<global::UnityEngine.Renderer>();
+		if (componentsInChildren.Length >= 1)
 		{
-			nint num5 = 0;
-			object obj7 = default(object);
-			string text = "Writing object reference to Id '{0}' for {1}.";
-			int num6 = 0;
 			global::UnityEngine.Vector4 value = default(global::UnityEngine.Vector4);
-			int num7;
-			do
+			for (int i = 0; i < componentsInChildren.Length; i++)
 			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v234 @ X20_v12+v111 @ X27_v5 (System.Int32)*8]");
-				((global::UnityEngine.Renderer)0).GetPropertyBlock(_propBlock);
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v201 @ X0_v35+158]");
-				global::UnityEngine.Transform transform4 = ((global::UnityEngine.Component)0).transform;
+				global::UnityEngine.Renderer renderer = componentsInChildren[i];
+				renderer.GetPropertyBlock(_propBlock);
+				global::UnityEngine.Transform transform4 = global::Singleton<GameManager>.Instance.light.transform;
 				global::UnityEngine.Vector3 forward = transform4.forward;
 				value.x = forward.x;
 				value.y = forward.y;
 				value.z = forward.z;
 				value.w = 0f;
 				global::UnityEngine.MaterialPropertyBlock propBlock = _propBlock;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v359 @ X22_v8 (System.String)+A98]");
-				propBlock.SetVector((string)0, value);
+				propBlock.SetVector("_LightDirection", value);
 				if (pb != null)
 				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: pb.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
+					pb(_propBlock);
 				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v234 @ X20_v12+v111 @ X27_v5 (System.Int32)*8]");
-				((global::UnityEngine.Renderer)0).SetPropertyBlock(_propBlock);
-				num6++;
-				num7 = num6;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v199 @ X0_v20+18]");
+				renderer.SetPropertyBlock(_propBlock);
 			}
-			while ((nint)num7 < (nint)0);
 		}
 		SetLayerRecursive(gameObject, renderLayer);
 		renderCamera.orthographicSize = orthoScale;

@@ -49,77 +49,11 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv16 = 0x302A000;\n\tv18 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv20 = *([302AAC8]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_002D;\n\tv82 = this + 0x20;\n\tv25 = *([v18 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv27 = *([v25 @ X0_v23+E0]) == 0;\n\tif (v27) goto L_0039;\nL_0019:\n\tv58 = UnityEngine.Object::op_Implicit(v48);\n\tv69 = v58 == 0;\n\tif (v69) goto L_003E;\nL_0025:\n\treturn *([v82 @ X20_v7]);\nL_002D:\n\t*([v16 @ X20_v1+AC8]) = 1;\n\tv82 = this + 0x20;\n\tv47 = *([v18 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv75 = *([v47 @ X0_v17+E0]) == 0;\n\tv51 = ~v75;\n\tif (v51) goto L_0019;\nL_0039:\n\tv72 = UnityEngine.Object::op_Implicit(v60);\n\tv102 = v72 == 0;\n\tv80 = ~v102;\n\tif (v80) goto L_0025;\nL_003E:\n\tv96 = Il2CppMethodInfo;\n\tv100 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v96 @ X8_v3 (Il2CppMethodInfo)+760]));\n\tthis._text = v100;\n\tv122 = 0xF3F1B4(v95, v100, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\treturn *([v95 @ X20_v2]);\n// 52 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			//IL_0009: Expected O, but got I4
-			//IL_0017: Expected I, but got O
-			//IL_00f0: Expected O, but got I
-			//IL_0100: Expected O, but got I
-			//IL_0056: Expected O, but got I
-			//IL_0066: Expected O, but got I
-			object obj = 50503680;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-			object obj2;
-			global::UnityEngine.Object obj4;
-			global::UnityEngine.Object obj5;
-			object obj6;
-			if ((uint)((nuint)0u & (nuint)1u) != 0)
+			if (_text == null)
 			{
-				obj2 = (nint)this + 32;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-				object obj3 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X0_v23+E0]");
-				bool flag = (nint)0 == 0;
-				obj4 = _text;
-				obj5 = _text;
-				obj6 = obj2;
-				if (!flag)
-				{
-					goto IL_00a7;
-				}
+				_text = GetComponent<global::TMPro.TextMeshProUGUI>();
 			}
-			else
-			{
-				_ = 1;
-				obj2 = (nint)this + 32;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-				object obj7 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X0_v17+E0]");
-				bool flag2 = (nint)0 == 0;
-				bool flag3 = !flag2;
-				obj4 = _text;
-				obj5 = _text;
-				obj6 = obj2;
-				if (flag3)
-				{
-					goto IL_00a7;
-				}
-			}
-			bool flag4 = obj5;
-			bool flag5 = !flag4;
-			bool flag6 = !flag5;
-			obj2 = obj6;
-			if (flag6)
-			{
-				goto IL_00d9;
-			}
-			goto IL_018e;
-			IL_00d9:
-			return (global::TMPro.TextMeshProUGUI)obj2;
-			IL_018e:
-			nint num2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-			global::TMPro.TextMeshProUGUI textMeshProUGUI = default(global::TMPro.TextMeshProUGUI);
-			_text = textMeshProUGUI;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			return (global::TMPro.TextMeshProUGUI)obj6;
-			IL_00a7:
-			bool flag7 = obj4;
-			bool flag8 = !flag7;
-			obj6 = obj2;
-			if (!flag8)
-			{
-				goto IL_00d9;
-			}
-			goto IL_018e;
+			return _text;
 		}
 	}
 
@@ -128,59 +62,11 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = 0x302A000;\n\tv22 = *([302AAC9]) & 1;\n\tv23 = v22 == 0;\n\tif (v23) goto L_0052;\n\tv28 = *([302AAC8]) & 1;\n\tv29 = v28 == 0;\n\tif (v29) goto L_0062;\nL_0018:\n\tv88 = this + 0x20;\n\tgoto L_001E;\nL_001E:\n\tv91 = System.Collections.Generic.NullableComparer`1;\n\tv93 = Il2CppMethodInfo;\n\tv97 = UnityEngine.Object::op_Implicit(v77);\n\tv107 = v97 == 0;\n\tv108 = ~v107;\n\tif (v108) goto L_0032;\n\tv112 = Il2CppMethodInfo;\n\tv116 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v112 @ X8_v12 (Il2CppMethodInfo)+760]));\n\tthis._text = v116;\n\tv120 = 0xF3F1B4(v88, v116, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_0032:\n\tv122 = this._text;\n\tv124 = new *([v91 @ X23_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D60])();\n\tSystem.Action`1<System.Object>::.ctor(v124, this, *([v93 @ X22_v6 (Il2CppMethodInfo)+AE0]));\n\tv130 = this._text == 0;\n\tif (v130) goto L_006D;\n\tv131 = *([v122 @ X20_v8 (TMPro.TextMeshProUGUI)]);\n\t// 74 IndirectJump [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618], this._text (TMPro.TextMeshProUGUI), this._text (TMPro.TextMeshProUGUI), v124 @ X0_v22, [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+620], [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618], v36 @ X4, v37 @ X5, v38 @ X6, v39 @ X7, v40 @ V0, v41 @ V1, v42 @ V2, v43 @ V3, v44 @ V4, v45 @ V5, v46 @ V6, v47 @ V7\nL_0052:\n\t*([v20 @ X20_v1+AC9]) = 1;\n\tv104 = *([302AAC8]) & 1;\n\tv105 = v104 == 0;\n\tv53 = ~v105;\n\tif (v53) goto L_0018;\nL_0062:\n\t*([302AAC8]) = 1;\n\tv88 = this + 0x20;\n\tgoto L_001E;\n\tv76 = \"il2cpp_codegen_runtime_class_init\"(v98, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tgoto L_001E;\nL_006D:\n\tthrow v124;\n// 74 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void OnEnable()
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_007b: Expected O, but got I
-		//IL_0098: Expected I, but got O
-		//IL_01a9: Expected O, but got I
-		//IL_0149: Expected I, but got O
-		object obj = 50503680;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC9]");
-		if ((int)((nint)0 & (nint)1) == 0)
+		if (_text == null)
 		{
-			goto IL_0153;
+			_text = GetComponent<global::TMPro.TextMeshProUGUI>();
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			goto IL_006f;
-		}
-		goto IL_0197;
-		IL_0197:
-		_ = 1;
-		object obj2 = (nint)this + 32;
-		global::UnityEngine.Object obj3 = _text;
-		goto IL_008a;
-		IL_006f:
-		obj2 = (nint)this + 32;
-		obj3 = _text;
-		goto IL_008a;
-		IL_008a:
-		nint num2 = 0;
-		if (!obj3)
-		{
-			nint num3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-			global::TMPro.TextMeshProUGUI textMeshProUGUI = default(global::TMPro.TextMeshProUGUI);
-			_text = textMeshProUGUI;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		}
-		global::TMPro.TextMeshProUGUI textMeshProUGUI2 = _text;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v93 @ X22_v6 (Il2CppMethodInfo)+AE0]");
-		object obj4 = new global::System.Action<object>(this, (global::System.IntPtr)0);
-		if ((object)_text != null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618] (should have been resolved before IL gen)");
-			goto IL_0153;
-		}
-		throw obj4;
-		IL_0153:
-		_ = 1;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			goto IL_006f;
-		}
-		goto IL_0197;
+		_text.OnPreRenderText += OnPreRenderText;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003F1")]
@@ -188,59 +74,11 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = 0x302A000;\n\tv22 = *([302AACA]) & 1;\n\tv23 = v22 == 0;\n\tif (v23) goto L_0052;\n\tv28 = *([302AAC8]) & 1;\n\tv29 = v28 == 0;\n\tif (v29) goto L_0062;\nL_0018:\n\tv88 = this + 0x20;\n\tgoto L_001E;\nL_001E:\n\tv91 = System.Collections.Generic.NullableComparer`1;\n\tv93 = Il2CppMethodInfo;\n\tv97 = UnityEngine.Object::op_Implicit(v77);\n\tv107 = v97 == 0;\n\tv108 = ~v107;\n\tif (v108) goto L_0032;\n\tv112 = Il2CppMethodInfo;\n\tv116 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v112 @ X8_v12 (Il2CppMethodInfo)+760]));\n\tthis._text = v116;\n\tv120 = 0xF3F1B4(v88, v116, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_0032:\n\tv122 = this._text;\n\tv124 = new *([v91 @ X23_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D60])();\n\tSystem.Action`1<System.Object>::.ctor(v124, this, *([v93 @ X22_v6 (Il2CppMethodInfo)+AE0]));\n\tv130 = this._text == 0;\n\tif (v130) goto L_006D;\n\tv131 = *([v122 @ X20_v8 (TMPro.TextMeshProUGUI)]);\n\t// 74 IndirectJump [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628], this._text (TMPro.TextMeshProUGUI), this._text (TMPro.TextMeshProUGUI), v124 @ X0_v22, [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+630], [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628], v36 @ X4, v37 @ X5, v38 @ X6, v39 @ X7, v40 @ V0, v41 @ V1, v42 @ V2, v43 @ V3, v44 @ V4, v45 @ V5, v46 @ V6, v47 @ V7\nL_0052:\n\t*([v20 @ X20_v1+ACA]) = 1;\n\tv104 = *([302AAC8]) & 1;\n\tv105 = v104 == 0;\n\tv53 = ~v105;\n\tif (v53) goto L_0018;\nL_0062:\n\t*([302AAC8]) = 1;\n\tv88 = this + 0x20;\n\tgoto L_001E;\n\tv76 = \"il2cpp_codegen_runtime_class_init\"(v98, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tgoto L_001E;\nL_006D:\n\tthrow v124;\n// 74 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void OnDisable()
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_007b: Expected O, but got I
-		//IL_0098: Expected I, but got O
-		//IL_01a9: Expected O, but got I
-		//IL_0149: Expected I, but got O
-		object obj = 50503680;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AACA]");
-		if ((int)((nint)0 & (nint)1) == 0)
+		if (_text == null)
 		{
-			goto IL_0153;
+			_text = GetComponent<global::TMPro.TextMeshProUGUI>();
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			goto IL_006f;
-		}
-		goto IL_0197;
-		IL_0197:
-		_ = 1;
-		object obj2 = (nint)this + 32;
-		global::UnityEngine.Object obj3 = _text;
-		goto IL_008a;
-		IL_006f:
-		obj2 = (nint)this + 32;
-		obj3 = _text;
-		goto IL_008a;
-		IL_008a:
-		nint num2 = 0;
-		if (!obj3)
-		{
-			nint num3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-			global::TMPro.TextMeshProUGUI textMeshProUGUI = default(global::TMPro.TextMeshProUGUI);
-			_text = textMeshProUGUI;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		}
-		global::TMPro.TextMeshProUGUI textMeshProUGUI2 = _text;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v93 @ X22_v6 (Il2CppMethodInfo)+AE0]");
-		object obj4 = new global::System.Action<object>(this, (global::System.IntPtr)0);
-		if ((object)_text != null)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628] (should have been resolved before IL gen)");
-			goto IL_0153;
-		}
-		throw obj4;
-		IL_0153:
-		_ = 1;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			goto IL_006f;
-		}
-		goto IL_0197;
+		_text.OnPreRenderText -= OnPreRenderText;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003F2")]
@@ -248,51 +86,13 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001E;\n\tv31 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv32 = v31 + 0xF28;\n\tv33 = \"il2cpp_codegen_initialize_runtime_metadata\"(v32, textInfo, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv53 = CollectParticleData[];\n\tv54 = v53 + 0x650;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v54, textInfo, methodInfo, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv51 = 1;\n\t*([302AAA0]) = v51;\nL_001E:\n\tv55 = textInfo.meshInfo;\n\tv165 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv168 = \"SzArrayNew\"(*([v165 @ X9_v3 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+F28]), v55.Length, methodInfo, v62, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv163 = this + 0x48;\n\tthis.cachedVertexPositions = v168;\n\tv142 = 0xF3F1B4(v163, v168, methodInfo, v62, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv191 = textInfo.meshInfo;\n\tv247 = CollectParticleData[];\nL_0033:\n\t;\n\tv58 = v161 >= v191.Length;\n\tif (v58) goto L_008D;\n\tv157 = *([v191 @ X8_v7 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]);\n\tv144 = \"SzArrayNew\"(*([v247 @ X22_v4 (Il2CppClass<CollectParticleData[]>)+650]), v157.normals, *([v141 @ X0_v16 (System.Array)+18]), 0, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv264 = this.cachedVertexPositions + v126;\n\t*([v264 @ X0_v14]) = v144;\n\tv145 = 0xF3F1B4(v264, v144, *([v141 @ X0_v16 (System.Array)+18]), 0, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tv158 = textInfo.meshInfo;\n\tv136 = this.cachedVertexPositions;\n\tv141 = *([v158 @ X8_v11 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]);\n\tSystem.Array::Copy(*([v158 @ X8_v11 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]), *([v136 @ X9_v9 (UnityEngine.Vector3[][])+v126 @ X23_v5 (System.Int32)]), *([v141 @ X0_v16 (System.Array)+18]));\n\tv161 = v161 + 1;\n\tv191 = textInfo.meshInfo;\n\tv126 = v126 + 8;\n\tv123 = v123 + 0x50;\n\tv269 = textInfo.meshInfo == 0;\n\tv147 = ~v269;\n\tif (v147) goto L_0033;\n\tthrow System.NullReferenceException;\nL_008D:\n\treturn;\n\tthrow System.IndexOutOfRangeException;\n\treturn;\n// 104 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void CacheVertexPositions(global::TMPro.TMP_TextInfo textInfo)
 	{
-		//IL_0025: Expected I, but got O
-		//IL_003b: Expected O, but got I
-		//IL_0074: Expected I, but got O
-		//IL_00a4: Expected O, but got I
-		//IL_00c9: Expected O, but got I
-		//IL_010c: Expected O, but got I
-		//IL_013a: Expected O, but got I
-		//IL_013a: Expected O, but got I
 		global::TMPro.TMP_MeshInfo[] meshInfo = textInfo.meshInfo;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		global::UnityEngine.Vector3[][] array = default(global::UnityEngine.Vector3[][]);
-		cachedVertexPositions = array;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::TMPro.TMP_MeshInfo[] meshInfo2 = textInfo.meshInfo;
-		nint num2 = (nint)typeof(CollectParticleData[]);
-		int num3 = 48;
-		int num4 = 32;
-		int num5 = 0;
-		object obj3 = default(object);
-		while (num5 < meshInfo2.Length)
+		cachedVertexPositions = new global::UnityEngine.Vector3[meshInfo.Length][];
+		for (int i = 0; i < textInfo.meshInfo.Length; i++)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v191 @ X8_v7 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]");
-			global::TMPro.TMP_MeshInfo tMP_MeshInfo = (global::TMPro.TMP_MeshInfo)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-			object obj2 = (nint)cachedVertexPositions + num4;
-			obj2 = obj3;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			global::TMPro.TMP_MeshInfo[] meshInfo3 = textInfo.meshInfo;
-			global::UnityEngine.Vector3[][] array2 = cachedVertexPositions;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v158 @ X8_v11 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]");
-			global::System.Array array3 = (global::System.Array)0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v158 @ X8_v11 (TMPro.TMP_MeshInfo[])+v123 @ X24_v5 (System.Int32)]");
-			nint num6 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v136 @ X9_v9 (UnityEngine.Vector3[][])+v126 @ X23_v5 (System.Int32)]");
-			nint num7 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v141 @ X0_v16 (System.Array)+18]");
-			global::System.Array.Copy((global::System.Array)num6, (global::System.Array)num7, 0);
-			num5++;
-			meshInfo2 = textInfo.meshInfo;
-			num4 += 8;
-			num3 += 80;
-			if (textInfo.meshInfo == null)
-			{
-				throw new global::System.NullReferenceException();
-			}
+			global::TMPro.TMP_MeshInfo tMP_MeshInfo = textInfo.meshInfo[i];
+			cachedVertexPositions[i] = new global::UnityEngine.Vector3[tMP_MeshInfo.vertices.Length];
+			global::System.Array.Copy(tMP_MeshInfo.vertices, cachedVertexPositions[i], tMP_MeshInfo.vertices.Length);
 		}
 	}
 
@@ -311,158 +111,10 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tthis.show = 1;\n\tv22 = UnityEngine.Time::get_time();\n\tthis.transitionStartTime = v22;\n\tv25 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv27 = *([302AAC8]) & 1;\n\tv28 = v27 == 0;\n\tif (v28) goto L_0031;\n\tv117 = this + 0x20;\n\tv32 = *([v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv34 = *([v32 @ X0_v52+E0]) == 0;\n\tif (v34) goto L_003C;\nL_001F:\n\tv110 = Il2CppMethodInfo + 0x760;\n\tv66 = UnityEngine.Object::op_Implicit(v52);\n\tv77 = v66 == 0;\n\tif (v77) goto L_0046;\nL_0026:\n\tv115 = this._text;\n\tv94 = *([v117 @ X20_v3]) == 0;\n\tv95 = ~v94;\n\tif (v95) goto L_004E;\n\tgoto L_0096;\nL_0031:\n\t*([302AAC8]) = 1;\n\tv117 = this + 0x20;\n\tv59 = *([v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv84 = *([v59 @ X0_v46+E0]) == 0;\n\tv55 = ~v84;\n\tif (v55) goto L_001F;\nL_003C:\n\tv110 = Il2CppMethodInfo + 0x760;\n\tv82 = UnityEngine.Object::op_Implicit(v67);\n\tv107 = v82 == 0;\n\tv89 = ~v107;\n\tif (v89) goto L_0026;\nL_0046:\n\tv105 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v97 @ X24_v4]));\n\tthis._text = v105;\n\tv128 = 0xF3F1B4(v102, v105, v39, v40, v41, v42, v43, v44, v22, v45, v46, v47, v48, v49, v50, v51);\n\tv115 = *([v102 @ X20_v5]);\nL_004E:\n\tv118 = *([v115 @ X0_v4]);\n\t*([v118 @ X8_v4+7D8])(v123, v115, 0, 0, *([v118 @ X8_v4+7E0]), v41, v42, v43, v44, v22, v45, v46, v47, v48, v49, v50, v51);\n\tv125 = *([302AAC8]) & 1;\n\tv126 = v125 == 0;\n\tif (v126) goto L_007C;\n\tv158 = this._text;\n\tv152 = *([v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv154 = *([v152 @ X0_v29+E0]) == 0;\n\tif (v154) goto L_0086;\nL_005F:\n\tv168 = UnityEngine.Object::op_Implicit(v158);\n\tv205 = v168 == 0;\n\tif (v205) goto L_008D;\nL_0063:\n\tv193 = this._text;\nL_0068:\n\tTextPopEffect::CacheVertexPositions(this, *([v193 @ X8_v11+368]));\n\tTextPopEffect::Update(this);\n\treturn;\nL_007C:\n\t*([302AAC8]) = 1;\n\tv158 = this._text;\n\tv165 = *([v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv210 = *([v165 @ X0_v21+E0]) == 0;\n\tv161 = ~v210;\n\tif (v161) goto L_005F;\nL_0086:\n\tv208 = UnityEngine.Object::op_Implicit(v169);\n\tv222 = v208 == 0;\n\tv212 = ~v222;\n\tif (v212) goto L_0063;\nL_008D:\n\tv220 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v110 @ X24_v2]));\n\tthis._text = v220;\n\tv147 = 0xF3F1B4(v117, v220, 0, *([v118 @ X8_v4+7E0]), v41, v42, v43, v44, v22, v45, v46, v47, v48, v49, v50, v51);\n\tv193 = this._text;\n\tv228 = *([v117 @ X20_v3]) == 0;\n\tv141 = ~v228;\n\tif (v141) goto L_0068;\nL_0096:\n\tthrow System.NullReferenceException;\n// 83 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void StartTransition()
 	{
-		//IL_002c: Expected I, but got O
-		//IL_0149: Expected O, but got I
-		//IL_0159: Expected O, but got I
-		//IL_00c8: Expected O, but got I
-		//IL_006b: Expected O, but got I
-		//IL_007b: Expected O, but got I
-		//IL_01b1: Expected O, but got I
-		//IL_0338: Expected O, but got I
-		//IL_0298: Expected O, but got I
-		//IL_030e: Expected O, but got I
 		show = true;
-		float time = global::UnityEngine.Time.time;
-		transitionStartTime = time;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		object obj;
-		global::UnityEngine.Object obj3;
-		global::UnityEngine.Object obj4;
-		object obj5;
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			obj = (nint)this + 32;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v32 @ X0_v52+E0]");
-			bool flag = (nint)0 == 0;
-			obj3 = _text;
-			obj4 = _text;
-			obj5 = obj;
-			if (!flag)
-			{
-				goto IL_00bc;
-			}
-		}
-		else
-		{
-			_ = 1;
-			obj = (nint)this + 32;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj6 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X0_v46+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			obj3 = _text;
-			obj4 = _text;
-			obj5 = obj;
-			if (flag3)
-			{
-				goto IL_00bc;
-			}
-		}
-		object obj7 = (nint)0 + (nint)1888;
-		bool flag4 = obj4;
-		bool flag5 = !flag4;
-		bool flag6 = !flag5;
-		obj = obj5;
-		object obj8 = obj7;
-		if (flag6)
-		{
-			goto IL_0102;
-		}
-		goto IL_01fb;
-		IL_03aa:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		global::TMPro.TextMeshProUGUI textMeshProUGUI = default(global::TMPro.TextMeshProUGUI);
-		_text = textMeshProUGUI;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj9 = obj;
-		if (obj != null)
-		{
-			goto IL_02fc;
-		}
-		goto IL_03fd;
-		IL_02c5:
-		global::UnityEngine.Object obj10;
-		if ((bool)obj10)
-		{
-			goto IL_02ef;
-		}
-		goto IL_03aa;
-		IL_02ef:
-		obj9 = obj;
-		goto IL_02fc;
-		IL_00bc:
-		obj7 = (nint)0 + (nint)1888;
-		bool flag7 = obj3;
-		bool flag8 = !flag7;
-		obj8 = obj7;
-		obj5 = obj;
-		if (!flag8)
-		{
-			goto IL_0102;
-		}
-		goto IL_01fb;
-		IL_01fb:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		global::TMPro.TextMeshProUGUI textMeshProUGUI2 = default(global::TMPro.TextMeshProUGUI);
-		_text = textMeshProUGUI2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj11 = obj5;
-		obj7 = obj8;
-		obj = obj5;
-		goto IL_023b;
-		IL_0102:
-		obj11 = obj;
-		if (obj != null)
-		{
-			goto IL_023b;
-		}
-		goto IL_03fd;
-		IL_023b:
-		object obj12 = obj11;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v118 @ X8_v4+7D8] (should have been resolved before IL gen)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAC8]");
-		global::UnityEngine.Object obj14;
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
-		{
-			obj10 = (global::UnityEngine.Object)obj;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj13 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v152 @ X0_v29+E0]");
-			bool flag9 = (nint)0 == 0;
-			obj14 = (global::UnityEngine.Object)obj;
-			if (!flag9)
-			{
-				goto IL_02c5;
-			}
-		}
-		else
-		{
-			_ = 1;
-			obj10 = (global::UnityEngine.Object)obj;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X22_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj15 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v165 @ X0_v21+E0]");
-			bool flag10 = (nint)0 == 0;
-			bool flag11 = !flag10;
-			obj14 = (global::UnityEngine.Object)obj;
-			if (flag11)
-			{
-				goto IL_02c5;
-			}
-		}
-		if ((bool)obj14)
-		{
-			goto IL_02ef;
-		}
-		goto IL_03aa;
-		IL_03fd:
-		throw new global::System.NullReferenceException();
-		IL_02fc:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v193 @ X8_v11+368]");
-		CacheVertexPositions((global::TMPro.TMP_TextInfo)0);
+		transitionStartTime = global::UnityEngine.Time.time;
+		text.ForceMeshUpdate(false, false);
+		CacheVertexPositions(text.textInfo);
 		Update();
 	}
 

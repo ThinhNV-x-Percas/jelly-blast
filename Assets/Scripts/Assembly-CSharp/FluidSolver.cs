@@ -2322,7 +2322,7 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 
 	[global::Cpp2ILInjected.Token(Token = "0x40002E8")]
 	[global::Cpp2ILInjected.FieldOffset(Offset = "0x220")]
-	private global::Unity.Jobs.JobHandle _lastJob;
+	internal global::Unity.Jobs.JobHandle _lastJob;
 
 	[global::Cpp2ILInjected.Token(Token = "0x40002E9")]
 	[global::Cpp2ILInjected.FieldOffset(Offset = "0x230")]

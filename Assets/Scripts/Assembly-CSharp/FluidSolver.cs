@@ -2939,7 +2939,8 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			isWater = isWater,
 			waterDensities = waterDensities,
 			mass = particleMass,
-			capacity = capacity
+			capacity = capacity,
+			radius = particleRadius * 2f
 		}, ActiveCount, 64, dependsOn3);
 		global::Unity.Jobs.JobHandle dependsOn5 = global::Unity.Jobs.IJobParallelForExtensions.Schedule(new DensityJob
 		{
@@ -2950,7 +2951,8 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			ignorePairs = ignorePairs,
 			powerUpIds = powerUpIds,
 			mass = particleMass,
-			capacity = capacity
+			capacity = capacity,
+			radius = particleRadius * 2f
 		}, ActiveCount, 64, dependsOn4);
 		global::Unity.Jobs.JobHandle dependsOn6 = global::Unity.Jobs.IJobParallelForExtensions.Schedule(new PressureJob
 		{
@@ -2973,7 +2975,8 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			pressureMultiplier = pressureMultiplier,
 			targetDensity = targetDensity,
 			dt = dt,
-			capacity = capacity
+			capacity = capacity,
+			radius = particleRadius * 2f
 		}, ActiveCount, 64, dependsOn5);
 		global::Unity.Jobs.JobHandle dependsOn7 = global::Unity.Jobs.IJobParallelForExtensions.Schedule(new ViscosityJob
 		{
@@ -2989,7 +2992,8 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			dt = dt,
 			capacity = capacity,
 			waterReactionGlobal = waterReactionMultiplier,
-			fishIds = fishIds
+			fishIds = fishIds,
+			radius = particleRadius * 2f
 		}, ActiveCount, 64, dependsOn6);
 		global::Unity.Jobs.JobHandle dependsOn8 = global::Unity.Jobs.IJobParallelForExtensions.Schedule(new BuoyancyJob
 		{
@@ -3008,7 +3012,8 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 			deltaVel = deltaVel,
 			splashDownStrength = splashDownStrength,
 			capacity = capacity,
-			dt = dt
+			dt = dt,
+			radius = particleRadius * 2f
 		}, ActiveCount, 64, dependsOn8);
 		global::Unity.Jobs.JobHandle dependsOn10 = global::Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
 		{

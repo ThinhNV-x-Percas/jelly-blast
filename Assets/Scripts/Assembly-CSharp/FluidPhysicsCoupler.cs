@@ -3,7 +3,7 @@
 public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 {
 	[global::Cpp2ILInjected.Token(Token = "0x2000087")]
-	private enum Shape : byte
+	internal enum Shape : byte
 	{
 		[global::Cpp2ILInjected.Token(Token = "0x4000278")]
 		Circle = 0,
@@ -36,7 +36,7 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x2000089")]
-	private struct BodyData
+	internal struct BodyData
 	{
 		[global::Cpp2ILInjected.Token(Token = "0x400027F")]
 		[global::Cpp2ILInjected.FieldOffset(Offset = "0x0")]
@@ -84,7 +84,7 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x200008A")]
-	private struct ForceBundle
+	internal struct ForceBundle
 	{
 		[global::Cpp2ILInjected.Token(Token = "0x400028A")]
 		[global::Cpp2ILInjected.FieldOffset(Offset = "0x0")]

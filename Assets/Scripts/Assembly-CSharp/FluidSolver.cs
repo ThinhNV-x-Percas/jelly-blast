@@ -4046,258 +4046,36 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv42 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tgoto L_005D;\n\tv47 = System.Collections.Generic.NullableComparer`1;\n\tv48 = v47 + 0xD10;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v48, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv70 = CollectParticleData[];\n\tv71 = v70 + 0xCF8;\n\tv72 = \"il2cpp_codegen_initialize_runtime_metadata\"(v71, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv75 = Il2CppMethodInfo;\n\tv76 = v75 + 0x380;\n\tv77 = \"il2cpp_codegen_initialize_runtime_metadata\"(v76, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv79 = Il2CppMethodInfo;\n\tv80 = v79 + 0xB78;\n\tv81 = \"il2cpp_codegen_initialize_runtime_metadata\"(v80, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv273 = Il2CppMethodInfo;\n\tv274 = v273 + 0xB80;\n\tv275 = \"il2cpp_codegen_initialize_runtime_metadata\"(v274, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv349 = Il2CppMethodInfo;\n\tv350 = v349 + 0xB88;\n\tv351 = \"il2cpp_codegen_initialize_runtime_metadata\"(v350, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv406 = Il2CppMethodInfo;\n\tv407 = v406 + 0x990;\n\tv408 = \"il2cpp_codegen_initialize_runtime_metadata\"(v407, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv507 = Il2CppMethodInfo;\n\tv508 = v507 + 0xAB8;\n\tv509 = \"il2cpp_codegen_initialize_runtime_metadata\"(v508, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv525 = Il2CppMethodInfo;\n\tv526 = v525 + 0xAC0;\n\tv527 = \"il2cpp_codegen_initialize_runtime_metadata\"(v526, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv544 = Il2CppMethodInfo;\n\tv545 = v544 + 0xC8;\n\tv546 = \"il2cpp_codegen_initialize_runtime_metadata\"(v545, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv607 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv608 = v607 + 0xFD8;\n\tv609 = \"il2cpp_codegen_initialize_runtime_metadata\"(v608, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv618 = Il2CppMethodInfo;\n\tv619 = v618 + 0xC90;\n\tv620 = \"il2cpp_codegen_initialize_runtime_metadata\"(v619, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv650 = Il2CppMethodInfo;\n\tv651 = v650 + 0xC70;\n\tv652 = \"il2cpp_codegen_initialize_runtime_metadata\"(v651, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv662 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv663 = v662 + 0xA38;\n\tv664 = \"il2cpp_codegen_initialize_runtime_metadata\"(v663, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv732 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv733 = v732 + 0xA48;\n\tv734 = \"il2cpp_codegen_initialize_runtime_metadata\"(v733, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv735 = Il2CppMethodInfo;\n\tv736 = v735 + 0xD70;\n\tv737 = \"il2cpp_codegen_initialize_runtime_metadata\"(v736, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv740 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv741 = v740 + 0xBA8;\n\tv742 = \"il2cpp_codegen_initialize_runtime_metadata\"(v741, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv748 = \"cp420\";\n\tv749 = v748 + 0xFE8;\n\tv750 = \"il2cpp_codegen_initialize_runtime_metadata\"(v749, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv761 = CollectParticleData[];\n\tv762 = v761 + 0x718;\n\tv62 = \"il2cpp_codegen_initialize_runtime_metadata\"(v762, mergeIndex, isBig, methodInfo, v51, v52, v53, v54, pos, v0, v55, v56, v57, v58, v59, v60);\n\tv64 = 1;\n\t*([302AA32]) = v64;\nL_005D:\n\tv69 = new *([v42 @ X21_v1 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+BA8])();\n\tFluidSolver+<>c__DisplayClass162_0::.ctor(v69);\n\tv83 = v69 + 0x10;\n\tv69.<>4__this = this;\n\tv86 = 0xF3F1B4(v83, this, isBig, v424, v418, v423, v417, v421, pos, pos.y, v55, v56, v57, v58, v59, v60);\n\tv277 = IdGenerator::Next();\n\tv69.puId = v277;\n\tv414 = System.Collections.Generic.List`1<PowerUp>::GetEnumerator(this.powerUps);\n\tv524 = mergeIndex <= 1;\n\tif (v524) goto L_0183;\nL_008D:\n\tv550 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v413 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv611 = v550 == 0;\n\tv552 = ~v611;\n\tif (v552) goto L_008D;\nL_0092:\n\tv643 = Il2CppMethodInfo;\n\tv597 = *([v643 @ X8_v46 (Il2CppMethodInfo)+B78]);\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v413 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_0097:\n\tv658 = CollectParticleData[];\n\tv660 = FluidSolver::GetNextUnusedFluidType(this);\n\tv229 = \"SzArrayNew\"(*([v658 @ X21_v8 (Il2CppClass<CollectParticleData[]>)+718]), 6, v425, v424, v418, v423, v417, v421, v479, v500, v55, v56, v57, v58, v59, v60);\n\tv492 = v229.Length == 0;\n\tif (v492) goto L_0240;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+20]) = pos;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+24]) = pos.y;\n\tv457 = v229.Length == 1;\n\tif (v457) goto L_0240;\n\tv481 = pos.y + 0x3D8A56FF;\n\tv500 = pos + 0xBD970382;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+28]) = v500;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+2C]) = v481;\n\tv458 = v229.Length == 2;\n\tif (v458) goto L_0240;\n\tv482 = pos.y + 0xBE1042C9;\n\tv500 = pos + 0x3C4A967E;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+30]) = v500;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+34]) = v482;\n\tv459 = v229.Length == 3;\n\tif (v459) goto L_0240;\n\tv483 = pos.y + 0x3E0CC183;\n\tv500 = pos + 0x3DD7D314;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+38]) = v500;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+3C]) = v483;\n\tv460 = v229.Length == 4;\n\tif (v460) goto L_0240;\n\tv484 = pos.y + 0xBD0EB3E1;\n\tv500 = pos + 0xBE49AB34;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+40]) = v500;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+44]) = v484;\n\tv180 = v229.Length == 5;\n\tif (v180) goto L_0240;\n\tv786 = System.Collections.Generic.NullableComparer`1;\n\tv788 = Il2CppMethodInfo;\n\tv792 = Il2CppMethodInfo;\n\tv210 = pos.y + 0xBDF5C904;\n\tv500 = pos + 0x3E41332E;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+48]) = v500;\n\t*([v229 @ X0_v27 (Unity.Mathematics.float2[])+4C]) = v210;\n\tv800 = new *([v786 @ X8_v12 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D10])();\n\tSystem.Action`1<ParticleInitData>::.ctor(v800, v69, *([v788 @ X26_v6 (Il2CppMethodInfo)+D70]));\n\tv809 = FluidSolver::AddParticles(this, v229, v660, v800);\n\tv813 = UnityEngine.Component::get_transform(this);\n\tgoto L_0130;\n\tv819 = \"il2cpp_codegen_runtime_class_init\"(v815, v812, v808, v122, v99, v118, v96, v110, v210, v271, v55, v56, v57, v58, v59, v60);\nL_0130:\n\tv821 = Il2CppMethodInfo;\n\tv425 = *([v792 @ X27_v6 (Il2CppMethodInfo)+C8]);\n\tv823 = UnityEngine.Object::Instantiate /* +1 sharing this address */(this.powerUpPrefab, v813, *([v792 @ X27_v6 (Il2CppMethodInfo)+C8]));\n\tgoto L_013E;\n\tv827 = \"il2cpp_codegen_runtime_class_init\"(v824, v223, v127, v122, v99, v118, v96, v110, v210, v271, v55, v56, v57, v58, v59, v60);\nL_013E:\n\t;\n\tv230 = Singleton`1::get_Instance /* +1 sharing this address */(*([v821 @ X28_v8 (Il2CppMethodInfo)+C90]));\n\tv252 = this.powerUpMaterials;\n\tv830 = v252.Length < mergeIndex;\n\tv199 = ~v830;\n\tv193 = v252.Length - mergeIndex;\n\tv181 = v193 == 0;\n\tv831 = ~v199;\n\tv152 = v831 | v181;\n\tif (v152) goto L_0240;\n\tPowerUp::Init(v823, this, v69.puId, v809, v660, *([v230 @ X0_v41+108]), mergeIndex, v252[v498 @ X20_v2 (System.Int32)], isBig);\n\tv231 = this.powerUps;\n\tv837 = v231._version + 1;\n\tv231._version = v837;\n\tv148 = v231._items;\n\tv838 = v231._size < v148.Leng\n// ... truncated")]
 	public unsafe PowerUp AddPowerUp(global::Unity.Mathematics.float2 pos, int mergeIndex, bool isBig = false)
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0022: Expected O, but got I
-		//IL_0578: Expected O, but got I
-		//IL_00a2: Expected O, but got I
-		//IL_00e4: Expected I, but got O
-		//IL_0119: Expected O, but got I4
-		//IL_0158: Expected O, but got I4
-		//IL_01c0: Expected O, but got F4
-		//IL_01c9: Expected O, but got I4
-		//IL_0869: Expected O, but got I
-		//IL_0889: Expected I4, but got O
-		//IL_0224: Expected O, but got F4
-		//IL_022d: Expected O, but got I4
-		//IL_08a8: Expected I4, but got O
-		//IL_0288: Expected O, but got F4
-		//IL_0291: Expected O, but got I4
-		//IL_0641: Expected I8, but got I4
-		//IL_02ec: Expected O, but got F4
-		//IL_02f5: Expected O, but got I4
-		//IL_0674: Expected I8, but got I
-		//IL_0311: Expected I, but got O
-		//IL_06ab: Expected I8, but got I
-		//IL_06f2: Expected I8, but got I4
-		//IL_043a: Expected I, but got O
-		//IL_0442: Expected O, but got F4
-		//IL_0494: Expected O, but got I
-		//IL_0749: Expected I, but got O
-		//IL_0546: Expected O, but got I
-		//IL_0555: Expected O, but got I
-		//IL_097b: Expected I, but got O
-		//IL_099a: Expected O, but got I
-		//IL_07e8: Expected O, but got I
-		FluidSolver._003C_003Ec__DisplayClass162_0 _003C_003Ec__DisplayClass162_1 = new FluidSolver._003C_003Ec__DisplayClass162_0();
-		_003C_003Ec__DisplayClass162_1._003C_003E4__this = this;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		FluidSolver._003C_003Ec__DisplayClass162_0 displayClass = new FluidSolver._003C_003Ec__DisplayClass162_0();
+		displayClass._003C_003E4__this = this;
 		int puId = IdGenerator.Next();
-		_003C_003Ec__DisplayClass162_1.puId = puId;
-		global::System.Collections.Generic.List<PowerUp>.Enumerator enumerator = powerUps.GetEnumerator();
-		global::System.Collections.Generic.List<object>.Enumerator enumerator2 = default(global::System.Collections.Generic.List<object>.Enumerator);
-		nint num7;
-		bool flag;
-		if (mergeIndex <= 1)
+		displayClass.puId = puId;
+		global::UnityEngine.Material[] array2 = powerUpMaterials;
+		if (array2.Length <= mergeIndex)
 		{
-			global::Unity.Collections.NativeHashMap<ulong, byte> nativeParallelHashMap = ignorePairs;
-			nint num2 = 0;
-			nint num3 = 0;
-			flag = isBig;
-			object obj2 = default(object);
-			while (enumerator2.MoveNext())
-			{
-				if (obj2 != null)
-				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v511 @ stack_-98+B0]");
-					if ((nint)0 != mergeIndex)
-					{
-						continue;
-					}
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v531 @ X28_v11 (Il2CppMethodInfo)+990]");
-					flag = false;
-					global::System.Collections.Generic.HashSet<int> hashSet = exploding;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v511 @ stack_-98+6C]");
-					if (hashSet.Contains(0))
-					{
-						continue;
-					}
-					int num4 = _003C_003Ec__DisplayClass162_1.puId;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v511 @ stack_-98+6C]");
-					if ((nint)num4 == 0)
-					{
-						continue;
-					}
-					long num5 = _003C_003Ec__DisplayClass162_1.puId + 1;
-					if (num5 != 0)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v511 @ stack_-98+6C]");
-						long num6 = (nint)0 + (nint)1;
-						if (num6 != 0)
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v511 @ stack_-98+6C]");
-							ulong key = (ulong)(nint)((nuint)0u | (nuint)_003C_003Ec__DisplayClass162_1.puId);
-							bool flag2 = nativeParallelHashMap.TryAdd(key, 1);
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction BFI not yet implemented.\"");
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v532 @ X24_v9 (Il2CppMethodInfo)+CA0]");
-							num7 = 0;
-							bool flag3 = nativeParallelHashMap.TryAdd((ulong)_003C_003Ec__DisplayClass162_1.puId, 1);
-							flag = true;
-						}
-					}
-					continue;
-				}
-				goto IL_07ed;
-			}
+			return default(PowerUp);
 		}
-		else
+		global::Unity.Mathematics.float2[] array = new global::Unity.Mathematics.float2[6];
+		array[0] = pos;
+		for (int i = 1; i < array.Length; i++)
 		{
-			bool flag6;
-			do
-			{
-				bool flag4 = enumerator2.MoveNext();
-				bool flag5 = !flag4;
-				flag6 = !flag5;
-				flag = isBig;
-			}
-			while (flag6);
+			array[i] = pos + GetEvenlySpacedPosition(i, 0.1f);
 		}
-		nint num8 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v643 @ X8_v46 (Il2CppMethodInfo)+B78]");
-		global::UnityEngine.Transform transform = (global::UnityEngine.Transform)0;
-		enumerator2.Dispose();
-		global::System.Collections.Generic.List<object>.Enumerator enumerator3 = enumerator2;
-		int num9 = 0;
-		int num10 = mergeIndex;
-		float y = pos.y;
-		goto IL_00d6;
-		IL_0906:
-		global::System.IndexOutOfRangeException ex = new global::System.IndexOutOfRangeException();
-		bool flag7 = (nint)transform != 1;
-		global::System.IndexOutOfRangeException ex2 = ex;
-		if (!flag7)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			nint num11 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v648 @ X8_v5 (Il2CppMethodInfo)+B78]");
-			transform = (global::UnityEngine.Transform)0;
-			enumerator2.Dispose();
-			object obj3 = default(object);
-			bool flag8 = obj3 == null;
-			num9 = (int)obj3;
-			if (flag8)
-			{
-				goto IL_00d6;
-			}
-			global::System.OutOfMemoryException ex3 = new global::System.OutOfMemoryException();
-			num9 = (int)obj3;
-			ex2 = (global::System.IndexOutOfRangeException)(object)ex3;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF0DEC");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
-		PowerUp result = default(PowerUp);
-		return result;
-		IL_00d6:
-		nint num12 = (nint)typeof(CollectParticleData[]);
 		int nextUnusedFluidType = GetNextUnusedFluidType();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		global::Unity.Mathematics.float2[] array = default(global::Unity.Mathematics.float2[]);
-		bool flag9 = array.Length == 0;
-		transform = (global::UnityEngine.Transform)6;
-		if (!flag9)
-		{
-			_ = pos.y;
-			bool flag10 = array.Length == 1;
-			enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)pos;
-			transform = (global::UnityEngine.Transform)6;
-			y = pos.y;
-			if (!flag10)
-			{
-				float num13 = pos.y + 0.067548744f;
-				global::Unity.Mathematics.float2 float5 = default(global::Unity.Mathematics.float2);
-				y = float5.x + -0.07373716f;
-				bool flag11 = array.Length == 2;
-				enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num13;
-				transform = (global::UnityEngine.Transform)6;
-				if (!flag11)
-				{
-					float num14 = pos.y + -0.14087977f;
-					y = float5.x + 0.012364982f;
-					bool flag12 = array.Length == 3;
-					enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num14;
-					transform = (global::UnityEngine.Transform)6;
-					if (!flag12)
-					{
-						float num15 = pos.y + 0.13745694f;
-						y = float5.x + 0.10538307f;
-						bool flag13 = array.Length == 4;
-						enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num15;
-						transform = (global::UnityEngine.Transform)6;
-						if (!flag13)
-						{
-							float num16 = pos.y + -0.034839515f;
-							y = float5.x + -0.19694215f;
-							bool flag14 = array.Length == 5;
-							enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num16;
-							transform = (global::UnityEngine.Transform)6;
-							if (!flag14)
-							{
-								nint num18 = 0;
-								nint num19 = 0;
-								float num20 = pos.y + -0.12001231f;
-								y = float5.x + 0.1886718f;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v788 @ X26_v6 (Il2CppMethodInfo)+D70]");
-								global::System.Action<ParticleInitData> action = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass162_1, (global::System.IntPtr)0);
-								global::System.Collections.Generic.HashSet<int> hashSet2 = AddParticles(array, nextUnusedFluidType, action);
-								global::UnityEngine.Transform transform2 = base.transform;
-								nint num21 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v792 @ X27_v6 (Il2CppMethodInfo)+C8]");
-								flag = false;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-								global::UnityEngine.Material[] array2 = powerUpMaterials;
-								bool flag15 = array2.Length < mergeIndex;
-								bool flag16 = !flag15;
-								int num22 = array2.Length - mergeIndex;
-								bool flag17 = num22 == 0;
-								bool flag18 = !flag16;
-								bool flag19 = flag18 || flag17;
-								num7 = (nint)action;
-								enumerator3 = (global::System.Collections.Generic.List<object>.Enumerator)num20;
-								transform = transform2;
-								if (!flag19)
-								{
-									int id = _003C_003Ec__DisplayClass162_1.puId;
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v230 @ X0_v41+108]");
-									PowerUp powerUp = default(PowerUp);
-									powerUp.Init(this, id, hashSet2, nextUnusedFluidType, (FluidCompute)0, mergeIndex, array2[num10], isBig);
-									global::System.Collections.Generic.List<PowerUp> list = powerUps;
-									list.Add(powerUp);
-									nint num24 = 0;
-									powerUpById[_003C_003Ec__DisplayClass162_1.puId] = powerUp;
-									nint num26 = 0;
-									nint num27 = (nint)typeof(CollectParticleData[]);
-									object obj6 = new object();
-									_ = 0;
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-									global::UnityEngine.Coroutine coroutine = powerUp.StartCoroutine((global::System.Collections.IEnumerator)obj6);
-									global::System.Collections.IEnumerator routine = powerUp.RotateBlob();
-									global::UnityEngine.Coroutine coroutine2 = powerUp.StartCoroutine(routine);
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-									AudioClipSettings audioClipSettings = new AudioClipSettings();
-									audioClipSettings.pitch = 1.5f;
-									audioClipSettings.pitchVariance = 0.2f;
-									string text = "cp420";
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v897 @ X8_v29 (System.String)+FE8]");
-									AudioManager audioManager = default(AudioManager);
-									audioManager.PlayClip((string)0, audioClipSettings);
-									return powerUp;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		goto IL_0906;
-		IL_07ed:
-		global::System.NullReferenceException ex4 = new global::System.NullReferenceException();
-		global::System.IntPtr intPtr = default(global::System.IntPtr);
-		num7 = intPtr;
-		bool flag20 = default(bool);
-		flag = flag20;
-		goto IL_0906;
+		global::System.Action<ParticleInitData> action = displayClass._003CAddPowerUp_003Eb__0;
+		global::System.Collections.Generic.HashSet<int> hashSet2 = AddParticles(array, nextUnusedFluidType, action);
+		global::UnityEngine.Transform transform2 = base.transform;
+		PowerUp powerUp = global::UnityEngine.Object.Instantiate(powerUpPrefab, transform2);
+		powerUp.Init(this, puId, hashSet2, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute, mergeIndex, array2[mergeIndex], isBig);
+		powerUps.Add(powerUp);
+		powerUpById[puId] = powerUp;
+		global::UnityEngine.Coroutine coroutine = powerUp.StartCoroutine(powerUp.HandleInAnim());
+		global::UnityEngine.Coroutine coroutine2 = powerUp.StartCoroutine(powerUp.RotateBlob());
+		AudioClipSettings audioClipSettings = new AudioClipSettings();
+		audioClipSettings.pitch = 1.5f;
+		audioClipSettings.pitchVariance = 0.2f;
+		global::Singleton<AudioManager>.Instance.PlayClip("cp420", audioClipSettings);
+		return powerUp;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000291")]

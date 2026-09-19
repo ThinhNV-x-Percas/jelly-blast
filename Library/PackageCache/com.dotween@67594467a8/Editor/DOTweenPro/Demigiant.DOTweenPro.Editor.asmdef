@@ -1,0 +1,46 @@
+{
+    "name": "Demigiant.DOTweenPro.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Demigiant.DOTween",
+        "Demigiant.DOTweenPro",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.dotween",
+            "expression": "",
+            "define": "DOTSPRITE"
+        },
+        {
+            "name": "com.unity.modules.ui",
+            "expression": "",
+            "define": "DOTUI"
+        },
+        {
+            "name": "com.unity.modules.physics",
+            "expression": "",
+            "define": "DOTPHYSICS"
+        },
+        {
+            "name": "com.unity.modules.physics2d",
+            "expression": "",
+            "define": "DOTPHYSICS2D"
+        },
+        {
+            "name": "com.unity.textmeshpro",
+            "expression": "",
+            "define": "DOTWEEN_TMP"
+        }
+    ],
+    "noEngineReferences": false
+}

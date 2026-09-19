@@ -1,0 +1,18 @@
+{
+    "name": "com.dotween",
+    "displayName": "DOTween",
+    "version": "1.1.0",
+    "unity": "2022.3",
+    "description": "DOTween + DOTween Pro, packaged as a UPM package. Optional modules (UGUI, Physics, Physics2D, TextMesh Pro) auto-enable via Version Defines based on the packages installed in the consuming project.",
+    "keywords": [ "DOTween", "Animation", "Tweening" ],
+    "license": "MIT",
+    "category": "Animation",
+    "dependencies": {},
+    "samples": [
+        {
+            "displayName": "DOTween Pro Examples",
+            "description": "Example scenes showing DOTween Animation and DOTween Path components in action.",
+            "path": "Samples~/DOTweenPro Examples"
+        }
+    ]
+}

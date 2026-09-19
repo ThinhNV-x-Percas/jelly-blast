@@ -4108,7 +4108,6 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		//IL_0458: Expected I8, but got I4
 		float time = global::UnityEngine.Time.time;
 		global::System.Collections.Generic.List<PowerUp> list = powerUps;
-		object obj = time << 32;
 		global::Unity.Collections.NativeHashMap<ulong, byte> nativeParallelHashMap = ignorePairs;
 		int num = 1;
 		int num2 = 0;
@@ -4145,9 +4144,17 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 						float num4 = global::UnityEngine.Mathf.Sqrt(f);
 						if (!(num4 > powerUpMergeDistance))
 						{
-							FluidSolver.PowerUpMergeData value = (FluidSolver.PowerUpMergeData)((nint)obj | powerUp2.id);
+							FluidSolver.PowerUpMergeData value = new FluidSolver.PowerUpMergeData
+							{
+								partner = powerUp2.id,
+								startTime = time
+							};
 							merging[powerUp.id] = value;
-							FluidSolver.PowerUpMergeData value2 = (FluidSolver.PowerUpMergeData)((nint)obj | powerUp.id);
+							FluidSolver.PowerUpMergeData value2 = new FluidSolver.PowerUpMergeData
+							{
+								partner = powerUp.id,
+								startTime = time
+							};
 							merging[powerUp2.id] = value2;
 							RemoveAllPairsWith(powerUp.id);
 							RemoveAllPairsWith(powerUp2.id);
@@ -4185,258 +4192,43 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv48 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv50 = Il2CppMethodInfo;\n\tgoto L_005F;\n\tv55 = Il2CppMethodInfo;\n\tv56 = v55 + 0x580;\n\tv57 = \"il2cpp_codegen_initialize_runtime_metadata\"(v56, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv90 = Il2CppMethodInfo;\n\tv91 = v90 + 0x378;\n\tv92 = \"il2cpp_codegen_initialize_runtime_metadata\"(v91, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv95 = Il2CppMethodInfo;\n\tv96 = v95 + 0x1E8;\n\tv97 = \"il2cpp_codegen_initialize_runtime_metadata\"(v96, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv101 = Il2CppMethodInfo;\n\tv102 = v101 + 0x5F0;\n\tv103 = \"il2cpp_codegen_initialize_runtime_metadata\"(v102, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv106 = Il2CppMethodInfo;\n\tv107 = v106 + 0x1F0;\n\tv108 = \"il2cpp_codegen_initialize_runtime_metadata\"(v107, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv111 = Il2CppMethodInfo;\n\tv112 = v111 + 0x5F8;\n\tv113 = \"il2cpp_codegen_initialize_runtime_metadata\"(v112, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv290 = Il2CppMethodInfo;\n\tv291 = v290 + 0x1F8;\n\tv292 = \"il2cpp_codegen_initialize_runtime_metadata\"(v291, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv298 = Il2CppMethodInfo;\n\tv299 = v298 + 0x600;\n\tv300 = \"il2cpp_codegen_initialize_runtime_metadata\"(v299, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv415 = Il2CppMethodInfo;\n\tv416 = v415 + 0xEB0;\n\tv417 = \"il2cpp_codegen_initialize_runtime_metadata\"(v416, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv436 = Il2CppMethodInfo;\n\tv437 = v436 + 0xEB8;\n\tv438 = \"il2cpp_codegen_initialize_runtime_metadata\"(v437, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv448 = Il2CppMethodInfo;\n\tv449 = v448 + 0x5C0;\n\tv450 = \"il2cpp_codegen_initialize_runtime_metadata\"(v449, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv458 = Il2CppMethodInfo;\n\tv459 = v458 + 0x5C8;\n\tv460 = \"il2cpp_codegen_initialize_runtime_metadata\"(v459, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv470 = Il2CppMethodInfo;\n\tv471 = v470 + 0x5B8;\n\tv472 = \"il2cpp_codegen_initialize_runtime_metadata\"(v471, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv484 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv485 = v484 + 0xE40;\n\tv486 = \"il2cpp_codegen_initialize_runtime_metadata\"(v485, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv574 = Il2CppMethodInfo;\n\tv575 = v574 + 0xC48;\n\tv576 = \"il2cpp_codegen_initialize_runtime_metadata\"(v575, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv579 = Il2CppMethodInfo;\n\tv580 = v579 + 0xC68;\n\tv581 = \"il2cpp_codegen_initialize_runtime_metadata\"(v580, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv601 = Il2CppMethodInfo;\n\tv602 = v601 + 0xC70;\n\tv603 = \"il2cpp_codegen_initialize_runtime_metadata\"(v602, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv606 = Il2CppMethodInfo;\n\tv607 = v606 + 0x5B0;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v607, methodInfo, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68, v69, v70, v71, v72);\n\tv76 = 1;\n\t*([302AA18]) = v76;\nL_005F:\n\tv81 = 0;\n\tv84 = 0;\n\tv85 = 0;\n\tv87 = this + 0x410;\n\tUnity.Collections.NativeHashMap`2<System.Int32, Unity.Mathematics.float2>::Clear(v87);\n\tv269 = UnityEngine.Time::get_time();\n\tv100 = new *([v48 @ X20_v1 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+E40])();\n\tv424 = *([v50 @ X22_v1 (Il2CppMethodInfo)+5B8]);\n\tSystem.Collections.Generic.List`1<System.ValueTuple`2<System.Int32, System.Int32>>::.ctor(v100);\n\tv110 = this.merging == 0;\n\tif (v110) goto L_0180;\n\tv116 = Il2CppMethodInfo;\n\tv118 = Il2CppMethodInfo;\n\tv125 = System.Collections.Generic.Dictionary`2<System.Int32, FluidSolver+PowerUpMergeData>::GetEnumerator(this.merging);\n\tv279 = this + 0x378;\n\tgoto L_0090;\nL_0089:\n\tv683 = v100._size + 1;\n\tv100._size = v683;\n\tv375 = v100._size << 3;\n\tv399 = v304 + v375;\n\t*([v399 @ X8_v30+20]) = v306;\nL_0090:\n\tv403 = System.Collections.Generic.Dictionary`2<System.Int32, FluidSolver+PowerUpMergeData>+Enumerator<System.Int32, FluidSolver+PowerUpMergeData>::MoveNext(&v124 @ stack_-128_v6 (System.Collections.Generic.Dictionary`2<System.Int32, FluidSolver+PowerUpMergeData>+Enumerator<System.Int32, FluidSolver+PowerUpMergeData>));\n\tv419 = v403 == 0;\n\tif (v419) goto L_0144;\n\tv441 = this.powerUpById == 0;\n\tif (v441) goto L_017A;\n\tv223 = *([v118 @ X27_v4 (Il2CppMethodInfo)+378]);\n\tv389 = System.Collections.Generic.Dictionary`2<System.Int32, PowerUp>::TryGetValue(this.powerUpById, v295, &v81 @ stack_-E8_v1 (System.Object));\n\tv395 = v389 == 0;\n\tif (v395) goto L_0090;\n\tv474 = this.powerUpById == 0;\n\tif (v474) goto L_017C;\n\tv223 = *([v118 @ X27_v4 (Il2CppMethodInfo)+378]);\n\tv390 = System.Collections.Generic.Dictionary`2<System.Int32, PowerUp>::TryGetValue(this.powerUpById, v451, &v84 @ stack_-F0_v1 (System.Object));\n\tv396 = v390 == 0;\n\tif (v396) goto L_0090;\n\tv585 = v269 - v439;\n\tv586 = v585 / this.mergeDuration;\n\tv589 = v586 - v376;\n\tv590 = v589 < 0;\n\tv591 = v589 == 0;\n\tv592 = v586 ^ v376;\n\tv593 = v586 ^ v589;\n\tv594 = v592 & v593;\n\tv595 = v594 < 0;\n\tv596 = v590 == v595;\n\tv328 = ~v591;\n\tv597 = v596 & v328;\n\tv598 = ~v597;\n\tif (v598) goto L_FFFFFFFF;\n\tgoto L_00CE;\nL_00CE:\n\tv619 = v586 >= 0;\n\tif (v619) goto L_FFFFFFFF;\n\tgoto L_00D4;\nL_00D4:\n\t;\n\tv627 = Unity.Collections.NativeHashMap`2<System.Int32, Unity.Mathematics.float2>::get_Item(v279, v295);\n\tv632 = Unity.Collections.NativeHashMap`2<System.Int32, Unity.Mathematics.float2>::get_Item(v279, v451);\n\tv634 = v324 * v324;\n\tv635 = v324 * v634;\n\tv636 = v627 + v632;\n\tv637 = v627.y + v632.y;\n\tv314 = v636 * 0.5f;\n\tv312 = v637 * 0.5f;\n\tv638 = v314 - v627;\n\tv639 = v312 - v627.y;\n\tv640 = v635 * v638;\n\tv641 = v635 * v639;\n\tv642 = Il2CppMethodInfo;\n\t// 244 MakeStruct v310 @ AGG1000A80_2_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), v640 @ V0_v17 (System.Single), v641 @ V1_v12 (System.Single)\n\tUnity.Collections.NativeHashMap`2<System.Int32, Unity.Mathematics.float2>::set_Item(v87, v295, v310);\n\tv646 = v312 - v632.y;\n\tv254 = v635 * v646;\n\tv647 = v314 - v632;\n\tv386 = v635 * v647;\n\tv220 = *([v642 @ X28_v9 (Il2CppMethodInfo)+C70]);\n\t// 253 MakeStruct v308 @ AGG1000AA0_2_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), v386 @ V0_v20 (System.Single), v254 @ V1_v5 (System.Single)\n\tUnity.Collections.NativeHashMap`2<System.Int32, Unity.Mathematics.float2>::set_Item(v87, v451, v308);\n\tv326 = v324 < 1f;\n\tif (v326) goto L_FFFFFFFF;\n\tv660 = v295 - v451;\n\tv349 = v660 < 0;\n\tv663 = v295 ^ v451;\n\tv664 = v295 ^ v660;\n\tv665 = v663 & v664;\n\tv334 = v665 < 0;\n\tgoto L_011B;\nL_011B:\n\tv331 = v349 == v334;\n\tif (v331) goto L_0090;\n\tv672 = Il2CppMethodInfo;\n\tv222 = *([v672 @ X8_v21 (Il2CppMethodInfo)+5B0]);\n\tSystem.ValueTuple`2<System.Int32, System.Int32>::.ctor(&v306 @ stack_-130_v6 (System.ValueTuple`2<System.Int32, System.Int32>), v295, v451);\n\tv676 = Il2CppMethodInfo;\n\tv678 = *([v676 @ X8_v24 (Il2CppMethodInfo)+5C0]);\n\tv680 = v100._version + 1;\n\tv100._version = v680;\n\tv304 = v100._items;\n\tv681 = v100._size < v304.Length;\n\tv354 = ~v681;\n\tv330 = ~v354;\n\tif (v330) goto L_0089;\n\tv682 = *([v678 @ X8_v26+20]);\n\tv400 = *([v682 @ X8_v27+C0]);\n\tv220 = *([v400 @ X8_v28+70]);\n\tSystem.Collections.Generic.List`1<System.ValueTuple`2<System.Int32, System.Int32>>::AddWithResize(v100, v306);\n\tgoto L_0090;\nL_0144:\n\tv442 = Il2CppMethodInfo;\n\tv424 = *([v442 @ X8_v18 (Il2CppMethodInfo)+1E8]);\n\tSystem.Collections.Generic.Dictionary`2<System.Int32, FluidSolver+PowerUpMergeData>+Enumerator<System.Int32, FluidSolver+PowerUpMergeData>::Dispose(&v124 @ stack_-128_v6 (System.Collec\n// ... truncated")]
 	private unsafe void UpdateMergeDeltasAndFinish()
 	{
-		//IL_000f: Expected I, but got O
-		//IL_070f: Expected O, but got I
-		//IL_0072: Expected O, but got I
-		//IL_0540: Expected O, but got Ref
-		//IL_0551: Expected F4, but got O
-		//IL_06a9: Expected I4, but got O
-		//IL_05c7: Expected O, but got F4
-		//IL_06c8: Expected I4, but got O
-		//IL_0603: Expected O, but got Ref
-		//IL_062c: Expected F4, but got O
-		//IL_0145: Expected O, but got I
-		//IL_05e5: Expected O, but got I
-		//IL_01b0: Expected O, but got I
-		//IL_024a: Expected O, but got F4
-		//IL_0257: Expected O, but got F4
-		//IL_08c8: Expected O, but got F4
-		//IL_040d: Expected O, but got I
-		//IL_0439: Expected O, but got I
-		//IL_00d2: Expected O, but got I
-		//IL_00f8: Expected O, but got I
-		//IL_0111: Expected O, but got F4
-		//IL_04b5: Expected O, but got I
-		//IL_04c5: Expected O, but got I
-		//IL_04fb: Expected O, but got I
-		//IL_0514: Expected O, but got F4
-		nint num2 = 0;
-		PowerUp value = null;
-		PowerUp value2 = null;
-		global::System.Collections.Generic.List<(int, int)>.Enumerator enumerator = default(global::System.Collections.Generic.List<(int, int)>.Enumerator);
 		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = mergeDeltas;
 		nativeParallelHashMap.Clear();
 		float time = global::UnityEngine.Time.time;
 		global::System.Collections.Generic.List<(int, int)> list = new global::System.Collections.Generic.List<(int, int)>();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v50 @ X22_v1 (Il2CppMethodInfo)+5B8]");
-		int num3 = 0;
-		global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator enumerator5 = default(global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator);
 		if (merging != null)
 		{
-			nint num4 = 0;
-			nint num5 = 0;
-			global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator enumerator2 = merging.GetEnumerator();
 			global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap2 = powerUpMidpoints;
-			float num6 = 1f;
-			int num8 = default(int);
-			float num7 = num8;
-			global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator enumerator4 = default(global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator);
-			global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator enumerator3 = enumerator4;
-			int num10 = default(int);
-			object obj2 = default(object);
-			global::Unity.Mathematics.float2 value3 = default(global::Unity.Mathematics.float2);
-			float num27 = default(float);
-			float num29 = default(float);
-			global::Unity.Mathematics.float2 value4 = default(global::Unity.Mathematics.float2);
-			object obj5 = default(object);
-			int num38;
-			while (enumerator4.MoveNext())
+			foreach (global::System.Collections.Generic.KeyValuePair<int, FluidSolver.PowerUpMergeData> pair in merging)
 			{
-				object obj;
-				if (powerUpById != null)
+				int aId = pair.Key;
+				int bId = pair.Value.partner;
+				if (!powerUpById.TryGetValue(aId, out PowerUp value))
 				{
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v118 @ X27_v4 (Il2CppMethodInfo)+378]");
-					obj = 0;
-					bool flag = powerUpById.TryGetValue(num8, out value);
-					bool flag2 = !flag;
-					if (flag2)
-					{
-						continue;
-					}
-					if (powerUpById != null)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v118 @ X27_v4 (Il2CppMethodInfo)+378]");
-						obj = 0;
-						bool flag3 = powerUpById.TryGetValue(num10, out value2);
-						bool flag4 = !flag3;
-						if (flag4)
-						{
-							continue;
-						}
-						float num11 = time - (float)obj2;
-						float num12 = num11 / mergeDuration;
-						float num13 = num12 - num6;
-						bool flag5 = num13 < 0f;
-						bool flag6 = num13 == 0f;
-						object obj3 = num12 ^ num6;
-						object obj4 = num12 ^ num13;
-						int num14 = (int)((nint)obj3 & (nint)obj4);
-						bool flag7 = num14 < 0;
-						bool flag8 = flag5 == flag7;
-						bool flag9 = !flag6;
-						float num15 = ((!(flag8 && flag9)) ? num12 : num6);
-						float num16 = ((!(num12 < 0f)) ? num15 : 0f);
-						global::Unity.Mathematics.float2 float5 = nativeParallelHashMap2[num8];
-						global::Unity.Mathematics.float2 float6 = nativeParallelHashMap2[num10];
-						float num17 = num16 * num16;
-						float num18 = num16 * num17;
-						float num19 = float5.x + float6.x;
-						float num20 = float5.y + float6.y;
-						float num21 = num19 * 0.5f;
-						float num22 = num20 * 0.5f;
-						float num23 = num21 - float5.x;
-						float num24 = num22 - float5.y;
-						float x = num18 * num23;
-						float y = num18 * num24;
-						nint num25 = 0;
-						value3.x = x;
-						value3.y = y;
-						nativeParallelHashMap[num8] = value3;
-						float num26 = num22 - float6.y;
-						num27 = num18 * num26;
-						float num28 = num21 - float6.x;
-						num29 = num18 * num28;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v642 @ X28_v9 (Il2CppMethodInfo)+C70]");
-						num9 = 0;
-						value4.x = num29;
-						value4.y = num27;
-						nativeParallelHashMap[num10] = value4;
-						bool flag10;
-						bool flag11;
-						if (!(num16 < 1f))
-						{
-							int num30 = num8 - num10;
-							flag10 = num30 < 0;
-							int num31 = num8 ^ num10;
-							int num32 = num8 ^ num30;
-							int num33 = num31 & num32;
-							flag11 = num33 < 0;
-						}
-						else
-						{
-							flag11 = false;
-							flag10 = false;
-						}
-						bool flag12 = flag10 == flag11;
-						float num34 = 0.5f;
-						num6 = 1f;
-						num7 = num27;
-						enumerator3 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)num29;
-						if (!flag12)
-						{
-							nint num35 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v672 @ X8_v21 (Il2CppMethodInfo)+5B0]");
-							obj5 = 0;
-							(int, int) item = (num8, num10);
-							nint num36 = 0;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v676 @ X8_v24 (Il2CppMethodInfo)+5C0]");
-							object obj6 = 0;
-							int version = list._version + 1;
-							list._version = version;
-							(int, int)[] items = list._items;
-							if (list.Count < items.Length)
-							{
-								int size = list.Count + 1;
-								list._size = size;
-								int num37 = list.Count << 3;
-								object obj7 = (nint)items + num37;
-								num34 = 0.5f;
-								num9 = num10;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v672 @ X8_v21 (Il2CppMethodInfo)+5B0]");
-								obj = 0;
-								num6 = 1f;
-								num7 = num27;
-								enumerator3 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)num29;
-							}
-							else
-							{
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v678 @ X8_v26+20]");
-								object obj8 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v682 @ X8_v27+C0]");
-								object obj9 = 0;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v400 @ X8_v28+70]");
-								num9 = 0;
-								list.Add(item);
-								num34 = 0.5f;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v672 @ X8_v21 (Il2CppMethodInfo)+5B0]");
-								obj = 0;
-								num6 = 1f;
-								num7 = num27;
-								enumerator3 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)num29;
-							}
-						}
-						continue;
-					}
-					global::System.NullReferenceException ex = new global::System.NullReferenceException();
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v118 @ X27_v4 (Il2CppMethodInfo)+378]");
-					obj5 = 0;
-					num27 = num7;
+					continue;
 				}
-				else
+				if (!powerUpById.TryGetValue(bId, out PowerUp value2))
 				{
-					global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
-					float num34 = 0.5f;
-					int num9 = num10;
-					enumerator3 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)num29;
+					continue;
 				}
-				obj = obj5;
-				enumerator5 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)(&enumerator4);
-				num7 = num27;
-				num38 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v116 @ X25_v4 (Il2CppMethodInfo)+1F0]");
-				num3 = 0;
-				time = (float)enumerator3;
-				goto IL_072f;
+				float num12 = (time - pair.Value.startTime) / mergeDuration;
+				float num16 = global::UnityEngine.Mathf.Clamp01(num12);
+				global::Unity.Mathematics.float2 float5 = nativeParallelHashMap2[aId];
+				global::Unity.Mathematics.float2 float6 = nativeParallelHashMap2[bId];
+				float num18 = num16 * num16 * num16;
+				global::Unity.Mathematics.float2 mid = (float5 + float6) * 0.5f;
+				nativeParallelHashMap[aId] = (mid - float5) * num18;
+				nativeParallelHashMap[bId] = (mid - float6) * num18;
+				if (num16 >= 1f && aId < bId)
+				{
+					list.Add((aId, bId));
+				}
 			}
-			nint num39 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v442 @ X8_v18 (Il2CppMethodInfo)+1E8]");
-			num3 = 0;
-			enumerator4.Dispose();
-			enumerator5 = (global::System.Collections.Generic.Dictionary<int, FluidSolver.PowerUpMergeData>.Enumerator)(&enumerator4);
-			num38 = 0;
-			time = (float)enumerator3;
-			goto IL_0556;
 		}
-		goto IL_072f;
-		IL_0556:
-		if (list != null)
+		foreach ((int, int) item in list)
 		{
-			global::System.Collections.Generic.List<(int, int)>.Enumerator enumerator6 = list.GetEnumerator();
-			int bId = default(int);
-			while (enumerator.MoveNext())
-			{
-				FinishMerge(0, bId);
-			}
-			enumerator.Dispose();
-			return;
+			FinishMerge(item.Item1, item.Item2);
 		}
-		goto IL_072f;
-		IL_072f:
-		global::System.NullReferenceException ex3 = new global::System.NullReferenceException();
-		bool flag13 = num3 != 1;
-		global::System.NullReferenceException ex4 = ex3;
-		if (!flag13)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			nint num40 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v455 @ X8_v5 (Il2CppMethodInfo)+1E8]");
-			num3 = 0;
-			enumerator5.Dispose();
-			object obj10 = default(object);
-			bool flag14 = obj10 == null;
-			int num38 = (int)obj10;
-			if (flag14)
-			{
-				goto IL_0556;
-			}
-			global::System.OutOfMemoryException ex5 = new global::System.OutOfMemoryException();
-			num38 = (int)obj10;
-			ex4 = (global::System.NullReferenceException)(object)ex5;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF0E2C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000294")]

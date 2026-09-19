@@ -243,53 +243,31 @@ public class FluidCollectDisplay : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv58 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tgoto L_0033;\n\tv63 = System.Collections.Generic.NullableComparer`1;\n\tv64 = v63 + 0xD10;\n\tv65 = \"il2cpp_codegen_initialize_runtime_metadata\"(v64, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv78 = Il2CppMethodInfo;\n\tv79 = v78 + 0xD28;\n\tv80 = \"il2cpp_codegen_initialize_runtime_metadata\"(v79, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv83 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv84 = v83 + 0xB60;\n\tv73 = \"il2cpp_codegen_initialize_runtime_metadata\"(v84, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv75 = 1;\n\t*([302A9A4]) = v75;\nL_0033:\n\tv77 = new *([v58 @ X26_v1 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+B60])();\n\tFluidCollectDisplay+<>c__DisplayClass21_0::.ctor(v77);\n\tv87 = v77 + 0x10;\n\tv77.<>4__this = this;\n\tv90 = 0xF3F1B4(v87, this, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, position.y, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv77.type = type;\n\tv173 = this.positions;\n\tv212 = this.activeCount;\n\tv123 = this.activeCount << 3;\n\tv275 = this.positions + v123;\n\t*([v275 @ X9_v4+20]) = position;\n\tv173[v212 @ X8_v5 (System.Int32)].y = position.y;\n\tv174 = this.interpPositions;\n\tv124 = this.activeCount << 3;\n\tv350 = this.interpPositions + v124;\n\t*([v350 @ X9_v6+20]) = position;\n\tv174[v212 @ X8_v5 (System.Int32)].y = position.y;\n\tv175 = this.scales;\n\tv352 = System.Collections.Generic.NullableComparer`1;\n\tv353 = Il2CppMethodInfo;\n\tv175[v212 @ X8_v5 (System.Int32)] = this.particleSize;\n\tv357 = UnityEngine.Random::Range(this.minApplyForceDuration, this.maxApplyForceDuration);\n\tv196 = UnityEngine.Time::get_time();\n\tv361 = &v288 @ stack_-C8_v5 (CollectParticleMode) + 0x38;\n\tv363 = 0xF3F1B4(v361, onComplete, mode, getTargetPos, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv364 = &v288 @ stack_-C8_v5 (CollectParticleMode) + 0x40;\n\tv366 = 0xF3F1B4(v364, getTargetPos, mode, getTargetPos, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv368 = IdGenerator::Next();\n\tv201 = new *([v352 @ X25_v4 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D10])();\n\tSystem.Action`1<ParticleInitData>::.ctor(v201, v77, *([v353 @ X26_v7 (Il2CppMethodInfo)+D28]));\n\tFluidCompute::AddParticle(this.compute, v368, v201);\n\tv316 = this.activeCount * 0x48;\n\tv371 = this.particles + v316;\n\tv372 = v371 + 0x20;\n\tv374 = 0x274AA04(v372, &v288 @ stack_-C8_v5 (CollectParticleMode), 0x48, 0, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv375 = v371 + 0x58;\n\treturnVal2 = 0xF3F1B4(v375, 0, 0x48, 0, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv377 = this.activeCount + 1;\n\tthis.activeCount = v377;\n\t*([returnBuffer @ X8 (CollectParticleData)+20]) = v379;\n\treturnBuffer.explodeDuration = explodeDuration;\n\treturnBuffer.getTargetPos = getTargetPos;\n\treturnBuffer.mode = v288;\n\t*([returnBuffer @ X8 (CollectParticleData)+10]) = vel.y;\n\treturn returnVal2;\n\tv225 = new System.NullReferenceException();\n\treturnVal1 = new System.IndexOutOfRangeException();\n\treturn returnVal1;\n// 169 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public unsafe CollectParticleData AddParticle(global::UnityEngine.Vector2 position, global::UnityEngine.Vector2 vel, int type, CollectParticleMode mode, float explodeDuration = 1f, global::System.Func<global::UnityEngine.Vector2> getTargetPos = null, global::System.Action onComplete = null)
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0022: Expected O, but got I
-		//IL_0081: Expected O, but got I
-		//IL_00d0: Expected O, but got I
-		//IL_010d: Expected I, but got O
-		//IL_0158: Expected O, but got I
-		//IL_0171: Expected O, but got I
-		//IL_01e5: Expected O, but got I
-		//IL_01f4: Expected O, but got I
-		//IL_020d: Expected O, but got I
-		//IL_0243: Expected native int or pointer, but got O
-		//IL_0250: Expected native int or pointer, but got O
-		//IL_025d: Expected native int or pointer, but got O
-		FluidCollectDisplay._003C_003Ec__DisplayClass21_0 _003C_003Ec__DisplayClass21_1 = new FluidCollectDisplay._003C_003Ec__DisplayClass21_0();
+		_003C_003Ec__DisplayClass21_0 _003C_003Ec__DisplayClass21_1 = new _003C_003Ec__DisplayClass21_0();
 		_003C_003Ec__DisplayClass21_1._003C_003E4__this = this;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		_003C_003Ec__DisplayClass21_1.type = type;
-		global::UnityEngine.Vector2[] array = positions;
-		int num2 = activeCount;
-		int num3 = activeCount << 3;
-		object obj2 = (nint)positions + num3;
-		array[num2].y = position.y;
-		global::UnityEngine.Vector2[] array2 = interpPositions;
-		int num4 = activeCount << 3;
-		object obj3 = (nint)interpPositions + num4;
-		array2[num2].y = position.y;
-		float[] array3 = scales;
-		nint num6 = 0;
-		array3[num2] = particleSize;
-		float num7 = global::UnityEngine.Random.Range(minApplyForceDuration, maxApplyForceDuration);
-		float time = global::UnityEngine.Time.time;
-		CollectParticleMode collectParticleMode = default(CollectParticleMode);
-		object obj4 = (nint)collectParticleMode + (nint)56;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		object obj5 = (nint)collectParticleMode + (nint)64;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		int id = IdGenerator.Next();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v353 @ X26_v7 (Il2CppMethodInfo)+D28]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass21_1, (global::System.IntPtr)0);
-		compute.AddParticle(id, onInit);
+		positions[activeCount] = position;
+		interpPositions[activeCount] = position;
+		scales[activeCount] = particleSize;
+		float applyForceDuration = global::UnityEngine.Random.Range(minApplyForceDuration, maxApplyForceDuration);
+		float startTime = global::UnityEngine.Time.time;
 		CollectParticleData collectParticleData = default(CollectParticleData);
+		collectParticleData.mode = mode;
+		collectParticleData.prevPos = position;
+		collectParticleData.vel = vel;
+		collectParticleData.startTime = startTime;
+		collectParticleData.applyForceDuration = applyForceDuration;
+		collectParticleData.targetPos = position;
+		collectParticleData.startPos = position;
 		collectParticleData.explodeDuration = explodeDuration;
+		collectParticleData.onComplete = onComplete;
 		collectParticleData.getTargetPos = getTargetPos;
-		collectParticleData.mode = collectParticleMode;
+		int id = IdGenerator.Next();
+		collectParticleData.particleId = id;
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass21_1._003CAddParticle_003Eb__0);
+		compute.AddParticle(id, onInit);
 		particles[activeCount] = collectParticleData;
-		int num9 = activeCount + 1;
-		activeCount = num9;
+		activeCount++;
 		return collectParticleData;
 	}
 
@@ -298,45 +276,21 @@ public class FluidCollectDisplay : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = index & 0x80000000;\n\tv20 = v18 == 0;\n\tv21 = ~v20;\n\tif (v21) goto L_00CB;\n\tv37 = this.activeCount <= index;\n\tif (v37) goto L_00CB;\n\tv233 = this.particles;\n\tv256 = index * 0x48;\n\tv257 = this.particles + v256;\n\tv182 = *([v257 @ X9_v6+58]);\n\tv258 = *([v257 @ X9_v6+58]) == 0;\n\tif (v258) goto L_004D;\n\t*([v182 @ X9_v7+18])(v177, *([v182 @ X9_v7+40]), *([v182 @ X9_v7+28]), methodInfo, v243, v244, v245, v246, v247, v40, v248, v249, v250, v251, v252, v253, v254);\n\tv233 = this.particles;\nL_004D:\n\t;\n\tFluidCompute::RemoveParticle(this.compute, v233[index @ X1 (System.Int32)].particleId);\n\tv46 = this.activeCount - 1;\n\tv213 = v46 == index;\n\tif (v213) goto L_00C1;\n\tv311 = this.particles + 0x20;\n\tv312 = v46 * 0x48;\n\tv313 = v311 + v312;\n\tv314 = index * 0x48;\n\tv162 = v311 + v314;\n\tv316 = 0x274AA04(v162, v313, 0x48, v243, v244, v245, v246, v247, v40, v248, v249, v250, v251, v252, v253, v254);\n\tv317 = v162 + 0x38;\n\tv179 = 0xF3F1B4(v317, 0, 0x48, v243, v244, v245, v246, v247, v40, v248, v249, v250, v251, v252, v253, v254);\n\tv321 = this.positions + 0x20;\n\t*([v321 @ X8_v13+index @ X1 (System.Int32)*8]) = *([v321 @ X8_v13+v46 @ X23_v6 (System.Int32)*8]);\n\tv236 = this.scales;\n\tv236[index @ X1 (System.Int32)] = v236[v46 @ X23_v6 (System.Int32)];\n\tv46 = this.activeCount - 1;\nL_00C1:\n\tthis.activeCount = v46;\nL_00CB:\n\treturn;\n\tv176 = new System.IndexOutOfRangeException();\n\tthrow System.NullReferenceException;\n\treturn;\n// 170 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void RemoveParticle(int index)
 	{
-		//IL_0012: Expected I4, but got I8
-		//IL_0088: Expected O, but got I
-		//IL_0098: Expected O, but got I
-		//IL_0132: Expected O, but got I
-		//IL_014e: Expected O, but got I
-		//IL_016a: Expected O, but got I
-		//IL_0183: Expected O, but got I
-		//IL_01a3: Expected O, but got I
-		if ((int)(index & 0x80000000L) == 0 && activeCount > index)
+		if (index >= 0 && activeCount > index)
 		{
-			CollectParticleData[] array = particles;
-			int num = index * 72;
-			object obj = (nint)particles + num;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v257 @ X9_v6+58]");
-			object obj2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v257 @ X9_v6+58]");
-			if ((nint)0 != 0)
+			if (particles[index].onComplete != null)
 			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v182 @ X9_v7+18] (should have been resolved before IL gen)");
-				array = particles;
+				particles[index].onComplete();
 			}
-			compute.RemoveParticle(array[index].particleId);
-			int num2 = activeCount - 1;
-			if (num2 != index)
+			compute.RemoveParticle(particles[index].particleId);
+			int lastIndex = activeCount - 1;
+			if (lastIndex != index)
 			{
-				object obj3 = (nint)particles + 32;
-				int num3 = num2 * 72;
-				object obj4 = (nint)obj3 + num3;
-				int num4 = index * 72;
-				object obj5 = (nint)obj3 + num4;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274AA04");
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v321 @ X8_v13+v46 @ X23_v6 (System.Int32)*8]");
-				_ = 0;
-				float[] array2 = scales;
-				array2[index] = array2[num2];
-				num2 = activeCount - 1;
+				particles[index] = particles[lastIndex];
+				positions[index] = positions[lastIndex];
+				scales[index] = scales[lastIndex];
 			}
-			activeCount = num2;
+			activeCount = lastIndex;
 		}
 	}
 
@@ -345,8 +299,6 @@ public class FluidCollectDisplay : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tthis.particleSize = 0.2f;\n\tthis.damping = *([2875910]);\n\tthis.maxApplyForceDuration = 3.433228354055018E-06d;\n\tthis.minExplodeDuration = 2.000000473111868d;\n\tthis.fluidType = 0xFFFFFFFF;\n\tFluidRendererBase::.ctor(this);\n\treturn;\n// 10 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public FluidCollectDisplay()
 	{
-		//IL_0023: Expected F4, but got I
-		base._002Ector();
 		particleSize = 0.2f;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875910]");
 		damping = 0f;

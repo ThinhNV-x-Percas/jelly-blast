@@ -416,15 +416,9 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 		//IL_00e1: Expected O, but got I
 		nint num = 0;
 		global::UnityEngine.Texture2D texture2D = new global::UnityEngine.Texture2D(size, size, global::UnityEngine.TextureFormat.RGBA32, mipChain);
-		nint num2 = 0;
-		string text = "Scrollbar Horizontal";
-		nint num3 = 0;
 		texture2D.wrapMode = default(global::UnityEngine.TextureWrapMode);
 		texture2D.filterMode = global::UnityEngine.FilterMode.Bilinear;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"il2cpp_vm_object_box\"");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X24_v2 (System.String)+4A0]");
-		object arg = default(object);
-		string text2 = string.Format((string)0, arg);
+		string text2 = string.Format("SolidColor{0}", color);
 		texture2D.name = text2;
 		int num4 = size * size;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");

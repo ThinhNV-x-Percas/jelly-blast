@@ -557,145 +557,32 @@ public class CollectionManager : Singleton<CollectionManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0028;\n\tv35 = Il2CppMethodInfo;\n\tv36 = v35 + 0x968;\n\tv37 = \"il2cpp_codegen_initialize_runtime_metadata\"(v36, ids, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51);\n\tv58 = Il2CppMethodInfo;\n\tv59 = v58 + 0x970;\n\tv60 = \"il2cpp_codegen_initialize_runtime_metadata\"(v59, ids, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51);\n\tv227 = Il2CppMethodInfo;\n\tv228 = v227 + 0x978;\n\tv229 = \"il2cpp_codegen_initialize_runtime_metadata\"(v228, ids, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51);\n\tv233 = Il2CppMethodInfo;\n\tv234 = v233 + 0x998;\n\tv235 = \"il2cpp_codegen_initialize_runtime_metadata\"(v234, ids, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51);\n\tv332 = Il2CppMethodInfo;\n\tv333 = v332 + 0xC28;\n\tv53 = \"il2cpp_codegen_initialize_runtime_metadata\"(v333, ids, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51);\n\tv55 = 1;\n\t*([302A98D]) = v55;\nL_0028:\n\tv57 = v340 == 0;\n\tif (v57) goto L_00BB;\n\tv63 = Il2CppMethodInfo;\n\tv65 = Il2CppMethodInfo;\n\tv67 = Il2CppMethodInfo;\n\tv213 = Il2CppMethodInfo + 0x968;\n\tv73 = System.Collections.Generic.HashSet`1<System.Int32>::GetEnumerator(v340);\nL_003D:\n\tv340 = *([v63 @ X23_v4 (Il2CppMethodInfo)+970]);\n\tv320 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v71 @ stack_-A8_v3 (UnityEngine.Vector2), *([v63 @ X23_v4 (Il2CppMethodInfo)+970]));\n\tv334 = v320 & 1;\n\tv335 = v334 == 0;\n\tif (v335) goto L_00A4;\n\tv350 = this.solver == 0;\n\tif (v350) goto L_00B3;\n\tv357 = this.solver + 0x1F8;\n\tv193 = *([v65 @ X24_v4 (Il2CppMethodInfo)+C28]);\n\tv305 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v357, v115, &v290 @ stack_-C4_v6, *([v65 @ X24_v4 (Il2CppMethodInfo)+C28]));\n\tv433 = v305 & 1;\n\tv309 = v433 == 0;\n\tif (v309) goto L_003D;\n\tv496 = this.solver;\n\tv497 = this.solver == 0;\n\tif (v497) goto L_00B7;\n\tv499 = v290 << 3;\n\tv498 = v496.positions + v499;\n\tv510 = v496.velocities + v499;\n\tv317 = this.honeyDisplay;\n\t// 93 MakeStruct v275 @ AGGFECDA0_0_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), [v498 @ X10_v6], [v498 @ X10_v6+4]\n\tv512 = Unity.Mathematics.float2::op_Implicit(v275);\n\t// 101 MakeStruct v269 @ AGGFECDB8_0_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), [v510 @ X8_v15], [v510 @ X8_v15+4]\n\tv207 = Unity.Mathematics.float2::op_Implicit(v269);\n\tv181 = v207.y;\n\tv313 = this.solver;\n\tv310 = this.honeyDisplay == 0;\n\tif (v310) goto L_00B5;\n\tv259 = v317.activeCount >= v317.maxParticles;\n\tif (v259) goto L_003D;\n\tv520 = UnityEngine.Random::Range(v317.minExplodeDuration, v317.maxExplodeDuration);\n\tv307 = FluidCollectDisplay::AddParticle(this.honeyDisplay, v512, v207, v313.honeyFluidType, 1, v520, 0, 0);\n\tgoto L_003D;\nL_00A4:\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v71 @ stack_-A8_v3 (UnityEngine.Vector2), *([v67 @ X22_v4 (Il2CppMethodInfo)+968]));\nL_00B2:\n\treturn;\nL_00B3:\n\tv358 = new System.NullReferenceException();\n\tgoto L_00BA;\nL_00B5:\n\tv501 = new System.NullReferenceException();\n\tgoto L_00BA;\nL_00B7:\n\tv502 = new System.NullReferenceException();\n\tgoto L_00BA;\n\tv500 = new System.NullReferenceException();\nL_00BA:\n\t// 186 Interrupt\nL_00BB:\n\tv226 = new System.NullReferenceException();\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\n\tgoto L_00CE;\nL_00CE:\n\tv331 = v340 != 1;\n\tif (v331) goto L_00DE;\n\tv337 = 0x274A080(v226, v340, v291, v294, 0, v41, v42, v43, v207, v282, v207, v181, v520, v49, v50, v51);\n\tv354 = 0x274A098(v337, v340, v291, v294, 0, v41, v42, v43, v207, v282, v207, v181, v520, v49, v50, v51);\n\tv340 = *([v213 @ X22_v1]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v71 @ stack_-A8_v3 (UnityEngine.Vector2), *([v213 @ X22_v1]));\n\tv345 = *([v337 @ X0_v11]) == 0;\n\tif (v345) goto L_00B2;\n\tv343 = new System.OutOfMemoryException();\nL_00DE:\n\tv349 = 0xBF092C(&v199 @ stack_-D8 (System.Int32), v340, v291, v294, 0, v41, v42, v43, v207, v282, v207, v181, v520, v49, v50, v51);\n\tv356 = 0x27498DC(v346, v340, v291, v294, 0, v41, v42, v43, v207, v282, v207, v181, v520, v49, v50, v51);\n\tv432 = 0xD6F8(v356, v340, v291, v294, 0, v41, v42, v43, v207, v282, v207, v181, v520, v49, v50, v51);\n\treturn;\n// 137 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void OnRemoveHoney(global::System.Collections.Generic.HashSet<int> ids)
 	{
-		//IL_0024: Expected O, but got I
-		//IL_03dd: Expected O, but got I
-		//IL_02b1: Expected I, but got O
-		//IL_03a2: Expected I4, but got O
-		//IL_006e: Expected O, but got I
-		//IL_007e: Expected O, but got I
-		//IL_00ae: Expected I, but got O
-		//IL_00be: Expected O, but got I
-		//IL_02f5: Expected I, but got O
-		//IL_0111: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0116: Expected O, but got Unknown
-		//IL_0125: Unknown result type (might be due to invalid IL or missing references)
-		//IL_012a: Expected O, but got Unknown
-		//IL_0143: Expected F4, but got O
-		//IL_0158: Expected F4, but got I
-		//IL_0172: Expected F4, but got O
-		//IL_0187: Expected F4, but got I
-		//IL_01ff: Expected I, but got O
-		object obj = default(object);
-		global::System.Collections.Generic.HashSet<int> hashSet = default(global::System.Collections.Generic.HashSet<int>);
-		if (hashSet != null)
+		if (ids == null)
 		{
-			nint num = 0;
-			nint num2 = 0;
-			nint num3 = 0;
-			obj = (nint)0 + (nint)2408;
-			global::System.Collections.Generic.HashSet<int>.Enumerator enumerator = hashSet.GetEnumerator();
-			global::UnityEngine.Vector2 vector2 = default(global::UnityEngine.Vector2);
-			global::UnityEngine.Vector2 vector = vector2;
-			object obj2 = default(object);
-			global::System.Func<global::UnityEngine.Vector2> func = default(global::System.Func<global::UnityEngine.Vector2>);
-			object obj4 = default(object);
-			object obj5 = default(object);
-			global::System.Collections.Generic.HashSet<int> hashSet2 = default(global::System.Collections.Generic.HashSet<int>);
-			global::Unity.Mathematics.float2 float5 = default(global::Unity.Mathematics.float2);
-			global::Unity.Mathematics.float2 float6 = default(global::Unity.Mathematics.float2);
-			float num7 = default(float);
-			float num8 = default(float);
-			global::System.Func<global::UnityEngine.Vector2> func2;
-			while (true)
-			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v63 @ X23_v4 (Il2CppMethodInfo)+970]");
-				hashSet = (global::System.Collections.Generic.HashSet<int>)0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C8 (System.Collections.Generic.HashSet`1+Enumerator::MoveNext, and 1 more at this address)");
-				if ((int)((nint)obj2 & 1) != 0)
-				{
-					nint num5;
-					if ((object)solver != null)
-					{
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X24_v4 (Il2CppMethodInfo)+C28]");
-						func = (global::System.Func<global::UnityEngine.Vector2>)0;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @17E754C (Unity.Collections.NativeHashMap`2::TryGetValue, and 1 more at this address)");
-						int num4 = (int)((nint)obj4 & 1);
-						bool flag = num4 == 0;
-						num5 = (nint)obj5;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v65 @ X24_v4 (Il2CppMethodInfo)+C28]");
-						func2 = (global::System.Func<global::UnityEngine.Vector2>)0;
-						if (!flag)
-						{
-							FluidSolver fluidSolver = solver;
-							if ((object)solver == null)
-							{
-								global::System.NullReferenceException ex = new global::System.NullReferenceException();
-								num5 = (nint)obj5;
-								hashSet = hashSet2;
-								break;
-							}
-							int num6 = (int)((nint)obj5 << 3);
-							object obj6 = fluidSolver.positions + num6;
-							object obj7 = fluidSolver.velocities + num6;
-							FluidCollectDisplay fluidCollectDisplay = honeyDisplay;
-							float5.x = (float)obj6;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v498 @ X10_v6+4]");
-							float5.y = 0f;
-							global::UnityEngine.Vector2 vector3 = float5;
-							float6.x = (float)obj7;
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v510 @ X8_v15+4]");
-							float6.y = 0f;
-							global::UnityEngine.Vector2 vector4 = float6;
-							num7 = vector4.y;
-							FluidSolver fluidSolver2 = solver;
-							if ((object)honeyDisplay == null)
-							{
-								global::System.NullReferenceException ex2 = new global::System.NullReferenceException();
-								num7 = num8;
-								func = func;
-								vector4 = vector;
-								break;
-							}
-							bool flag2 = fluidCollectDisplay.activeCount >= fluidCollectDisplay.maxParticles;
-							num8 = num7;
-							num5 = (nint)obj5;
-							func2 = func;
-							vector = vector4;
-							if (!flag2)
-							{
-								float explodeDuration = global::UnityEngine.Random.Range(fluidCollectDisplay.minExplodeDuration, fluidCollectDisplay.maxExplodeDuration);
-								CollectParticleData collectParticleData = honeyDisplay.AddParticle(vector3, vector4, fluidSolver2.honeyFluidType, CollectParticleMode.Explode, explodeDuration);
-								num8 = vector3.y;
-								num5 = 1;
-								func2 = null;
-								vector = vector3;
-							}
-						}
-						continue;
-					}
-					global::System.NullReferenceException ex3 = new global::System.NullReferenceException();
-					num5 = (nint)obj5;
-					hashSet = hashSet2;
-					break;
-				}
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-				return;
-			}
-			num8 = num7;
-			func2 = func;
-			int num9 = 0;
+			return;
 		}
-		global::System.NullReferenceException ex4 = new global::System.NullReferenceException();
-		bool flag3 = (nint)hashSet != 1;
-		global::System.NullReferenceException ex5 = ex4;
-		if (!flag3)
+		foreach (int id in ids)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A080 (inside System.__Il2CppComDelegate::Finalize +0xF54)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @274A098 (inside System.__Il2CppComDelegate::Finalize +0xF6C)");
-			hashSet = (global::System.Collections.Generic.HashSet<int>)obj;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @14993C4 (System.Collections.Generic.HashSet`1+Enumerator::Dispose, and 1 more at this address)");
-			object obj8 = default(object);
-			if (obj8 == null)
+			if (solver == null)
 			{
-				return;
+				throw new global::System.NullReferenceException();
 			}
-			global::System.OutOfMemoryException ex6 = new global::System.OutOfMemoryException();
-			int num9 = (int)obj8;
-			ex5 = (global::System.NullReferenceException)(object)ex6;
+			if (!solver.idToIndex.TryGetValue(id, out var index))
+			{
+				continue;
+			}
+			global::Unity.Mathematics.float2 position = solver.positions[index];
+			global::Unity.Mathematics.float2 velocity = solver.velocities[index];
+			if (honeyDisplay == null)
+			{
+				throw new global::System.NullReferenceException();
+			}
+			if (honeyDisplay.activeCount < honeyDisplay.maxParticles)
+			{
+				float explodeDuration = global::UnityEngine.Random.Range(honeyDisplay.minExplodeDuration, honeyDisplay.maxExplodeDuration);
+				CollectParticleData collectParticleData = honeyDisplay.AddParticle(position, velocity, solver.honeyFluidType, CollectParticleMode.Explode, explodeDuration);
+			}
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @BF092C");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @27498DC (inside System.__Il2CppComDelegate::Finalize +0x7B0)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @D6F8");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600019F")]

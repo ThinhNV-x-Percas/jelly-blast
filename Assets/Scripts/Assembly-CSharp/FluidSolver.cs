@@ -3457,82 +3457,17 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		//IL_020c: Expected O, but got I
 		//IL_00dc: Expected I, but got O
 		//IL_0199: Expected O, but got I
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA08]");
-		global::UnityEngine.Object obj3;
-		global::UnityEngine.Object obj4;
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
+		if (mudInstance != null)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v32 @ X24_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v37 @ X0_v57+E0]");
-			bool flag = (nint)0 == 0;
-			obj3 = mudInstance;
-			obj4 = mudInstance;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
+			mudInstance.AddParticles(positions);
+			return mudInstance;
 		}
-		else
-		{
-			_ = 1;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v32 @ X24_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v58 @ X0_v30+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			obj3 = mudInstance;
-			obj4 = mudInstance;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		object obj6 = mudInstance;
-		bool flag4 = obj4 == null;
-		bool flag5 = !flag4;
-		bool flag6 = !flag5;
-		object obj7 = obj6;
-		if (flag6)
-		{
-			goto IL_00ce;
-		}
-		goto IL_024b;
-		IL_026f:
-		return (Mud)obj7;
-		IL_00ce:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v97 @ X26_v4 (Il2CppMethodInfo)+560]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(this, (global::System.IntPtr)0);
-		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(positions, mudFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
+		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(positions, mudFluidType, null);
 		global::UnityEngine.Transform transform = base.transform;
-		nint num5 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		Mud mud = default(Mud);
+		Mud mud = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.mudPrefab, transform);
 		mudInstance = mud;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		Mud mud2 = mudInstance;
-		int fluidType = mudFluidType;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v143 @ X0_v49+108]");
-		mud2.Init(this, hashSet, fluidType, default(FluidCompute));
-		obj7 = obj6;
-		goto IL_026f;
-		IL_024b:
-		object obj8 = obj7;
-		object obj9 = obj8;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: [v123 @ X8_v5+1A8] (should have been resolved before IL gen)");
-		goto IL_026f;
-		IL_0093:
-		obj6 = mudInstance;
-		bool flag7 = obj3 == null;
-		bool flag8 = !flag7;
-		obj7 = obj6;
-		if (!flag8)
-		{
-			goto IL_00ce;
-		}
-		goto IL_024b;
+		mudInstance.Init(this, hashSet, mudFluidType, global::Singleton<GameManager>.Instance.compute);
+		return mudInstance;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600027F")]
@@ -3547,70 +3482,17 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		//IL_00c8: Expected I, but got O
 		//IL_0147: Expected O, but got I
 		//IL_0191: Expected O, but got I
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AA09]");
-		global::UnityEngine.Object obj3;
-		global::UnityEngine.Object obj4;
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
+		if (snowInstance != null)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v28 @ X23_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v33 @ X0_v57+E0]");
-			bool flag = (nint)0 == 0;
-			obj3 = mudInstance;
-			obj4 = mudInstance;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
+			snowInstance.AddParticles(positions);
+			return snowInstance;
 		}
-		else
-		{
-			_ = 1;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v28 @ X23_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v54 @ X0_v30+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			obj3 = mudInstance;
-			obj4 = mudInstance;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		if (obj4 == null)
-		{
-			goto IL_00ba;
-		}
-		goto IL_0227;
-		IL_023b:
-		return snowInstance;
-		IL_00ba:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v90 @ X25_v4 (Il2CppMethodInfo)+568]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(this, (global::System.IntPtr)0);
-		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(positions, snowFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
+		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(positions, snowFluidType, null);
 		global::UnityEngine.Transform transform = base.transform;
-		nint num5 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		Snow snow = default(Snow);
+		Snow snow = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.snowPrefab, transform);
 		snowInstance = snow;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		Snow snow2 = snowInstance;
-		int fluidType = snowFluidType;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v135 @ X0_v49+108]");
-		snow2.Init(this, hashSet, fluidType, default(FluidCompute));
-		goto IL_023b;
-		IL_0227:
-		snowInstance.AddParticles(positions);
-		goto IL_023b;
-		IL_0093:
-		if (obj3 == null)
-		{
-			goto IL_00ba;
-		}
-		goto IL_0227;
+		snowInstance.Init(this, hashSet, snowFluidType, global::Singleton<GameManager>.Instance.compute);
+		return snowInstance;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000280")]
@@ -3645,21 +3527,13 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		_003C_003Ec__DisplayClass146_1.headIds = headIds;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v79 @ X20_v2 (Il2CppMethodInfo)+D40]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass146_1, (global::System.IntPtr)0);
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass146_1._003CAddOctopus_003Eb__0);
 		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num6 = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		SpecialFluid specialFluid = default(SpecialFluid);
-		specialFluid.id = _003C_003Ec__DisplayClass146_1.octId;
-		_ = _003C_003Ec__DisplayClass146_1.headIds;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v118 @ X0_v33+108]");
-		specialFluid.Init(this, hashSet, nextUnusedFluidType, (FluidCompute)0);
+		Octopus octopus = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.octopusPrefab, transform);
+		octopus.Init(this, hashSet, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute, octId, headIds, splitIndex);
 		global::System.Collections.Generic.List<Octopus> list = octopi;
-		list.Add((Octopus)specialFluid);
+		list.Add(octopus);
 		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = octopusHeadMidpoints;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v285 @ X23_v5 (Il2CppClass<System.Xml.ValidateNames>)+D40]");
 		object obj6 = 0;
@@ -3670,7 +3544,7 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v213 @ X8_v13+4]");
 		value.y = 0f;
 		nativeParallelHashMap[_003C_003Ec__DisplayClass146_1.octId] = value;
-		return (Octopus)specialFluid;
+		return octopus;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000281")]
@@ -3854,16 +3728,11 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		int id = IdGenerator.Next();
 		_003C_003Ec__DisplayClass150_1.id = id;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X24_v2 (Il2CppMethodInfo)+D48]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass150_1, (global::System.IntPtr)0);
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass150_1._003CAddCaterpillar_003Eb__0);
 		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num5 = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v115 @ X0_v28+108]");
-		Caterpillar caterpillar = default(Caterpillar);
-		caterpillar.Init(this, hashSet, nextUnusedFluidType, (FluidCompute)0, _003C_003Ec__DisplayClass150_1.id);
+		Caterpillar caterpillar = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.caterpillarPrefab, transform);
+		caterpillar.Init(this, hashSet, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute, id);
 		global::System.Collections.Generic.List<Caterpillar> list = caterpillars;
 		list.Add(caterpillar);
 		return caterpillar;
@@ -3889,16 +3758,11 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		int id = IdGenerator.Next();
 		_003C_003Ec__DisplayClass151_1.id = id;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X24_v2 (Il2CppMethodInfo)+D50]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass151_1, (global::System.IntPtr)0);
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass151_1._003CAddBee_003Eb__0);
 		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num5 = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v115 @ X0_v28+108]");
-		Bee bee = default(Bee);
-		bee.Init(this, hashSet, nextUnusedFluidType, (FluidCompute)0, _003C_003Ec__DisplayClass151_1.id);
+		Bee bee = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.beePrefab, transform);
+		bee.Init(this, hashSet, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute, id);
 		global::System.Collections.Generic.List<Bee> list = bees;
 		list.Add(bee);
 		return bee;
@@ -3952,16 +3816,11 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		int spongeId = IdGenerator.Next();
 		_003C_003Ec__DisplayClass153_1.spongeId = spongeId;
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X24_v2 (Il2CppMethodInfo)+D58]");
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass153_1, (global::System.IntPtr)0);
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass153_1._003CAddSponge_003Eb__0);
 		global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, nextUnusedFluidType, onInit);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num5 = 0;
 		global::UnityEngine.Transform transform = base.transform;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11711B8 (UnityEngine.Object::Instantiate, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v115 @ X0_v28+108]");
-		Sponge sponge = default(Sponge);
-		sponge.Init(this, hashSet, nextUnusedFluidType, (FluidCompute)0, _003C_003Ec__DisplayClass153_1.spongeId);
+		Sponge sponge = global::UnityEngine.Object.Instantiate(global::Singleton<GameManager>.Instance.spongePrefab, transform);
+		sponge.Init(this, hashSet, nextUnusedFluidType, global::Singleton<GameManager>.Instance.compute, spongeId);
 		global::System.Collections.Generic.List<Sponge> list = sponges;
 		list.Add(sponge);
 		return sponge;
@@ -4009,30 +3868,16 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		if (isClumped)
 		{
-			nint num3 = 0;
 			int clumpId = IdGenerator.Next();
 			_003C_003Ec__DisplayClass155_1.clumpId = clumpId;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v104 @ X24_v4 (Il2CppMethodInfo)+D60]");
-			global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass155_1, (global::System.IntPtr)0);
+			global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass155_1._003CAddClump_003Eb__0);
 			global::System.Collections.Generic.HashSet<int> hashSet = AddParticles(pos, type, onInit);
-			Clump clump = default(Clump);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			global::System.Collections.Generic.List<Clump> list = clumps;
-			int version = list._version + 1;
-			list._version = version;
-			Clump[] items = list._items;
-			if (list.Count < items.Length)
+			Clump clump = new Clump
 			{
-				int size = list.Count + 1;
-				list._size = size;
-				int num4 = list.Count << 4;
-				object obj3 = (nint)items + num4;
-				object obj4 = (nint)obj3 + 40;
-				obj4 = hashSet;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				return clump;
-			}
-			list.Add(clump);
+				id = clumpId,
+				particleIds = hashSet
+			};
+			clumps.Add(clump);
 			return clump;
 		}
 		global::System.Collections.Generic.HashSet<int> hashSet2 = AddParticles(pos, type);
@@ -4047,11 +3892,10 @@ public class FluidSolver : global::UnityEngine.MonoBehaviour
 		//IL_002f: Expected O, but got I
 		//IL_004d: Expected O, but got I
 		//IL_005a: Expected I4, but got O
-		global::System.IntPtr intPtr = default(global::System.IntPtr);
-		global::System.Collections.IEnumerator routine = HandleRemove((global::System.Collections.Generic.HashSet<int>)(nint)intPtr);
+		global::System.Collections.IEnumerator routine = HandleRemove(clump.particleIds);
 		global::UnityEngine.Coroutine coroutine = StartCoroutine(routine);
-		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = spongeMidpoints;
-		bool flag = nativeParallelHashMap.Remove((int)clump);
+		global::Unity.Collections.NativeHashMap<int, global::Unity.Mathematics.float2> nativeParallelHashMap = clumpMidpoints;
+		bool flag = nativeParallelHashMap.Remove(clump.id);
 		bool flag2 = clumps.Remove(clump);
 	}
 

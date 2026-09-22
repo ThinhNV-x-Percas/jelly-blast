@@ -105,11 +105,9 @@ public class FluidCollectDisplay : FluidRendererBase
 		fluidType = value;
 		if (value != -1)
 		{
-			global::UnityEngine.MaterialPropertyBlock propBlock = new global::UnityEngine.MaterialPropertyBlock();
-			_propBlock = propBlock;
+			_propBlock = new global::UnityEngine.MaterialPropertyBlock();
 			mr.GetPropertyBlock(_propBlock);
-			global::UnityEngine.MaterialPropertyBlock propBlock2 = _propBlock;
-			propBlock2.SetInt("_FluidType", fluidType);
+			_propBlock.SetInt("_FluidType", fluidType);
 			mr.SetPropertyBlock(_propBlock);
 		}
 	}
@@ -127,26 +125,32 @@ public class FluidCollectDisplay : FluidRendererBase
 				continue;
 			}
 			particles[i].prevPos = positions[i];
-			global::UnityEngine.Vector2 force = global::UnityEngine.Vector2.zero;
+			float force = 0f;
+			global::UnityEngine.Vector2 dir = global::UnityEngine.Vector2.zero;
 			if (particles[i].mode == global::CollectParticleMode.Collect)
 			{
-				particles[i].targetPos = particles[i].getTargetPos();
+				if (particles[i].getTargetPos != null)
+				{
+					particles[i].targetPos = particles[i].getTargetPos();
+				}
 				float t = global::UnityEngine.Mathf.Clamp01((global::UnityEngine.Time.time - particles[i].startTime) / particles[i].applyForceDuration);
 				global::UnityEngine.Vector2 toTarget = particles[i].targetPos - positions[i];
-				global::UnityEngine.Vector2 dir = (toTarget.magnitude > 1E-05f) ? toTarget.normalized : global::UnityEngine.Vector2.zero;
-				force = dir * collectForce * t;
+				float dist = toTarget.magnitude;
+				dir = (dist > 1E-05f) ? (toTarget / dist) : global::UnityEngine.Vector2.zero;
+				force = collectForce * t;
 			}
-			particles[i].vel += force * fixedDeltaTime;
-			particles[i].vel -= particles[i].vel * fixedDeltaTime * fixedDeltaTime;
+			particles[i].vel += dir * force * fixedDeltaTime;
+			particles[i].vel -= particles[i].vel * damping * fixedDeltaTime;
 			positions[i] += particles[i].vel * fixedDeltaTime;
-			if (particles[i].mode == global::CollectParticleMode.Collect)
+			if (particles[i].mode != global::CollectParticleMode.Collect)
 			{
-				global::UnityEngine.Vector2 toTarget2 = positions[i] - particles[i].targetPos;
-				global::UnityEngine.Vector2 travelDir = particles[i].targetPos - particles[i].startPos;
-				if (global::UnityEngine.Vector2.Dot(toTarget2, travelDir) <= 0f)
-				{
-					RemoveParticle(i);
-				}
+				continue;
+			}
+			global::UnityEngine.Vector2 toStart = particles[i].targetPos - particles[i].startPos;
+			global::UnityEngine.Vector2 fromTarget = positions[i] - particles[i].targetPos;
+			if (global::UnityEngine.Vector2.Dot(fromTarget, toStart) > 0f)
+			{
+				RemoveParticle(i);
 			}
 		}
 	}
@@ -156,50 +160,51 @@ public class FluidCollectDisplay : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0021;\n\tv45 = Il2CppMethodInfo;\n\tv46 = v45 + 0x278;\n\tv47 = \"il2cpp_codegen_initialize_runtime_metadata\"(v46, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv65 = 1;\n\t*([302A9A3]) = v65;\nL_0021:\n\tv67 = UnityEngine.Time::get_time();\n\tv70 = UnityEngine.Time::get_fixedTime();\n\tv73 = UnityEngine.Time::get_fixedDeltaTime();\n\tv315 = this.activeCount;\n\tv78 = this.activeCount < 1;\n\tv328 = this.activeCount - 1;\n\tif (v78) goto L_02CB;\n\tv85 = Il2CppMethodInfo;\n\tv87 = v67 - v70;\n\tv88 = v87 / v73;\n\tv92 = v88 - 1f;\n\tv93 = v92 < 0;\n\tv94 = v92 == 0;\n\tv95 = v88 ^ 1f;\n\tv96 = v88 ^ v92;\n\tv97 = v95 & v96;\n\tv98 = v97 < 0;\n\tv99 = v93 == v98;\n\tv100 = ~v94;\n\tv101 = v99 & v100;\n\tv102 = ~v101;\n\tif (v102) goto L_0055;\n\tgoto L_0055;\nL_0055:\n\tv254 = v88 >= 0;\n\tif (v254) goto L_005D;\n\tgoto L_005D;\nL_005D:\n\tv335 = v328 * 0x48;\n\tv286 = v335 + 0x34;\n\tgoto L_007A;\nL_0069:\n\tFluidCollectDisplay::RemoveParticle(this, v328);\n\tv315 = v315 - 1;\n\tv328 = v328 - 1;\n\tv286 = v286 - 0x48;\n\tv171 = v315 <= 0;\n\tif (v171) goto L_02CB;\nL_007A:\n\tv697 = this.particles;\n\tv704 = this.particles + v286;\n\tv550 = *([v704 @ X9_v6-14]) == 2;\n\tif (v550) goto L_0145;\n\tv438 = *([v704 @ X9_v6-14]) != 1;\n\tif (v438) goto L_012C;\n\tv631 = UnityEngine.Time::get_time();\n\tv818 = this.particles + v286;\n\tv446 = *([v818 @ X8_v28]) + *([v818 @ X8_v28+1C]);\n\tv439 = v631 >= v446;\n\tif (v439) goto L_0069;\n\tv632 = UnityEngine.Time::get_time();\n\tv690 = this.particles + v286;\n\tv848 = v632 - *([v690 @ X8_v30]);\n\tv645 = v848 / *([v690 @ X8_v30+1C]);\n\tv398 = this.scales;\n\tv633 = UnityEngine.AnimationCurve::Evaluate(this.scaleAnimationCurve, v645);\n\tv634 = v633 * this.particleSize;\n\tv398[v328 @ X20_v5 (System.Int32)] = v634;\n\tv635 = UnityEngine.AnimationCurve::Evaluate(this.innerRadiusAnimationCurve, v645);\n\tv873 = this.particles + v286;\n\t*([v873 @ X8_v34+18]) = v635;\n\tv697 = this.particles;\nL_012C:\n\tv707 = v697 + v286;\n\tv836 = v328 << 3;\n\tv837 = this.positions + v836;\n\tv839 = *([v837 @ X10_v17+20]) - *([v707 @ X12_v7-10]);\n\tv720 = v839 * v840;\n\tv794 = *([v707 @ X12_v7-10]) + v720;\n\tv715 = v328 << 3;\n\tv711 = this.interpPositions + v715;\n\t*([v711 @ X10_v18+20]) = v794;\n\tv841 = v328 < v697.Length;\n\tv787 = ~v841;\n\tv719 = ~v787;\n\tif (v719) goto L_01E5;\n\tgoto L_02CE;\nL_0145:\n\tv637 = UnityEngine.Time::get_time();\n\tv694 = this.particles;\n\tv450 = *([v694 @ X8_v20 (CollectParticleData[])+v286 @ X24_v4 (System.Int32)]) + 0x3E4CCCCD;\n\tv441 = v637 >= v450;\n\tif (v441) goto L_0069;\n\tv638 = UnityEngine.Time::get_time();\n\tv415 = this.particles + v286;\n\tv695 = *([v415 @ X9_v21+2C]);\n\t*([v695 @ X8_v22+18])(v656, *([v695 @ X8_v22+40]), *([v695 @ X8_v22+28]), *([v85 @ X23_v3 (Il2CppMethodInfo)+278]), v50, v51, v52, v53, v54, v638, v450, 0x3E4CCCCD, v123, v59, v60, v61, v62);\n\tv851 = this.particles + v286;\n\t*([v851 @ X8_v24+8]) = v638;\n\t*([v851 @ X8_v24+C]) = v450;\n\tv697 = this.particles;\n\tv854 = v638 - *([v415 @ X9_v21]);\n\tv856 = v854 / 0x3E4CCCCD;\n\tv639 = v856 * v856;\n\tv607 = v639 - 1f;\n\tv585 = v607 < 0;\n\tv563 = v607 == 0;\n\tv541 = v639 ^ 1f;\n\tv519 = v639 ^ v607;\n\tv497 = v541 & v519;\n\tv475 = v497 < 0;\n\tv858 = v585 == v475;\n\tv434 = ~v563;\n\tv442 = v858 & v434;\n\tv431 = ~v442;\n\tif (v431) goto L_01BC;\n\tgoto L_01BC;\nL_01BC:\n\tv378 = v697 + v286;\n\tv123 = *([v378 @ X11_v9+8]) - *([v378 @ X11_v9+10]);\n\tv870 = v123 * v871;\n\tv451 = *([v378 @ X11_v9+10]) + v870;\n\tv392 = v328 << 3;\n\tv872 = this.interpPositions + v392;\n\t*([v872 @ X10_v13+20]) = v451;\n\tv383 = this.scales;\n\tv876 = v639 * 0xBDCCCCCD;\n\tv877 = v876 + 1f;\n\tv795 = v877 * this.particleSize;\n\tv383[v328 @ X20_v5 (System.Int32)] = v795;\nL_01E5:\n\tv418 = this.compute;\n\tv850 = v697 + v286;\n\tv659 = System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>::get_Item(v418.idToIndex, *([v850 @ X8_v12+20]));\n\tv698 = this.compute;\n\tv866 = v328 << 3;\n\tv867 = this.interpPositions + v866;\n\tv394 = v659 << 3;\n\tv868 = v698.positions + v394;\n\t*([v868 @ X9_v12+20]) = *([v867 @ X9_v11+20]);\n\tv386 = v698.innerRadii;\n\tv880 = this.particles + v286;\n\tv386[v659 @ X0_v14 (System.Int32)] = *([v880 @ X9_v14+18]);\n\tv421 = this.scales;\n\tv699 = v698.scales;\n\tv699[v659 @ X0_v14 (System.Int32)] = v421[v328 @ X20_v5 (System.Int32)];\n\tv643 = UnityEngine.Time::get_time();\n\tv700 = this.particles;\n\tv889 = v643 - *([v700 @ X8_v16 (CollectParticleData[])+v286 @ X24_v4 (System.Int32)]);\n\tv891 = v889 / 0xBDCCCCCD;\n\tv892 = v891 + 1f;\n\tv173 = v892 + v892;\n\tv896 = v892 - 1f;\n\tv897 = v896 < 0;\n\tv898 = v896 == 0;\n\tv899 = v892 ^ 1f;\n\tv900 = v892 ^ v896;\n\tv901 = v899 & v900;\n\tv902 = v901 < 0;\n\tv903 = v897 == v902;\n\tv436 = ~v898;\n\tv444 = v903 & v436;\n\tv904 = ~v444;\n\tif (v904) goto L_028A;\n\tgoto L_028A;\nL_028A:\n\tv161 = v892 >= 0;\n\tif (v161) goto L_FFFFFFFF;\n\tgoto L_0290;\nL_0290:\n\tv702 = this.compute;\n\tv701 = v702.emissionColors;\n\tv141 = v659 << 4;\n\tv217 = v702.emissionColors + v141;\n\t*([v217 @ X8_v19+20]) = 5.263544247E-315d;\n\tv701[v659 @ X0_v14 (System.Int32)].z = 0f;\n\tv701[v659 @ X0_v14 (System.Int32)].w = v205;\n\tv315 = v315 - 1;\n\tv328 = v328 - 1;\n\tv286 = v286 - 0x48;\n\tv169 = v315 > 0;\n\tif (v169) goto L_007A;\nL_02CB:\n\tFluidRendererBase::OnPreComputeUpdate(this);\n\treturn;\n\tv703 = new System.NullReferenceException();\nL_02CE:\n\tthrow System.IndexOutOfRangeException;\n// 548 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public override void OnPreComputeUpdate()
 	{
-		if (activeCount >= 1)
+		float time = global::UnityEngine.Time.time;
+		float t = global::UnityEngine.Mathf.Clamp01((time - global::UnityEngine.Time.fixedTime) / global::UnityEngine.Time.fixedDeltaTime);
+		for (int i = activeCount - 1; i >= 0; i--)
 		{
-			float interpAlpha = global::UnityEngine.Mathf.Clamp01((global::UnityEngine.Time.time - global::UnityEngine.Time.fixedTime) / global::UnityEngine.Time.fixedDeltaTime);
-			for (int i = activeCount - 1; i >= 0; i--)
+			if (particles[i].mode == global::CollectParticleMode.Shrink)
 			{
-				if (particles[i].mode == global::CollectParticleMode.Shrink)
+				float deadline = particles[i].startTime + 0.2f;
+				if (time >= deadline)
 				{
-					float shrinkElapsed = global::UnityEngine.Time.time - particles[i].startTime;
-					if (shrinkElapsed >= 0.2f)
-					{
-						RemoveParticle(i);
-						continue;
-					}
+					RemoveParticle(i);
+					continue;
+				}
+				if (particles[i].getTargetPos != null)
+				{
 					particles[i].targetPos = particles[i].getTargetPos();
-					float shrinkT = shrinkElapsed / 0.2f;
-					float shrinkT2 = shrinkT * shrinkT;
-					interpPositions[i] = global::UnityEngine.Vector2.Lerp(particles[i].startPos, particles[i].targetPos, shrinkT2);
-					scales[i] = (1f - 0.1f * shrinkT2) * particleSize;
 				}
-				else
-				{
-					if (particles[i].mode == global::CollectParticleMode.Explode)
-					{
-						float explodeElapsed = global::UnityEngine.Time.time - particles[i].startTime;
-						if (global::UnityEngine.Time.time >= particles[i].startTime + particles[i].explodeDuration)
-						{
-							RemoveParticle(i);
-							continue;
-						}
-						float explodeT = explodeElapsed / particles[i].explodeDuration;
-						scales[i] = scaleAnimationCurve.Evaluate(explodeT) * particleSize;
-						particles[i].innerRadius = innerRadiusAnimationCurve.Evaluate(explodeT);
-					}
-					global::UnityEngine.Vector2 delta = positions[i] - particles[i].prevPos;
-					interpPositions[i] = particles[i].prevPos + delta * interpAlpha;
-				}
-				int gpuIndex = compute.idToIndex[particles[i].particleId];
-				compute.positions[gpuIndex] = interpPositions[i];
-				compute.innerRadii[gpuIndex] = particles[i].innerRadius;
-				compute.scales[gpuIndex] = scales[i];
-				float flashElapsed = global::UnityEngine.Time.time - particles[i].startTime;
-				float flashAlpha = global::UnityEngine.Mathf.Clamp01(1f - flashElapsed / 0.1f);
-				compute.emissionColors[gpuIndex] = new global::UnityEngine.Vector4(1f, 0f, 0f, flashAlpha);
+				float shrinkT = (time - particles[i].startTime) / 0.2f;
+				float shrinkT2 = shrinkT * shrinkT;
+				interpPositions[i] = global::UnityEngine.Vector2.Lerp(particles[i].startPos, particles[i].targetPos, shrinkT2);
+				scales[i] = (1f - shrinkT2 * 0.1f) * particleSize;
 			}
+			else if (particles[i].mode == global::CollectParticleMode.Explode)
+			{
+				float deadline2 = particles[i].startTime + particles[i].explodeDuration;
+				if (time >= deadline2)
+				{
+					RemoveParticle(i);
+					continue;
+				}
+				float explodeT = (time - particles[i].startTime) / particles[i].explodeDuration;
+				scales[i] = scaleAnimationCurve.Evaluate(explodeT) * particleSize;
+				particles[i].innerRadius = innerRadiusAnimationCurve.Evaluate(explodeT);
+				interpPositions[i] = particles[i].prevPos + (positions[i] - particles[i].prevPos) * t;
+			}
+			else
+			{
+				interpPositions[i] = particles[i].prevPos + (positions[i] - particles[i].prevPos) * t;
+			}
+			int computeIndex = compute.idToIndex[particles[i].particleId];
+			compute.positions[computeIndex] = interpPositions[i];
+			compute.innerRadii[computeIndex] = particles[i].innerRadius;
+			compute.scales[computeIndex] = scales[i];
+			float flashAlpha = global::UnityEngine.Mathf.Clamp01(1f - (time - particles[i].startTime) / 0.1f);
+			compute.emissionColors[computeIndex].z = 0f;
+			compute.emissionColors[computeIndex].w = flashAlpha;
 		}
 		base.OnPreComputeUpdate();
 	}
@@ -243,29 +248,30 @@ public class FluidCollectDisplay : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv58 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tgoto L_0033;\n\tv63 = System.Collections.Generic.NullableComparer`1;\n\tv64 = v63 + 0xD10;\n\tv65 = \"il2cpp_codegen_initialize_runtime_metadata\"(v64, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv78 = Il2CppMethodInfo;\n\tv79 = v78 + 0xD28;\n\tv80 = \"il2cpp_codegen_initialize_runtime_metadata\"(v79, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv83 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv84 = v83 + 0xB60;\n\tv73 = \"il2cpp_codegen_initialize_runtime_metadata\"(v84, type, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, v0, vel, v2, explodeDuration, v69, v70, v71);\n\tv75 = 1;\n\t*([302A9A4]) = v75;\nL_0033:\n\tv77 = new *([v58 @ X26_v1 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+B60])();\n\tFluidCollectDisplay+<>c__DisplayClass21_0::.ctor(v77);\n\tv87 = v77 + 0x10;\n\tv77.<>4__this = this;\n\tv90 = 0xF3F1B4(v87, this, mode, getTargetPos, onComplete, methodInfo, v67, v68, position, position.y, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv77.type = type;\n\tv173 = this.positions;\n\tv212 = this.activeCount;\n\tv123 = this.activeCount << 3;\n\tv275 = this.positions + v123;\n\t*([v275 @ X9_v4+20]) = position;\n\tv173[v212 @ X8_v5 (System.Int32)].y = position.y;\n\tv174 = this.interpPositions;\n\tv124 = this.activeCount << 3;\n\tv350 = this.interpPositions + v124;\n\t*([v350 @ X9_v6+20]) = position;\n\tv174[v212 @ X8_v5 (System.Int32)].y = position.y;\n\tv175 = this.scales;\n\tv352 = System.Collections.Generic.NullableComparer`1;\n\tv353 = Il2CppMethodInfo;\n\tv175[v212 @ X8_v5 (System.Int32)] = this.particleSize;\n\tv357 = UnityEngine.Random::Range(this.minApplyForceDuration, this.maxApplyForceDuration);\n\tv196 = UnityEngine.Time::get_time();\n\tv361 = &v288 @ stack_-C8_v5 (CollectParticleMode) + 0x38;\n\tv363 = 0xF3F1B4(v361, onComplete, mode, getTargetPos, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv364 = &v288 @ stack_-C8_v5 (CollectParticleMode) + 0x40;\n\tv366 = 0xF3F1B4(v364, getTargetPos, mode, getTargetPos, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv368 = IdGenerator::Next();\n\tv201 = new *([v352 @ X25_v4 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D10])();\n\tSystem.Action`1<ParticleInitData>::.ctor(v201, v77, *([v353 @ X26_v7 (Il2CppMethodInfo)+D28]));\n\tFluidCompute::AddParticle(this.compute, v368, v201);\n\tv316 = this.activeCount * 0x48;\n\tv371 = this.particles + v316;\n\tv372 = v371 + 0x20;\n\tv374 = 0x274AA04(v372, &v288 @ stack_-C8_v5 (CollectParticleMode), 0x48, 0, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv375 = v371 + 0x58;\n\treturnVal2 = 0xF3F1B4(v375, 0, 0x48, 0, onComplete, methodInfo, v67, v68, v196, this.maxApplyForceDuration, vel, vel.y, explodeDuration, v69, v70, v71);\n\tv377 = this.activeCount + 1;\n\tthis.activeCount = v377;\n\t*([returnBuffer @ X8 (CollectParticleData)+20]) = v379;\n\treturnBuffer.explodeDuration = explodeDuration;\n\treturnBuffer.getTargetPos = getTargetPos;\n\treturnBuffer.mode = v288;\n\t*([returnBuffer @ X8 (CollectParticleData)+10]) = vel.y;\n\treturn returnVal2;\n\tv225 = new System.NullReferenceException();\n\treturnVal1 = new System.IndexOutOfRangeException();\n\treturn returnVal1;\n// 169 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public unsafe CollectParticleData AddParticle(global::UnityEngine.Vector2 position, global::UnityEngine.Vector2 vel, int type, CollectParticleMode mode, float explodeDuration = 1f, global::System.Func<global::UnityEngine.Vector2> getTargetPos = null, global::System.Action onComplete = null)
 	{
-		_003C_003Ec__DisplayClass21_0 _003C_003Ec__DisplayClass21_1 = new _003C_003Ec__DisplayClass21_0();
-		_003C_003Ec__DisplayClass21_1._003C_003E4__this = this;
-		_003C_003Ec__DisplayClass21_1.type = type;
+		FluidCollectDisplay._003C_003Ec__DisplayClass21_0 displayClass = new FluidCollectDisplay._003C_003Ec__DisplayClass21_0();
+		displayClass._003C_003E4__this = this;
+		displayClass.type = type;
 		positions[activeCount] = position;
 		interpPositions[activeCount] = position;
 		scales[activeCount] = particleSize;
 		float applyForceDuration = global::UnityEngine.Random.Range(minApplyForceDuration, maxApplyForceDuration);
-		float startTime = global::UnityEngine.Time.time;
+		float time = global::UnityEngine.Time.time;
+		int id = IdGenerator.Next();
+		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(displayClass._003CAddParticle_003Eb__0);
+		compute.AddParticle(id, onInit);
 		CollectParticleData collectParticleData = default(CollectParticleData);
 		collectParticleData.mode = mode;
 		collectParticleData.prevPos = position;
 		collectParticleData.vel = vel;
-		collectParticleData.startTime = startTime;
+		collectParticleData.startTime = time;
 		collectParticleData.applyForceDuration = applyForceDuration;
 		collectParticleData.targetPos = position;
 		collectParticleData.startPos = position;
+		collectParticleData.innerRadius = 0f;
 		collectParticleData.explodeDuration = explodeDuration;
+		collectParticleData.particleId = id;
 		collectParticleData.onComplete = onComplete;
 		collectParticleData.getTargetPos = getTargetPos;
-		int id = IdGenerator.Next();
-		collectParticleData.particleId = id;
-		global::System.Action<ParticleInitData> onInit = new global::System.Action<ParticleInitData>(_003C_003Ec__DisplayClass21_1._003CAddParticle_003Eb__0);
-		compute.AddParticle(id, onInit);
 		particles[activeCount] = collectParticleData;
 		activeCount++;
 		return collectParticleData;
@@ -300,8 +306,7 @@ public class FluidCollectDisplay : FluidRendererBase
 	public FluidCollectDisplay()
 	{
 		particleSize = 0.2f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875910]");
-		damping = 0f;
+		damping = 2f;
 		maxApplyForceDuration = 1f;
 		explodeDuration = 0.4f;
 		minExplodeDuration = 1f;

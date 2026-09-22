@@ -738,16 +738,10 @@ public class GameManager : Singleton<GameManager>
 							}
 							else
 							{
-								global::System.Action<global::UnityEngine.Vector2> onTooSmallReject = OnTooSmallReject;
-								if (OnTooSmallReject != null)
-								{
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect call: v483.invoke_impl (System.IntPtr) (should have been resolved before IL gen)");
-								}
+								OnTooSmallReject?.Invoke(vector2);
 							}
 							global::TapticPlugin.TapticManager.Impact(global::TapticPlugin.ImpactFeedback.Medium);
-							string text = "l1";
-							AudioManager audioManager = global::Singleton<AudioManager>.Instance;
-							audioManager.PlayClip(text);
+							global::Singleton<AudioManager>.Instance.PlayClip("pop");
 							if (hashSet.Count > minRemoveParticles)
 							{
 								return;
@@ -880,46 +874,41 @@ public class GameManager : Singleton<GameManager>
 		Level level3 = this.level;
 		float num11 = num9 + orthographicSize;
 		float num13;
-		object obj3;
+		float obj3;
 		float num14;
 		if (level3.fluidSpawnMode == FluidSpawnMode.CustomRange)
 		{
 			float num12 = global::UnityEngine.Random.Range(level3.fluidSpawnXRange.x, level3.fluidSpawnXRange.y);
 			num13 = num11 + 2f;
-			obj3 = 1045220557;
+			obj3 = 0.2f;
 			num14 = num12;
 		}
 		else
 		{
-			float z = num11 + 2f;
-			float num16 = z;
-			num14 = num16 * 0f;
-			float num17 = z;
-			num13 = num17 * 0f;
+			float halfWidth = orthographicSize * main.aspect;
+			num14 = global::UnityEngine.Random.Range(0f - halfWidth, halfWidth);
+			num13 = num11 + 2f;
 			obj3 = 2f;
 		}
 		global::UnityEngine.Vector2 insideUnitCircle = global::UnityEngine.Random.insideUnitCircle;
-		nint num18 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
-		nint num19 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unknown call target operand: \"SzArrayNew\"");
 		Level level4 = this.level;
 		global::UnityEngine.Color[] colors = level4.colors;
-		float num20 = insideUnitCircle.x * (float)obj3;
+		float num20 = insideUnitCircle.x * obj3;
 		float num21 = num14 + num20;
 		int type = global::UnityEngine.Random.Range(0, colors.Length);
-		global::Unity.Mathematics.float2[] array = null;
+		global::Unity.Mathematics.float2[] array = new global::Unity.Mathematics.float2[particleQueueData2.count];
 		if (particleQueueData2.count >= 1)
 		{
-			float num22 = insideUnitCircle.y * (float)obj3;
+			float num22 = insideUnitCircle.y * obj3;
 			float num23 = num13 + num22;
-			array = new global::Unity.Mathematics.float2[particleQueueData2.count];
 			for (int num29 = 0; num29 < particleQueueData2.count; num29++)
 			{
 				global::UnityEngine.Vector2 insideUnitCircle3 = global::UnityEngine.Random.insideUnitCircle;
-				float x2 = num21 + insideUnitCircle3.x * 0.15f;
-				float y2 = num23 + insideUnitCircle3.y * 0.15f;
-				array[num29] = new global::Unity.Mathematics.float2(x2, y2);
+				float num30 = insideUnitCircle3.x * 0.15f;
+				float num31 = insideUnitCircle3.y * 0.15f;
+				float x2 = num21 + num30;
+				float y2 = num23 + num31;
+				array[num29] = new global::UnityEngine.Vector2(x2, y2);
 			}
 		}
 		Clump clump = solver.AddClump(array, type);
@@ -933,10 +922,7 @@ public class GameManager : Singleton<GameManager>
 			Fish fish = solver.AddFish(pos);
 			int activeFishCount = _activeFishCount + 1;
 			_activeFishCount = activeFishCount;
-			fish.OnMenuReached += delegate
-			{
-				_activeFishCount--;
-			};
+			fish.OnMenuReached += OnFishReachedMenu;
 			int fishSpawnedCount = _fishSpawnedCount + 1;
 			_particlesSpawnedSinceLastFish = 0;
 			_fishSpawnedCount = fishSpawnedCount;
@@ -944,6 +930,11 @@ public class GameManager : Singleton<GameManager>
 		particleQueue.RemoveAt(0);
 		int num34 = queuedCount - particleQueueData2.count;
 		queuedCount = num34;
+	}
+
+	private void OnFishReachedMenu()
+	{
+		_activeFishCount--;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002F1")]
@@ -1116,6 +1107,11 @@ public class GameManager : Singleton<GameManager>
 		playerData2.coinCount = coinCount;
 		ApplicationData appData3 = ApplicationManager.appData;
 		appData3.SavePlayerData();
+		ApplicationData appData4 = ApplicationManager.appData;
+		string progression = appData4.playerData.levelIndex.ToString();
+#if !UNITY_EDITOR
+		global::GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(global::GameAnalyticsSDK.GAProgressionStatus.Complete, progression);
+#endif
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002F7")]
@@ -1129,6 +1125,11 @@ public class GameManager : Singleton<GameManager>
 			_gameState = GameState.Fail;
 			m_OnGameStateChanged?.Invoke(_gameState, GameState.Fail);
 		}
+		ApplicationData appData = ApplicationManager.appData;
+		string progression = appData.playerData.levelIndex.ToString();
+#if !UNITY_EDITOR
+		global::GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(global::GameAnalyticsSDK.GAProgressionStatus.Fail, progression);
+#endif
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002F8")]
@@ -1148,12 +1149,34 @@ public class GameManager : Singleton<GameManager>
 	[global::Cpp2ILInjected.Token(Token = "0x60002F9")]
 	[global::Cpp2ILInjected.Address(RVA = "0x100C174", Offset = "0x100C174", Length = "0x5A0")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0051;\n\tv33 = CollectParticleData[];\n\tv34 = v33 + 0x990;\n\tv35 = \"il2cpp_codegen_initialize_runtime_metadata\"(v34, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv64 = Il2CppMethodInfo;\n\tv65 = v64 + 0x788;\n\tv66 = \"il2cpp_codegen_initialize_runtime_metadata\"(v65, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0x968;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv183 = Il2CppMethodInfo;\n\tv184 = v183 + 0x970;\n\tv185 = \"il2cpp_codegen_initialize_runtime_metadata\"(v184, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv261 = Il2CppMethodInfo;\n\tv262 = v261 + 0x790;\n\tv263 = \"il2cpp_codegen_initialize_runtime_metadata\"(v262, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv315 = Il2CppMethodInfo;\n\tv316 = v315 + 0x978;\n\tv317 = \"il2cpp_codegen_initialize_runtime_metadata\"(v316, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv474 = Il2CppMethodInfo;\n\tv475 = v474 + 0x798;\n\tv476 = \"il2cpp_codegen_initialize_runtime_metadata\"(v475, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv505 = Il2CppMethodInfo;\n\tv506 = v505 + 0x998;\n\tv507 = \"il2cpp_codegen_initialize_runtime_metadata\"(v506, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv509 = Il2CppMethodInfo;\n\tv510 = v509 + 0xF58;\n\tv511 = \"il2cpp_codegen_initialize_runtime_metadata\"(v510, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv525 = Il2CppMethodInfo;\n\tv526 = v525 + 0xC8;\n\tv527 = \"il2cpp_codegen_initialize_runtime_metadata\"(v526, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv576 = Il2CppMethodInfo;\n\tv577 = v576 + 0xD0;\n\tv578 = \"il2cpp_codegen_initialize_runtime_metadata\"(v577, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv584 = Il2CppMethodInfo;\n\tv585 = v584 + 0xC28;\n\tv586 = \"il2cpp_codegen_initialize_runtime_metadata\"(v585, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv589 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv590 = v589 + 0xCB0;\n\tv591 = \"il2cpp_codegen_initialize_runtime_metadata\"(v590, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv593 = Il2CppMethodInfo;\n\tv594 = v593 + 0xE58;\n\tv595 = \"il2cpp_codegen_initialize_runtime_metadata\"(v594, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv597 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv598 = v597 + 0xCB8;\n\tv599 = \"il2cpp_codegen_initialize_runtime_metadata\"(v598, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv606 = Il2CppMethodInfo;\n\tv607 = v606 + 0xCA8;\n\tv608 = \"il2cpp_codegen_initialize_runtime_metadata\"(v607, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv611 = System.Xml.ValidateNames;\n\tv612 = v611 + 0x198;\n\tv52 = \"il2cpp_codegen_initialize_runtime_metadata\"(v612, methodInfo, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50);\n\tv54 = 1;\n\t*([302AA4E]) = v54;\nL_0051:\n\tv62 = this.solver;\n\tv79 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv81 = Il2CppMethodInfo;\n\tv83 = Il2CppMethodInfo;\n\tv88 = System.Collections.Generic.List`1<Fish>::GetEnumerator(v62.fishes);\n\tgoto L_0072;\nL_006D:\n\tv649 = v288 == 0;\n\tv306 = ~v649;\n\tif (v306) goto L_00F3;\nL_0072:\n\tv314 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v87 @ stack_-C0_v5 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv319 = v314 == 0;\n\tif (v319) goto L_0176;\n\tv478 = new *([v79 @ X25_v6 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+CB0])();\n\tSystem.Object::.ctor(v478);\n\tv448 = v478 == 0;\n\tif (v448) goto L_018C;\n\tv529 = v478 + 0x18;\n\t*([v478 @ X0_v28 (System.Object)+18]) = this;\n\tv531 = 0xF3F1B4(v529, this, v383, v390, v39, v40, v41, v42, v411, v197, v196, v46, v47, v48, v49, v50);\n\tv296 = v478 + 0x10;\n\t*([v478 @ X0_v28 (System.Object)+10]) = v189;\n\tv304 = 0xF3F1B4(v296, v189, v383, v390, v39, v40, v41, v42, v411, v197, v196, v46, v47, v48, v49, v50);\n\tv310 = *([v478 @ X0_v28 (System.Object)+10]);\n\tv449 = *([v478 @ X0_v28 (System.Object)+10]) == 0;\n\tif (v449) goto L_018E;\n\tv592 = *([v310 @ X8_v17+D0]) == 0;\n\tv307 = ~v592;\n\tif (v307) goto L_0072;\n\tv451 = *([v310 @ X8_v17+88]) == 0;\n\tif (v451) goto L_0198;\n\tv600 = Il2CppMethodInfo;\n\tv605 = System.Collections.Generic.HashSet`1::GetEnumerator /* +1 sharing this address */(*([v310 @ X8_v17+88]), *([v600 @ X8_v18 (Il2CppMethodInfo)+998]));\nL_009D:\n\tv420 = *([v81 @ X27_v6 (Il2CppMethodInfo)+970]);\n\tv632 = System.Collections.Generic.HashSet`1+Enumerator::MoveNext /* +1 sharing this address */(&v87 @ stack_-C0_v5 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>), *([v81 @ X27_v6 (Il2CppMethodInfo)+970]));\n\tv633 = v632 & 1;\n\tv634 = v633 == 0;\n\tif (v634) goto L_00C2;\n\tv446 = this.solver == 0;\n\tif (v446) goto L_00D9;\n\tv640 = this.solver + 0x1F8;\n\tv222 = *([v83 @ X28_v6 (Il2CppMethodInfo)+C28]);\n\tv627 = Unity.Collections.NativeHashMap`2::TryGetValue /* +1 sharing this address */(v640, v189, &v382 @ stack_-A4_v9, *([v83 @ X28_v6 (Il2CppMethodInfo)+C28]));\n\tv642 = v627 & 1;\n\tv638 = v642 == 0;\n\tif (v638) goto L_00C2;\n\tv462 = this.solver;\n\tv447 = this.solver == 0;\n\tif (v447) goto L_00DB;\n\tv630 = v462.waterDensities;\n\tv241 = *([v630 @ X8_v49 (Unity.Collections.NativeArray`1<System.Single>)+v382 @ stack_-A4_v9*4]);\n\tv646 = *([v630 @ X8_v49 (Unity.Collections.NativeArray`1<System.Single>)+v382 @ stack_-A4_v9*4]) < 0;\n\tv621 = ~v646;\n\tv618 = *([v630 @ X8_v49 (Unity.Collections.NativeArray`1<System.Single>)+v382 @ stack_-A4_v9*4]) == 0;\n\tv647 = ~v618;\n\tv613 = v621 & v647;\n\tif (v613) goto L_009D;\nL_00C2:\n\tv288 = v632 ^ 1;\nL_00C5:\n\tv641 = Il2CppMethodInfo;\n\tv420 = *([v641 @ X8_v24 (Il2CppMethodInfo)+968]);\n\tSystem.Collections.Generic.HashSet`1+Enumerator::Dispose /* +1 sharing this address */(&v87 @ stack_-C0_v5 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>), *([v641 @ X8_v24 (Il2CppMethodInfo)+968]));\n\tgoto L_0196;\n\tgoto L_006D;\n\tgoto L_FFFFFFFF;\n\tgoto L_0176;\nL_00D9:\n\tv431 = new System.NullReferenceException();\n\tgoto L_01AD;\nL_00DB:\n\tv432 = new System.NullReferenceException();\n\tgoto L_01AD;\n\tgoto L_00E0;\n\tgoto L_00E0;\n\tgoto L_00E0;\nL_00E0:\n\tC = X1 < 1;\n\tC = ~C;\n\tTEMP1 = X1 - 1;\n\tN = TEMP1 < 0;\n\tTEMP2 = X1 ^ 1;\n\tTEMP3 = X1 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tTEMPCOND = ~Z;\n\tif (TEMPCOND) goto L_0190;\n\tX0 = 0x274A080(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX21 = *([X0]);\n\tstack[10] = X21;\n\tX0 = 0x274A098(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX23 = 0;\n\tX22 = 1;\n\tX0 = stack[18];\n\tgoto L_00C5;\nL_00F3:\n\tv464 = this.level;\n\tv651 = this.level == 0;\n\tif (v651) goto L_019A;\n\tv653 = Il2CppMethodInfo;\n\tgoto L_00FE;\nL_00FA:\n\tv235 = v235 + 1;\n\tv464 = this.level;\n\tv666 = this.level == 0;\n\tif (v666) goto L_019A;\nL_00FE:\n\tv495 = v464.goals;\n\tv453 = v464.goals == 0;\n\tif (v453) goto L_019C;\n\tv331 = v235 >= v495._size;\n\tif (v331) goto L_0176;\n\tv220 = *([v653 @ X22_v11 (Il2CppMethodInfo)+D0]);\n\tv665 = System.Collections.Generic.List`1<GoalData>::get_Item(v464.goals, v235);\n\tv454 = v665 == 0;\n\tif (v454) goto L_019E;\n\tv681 = v665.goalType != 5;\n\tif (v681) goto L_00FA;\n\tv201 = v665.count < 1;\n\tif (v201) goto L_00FA;\n\tv686 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv252 = new *([v686 @ X8_v32 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+CB8])();\n\tSystem.Object::.ctor(v252);\n\tv254 = v252 == 0;\n\tif (v254) goto L_01A2;\n\tv471 = v252 + 0x20;\n\t*([v252 @ X0_v54 (System.Object)+20]) = v478;\n\tv690 = 0xF3F1B4(v471, v478, *([v653 @ X22_v11 (Il2CppMethodInfo)+D0]), v222, v39, v40, v41, v42, v241, v197, v196, v46, v47, v48, v49, v50);\n\tgoto L_0142;\n\tv697 = \"il2cpp_codegen_ru\n// ... truncated")]
-	private unsafe void CheckFishHitWater()
+	private void CheckFishHitWater()
 	{
-		// The original per-particle water-overlap check (nested HashSet/NativeHashMap
-		// lookups against FluidSolver's spatial data) could not be recovered from the
-		// decompiled body. Left as a no-op rather than fabricating the detection logic;
-		// Fish.PlayHitWaterAnimation(Vector3) is the call this was expected to make.
+		foreach (Fish fish in solver.fishes)
+		{
+			bool hitWater = false;
+			foreach (int particleId in fish.particleIds)
+			{
+				if (solver.idToIndex.TryGetValue(particleId, out int index) && solver.waterDensities[index] > 0f)
+				{
+					hitWater = true;
+					break;
+				}
+			}
+			if (!hitWater)
+			{
+				continue;
+			}
+			for (int i = 0; i < level.goals.Count; i++)
+			{
+				GoalData goalData = level.goals[i];
+				if (goalData != null && goalData.goalType == GoalType.Fish && goalData.count >= 1)
+				{
+					global::UnityEngine.Vector2 worldGoalPosition = Viewport.GetViewport<GameplayScreen>().GetWorldGoalPosition(i);
+					fish.PlayHitWaterAnimation(worldGoalPosition);
+					break;
+				}
+			}
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60002FA")]
@@ -1193,7 +1216,10 @@ public class GameManager : Singleton<GameManager>
 		//IL_009a: Expected I4, but got F8
 		//IL_00d1: Expected O, but got I
 		//IL_004c: Expected O, but got I
-		targetParticleCount = 450;
+		// The native ctor performs one 64-bit store over the adjacent int fields
+		// targetParticleCount (0x48) and fishSpawnThreshold (0x4C): 0x0000012C_00000000,
+		// i.e. targetParticleCount = 0 and fishSpawnThreshold = 300.
+		targetParticleCount = 0;
 		fishSpawnThreshold = 300;
 		selectionRadius = 0.5f;
 		powerUpMergeDistance = 1f;

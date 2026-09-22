@@ -62,11 +62,7 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = 0x302A000;\n\tv22 = *([302AAC9]) & 1;\n\tv23 = v22 == 0;\n\tif (v23) goto L_0052;\n\tv28 = *([302AAC8]) & 1;\n\tv29 = v28 == 0;\n\tif (v29) goto L_0062;\nL_0018:\n\tv88 = this + 0x20;\n\tgoto L_001E;\nL_001E:\n\tv91 = System.Collections.Generic.NullableComparer`1;\n\tv93 = Il2CppMethodInfo;\n\tv97 = UnityEngine.Object::op_Implicit(v77);\n\tv107 = v97 == 0;\n\tv108 = ~v107;\n\tif (v108) goto L_0032;\n\tv112 = Il2CppMethodInfo;\n\tv116 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v112 @ X8_v12 (Il2CppMethodInfo)+760]));\n\tthis._text = v116;\n\tv120 = 0xF3F1B4(v88, v116, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_0032:\n\tv122 = this._text;\n\tv124 = new *([v91 @ X23_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D60])();\n\tSystem.Action`1<System.Object>::.ctor(v124, this, *([v93 @ X22_v6 (Il2CppMethodInfo)+AE0]));\n\tv130 = this._text == 0;\n\tif (v130) goto L_006D;\n\tv131 = *([v122 @ X20_v8 (TMPro.TextMeshProUGUI)]);\n\t// 74 IndirectJump [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618], this._text (TMPro.TextMeshProUGUI), this._text (TMPro.TextMeshProUGUI), v124 @ X0_v22, [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+620], [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+618], v36 @ X4, v37 @ X5, v38 @ X6, v39 @ X7, v40 @ V0, v41 @ V1, v42 @ V2, v43 @ V3, v44 @ V4, v45 @ V5, v46 @ V6, v47 @ V7\nL_0052:\n\t*([v20 @ X20_v1+AC9]) = 1;\n\tv104 = *([302AAC8]) & 1;\n\tv105 = v104 == 0;\n\tv53 = ~v105;\n\tif (v53) goto L_0018;\nL_0062:\n\t*([302AAC8]) = 1;\n\tv88 = this + 0x20;\n\tgoto L_001E;\n\tv76 = \"il2cpp_codegen_runtime_class_init\"(v98, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tgoto L_001E;\nL_006D:\n\tthrow v124;\n// 74 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void OnEnable()
 	{
-		if (_text == null)
-		{
-			_text = GetComponent<global::TMPro.TextMeshProUGUI>();
-		}
-		_text.OnPreRenderText += OnPreRenderText;
+		text.OnPreRenderText += OnPreRenderText;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003F1")]
@@ -74,11 +70,7 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = 0x302A000;\n\tv22 = *([302AACA]) & 1;\n\tv23 = v22 == 0;\n\tif (v23) goto L_0052;\n\tv28 = *([302AAC8]) & 1;\n\tv29 = v28 == 0;\n\tif (v29) goto L_0062;\nL_0018:\n\tv88 = this + 0x20;\n\tgoto L_001E;\nL_001E:\n\tv91 = System.Collections.Generic.NullableComparer`1;\n\tv93 = Il2CppMethodInfo;\n\tv97 = UnityEngine.Object::op_Implicit(v77);\n\tv107 = v97 == 0;\n\tv108 = ~v107;\n\tif (v108) goto L_0032;\n\tv112 = Il2CppMethodInfo;\n\tv116 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v112 @ X8_v12 (Il2CppMethodInfo)+760]));\n\tthis._text = v116;\n\tv120 = 0xF3F1B4(v88, v116, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\nL_0032:\n\tv122 = this._text;\n\tv124 = new *([v91 @ X23_v1 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D60])();\n\tSystem.Action`1<System.Object>::.ctor(v124, this, *([v93 @ X22_v6 (Il2CppMethodInfo)+AE0]));\n\tv130 = this._text == 0;\n\tif (v130) goto L_006D;\n\tv131 = *([v122 @ X20_v8 (TMPro.TextMeshProUGUI)]);\n\t// 74 IndirectJump [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628], this._text (TMPro.TextMeshProUGUI), this._text (TMPro.TextMeshProUGUI), v124 @ X0_v22, [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+630], [v131 @ X8_v10 (Il2CppClass<TMPro.TextMeshProUGUI>)+628], v36 @ X4, v37 @ X5, v38 @ X6, v39 @ X7, v40 @ V0, v41 @ V1, v42 @ V2, v43 @ V3, v44 @ V4, v45 @ V5, v46 @ V6, v47 @ V7\nL_0052:\n\t*([v20 @ X20_v1+ACA]) = 1;\n\tv104 = *([302AAC8]) & 1;\n\tv105 = v104 == 0;\n\tv53 = ~v105;\n\tif (v53) goto L_0018;\nL_0062:\n\t*([302AAC8]) = 1;\n\tv88 = this + 0x20;\n\tgoto L_001E;\n\tv76 = \"il2cpp_codegen_runtime_class_init\"(v98, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47);\n\tgoto L_001E;\nL_006D:\n\tthrow v124;\n// 74 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void OnDisable()
 	{
-		if (_text == null)
-		{
-			_text = GetComponent<global::TMPro.TextMeshProUGUI>();
-		}
-		_text.OnPreRenderText -= OnPreRenderText;
+		text.OnPreRenderText -= OnPreRenderText;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003F2")]
@@ -88,11 +80,11 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	{
 		global::TMPro.TMP_MeshInfo[] meshInfo = textInfo.meshInfo;
 		cachedVertexPositions = new global::UnityEngine.Vector3[meshInfo.Length][];
-		for (int i = 0; i < textInfo.meshInfo.Length; i++)
+		for (int i = 0; i < meshInfo.Length; i++)
 		{
-			global::TMPro.TMP_MeshInfo tMP_MeshInfo = textInfo.meshInfo[i];
-			cachedVertexPositions[i] = new global::UnityEngine.Vector3[tMP_MeshInfo.vertices.Length];
-			global::System.Array.Copy(tMP_MeshInfo.vertices, cachedVertexPositions[i], tMP_MeshInfo.vertices.Length);
+			global::UnityEngine.Vector3[] vertices = meshInfo[i].vertices;
+			cachedVertexPositions[i] = new global::UnityEngine.Vector3[vertices.Length];
+			global::System.Array.Copy(vertices, cachedVertexPositions[i], vertices.Length);
 		}
 	}
 
@@ -103,7 +95,9 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	{
 		if (textInfo.characterCount < 1)
 		{
+			return;
 		}
+		CacheVertexPositions(textInfo);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003F4")]
@@ -140,15 +134,16 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 			int vertexIndex = characterInfo.vertexIndex;
 			float elapsed = time - (transitionStartTime + letterDelay * charIndex);
 			float scale = 0f;
+			float bounceOffset = 0f;
 			if (elapsed >= 0f)
 			{
 				float scaleAngle = elapsed * scaleFrequency;
 				float scaleDecay = global::UnityEngine.Mathf.Exp(0f - scaleDamping * elapsed);
 				scale = 1f - scaleDecay * (elapsed + scaleDamping / scaleFrequency * global::UnityEngine.Mathf.Cos(scaleAngle));
+				float bounceAngle = elapsed * bounceFrequency;
+				float bounceDecay = global::UnityEngine.Mathf.Exp(0f - bounceDamping * elapsed);
+				bounceOffset = jumpHeight * bounceDecay * global::UnityEngine.Mathf.Sin(bounceAngle);
 			}
-			float bounceAngle = elapsed * bounceFrequency;
-			float bounceDecay = global::UnityEngine.Mathf.Exp(0f - bounceDamping * elapsed);
-			float bounceOffset = jumpHeight * bounceDecay * global::UnityEngine.Mathf.Sin(bounceAngle);
 			global::UnityEngine.Vector3[] source = cachedVertexPositions[materialIndex];
 			global::UnityEngine.Vector3 midpoint = (source[vertexIndex] + source[vertexIndex + 1] + source[vertexIndex + 2] + source[vertexIndex + 3]) * 0.25f;
 			global::UnityEngine.Vector3[] destination = textInfo.meshInfo[materialIndex].vertices;
@@ -174,7 +169,6 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	{
 		letterDelay = 0.05f;
 		jumpHeight = 10f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875A90]");
-		scaleDamping = 0f;
+		scaleDamping = 5f;
 	}
 }

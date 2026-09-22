@@ -47,13 +47,8 @@ public class CollectSprite : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = Il2CppMethodInfo;\n\tgoto L_0019;\n\tv25 = Il2CppMethodInfo;\n\tv26 = v25 + 0x738;\n\tv27 = \"il2cpp_codegen_initialize_runtime_metadata\"(v26, sprite, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41);\n\tv44 = 1;\n\t*([302A9A0]) = v44;\nL_0019:\n\tv47 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v20 @ X22_v1 (Il2CppMethodInfo)+738]));\n\tv49 = this + 0x20;\n\tthis.spriteRenderer = v47;\n\tv51 = 0xF3F1B4(v49, v47, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41);\n\tUnityEngine.SpriteRenderer::set_sprite(this.spriteRenderer, sprite);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 32 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void Init(global::UnityEngine.Sprite sprite)
 	{
-		//IL_0031: Expected O, but got I
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		global::UnityEngine.SpriteRenderer spriteRenderer = default(global::UnityEngine.SpriteRenderer);
-		this.spriteRenderer = spriteRenderer;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		this.spriteRenderer.sprite = sprite;
+		spriteRenderer = GetComponent<global::UnityEngine.SpriteRenderer>();
+		spriteRenderer.sprite = sprite;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60001C7")]

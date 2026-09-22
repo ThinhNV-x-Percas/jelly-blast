@@ -64,7 +64,8 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv25 = this.activeCount == 0;\n\tif (v25) goto L_00A6;\n\tthis.min = *([2875970]);\n\tv38 = this.activeCount < 1;\n\tif (v38) goto L_FFFFFFFF;\n\tv187 = this.interpPositions + 0x24;\nL_0036:\n\tv181 = this.scales;\n\tv270 = this.particleBoundsRadius * v181[v242 @ X9_v6 (System.Int32)];\n\tv400 = *([v187 @ X11_v6-4]) - v270;\n\tv410 = v168 >= v400;\n\tif (v410) goto L_FFFFFFFF;\n\tgoto L_005A;\nL_005A:\n\tv269 = *([v187 @ X11_v6]) - v270;\n\tv422 = v177 >= v269;\n\tif (v422) goto L_FFFFFFFF;\n\tgoto L_006A;\nL_006A:\n\tthis.min = v168;\n\tthis.min.y = v177;\n\tv427 = *([v187 @ X11_v6-4]) + v270;\n\tv430 = v171 - v427;\n\tv431 = v430 < 0;\n\tv432 = v430 == 0;\n\tv433 = v171 ^ v427;\n\tv434 = v171 ^ v430;\n\tv435 = v433 & v434;\n\tv436 = v435 < 0;\n\tv437 = v431 == v436;\n\tv438 = ~v432;\n\tv439 = v437 & v438;\n\tv440 = ~v439;\n\tif (v440) goto L_FFFFFFFF;\n\tgoto L_007F;\nL_007F:\n\tv275 = *([v187 @ X11_v6]) + v270;\n\tv450 = v174 - v275;\n\tv451 = v450 < 0;\n\tv452 = v450 == 0;\n\tv453 = v174 ^ v275;\n\tv454 = v174 ^ v450;\n\tv455 = v453 & v454;\n\tv456 = v455 < 0;\n\tv457 = v451 == v456;\n\tv267 = ~v452;\n\tv458 = v457 & v267;\n\tv268 = ~v458;\n\tif (v268) goto L_FFFFFFFF;\n\tgoto L_0092;\nL_0092:\n\tthis.max = v171;\n\tthis.max.y = v174;\n\tv242 = v242 + 1;\n\tv187 = v187 + 8;\n\tv283 = this.activeCount != v242;\n\tif (v283) goto L_0036;\n\tgoto L_00EB;\nL_00A6:\n\tgoto L_00AC;\n\tv51 = System.Xml.ValidateNames;\n\tv52 = v51 + 0x98;\n\tv53 = \"il2cpp_codegen_initialize_runtime_metadata\"(v52, methodInfo, v55, v56, v57, v58, v59, v60, v61, v62, v63, v64, v65, v66, v67, v68);\n\tv71 = 1;\n\t*([2DD4424]) = v71;\nL_00AC:\n\tv72 = System.Xml.ValidateNames;\n\tv74 = *([v72 @ X8_v6 (Il2CppClass<System.Xml.ValidateNames>)+98]);\n\tv75 = *([v74 @ X8_v8+B8]);\n\tthis.position = *([v75 @ X8_v9]);\n\tv297 = UnityEngine.Component::get_transform(this.mr);\n\tv119 = UnityEngine.Component::get_transform(this.mr);\n\tv235 = UnityEngine.Transform::get_position(v119);\n\t// 201 MakeStruct v102 @ AGGFF1D28_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), 0, 0, v235.z (System.Single)\n\tUnityEngine.Transform::set_position(v297, v102);\n\tv441 = UnityEngine.Component::get_transform(this.mr);\n\tgoto L_00DD;\n\tv459 = System.Xml.ValidateNames;\n\tv460 = v459 + 0xD0;\n\tv461 = \"il2cpp_codegen_initialize_runtime_metadata\"(v460, v115, v55, v56, v57, v58, v59, v60, v236, v156, v149, v64, v65, v66, v67, v68);\n\tv462 = 1;\n\t*([2DD4419]) = v462;\nL_00DD:\n\tv465 = System.Xml.ValidateNames;\n\tv467 = *([v465 @ X8_v12 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv468 = *([v467 @ X8_v14+B8]);\n\tv350 = *([v468 @ X8_v15+4]);\n\tv348 = *([v468 @ X8_v15+8]);\n\tv386 = *([v468 @ X8_v15]);\n\tgoto L_012F;\nL_00EB:\n\tv295 = v168 + v171;\n\tv296 = v177 + v174;\n\tv237 = v295 * 0.5f;\n\tv157 = v296 * 0.5f;\n\t*([2DD4060]) = v237;\n\t*([2DD4064]) = v157;\n\tv309 = UnityEngine.Component::get_transform(*([2DD4028]));\n\tv122 = UnityEngine.Component::get_transform(*([2DD4028]));\n\tv238 = UnityEngine.Transform::get_position(v122);\n\t// 267 MakeStruct v95 @ AGGFF1DF8_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), [2DD4060], [2DD4064], v238.z (System.Single)\n\tUnityEngine.Transform::set_position(v309, v95);\n\tv444 = UnityEngine.Component::get_transform(*([2DD4028]));\n\tv125 = UnityEngine.Component::get_transform(*([2DD4028]));\n\tv240 = UnityEngine.Transform::get_localScale(v125);\n\tv348 = v240.z;\n\tv386 = v171 - v168;\n\tv350 = v174 - v177;\nL_012F:\n\t// 303 MakeStruct v319 @ AGGFF1E54_1_v1 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), v386 @ V0_v1 (System.Single), v350 @ V1_v1 (System.Single), v348 @ V2_v1 (System.Single)\n\tUnityEngine.Transform::set_localScale(v477, v319);\n\treturn;\n\tv117 = new System.IndexOutOfRangeException();\n\tthrow System.NullReferenceException;\n\treturn;\n// 204 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public virtual void OnPreComputeUpdate()
 	{
-		if (activeCount > 0)
+		global::UnityEngine.Transform transform = mr.transform;
+		if (activeCount != 0)
 		{
 			float minX = float.PositiveInfinity;
 			float maxX = float.NegativeInfinity;
@@ -73,44 +74,27 @@ public abstract class FluidRendererBase : global::UnityEngine.MonoBehaviour
 			for (int i = 0; i < activeCount; i++)
 			{
 				float radius = particleBoundsRadius * scales[i];
-				float x0 = interpPositions[i].x - radius;
-				if (minX > x0)
-				{
-					minX = x0;
-				}
-				float y0 = interpPositions[i].y - radius;
-				if (minY > y0)
-				{
-					minY = y0;
-				}
-				float x1 = interpPositions[i].x + radius;
-				if (maxX < x1)
-				{
-					maxX = x1;
-				}
-				float y1 = interpPositions[i].y + radius;
-				if (maxY < y1)
-				{
-					maxY = y1;
-				}
+				global::UnityEngine.Vector2 p = interpPositions[i];
+				minX = global::UnityEngine.Mathf.Min(minX, p.x - radius);
+				minY = global::UnityEngine.Mathf.Min(minY, p.y - radius);
+				maxX = global::UnityEngine.Mathf.Max(maxX, p.x + radius);
+				maxY = global::UnityEngine.Mathf.Max(maxY, p.y + radius);
 			}
 			min = new global::UnityEngine.Vector2(minX, minY);
 			max = new global::UnityEngine.Vector2(maxX, maxY);
 			float centerX = (minX + maxX) * 0.5f;
 			float centerY = (minY + maxY) * 0.5f;
-			global::UnityEngine.Transform transform = mr.transform;
-			global::UnityEngine.Vector3 currentPos = transform.position;
-			transform.position = new global::UnityEngine.Vector3(centerX, centerY, currentPos.z);
+			global::UnityEngine.Vector3 pos = transform.position;
+			transform.position = new global::UnityEngine.Vector3(centerX, centerY, pos.z);
 			float z = transform.localScale.z;
 			transform.localScale = new global::UnityEngine.Vector3(maxX - minX, maxY - minY, z);
 		}
 		else
 		{
-			position = default(global::UnityEngine.Vector2);
-			global::UnityEngine.Transform transform2 = mr.transform;
-			global::UnityEngine.Vector3 currentPos2 = transform2.position;
-			transform2.position = new global::UnityEngine.Vector3(0f, 0f, currentPos2.z);
-			transform2.localScale = global::UnityEngine.Vector3.zero;
+			position = global::UnityEngine.Vector2.zero;
+			global::UnityEngine.Vector3 pos = transform.position;
+			transform.position = new global::UnityEngine.Vector3(0f, 0f, pos.z);
+			transform.localScale = global::UnityEngine.Vector3.zero;
 		}
 	}
 

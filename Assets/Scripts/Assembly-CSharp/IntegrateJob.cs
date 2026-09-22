@@ -23,22 +23,9 @@ public struct IntegrateJob : global::Unity.Jobs.IJobParallelFor
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv0 = this.isStatic;\n\tv5 = *([v0 @ X9_v1 (Unity.Collections.NativeArray`1<System.Boolean>)+i @ X1 (System.Int32)]) == 0;\n\tif (v5) goto L_0006;\n\treturn;\nL_0006:\n\tv6 = this.velocities;\n\tv7 = i << 3;\n\tv8 = this.positions;\n\tv12 = *([v6 @ X9_v3 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]) * v13;\n\tv14 = *([v8 @ X10_v1 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]) + v12;\n\t*([v8 @ X10_v1 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]) = v14;\n\t*([v6 @ X9_v3 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]) = *([v6 @ X9_v3 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]);\n\treturn;\n// 5 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void Execute(int i)
 	{
-		//IL_0068: Expected O, but got I
-		//IL_007e: Expected O, but got I
-		global::Unity.Collections.NativeArray<bool> nativeArray = isStatic;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v0 @ X9_v1 (Unity.Collections.NativeArray`1<System.Boolean>)+i @ X1 (System.Int32)]");
-		if ((nint)0 == 0)
+		if (!isStatic[i])
 		{
-			global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray2 = velocities;
-			int num = i << 3;
-			global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> nativeArray3 = positions;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v6 @ X9_v3 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]");
-			object obj2 = default(object);
-			object obj = 0 * (nint)obj2;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v8 @ X10_v1 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]");
-			object obj3 = 0 + (nint)obj;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v6 @ X9_v3 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v7 @ X8_v2 (System.Int32)]");
-			_ = 0;
+			positions[i] += velocities[i] * dt;
 		}
 	}
 }

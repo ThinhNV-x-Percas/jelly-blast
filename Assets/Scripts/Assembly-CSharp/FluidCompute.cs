@@ -316,7 +316,7 @@ public class FluidCompute : global::UnityEngine.MonoBehaviour
 	{
 		if (slot < 0 || particleIds.Length <= slot)
 		{
-			global::UnityEngine.Debug.Log(slot);
+			global::UnityEngine.Debug.Log("InitParticle slot out of range: " + slot);
 		}
 		particleIds[slot] = id;
 		positions[slot] = default(global::UnityEngine.Vector2);

@@ -53,15 +53,21 @@ public class Menu : global::UnityEngine.MonoBehaviour
 	private void Awake()
 	{
 		_logScroller = base.transform.root.GetComponent<LogScroller>();
-		_muted = global::UnityEngine.PlayerPrefs.GetInt("Muted", 0) != 0;
+		int savedMuted = global::UnityEngine.PlayerPrefs.GetInt("Muted", 0);
+		_muted = savedMuted != 0;
 		_mutedBtnImg.sprite = _muted ? _mutedSprite : _volumeSprite;
 		_bgMusic.mute = _muted;
-		foreach (global::UnityEngine.Transform child in _pages.transform)
+		global::UnityEngine.Transform pagesTransform = _pages.transform;
+		foreach (global::UnityEngine.Transform child in pagesTransform)
 		{
-			child.gameObject.SetActive(false);
+			child.gameObject.SetActive(value: false);
 		}
-		_currentPage = _pages.transform.GetChild(0).gameObject;
-		_currentPage.SetActive(true);
+		if (pagesTransform.childCount == 0)
+		{
+			return;
+		}
+		_currentPage = pagesTransform.GetChild(0).gameObject;
+		_currentPage.SetActive(value: true);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600008A")]
@@ -71,16 +77,16 @@ public class Menu : global::UnityEngine.MonoBehaviour
 	{
 		global::UnityEngine.Transform transform = _pages.transform;
 		global::UnityEngine.GameObject gameObject = _FindChild(transform, pageName);
-		if (gameObject != null)
+		if (gameObject == null)
 		{
-			_currentPage.SetActive(false);
-			_pagesStack.Push(_currentPage);
-			_currentPage = gameObject;
-			gameObject.SetActive(true);
-			_backBtn.interactable = true;
+			_logScroller.Log("Page not found: " + pageName);
 			return;
 		}
-		_logScroller.Log("Page not found: " + pageName);
+		_currentPage.SetActive(value: false);
+		_pagesStack.Push(_currentPage);
+		_currentPage = gameObject;
+		gameObject.SetActive(value: true);
+		_backBtn.interactable = true;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600008B")]

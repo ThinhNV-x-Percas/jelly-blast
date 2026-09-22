@@ -440,8 +440,7 @@ public class SpecialFluid : FluidRendererBase
 		solverIds[activeCount] = id;
 		int computeId = IdGenerator.Next();
 		computeIds[activeCount] = computeId;
-		compute.InitParticle(computeId, compute.activeCount);
-		compute.activeCount++;
+		compute.AddParticle(computeId);
 		activeCount++;
 	}
 
@@ -514,7 +513,7 @@ public class SpecialFluid : FluidRendererBase
 		global::UnityEngine.Vector3 viewportMax = main.WorldToViewportPoint(new global::UnityEngine.Vector3(max.x, max.y, 0f));
 		mr.GetPropertyBlock(_propBlock);
 		_propBlock.SetVector("_ViewportPos", new global::UnityEngine.Vector4(viewportPos.x, viewportPos.y, viewportPos.z, 0f));
-		_propBlock.SetVector("_ViewportSize", new global::UnityEngine.Vector4(viewportMax.x - viewportMin.x, viewportMax.y - viewportMin.y, 0f, 0f));
+		_propBlock.SetVector("_ViewportSize", new global::UnityEngine.Vector4(global::UnityEngine.Mathf.Abs(viewportMax.x - viewportMin.x), global::UnityEngine.Mathf.Abs(viewportMax.y - viewportMin.y), 0f, 0f));
 		mr.SetPropertyBlock(_propBlock);
 	}
 

@@ -91,17 +91,9 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 end = endPoint.position;
 		global::UnityEngine.Vector2 mid = (start + end) * 0.5f;
 		mid.y -= sagDepth;
-		global::UnityEngine.Vector2 prev = start;
-		float arcLength = 0f;
-		for (int i = 1; i <= 16; i++)
-		{
-			global::UnityEngine.Vector2 point = Bezier(start, mid, end, i / 16f);
-			arcLength += global::UnityEngine.Vector2.Distance(prev, point);
-			prev = point;
-		}
-		float linkLength = anchorOffset + anchorOffset;
-		int linkCount = global::UnityEngine.Mathf.Max(2, global::UnityEngine.Mathf.RoundToInt(arcLength / linkLength));
-		float[] ts = EvenTByArc(start, mid, end, linkCount, arcLength);
+		float bezLen = ApproxQuadLen(start, mid, end);
+		int linkCount = global::UnityEngine.Mathf.Max(2, global::UnityEngine.Mathf.RoundToInt(bezLen / (anchorOffset + anchorOffset)));
+		float[] ts = EvenTByArc(start, mid, end, linkCount, bezLen);
 		SpawnLinks(start, mid, end, ts, startPoint, endPoint);
 		_lastStartPos = start;
 		_lastEndPos = end;
@@ -113,27 +105,33 @@ public class Chain : global::UnityEngine.MonoBehaviour
 	private void SpawnLinks(global::UnityEngine.Vector2 p0, global::UnityEngine.Vector2 p1, global::UnityEngine.Vector2 p2, float[] ts, global::UnityEngine.Rigidbody2D rbStart, global::UnityEngine.Rigidbody2D rbEnd)
 	{
 		global::UnityEngine.Rigidbody2D previous = rbStart;
-		global::UnityEngine.Rigidbody2D last = rbStart;
 		for (int i = 0; i < ts.Length; i++)
 		{
 			float t = ts[i];
-			global::UnityEngine.Vector2 dir = BezierDeriv(p0, p1, p2, t);
-			global::UnityEngine.Vector2 dirNorm = (dir.magnitude > 1E-05f) ? dir.normalized : global::UnityEngine.Vector2.zero;
 			global::UnityEngine.Vector2 point = Bezier(p0, p1, p2, t);
-			float angleDeg = global::UnityEngine.Mathf.Atan2(dirNorm.y, dirNorm.x) * global::UnityEngine.Mathf.Rad2Deg + 90f;
-			global::UnityEngine.Quaternion rot = global::UnityEngine.Quaternion.Euler(0f, 0f, angleDeg);
+			global::UnityEngine.Vector2 tangent = BezierDeriv(p0, p1, p2, t);
+			float angle = 90f;
+			if (tangent.sqrMagnitude > 1E-10f)
+			{
+				angle = global::UnityEngine.Mathf.Atan2(tangent.y, tangent.x) * global::UnityEngine.Mathf.Rad2Deg + 90f;
+			}
+			global::UnityEngine.Quaternion rot = global::UnityEngine.Quaternion.Euler(0f, 0f, angle);
 			global::UnityEngine.Vector3 pos = new global::UnityEngine.Vector3(point.x, point.y, 0f);
 			global::UnityEngine.Rigidbody2D link = CreateLink(pos, rot, i);
-			float targetY = ((i & 1) == 0) ? (anchorOffset * -0.5f) : (anchorOffset * 0.5f);
-			global::UnityEngine.Vector2 localAnchor = new global::UnityEngine.Vector2(0f, anchorOffset);
-			global::UnityEngine.Vector2 targetAnchor = new global::UnityEngine.Vector2(0f, targetY);
-			ConnectRope(link, previous, localAnchor, targetAnchor);
+			global::UnityEngine.Vector2 targetAnchor = (previous == rbStart) ? global::UnityEngine.Vector2.zero : new global::UnityEngine.Vector2(0f, anchorOffset * -0.5f);
+			ConnectRope(link, previous, new global::UnityEngine.Vector2(0f, anchorOffset), targetAnchor);
 			_links.Add(link);
 			previous = link;
-			last = link;
 		}
-		global::UnityEngine.Vector2 lastLocalAnchor = new global::UnityEngine.Vector2(0f, anchorOffset * -0.5f);
-		ConnectRope(last, rbEnd, lastLocalAnchor, global::UnityEngine.Vector2.zero);
+		if (_links.Count > 0)
+		{
+			global::UnityEngine.Rigidbody2D last = _links[_links.Count - 1];
+			ConnectRope(last, rbEnd, new global::UnityEngine.Vector2(0f, anchorOffset * -0.5f), global::UnityEngine.Vector2.zero);
+		}
+		else
+		{
+			ConnectRope(rbStart, rbEnd, global::UnityEngine.Vector2.zero, global::UnityEngine.Vector2.zero);
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600018B")]
@@ -232,14 +230,14 @@ public class Chain : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0033;\n\tv59 = Il2CppMethodInfo;\n\tv60 = v59 + 0x788;\n\tv61 = \"il2cpp_codegen_initialize_runtime_metadata\"(v60, i, methodInfo, v63, v64, v65, v66, v67, pos, v0, v2, rot, v3, v5, v6, v68);\n\tv79 = Il2CppMethodInfo;\n\tv80 = v79 + 0x118;\n\tv81 = \"il2cpp_codegen_initialize_runtime_metadata\"(v80, i, methodInfo, v63, v64, v65, v66, v67, pos, v0, v2, rot, v3, v5, v6, v68);\n\tv87 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv88 = v87 + 0xFD8;\n\tv70 = \"il2cpp_codegen_initialize_runtime_metadata\"(v88, i, methodInfo, v63, v64, v65, v66, v67, pos, v0, v2, rot, v3, v5, v6, v68);\n\tv72 = 1;\n\t*([302A981]) = v72;\nL_0033:\n\tv73 = Il2CppMethodInfo;\n\tv78 = UnityEngine.Component::get_transform(this);\n\tgoto L_004C;\n\tv89 = \"il2cpp_codegen_runtime_class_init\"(v83, v77, methodInfo, v63, v64, v65, v66, v67, pos, v0, v2, rot, v3, v5, v6, v68);\nL_004C:\n\tv103 = UnityEngine.Object::Instantiate /* +1 sharing this address */(this.linkPrefab, pos, rot, v78, *([v73 @ X23_v1 (Il2CppMethodInfo)+118]));\n\tv106 = Il2CppMethodInfo;\n\tv109 = UnityEngine.Component::GetComponentInChildren /* +1 sharing this address */(v103, *([v106 @ X8_v5 (Il2CppMethodInfo)+788]));\n\tv149 = UnityEngine.Component::get_transform(v109);\n\tv201 = i & 1;\n\tv124 = v201 == 0;\n\tv115 = ~v124;\n\tif (v115) goto L_FFFFFFFF;\n\tgoto L_006B;\nL_006B:\n\t// 107 MakeStruct v112 @ AGGFEAE44_0_v2 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), 0, v207 @ V1_v5 (System.Int32), 0\n\tv133 = UnityEngine.Quaternion::Internal_FromEulerRad(v112);\n\tUnityEngine.Transform::set_localRotation(v149, v133);\n\treturn v103;\n\treturnVal1 = new System.NullReferenceException();\n\treturn returnVal1;\n// 108 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private global::UnityEngine.Rigidbody2D CreateLink(global::UnityEngine.Vector3 pos, global::UnityEngine.Quaternion rot, int i)
 	{
-		global::UnityEngine.Rigidbody2D result = global::UnityEngine.Object.Instantiate(linkPrefab, pos, rot, base.transform);
-		global::UnityEngine.SpriteRenderer spriteRenderer = result.GetComponentInChildren<global::UnityEngine.SpriteRenderer>();
-		if (spriteRenderer != null)
+		global::UnityEngine.Rigidbody2D rigidbody2D = global::UnityEngine.Object.Instantiate(linkPrefab, pos, rot, base.transform);
+		global::UnityEngine.MeshRenderer meshRenderer = rigidbody2D.GetComponentInChildren<global::UnityEngine.MeshRenderer>();
+		if (meshRenderer != null)
 		{
 			float yDeg = ((i & 1) == 0) ? 90f : 0f;
-			spriteRenderer.transform.localRotation = global::UnityEngine.Quaternion.Euler(0f, yDeg, 0f);
+			meshRenderer.transform.localRotation = global::UnityEngine.Quaternion.Euler(0f, yDeg, 0f);
 		}
-		return result;
+		return rigidbody2D;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000191")]

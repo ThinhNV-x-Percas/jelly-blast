@@ -523,10 +523,8 @@ public class PowerUp : SpecialFluid
 	{
 		//IL_003f: Expected O, but got I
 		mr.GetPropertyBlock(_propBlock);
-		string text = "Writing object reference to Id '{0}' for {1}.";
 		global::UnityEngine.MaterialPropertyBlock propBlock = _propBlock;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v62 @ X8_v4 (System.String)+8C0]");
-		propBlock.SetFloat((string)0, rot);
+		propBlock.SetFloat("_Rotation", rot);
 		mr.SetPropertyBlock(_propBlock);
 	}
 }

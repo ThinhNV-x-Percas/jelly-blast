@@ -313,6 +313,10 @@ public class FluidSolver : MonoBehaviour
 
     public void Step(float dt)
     {
+        // Finish the previous step's job chain before any main-thread reads/writes of the
+        // native containers below (midpoint updates, positions/positionsPrev copy, cellMap.Clear).
+        // Without this, PredictJob/BlobCohesionJob from the previous step are still running.
+        _lastJob.Complete();
         UpdateFishMidpoints();
         UpdatePowerUpMidpoints();
         UpdateCaterpillarMidpoints();
@@ -538,7 +542,9 @@ public class FluidSolver : MonoBehaviour
             octopusHeadMidpoints = octopusHeadMidpoints,
             bodyCohesionForce = octopusBodyCohesionForce,
             dt = dt
-        }, ActiveCount, 64, dependsOn18);
+        // Both OctopusHeadCohesionJob (jobHandle) and OctopusBodyCohesionJob write deltaVel,
+        // so the body job must wait for the head job as well as the region-map chain.
+        }, ActiveCount, 64, Unity.Jobs.JobHandle.CombineDependencies(dependsOn18, jobHandle));
         Unity.Jobs.JobHandle dependsOn19 = jobHandle3;
         Unity.Jobs.JobHandle jobHandle4 = Unity.Jobs.IJobParallelForExtensions.Schedule(new IntegrateJob
         {
@@ -549,6 +555,9 @@ public class FluidSolver : MonoBehaviour
         }, ActiveCount, 64, dependsOn19);
         _lastJob.Complete();
         _lastJob = jobHandle4;
+        // Complete this step's chain before onStep callbacks and any other main-thread
+        // access to the native containers (input queries, coupler jobs, rendering reads).
+        _lastJob.Complete();
         global::System.Action onStep = OnStep;
         if (onStep != null)
         {

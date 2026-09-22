@@ -1261,21 +1261,75 @@ public static class EasingFunction
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0074;\n\tv21 = Il2CppMethodInfo;\n\tv22 = v21 + 0xED8;\n\tv23 = \"il2cpp_codegen_initialize_runtime_metadata\"(v22, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv54 = Il2CppMethodInfo;\n\tv55 = v54 + 0xEE8;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v55, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0xEF8;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv91 = Il2CppMethodInfo;\n\tv92 = v91 + 0xF08;\n\tv93 = \"il2cpp_codegen_initialize_runtime_metadata\"(v92, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv94 = Il2CppMethodInfo;\n\tv95 = v94 + 0xF18;\n\tv96 = \"il2cpp_codegen_initialize_runtime_metadata\"(v95, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv97 = Il2CppMethodInfo;\n\tv98 = v97 + 0xF28;\n\tv99 = \"il2cpp_codegen_initialize_runtime_metadata\"(v98, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv100 = Il2CppMethodInfo;\n\tv101 = v100 + 0xF38;\n\tv102 = \"il2cpp_codegen_initialize_runtime_metadata\"(v101, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv103 = Il2CppMethodInfo;\n\tv104 = v103 + 0xF48;\n\tv105 = \"il2cpp_codegen_initialize_runtime_metadata\"(v104, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv106 = Il2CppMethodInfo;\n\tv107 = v106 + 0xF58;\n\tv108 = \"il2cpp_codegen_initialize_runtime_metadata\"(v107, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv109 = Il2CppMethodInfo;\n\tv110 = v109 + 0xF68;\n\tv111 = \"il2cpp_codegen_initialize_runtime_metadata\"(v110, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv112 = Il2CppMethodInfo;\n\tv113 = v112 + 0xF78;\n\tv114 = \"il2cpp_codegen_initialize_runtime_metadata\"(v113, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv115 = Il2CppMethodInfo;\n\tv116 = v115 + 0xF88;\n\tv117 = \"il2cpp_codegen_initialize_runtime_metadata\"(v116, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv118 = Il2CppMethodInfo;\n\tv119 = v118 + 0xF98;\n\tv120 = \"il2cpp_codegen_initialize_runtime_metadata\"(v119, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv121 = Il2CppMethodInfo;\n\tv122 = v121 + 0xFA8;\n\tv123 = \"il2cpp_codegen_initialize_runtime_metadata\"(v122, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv124 = Il2CppMethodInfo;\n\tv125 = v124 + 0xFB8;\n\tv126 = \"il2cpp_codegen_initialize_runtime_metadata\"(v125, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv127 = Il2CppMethodInfo;\n\tv128 = v127 + 0xFC8;\n\tv129 = \"il2cpp_codegen_initialize_runtime_metadata\"(v128, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv130 = Il2CppMethodInfo;\n\tv131 = v130 + 0xFD8;\n\tv132 = \"il2cpp_codegen_initialize_runtime_metadata\"(v131, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv133 = Il2CppMethodInfo;\n\tv134 = v133 + 0xFE8;\n\tv135 = \"il2cpp_codegen_initialize_runtime_metadata\"(v134, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv136 = Il2CppMethodInfo;\n\tv137 = v136 + 0xFF8;\n\tv138 = \"il2cpp_codegen_initialize_runtime_metadata\"(v137, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv139 = Il2CppMethodInfo;\n\tv140 = v139 + 8;\n\tv141 = \"il2cpp_codegen_initialize_runtime_metadata\"(v140, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv142 = Il2CppMethodInfo;\n\tv143 = v142 + 0x18;\n\tv144 = \"il2cpp_codegen_initialize_runtime_metadata\"(v143, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv145 = Il2CppMethodInfo;\n\tv146 = v145 + 0x28;\n\tv147 = \"il2cpp_codegen_initialize_runtime_metadata\"(v146, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv148 = Il2CppMethodInfo;\n\tv149 = v148 + 0x38;\n\tv150 = \"il2cpp_codegen_initialize_runtime_metadata\"(v149, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv151 = Il2CppMethodInfo;\n\tv152 = v151 + 0x48;\n\tv153 = \"il2cpp_codegen_initialize_runtime_metadata\"(v152, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv154 = Il2CppMethodInfo;\n\tv155 = v154 + 0x58;\n\tv156 = \"il2cpp_codegen_initialize_runtime_metadata\"(v155, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv157 = Il2CppMethodInfo;\n\tv158 = v157 + 0x68;\n\tv159 = \"il2cpp_codegen_initialize_runtime_metadata\"(v158, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv160 = Il2CppMethodInfo;\n\tv161 = v160 + 0x78;\n\tv162 = \"il2cpp_codegen_initialize_runtime_metadata\"(v161, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv163 = Il2CppMethodInfo;\n\tv164 = v163 + 0x88;\n\tv165 = \"il2cpp_codegen_initialize_runtime_metadata\"(v164, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv166 = Il2CppMethodInfo;\n\tv167 = v166 + 0x98;\n\tv168 = \"il2cpp_codegen_initialize_runtime_metadata\"(v167, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv169 = Il2CppMethodInfo;\n\tv170 = v169 + 0xA8;\n\tv171 = \"il2cpp_codegen_initialize_runtime_metadata\"(v170, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv172 = Il2CppMethodInfo;\n\tv173 = v172 + 0xB8;\n\tv174 = \"il2cpp_codegen_initialize_runtime_metadata\"(v173, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv175 = Il2CppMethodInfo;\n\tv176 = v175 + 0xC8;\n\tv177 = \"il2cpp_codegen_initialize_runtime_metadata\"(v176, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv178 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv179 = v178 + 0x858;\n\tv40 = \"il2cpp_codegen_initialize_runtime_metadata\"(v179, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv42 = 1;\n\t*([302A8CB]) = v42;\nL_0074:\n\tv43 = v39 < 0x1F;\n\tv44 = ~v43;\n\tv45 = v39 - 0x1F;\n\tv47 = v45 == 0;\n\tv52 = ~v47;\n\tv53 = v44 & v52;\n\tif (v53) goto L_0109;\n\tv59 = 0x2875000 + 0x890;\n\tv62 = *([v59 @ X9_v2 (System.Int32)+v39 @ X0_v1 (EasingFunction+Ease)]) << 2;\n\tv63 = 0xFD4580 + v62;\n\t// 135 IndirectJump v63 @ X10_v2 (System.Int32), v39 @ X0_v1 (EasingFunction+Ease), v39 @ X0_v1 (EasingFunction+Ease), methodInfo @ X1 (Il2CppMethodInfo), v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFD8;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x78;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xF98;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xF08;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x48;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x88;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFF8;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFB8;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\n// ... truncated")]
 	public static EasingFunction.Function GetEasingFunction(EasingFunction.Ease easingFunction)
 	{
-		EasingFunction.Ease ease = default(EasingFunction.Ease);
-		bool flag = ease < EasingFunction.Ease.EaseInOutElastic;
-		bool flag2 = !flag;
-		int num = (int)(ease - 31);
-		bool flag3 = num == 0;
-		bool flag4 = !flag3;
-		if (!(flag2 && flag4))
+		switch (easingFunction)
 		{
-			int num2 = 42422272 + 2192;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X9_v2 (System.Int32)+v39 @ X0_v1 (EasingFunction+Ease)]");
-			int num3 = (int)((nint)0 << 2);
-			int num4 = 16598400 + num3;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: v63 @ X10_v2 (System.Int32) (should have been resolved before IL gen)");
+		case EasingFunction.Ease.EaseInQuad:
+			return EaseInQuad;
+		case EasingFunction.Ease.EaseOutQuad:
+			return EaseOutQuad;
+		case EasingFunction.Ease.EaseInOutQuad:
+			return EaseInOutQuad;
+		case EasingFunction.Ease.EaseInCubic:
+			return EaseInCubic;
+		case EasingFunction.Ease.EaseOutCubic:
+			return EaseOutCubic;
+		case EasingFunction.Ease.EaseInOutCubic:
+			return EaseInOutCubic;
+		case EasingFunction.Ease.EaseInQuart:
+			return EaseInQuart;
+		case EasingFunction.Ease.EaseOutQuart:
+			return EaseOutQuart;
+		case EasingFunction.Ease.EaseInOutQuart:
+			return EaseInOutQuart;
+		case EasingFunction.Ease.EaseInQuint:
+			return EaseInQuint;
+		case EasingFunction.Ease.EaseOutQuint:
+			return EaseOutQuint;
+		case EasingFunction.Ease.EaseInOutQuint:
+			return EaseInOutQuint;
+		case EasingFunction.Ease.EaseInSine:
+			return EaseInSine;
+		case EasingFunction.Ease.EaseOutSine:
+			return EaseOutSine;
+		case EasingFunction.Ease.EaseInOutSine:
+			return EaseInOutSine;
+		case EasingFunction.Ease.EaseInExpo:
+			return EaseInExpo;
+		case EasingFunction.Ease.EaseOutExpo:
+			return EaseOutExpo;
+		case EasingFunction.Ease.EaseInOutExpo:
+			return EaseInOutExpo;
+		case EasingFunction.Ease.EaseInCirc:
+			return EaseInCirc;
+		case EasingFunction.Ease.EaseOutCirc:
+			return EaseOutCirc;
+		case EasingFunction.Ease.EaseInOutCirc:
+			return EaseInOutCirc;
+		case EasingFunction.Ease.Linear:
+			return Linear;
+		case EasingFunction.Ease.Spring:
+			return Spring;
+		case EasingFunction.Ease.EaseInBounce:
+			return EaseInBounce;
+		case EasingFunction.Ease.EaseOutBounce:
+			return EaseOutBounce;
+		case EasingFunction.Ease.EaseInOutBounce:
+			return EaseInOutBounce;
+		case EasingFunction.Ease.EaseInBack:
+			return EaseInBack;
+		case EasingFunction.Ease.EaseOutBack:
+			return EaseOutBack;
+		case EasingFunction.Ease.EaseInOutBack:
+			return EaseInOutBack;
+		case EasingFunction.Ease.EaseInElastic:
+			return EaseInElastic;
+		case EasingFunction.Ease.EaseOutElastic:
+			return EaseOutElastic;
+		case EasingFunction.Ease.EaseInOutElastic:
+			return EaseInOutElastic;
+		default:
+			return Linear;
 		}
-		return null;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000049")]
@@ -1283,20 +1337,74 @@ public static class EasingFunction
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0074;\n\tv21 = Il2CppMethodInfo;\n\tv22 = v21 + 0xEE0;\n\tv23 = \"il2cpp_codegen_initialize_runtime_metadata\"(v22, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv54 = Il2CppMethodInfo;\n\tv55 = v54 + 0xEF0;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v55, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0xF00;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv91 = Il2CppMethodInfo;\n\tv92 = v91 + 0xF10;\n\tv93 = \"il2cpp_codegen_initialize_runtime_metadata\"(v92, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv94 = Il2CppMethodInfo;\n\tv95 = v94 + 0xF20;\n\tv96 = \"il2cpp_codegen_initialize_runtime_metadata\"(v95, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv97 = Il2CppMethodInfo;\n\tv98 = v97 + 0xF30;\n\tv99 = \"il2cpp_codegen_initialize_runtime_metadata\"(v98, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv100 = Il2CppMethodInfo;\n\tv101 = v100 + 0xF40;\n\tv102 = \"il2cpp_codegen_initialize_runtime_metadata\"(v101, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv103 = Il2CppMethodInfo;\n\tv104 = v103 + 0xF50;\n\tv105 = \"il2cpp_codegen_initialize_runtime_metadata\"(v104, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv106 = Il2CppMethodInfo;\n\tv107 = v106 + 0xF60;\n\tv108 = \"il2cpp_codegen_initialize_runtime_metadata\"(v107, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv109 = Il2CppMethodInfo;\n\tv110 = v109 + 0xF70;\n\tv111 = \"il2cpp_codegen_initialize_runtime_metadata\"(v110, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv112 = Il2CppMethodInfo;\n\tv113 = v112 + 0xF80;\n\tv114 = \"il2cpp_codegen_initialize_runtime_metadata\"(v113, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv115 = Il2CppMethodInfo;\n\tv116 = v115 + 0xF90;\n\tv117 = \"il2cpp_codegen_initialize_runtime_metadata\"(v116, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv118 = Il2CppMethodInfo;\n\tv119 = v118 + 0xFA0;\n\tv120 = \"il2cpp_codegen_initialize_runtime_metadata\"(v119, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv121 = Il2CppMethodInfo;\n\tv122 = v121 + 0xFB0;\n\tv123 = \"il2cpp_codegen_initialize_runtime_metadata\"(v122, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv124 = Il2CppMethodInfo;\n\tv125 = v124 + 0xFC0;\n\tv126 = \"il2cpp_codegen_initialize_runtime_metadata\"(v125, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv127 = Il2CppMethodInfo;\n\tv128 = v127 + 0xFD0;\n\tv129 = \"il2cpp_codegen_initialize_runtime_metadata\"(v128, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv130 = Il2CppMethodInfo;\n\tv131 = v130 + 0xFE0;\n\tv132 = \"il2cpp_codegen_initialize_runtime_metadata\"(v131, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv133 = Il2CppMethodInfo;\n\tv134 = v133 + 0xFF0;\n\tv135 = \"il2cpp_codegen_initialize_runtime_metadata\"(v134, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv136 = Il2CppMethodInfo;\n\tv137 = v136 + 0;\n\tv138 = \"il2cpp_codegen_initialize_runtime_metadata\"(v137, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv139 = Il2CppMethodInfo;\n\tv140 = v139 + 0x10;\n\tv141 = \"il2cpp_codegen_initialize_runtime_metadata\"(v140, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv142 = Il2CppMethodInfo;\n\tv143 = v142 + 0x20;\n\tv144 = \"il2cpp_codegen_initialize_runtime_metadata\"(v143, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv145 = Il2CppMethodInfo;\n\tv146 = v145 + 0x30;\n\tv147 = \"il2cpp_codegen_initialize_runtime_metadata\"(v146, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv148 = Il2CppMethodInfo;\n\tv149 = v148 + 0x40;\n\tv150 = \"il2cpp_codegen_initialize_runtime_metadata\"(v149, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv151 = Il2CppMethodInfo;\n\tv152 = v151 + 0x50;\n\tv153 = \"il2cpp_codegen_initialize_runtime_metadata\"(v152, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv154 = Il2CppMethodInfo;\n\tv155 = v154 + 0x60;\n\tv156 = \"il2cpp_codegen_initialize_runtime_metadata\"(v155, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv157 = Il2CppMethodInfo;\n\tv158 = v157 + 0x70;\n\tv159 = \"il2cpp_codegen_initialize_runtime_metadata\"(v158, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv160 = Il2CppMethodInfo;\n\tv161 = v160 + 0x80;\n\tv162 = \"il2cpp_codegen_initialize_runtime_metadata\"(v161, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv163 = Il2CppMethodInfo;\n\tv164 = v163 + 0x90;\n\tv165 = \"il2cpp_codegen_initialize_runtime_metadata\"(v164, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv166 = Il2CppMethodInfo;\n\tv167 = v166 + 0xA0;\n\tv168 = \"il2cpp_codegen_initialize_runtime_metadata\"(v167, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv169 = Il2CppMethodInfo;\n\tv170 = v169 + 0xB0;\n\tv171 = \"il2cpp_codegen_initialize_runtime_metadata\"(v170, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv172 = Il2CppMethodInfo;\n\tv173 = v172 + 0xC0;\n\tv174 = \"il2cpp_codegen_initialize_runtime_metadata\"(v173, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv175 = Il2CppMethodInfo;\n\tv176 = v175 + 0xD0;\n\tv177 = \"il2cpp_codegen_initialize_runtime_metadata\"(v176, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv178 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv179 = v178 + 0x858;\n\tv40 = \"il2cpp_codegen_initialize_runtime_metadata\"(v179, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv42 = 1;\n\t*([302A8CC]) = v42;\nL_0074:\n\tv43 = v39 < 0x1F;\n\tv44 = ~v43;\n\tv45 = v39 - 0x1F;\n\tv47 = v45 == 0;\n\tv52 = ~v47;\n\tv53 = v44 & v52;\n\tif (v53) goto L_0109;\n\tv59 = 0x2875000 + 0x8B0;\n\tv62 = *([v59 @ X9_v2 (System.Int32)+v39 @ X0_v1 (EasingFunction+Ease)]) << 2;\n\tv63 = 0xFD4C9C + v62;\n\t// 135 IndirectJump v63 @ X10_v2 (System.Int32), v39 @ X0_v1 (EasingFunction+Ease), v39 @ X0_v1 (EasingFunction+Ease), methodInfo @ X1 (Il2CppMethodInfo), v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFE0;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x80;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFA0;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xF10;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x50;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0x90;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX19 = X0;\n\tX8 = X8 + 0xFC0;\n\tgoto L_0191;\n\tX8 = X8 + 0x858;\n\tX0 =\n// ... truncated")]
 	public static EasingFunction.Function GetEasingFunctionDerivative(EasingFunction.Ease easingFunction)
 	{
-		EasingFunction.Ease ease = default(EasingFunction.Ease);
-		bool flag = ease < EasingFunction.Ease.EaseInOutElastic;
-		bool flag2 = !flag;
-		int num = (int)(ease - 31);
-		bool flag3 = num == 0;
-		bool flag4 = !flag3;
-		if (!(flag2 && flag4))
+		switch (easingFunction)
 		{
-			int num2 = 42422272 + 2224;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X9_v2 (System.Int32)+v39 @ X0_v1 (EasingFunction+Ease)]");
-			int num3 = (int)((nint)0 << 2);
-			int num4 = 16600220 + num3;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: v63 @ X10_v2 (System.Int32) (should have been resolved before IL gen)");
+		case EasingFunction.Ease.EaseInQuad:
+			return EaseInQuadD;
+		case EasingFunction.Ease.EaseOutQuad:
+			return EaseOutQuadD;
+		case EasingFunction.Ease.EaseInOutQuad:
+			return EaseInOutQuadD;
+		case EasingFunction.Ease.EaseInCubic:
+			return EaseInCubicD;
+		case EasingFunction.Ease.EaseOutCubic:
+			return EaseOutCubicD;
+		case EasingFunction.Ease.EaseInOutCubic:
+			return EaseInOutCubicD;
+		case EasingFunction.Ease.EaseInQuart:
+			return EaseInQuartD;
+		case EasingFunction.Ease.EaseOutQuart:
+			return EaseOutQuartD;
+		case EasingFunction.Ease.EaseInOutQuart:
+			return EaseInOutQuartD;
+		case EasingFunction.Ease.EaseInQuint:
+			return EaseInQuintD;
+		case EasingFunction.Ease.EaseOutQuint:
+			return EaseOutQuintD;
+		case EasingFunction.Ease.EaseInOutQuint:
+			return EaseInOutQuintD;
+		case EasingFunction.Ease.EaseInSine:
+			return EaseInSineD;
+		case EasingFunction.Ease.EaseOutSine:
+			return EaseOutSineD;
+		case EasingFunction.Ease.EaseInOutSine:
+			return EaseInOutSineD;
+		case EasingFunction.Ease.EaseInExpo:
+			return EaseInExpoD;
+		case EasingFunction.Ease.EaseOutExpo:
+			return EaseOutExpoD;
+		case EasingFunction.Ease.EaseInOutExpo:
+			return EaseInOutExpoD;
+		case EasingFunction.Ease.EaseInCirc:
+			return EaseInCircD;
+		case EasingFunction.Ease.EaseOutCirc:
+			return EaseOutCircD;
+		case EasingFunction.Ease.EaseInOutCirc:
+			return EaseInOutCircD;
+		case EasingFunction.Ease.Linear:
+			return LinearD;
+		case EasingFunction.Ease.Spring:
+			return SpringD;
+		case EasingFunction.Ease.EaseInBounce:
+			return EaseInBounceD;
+		case EasingFunction.Ease.EaseOutBounce:
+			return EaseOutBounceD;
+		case EasingFunction.Ease.EaseInOutBounce:
+			return EaseInOutBounceD;
+		case EasingFunction.Ease.EaseInBack:
+			return EaseInBackD;
+		case EasingFunction.Ease.EaseOutBack:
+			return EaseOutBackD;
+		case EasingFunction.Ease.EaseInOutBack:
+			return EaseInOutBackD;
+		case EasingFunction.Ease.EaseInElastic:
+			return EaseInElasticD;
+		case EasingFunction.Ease.EaseOutElastic:
+			return EaseOutElasticD;
+		case EasingFunction.Ease.EaseInOutElastic:
+			return EaseInOutElasticD;
+		default:
+			return LinearD;
 		}
-		return null;
 	}
 }

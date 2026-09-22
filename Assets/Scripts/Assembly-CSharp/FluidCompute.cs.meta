@@ -1,13 +1,18 @@
 fileFormatVersion: 2
 guid: 13d9a7f55980fe39c2f70d96080ed77c
-timeCreated: 1790054374
-licenseType: Free
 MonoImporter:
-  serializedVersion: 2
   externalObjects: {}
-  defaultReferences: []
+  serializedVersion: 2
+  defaultReferences:
+  - quadMesh: {instanceID: 0}
+  - particlesMaterial: {instanceID: 0}
+  - emissionMaterial: {instanceID: 0}
+  - emissionRT: {instanceID: 0}
+  - rawFieldRT: {instanceID: 0}
+  - fluidCS: {fileID: 7200000, guid: 7d23269a9d30ea24f8c073a7cd1632eb, type: 3}
+  - fluidRT: {instanceID: 0}
   executionOrder: 0
-  icon: {fileID: 0}
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

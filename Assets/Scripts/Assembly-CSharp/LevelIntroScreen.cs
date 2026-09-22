@@ -161,36 +161,12 @@ public class LevelIntroScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0021;\n\tv27 = CollectParticleData[];\n\tv28 = v27 + 0x990;\n\tv29 = \"il2cpp_codegen_initialize_runtime_metadata\"(v28, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv53 = Il2CppMethodInfo;\n\tv54 = v53 + 0xF60;\n\tv55 = \"il2cpp_codegen_initialize_runtime_metadata\"(v54, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv60 = Il2CppMethodInfo;\n\tv61 = v60 + 0xC90;\n\tv62 = \"il2cpp_codegen_initialize_runtime_metadata\"(v61, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv67 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv68 = v67 + 0xA48;\n\tv46 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv48 = 1;\n\t*([302AAEF]) = v48;\nL_0021:\n\tv49 = Il2CppMethodInfo;\n\tViewport::Awake(this);\n\tgoto L_002D;\n\tv63 = \"il2cpp_codegen_runtime_class_init\"(v56, v52, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\nL_002D:\n\tv66 = Singleton`1::get_Instance /* +1 sharing this address */(*([v49 @ X21_v2 (Il2CppMethodInfo)+C90]));\n\tv71 = CollectParticleData[];\n\tv73 = Il2CppMethodInfo;\n\tv75 = v66 + 0x90;\n\tv78 = new *([v71 @ X23_v1 (Il2CppClass<CollectParticleData[]>)+990])();\n\tSystem.Action::.ctor(v78, this, *([v73 @ X24_v1 (Il2CppMethodInfo)+F60]));\n\tv87 = System.Delegate::Combine(*([v75 @ X20_v4]), v78);\n\tv133 = v87 == 0;\n\tif (v133) goto L_0060;\n\tv155 = *([v87 @ X0_v11 (System.Delegate)]) != *([v71 @ X23_v1 (Il2CppClass<CollectParticleData[]>)+990]);\n\tif (v155) goto L_005F;\n\t*([v75 @ X20_v4]) = v87;\n\tv183 = *([v87 @ X0_v11 (System.Delegate)]) == *([v71 @ X23_v1 (Il2CppClass<CollectParticleData[]>)+990]);\n\tif (v183) goto L_006C;\nL_005F:\n\tthrow System.InvalidCastException;\nL_0060:\n\t*([v75 @ X20_v4]) = 0;\nL_006C:\n\tv131 = 0xF3F1B4(v75, v87, 0, 0, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 73 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	protected internal override void Awake()
 	{
-		//IL_0022: Expected I, but got O
-		//IL_0037: Expected O, but got I
-		//IL_00e3: Expected O, but got I4
-		nint num = 0;
 		base.Awake();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		nint num3 = 0;
-		object obj = default(object);
-		object a = (nint)obj + 144;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v73 @ X24_v1 (Il2CppMethodInfo)+F60]");
-		global::System.Action b = null;
-		global::System.Delegate obj2 = global::System.Delegate.Combine((global::System.Delegate)a, b);
-		if ((object)obj2 != null)
+		global::GameManager gameManager = global::Singleton<global::GameManager>.Instance;
+		if (gameManager != null)
 		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v71 @ X23_v1 (Il2CppClass<CollectParticleData[]>)+990]");
-			if ((object)obj2 == null)
-			{
-				a = obj2;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v71 @ X23_v1 (Il2CppClass<CollectParticleData[]>)+990]");
-				if ((object)obj2 == null)
-				{
-					goto IL_00f9;
-				}
-			}
-			throw new global::System.InvalidCastException();
+			gameManager.OnInit += OnInit;
 		}
-		a = 0;
-		goto IL_00f9;
-		IL_00f9:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600046B")]

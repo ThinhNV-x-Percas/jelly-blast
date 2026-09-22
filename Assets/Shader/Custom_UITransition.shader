@@ -1,63 +1,130 @@
-Shader "Custom/UITransition" {
-	Properties {
+Shader "Custom/UITransition"
+{
+	Properties
+	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Color) = (1,1,1,1)
+
+		_CircleRadius ("Circle Radius", Range(0, 1)) = 0.5
+		_CircleSoftness ("Circle Softness", Range(0, 0.1)) = 0.01
+
 		_StencilComp ("Stencil Comparison", Float) = 8
 		_Stencil ("Stencil ID", Float) = 0
 		_StencilOp ("Stencil Operation", Float) = 0
 		_StencilWriteMask ("Stencil Write Mask", Float) = 255
 		_StencilReadMask ("Stencil Read Mask", Float) = 255
 		_ColorMask ("Color Mask", Float) = 15
-		_CircleRadius ("Circle Radius", Range(0, 1)) = 0.5
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
+
+		[Toggle(UNITY_UI_ALPHACLIP)]
+		_UseUIAlphaClip ("Use Alpha Clip", Float) = 0
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
+
+		Stencil
+		{
+			Ref [_Stencil]
+			Comp [_StencilComp]
+			Pass [_StencilOp]
+			ReadMask [_StencilReadMask]
+			WriteMask [_StencilWriteMask]
+		}
+
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		ZTest [unity_GUIZTestMode]
+		Blend SrcAlpha OneMinusSrcAlpha
+		ColorMask [_ColorMask]
 
 		Pass
 		{
 			HLSLPROGRAM
+
 			#pragma vertex vert
 			#pragma fragment frag
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			#pragma multi_compile_local _ UNITY_UI_ALPHACLIP
+
+			#include "UnityCG.cginc"
+
+			struct Attributes
+			{
+				float4 position : POSITION;
+				float2 uv : TEXCOORD0;
+				float4 color : COLOR;
+			};
+
+			struct Varyings
+			{
+				float4 position : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				float4 color : COLOR;
+				float2 localPosition : TEXCOORD1;
+			};
+
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float4 _Color;
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+			float _CircleRadius;
+			float _CircleSoftness;
 
-			struct Vertex_Stage_Output
+			Varyings vert(Attributes input)
 			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
+				Varyings output;
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				output.position = UnityObjectToClipPos(input.position);
+				output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+				output.color = input.color * _Color;
+
+				output.localPosition = input.position.xy;
+
 				return output;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			float4 frag(Varyings input) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
+				float2 uv = input.uv;
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				float2 center = float2(0.5, 0.5);
+				float2 position = uv - center;
+
+				// Correct circle aspect ratio
+				float2 ddxPos = ddx(position);
+				float2 ddyPos = ddy(position);
+
+				float width = length(ddxPos);
+				float height = length(ddyPos);
+
+				float aspect = height / max(width, 0.00001);
+				position.x *= aspect;
+
+				float distanceFromCenter = length(position);
+
+				// Inside radius = transparent
+				// Outside radius = original alpha
+				//
+				// radius - softness : transparent
+				// radius             : fully visible
+				float alphaMask = smoothstep(
+				_CircleRadius - _CircleSoftness,
+				_CircleRadius,
+				distanceFromCenter
+				);
+
+				float4 color = tex2D(_MainTex, uv) * input.color;
+
+				// Preserve original color outside the circle
+				color.a *= alphaMask;
+
+				#ifdef UNITY_UI_ALPHACLIP
+					clip(color.a - 0.001);
+				#endif
+
+				return color;
 			}
 
 			ENDHLSL

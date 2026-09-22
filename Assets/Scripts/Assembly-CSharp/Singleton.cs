@@ -5,7 +5,7 @@ public abstract class Singleton<T> : Singleton where T : global::UnityEngine.Mon
 	private static T _instance;
 
 	[global::Cpp2ILInjected.Token(Token = "0x4000466")]
-	private static readonly object Lock;
+	private static readonly object Lock = new object();
 
 	[global::UnityEngine.SerializeField]
 	[global::Cpp2ILInjected.Token(Token = "0x4000467")]

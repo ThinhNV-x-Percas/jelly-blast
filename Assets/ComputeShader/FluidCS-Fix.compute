@@ -1,0 +1,61 @@
+// Reconstructed from the serialized FluidCS asset.
+// The original asset contains a compiled Metal kernel named computeMain,
+// while Unity expects a valid imported ComputeShader kernel.
+// This source recreates the MergeField pass in HLSL.
+
+#pragma kernel MergeField
+#pragma target 4.5
+
+uint2 _TexSize;
+float2 _InvTexSize;
+uint _LayerCount;
+float4 _FluidColors[8];
+
+Texture2DArray<float4> _RawFieldTex;
+RWTexture2D<float4> _FluidOutputTex;
+
+SamplerState sampler_RawFieldTex;
+
+[numthreads(8, 8, 1)]
+void MergeField(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TexSize.x || id.y >= _TexSize.y)
+        return;
+
+    // The serialized shader samples the raw field at pixel centers.
+    float2 uv = (float2(id.xy) + 0.5f) * _InvTexSize;
+
+    float bestValue = 0.0f;
+    uint bestIndex = 0u;
+
+    [loop]
+    for (uint layer = 0u; layer < _LayerCount; layer++)
+    {
+        float4 field = _RawFieldTex.SampleLevel(
+            sampler_RawFieldTex,
+            float3(uv, (float)layer),
+            0.0f);
+
+        float maxXY = max(field.x, field.y);
+        float maxZW = max(field.z, field.w);
+
+        uint xyChannel = field.y < field.x ? 0u : 1u;
+        uint zwChannel = field.w < field.z ? 2u : 3u;
+
+        uint channel = maxZW < maxXY
+            ? xyChannel
+            : zwChannel;
+
+        float value = max(maxXY, maxZW);
+
+        if (value > bestValue)
+        {
+            bestValue = value;
+            bestIndex = (layer << 2) | channel;
+        }
+    }
+
+    // The recovered asset stores 8 fluid colors.
+    uint safeIndex = min(bestIndex, 7u);
+    _FluidOutputTex[id.xy] = _FluidColors[safeIndex];
+}

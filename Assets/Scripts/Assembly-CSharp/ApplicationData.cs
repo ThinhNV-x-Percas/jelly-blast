@@ -36,20 +36,17 @@ public class ApplicationData : global::UnityEngine.ScriptableObject
 		string path = global::System.IO.Path.Combine(persistentDataPath, playerDataFileName);
 		if (global::System.IO.File.Exists(path))
 		{
-			nint num = 0;
 			string text2 = global::System.IO.File.ReadAllText(path);
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @1151500 (Newtonsoft.Json.JsonConvert::DeserializeObject, and 1 more at this address)");
-			PlayerData playerData = default(PlayerData);
-			this.playerData = playerData;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+			playerData = global::Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerData>(text2);
 		}
 		else
 		{
-			object obj2 = new object();
-			_ = 257;
-			this.playerData = (PlayerData)obj2;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+			playerData = new PlayerData();
 			SavePlayerData();
+		}
+		if (playerData == null)
+		{
+			playerData = new PlayerData();
 		}
 	}
 
@@ -68,10 +65,7 @@ public class ApplicationData : global::UnityEngine.ScriptableObject
 		{
 			global::System.IO.File.Delete(path);
 		}
-		object obj = new object();
-		_ = 257;
-		playerData = (PlayerData)obj;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		playerData = new PlayerData();
 		SavePlayerData();
 	}
 

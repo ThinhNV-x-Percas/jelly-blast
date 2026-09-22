@@ -569,28 +569,9 @@ public class CoinsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = System.Xml.ValidateNames;\n\tgoto L_0017;\n\tv23 = System.Xml.ValidateNames;\n\tv24 = v23 + 0x198;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAD3]) = v43;\nL_0017:\n\tthis.maxCoinParticleCount = 0x28;\n\t// 25 NotImplemented \"Instruction DUP not yet implemented.\"\n\tthis.coinParticleRadius = v33;\n\tthis.coinParticleCollectionRadius = *([2875AC0]);\n\t// 32 NotImplemented \"Instruction DUP not yet implemented.\"\n\tthis.maxStartCollectionDelay = *([2875AC0]);\n\tv50 = *([v18 @ X20_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv52 = *([v50 @ X0_v2+E0]) == 0;\n\tif (v52) goto L_003B;\n\tViewport::.ctor(this);\n\treturn;\nL_003B:\n\tViewport::.ctor(this);\n\treturn;\n// 41 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public CoinsScreen()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0045: Expected F4, but got O
-		//IL_0057: Expected F4, but got I
-		//IL_0073: Expected F4, but got I
-		//IL_0083: Expected O, but got I
 		maxCoinParticleCount = 40;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction DUP not yet implemented.\"");
-		object obj = default(object);
-		coinParticleRadius = (float)obj;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875AC0]");
-		coinParticleCollectionRadius = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction DUP not yet implemented.\"");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [2875AC0]");
-		maxStartCollectionDelay = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]");
-		object obj2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v50 @ X0_v2+E0]");
-		if ((nint)0 != 0)
-		{
-		}
-		else
-		{
-		}
+		coinParticleRadius = 1f;
+		coinParticleCollectionRadius = 1f;
+		maxStartCollectionDelay = 1f;
 	}
 }

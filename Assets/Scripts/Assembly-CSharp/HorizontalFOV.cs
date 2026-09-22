@@ -16,12 +16,7 @@ public class HorizontalFOV : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = Il2CppMethodInfo;\n\tgoto L_001A;\n\tv27 = Il2CppMethodInfo;\n\tv28 = v27 + 0x600;\n\tv29 = \"il2cpp_codegen_initialize_runtime_metadata\"(v28, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv47 = 1;\n\t*([302AA58]) = v47;\nL_001A:\n\tv50 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v22 @ X21_v1 (Il2CppMethodInfo)+600]));\n\tv53 = this + 0x28;\n\tthis.cam = v50;\n\tv55 = 0xF3F1B4(v53, v50, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv59 = UnityEngine.Camera::get_orthographic(this.cam);\n\tv99 = ~v59;\n\tif (v99) goto L_004C;\n\tv100 = this.targetWidth < 0;\n\tv86 = ~v100;\n\tv77 = this.targetWidth == 0;\n\tv101 = ~v77;\n\tv62 = v86 & v101;\n\tif (v62) goto L_004C;\n\tv89 = UnityEngine.Camera::get_orthographicSize(this.cam);\n\tv148 = UnityEngine.Camera::get_aspect(this.cam);\n\tv149 = v89 * v148;\n\tv114 = v149 + v149;\n\tthis.targetWidth = v114;\nL_004C:\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 51 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Awake()
 	{
-		//IL_00f0: Expected O, but got I
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		global::UnityEngine.Camera camera = default(global::UnityEngine.Camera);
-		cam = camera;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		cam = GetComponent<global::UnityEngine.Camera>();
 		if (cam.orthographic)
 		{
 			bool flag = targetWidth < 0f;

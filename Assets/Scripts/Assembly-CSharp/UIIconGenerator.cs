@@ -364,10 +364,35 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
             mipChain,
             false);
 
+        // Copy every mip level whose pixel data matches the expected slice size.
+        // Source textures that are non-power-of-two or miss mip data make
+        // GetPixels32 return differently sized arrays, which made SetPixels32
+        // throw "outside the target buffer bounds".
+        bool copiedAny = false;
         for (int mip = 0; mip < mipmapCount; mip++)
         {
             Color32[] pixels = src.GetPixels32(mip);
+            if (pixels == null || pixels.Length == 0)
+                continue;
+
+            int expectedWidth = Mathf.Max(1, src.width >> mip);
+            int expectedHeight = Mathf.Max(1, src.height >> mip);
+            if (pixels.Length != expectedWidth * expectedHeight)
+                continue;
+
             texture2DArray.SetPixels32(pixels, 0, mip);
+            copiedAny = true;
+        }
+
+        if (!copiedAny)
+        {
+            // No usable mip data: recreate the array without a mip chain and
+            // try to copy the base level only.
+            Destroy(texture2DArray);
+            texture2DArray = new Texture2DArray(src.width, src.height, 1, TextureFormat.RGBA32, false, false);
+            Color32[] basePixels = src.GetPixels32(0);
+            if (basePixels != null && basePixels.Length == src.width * src.height)
+                texture2DArray.SetPixels32(basePixels, 0, 0);
         }
 
         texture2DArray.Apply(false, true);

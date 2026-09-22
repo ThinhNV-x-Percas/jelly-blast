@@ -49,11 +49,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Sponge+<>c__DisplayClass7_0;\n\tgoto L_0017;\n\tv23 = Sponge+<>c__DisplayClass7_0;\n\tv24 = v23 + 0x430;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAA1]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+430])();\n\tUnityEngine.Events.UnityEvent::.ctor(v45);\n\tv49 = this + 0x20;\n\tthis.m_OnClick = v45;\n\tv51 = 0xF3F1B4(v49, v45, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tUnityEngine.MonoBehaviour::.ctor(this);\n\treturn;\n// 29 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	protected UIButton()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0030: Expected O, but got I
-		global::UnityEngine.Events.UnityEvent unityEvent = new global::UnityEngine.Events.UnityEvent();
-		m_OnClick = (UIButton.UIButtonClickedEvent)unityEvent;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		m_OnClick = new UIButton.UIButtonClickedEvent();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003FA")]
@@ -61,12 +57,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Il2CppMethodInfo;\n\tgoto L_0018;\n\tv23 = Il2CppMethodInfo;\n\tv24 = v23 + 0x630;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAA2]) = v43;\nL_0018:\n\tv46 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v18 @ X21_v1 (Il2CppMethodInfo)+630]));\n\tv48 = this + 0x28;\n\tthis.elasticScale = v46;\n\tv56 = 0xF3F1B4(v48, v46, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\treturn;\n// 26 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Awake()
 	{
-		//IL_0021: Expected O, but got I
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		ElasticScale elasticScale = default(ElasticScale);
-		this.elasticScale = elasticScale;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		elasticScale = GetComponent<ElasticScale>();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003FB")]
@@ -81,60 +72,15 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv16 = 0x302A000;\n\tv18 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv20 = *([302AAA3]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_0026;\n\tv51 = Il2CppMethodInfo + 0xC70;\n\tv24 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv26 = *([v24 @ X0_v21+E0]) == 0;\n\tif (v26) goto L_0030;\nL_0017:\n\tv70 = Singleton`1::get_Instance /* +1 sharing this address */(*([v51 @ X21_v8]));\n\tv63 = v70 == 0;\n\tv64 = ~v63;\n\tif (v64) goto L_0033;\n\tgoto L_0046;\nL_0026:\n\t*([v16 @ X21_v1+AA3]) = 1;\n\tv51 = Il2CppMethodInfo + 0xC70;\n\tv46 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv81 = *([v46 @ X0_v17+E0]) == 0;\n\tv48 = ~v81;\n\tif (v48) goto L_0017;\nL_0030:\n\tv70 = Singleton`1::get_Instance /* +1 sharing this address */(*([v58 @ X21_v5]));\nL_0033:\n\tv75 = \"focus\";\n\tAudioManager::PlayClip(v70, *([v75 @ X8_v4 (System.String)+4E0]));\n\tv88 = this.elasticScale;\n\tv88.targetScale = 0.8f;\n\treturn;\nL_0046:\n\tthrow System.NullReferenceException;\n// 45 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void OnPointerDown(global::UnityEngine.EventSystems.PointerEventData eventData)
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_00dc: Expected O, but got I
-		//IL_00ec: Expected O, but got I
-		//IL_0056: Expected O, but got I
-		//IL_0066: Expected O, but got I
-		//IL_0151: Expected O, but got I
-		object obj = 50503680;
-		AudioManager audioManager = default(AudioManager);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AAA3]");
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
+		AudioManager audioManager = Singleton<AudioManager>.Instance;
+		if (audioManager != null)
 		{
-			object obj2 = (nint)0 + (nint)3184;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v24 @ X0_v21+E0]");
-			bool flag = (nint)0 == 0;
-			object obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
+			audioManager.PlayClip("focus");
 		}
-		else
+		if (elasticScale != null)
 		{
-			_ = 1;
-			object obj2 = (nint)0 + (nint)3184;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v46 @ X0_v17+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			object obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
+			elasticScale.targetScale = 0.8f;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		goto IL_0133;
-		IL_0133:
-		string text = "focus";
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v75 @ X8_v4 (System.String)+4E0]");
-		audioManager.PlayClip((string)null);
-		ElasticScale elasticScale = this.elasticScale;
-		elasticScale.targetScale = 0.8f;
-		return;
-		IL_0093:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		if ((object)audioManager == null)
-		{
-			throw new global::System.NullReferenceException();
-		}
-		goto IL_0133;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003FD")]
@@ -142,20 +88,20 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001E;\n\tv21 = Il2CppMethodInfo;\n\tv22 = v21 + 0xC70;\n\tv23 = \"il2cpp_codegen_initialize_runtime_metadata\"(v22, eventData, methodInfo, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv47 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv48 = v47 + 0xA38;\n\tv49 = \"il2cpp_codegen_initialize_runtime_metadata\"(v48, eventData, methodInfo, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv52 = \"__sort-indicator\";\n\tv53 = v52 + 0xCE8;\n\tv40 = \"il2cpp_codegen_initialize_runtime_metadata\"(v53, eventData, methodInfo, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv42 = 1;\n\t*([302AAA4]) = v42;\nL_001E:\n\tTapticPlugin.TapticManager::Impact(1);\n\tv51 = this.m_OnClick == 0;\n\tif (v51) goto L_0024;\n\tUnityEngine.Events.UnityEvent::Invoke(this.m_OnClick);\nL_0024:\n\tv56 = Il2CppMethodInfo;\n\tgoto L_002D;\n\tv62 = \"il2cpp_codegen_runtime_class_init\"(v58, v55, methodInfo, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\nL_002D:\n\tv65 = Singleton`1::get_Instance /* +1 sharing this address */(*([v56 @ X21_v1 (Il2CppMethodInfo)+C70]));\n\tv67 = \"__sort-indicator\";\n\tAudioManager::PlayClip(v65, *([v67 @ X8_v5 (System.String)+CE8]));\n\tv74 = this.elasticScale;\n\tv74.targetScale = 1f;\n\tElasticScale::Pop(v74);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 42 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void OnPointerUp(global::UnityEngine.EventSystems.PointerEventData eventData)
 	{
-		//IL_004d: Expected O, but got I
 		global::TapticPlugin.TapticManager.Impact(global::TapticPlugin.ImpactFeedback.Medium);
 		if (m_OnClick != null)
 		{
 			m_OnClick.Invoke();
 		}
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		string text = "__sort-indicator";
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v67 @ X8_v5 (System.String)+CE8]");
-		AudioManager audioManager = default(AudioManager);
-		audioManager.PlayClip((string)null);
-		ElasticScale elasticScale = this.elasticScale;
-		elasticScale.targetScale = 1f;
-		elasticScale.Pop();
+		AudioManager audioManager = Singleton<AudioManager>.Instance;
+		if (audioManager != null)
+		{
+			audioManager.PlayClip("focus");
+		}
+		if (elasticScale != null)
+		{
+			elasticScale.targetScale = 1f;
+			elasticScale.Pop();
+		}
 	}
 }

@@ -20,18 +20,8 @@ public class UIButtonStyler : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Il2CppMethodInfo;\n\tv20 = Il2CppMethodInfo;\n\tgoto L_001D;\n\tv25 = Il2CppMethodInfo;\n\tv26 = v25 + 0x670;\n\tv27 = \"il2cpp_codegen_initialize_runtime_metadata\"(v26, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv50 = Il2CppMethodInfo;\n\tv51 = v50 + 0x728;\n\tv44 = \"il2cpp_codegen_initialize_runtime_metadata\"(v51, methodInfo, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv46 = 1;\n\t*([302AAA5]) = v46;\nL_001D:\n\tv49 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v18 @ X22_v1 (Il2CppMethodInfo)+670]));\n\tv54 = this + 0x28;\n\tthis.image = v49;\n\tv55 = 0xF3F1B4(v54, v49, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\tv58 = UnityEngine.Component::GetComponent /* +1 sharing this address */(this, *([v20 @ X20_v1 (Il2CppMethodInfo)+728]));\n\tv60 = this + 0x30;\n\tthis.secondaryImageColor = v58;\n\tv68 = 0xF3F1B4(v60, v58, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42);\n\treturn;\n// 31 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Awake()
 	{
-		//IL_0048: Expected O, but got I
-		//IL_001d: Expected O, but got I
-		nint num = 0;
-		nint num2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		global::UnityEngine.UI.Image image = default(global::UnityEngine.UI.Image);
-		this.image = image;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		SecondaryImageColor secondaryImageColor = default(SecondaryImageColor);
-		this.secondaryImageColor = secondaryImageColor;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
+		image = GetComponent<global::UnityEngine.UI.Image>();
+		secondaryImageColor = GetComponent<SecondaryImageColor>();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000401")]

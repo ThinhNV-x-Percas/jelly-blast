@@ -1,7 +1,18 @@
+// Reconstructed from the AssetRipper dummy export.
+// The runtime (Level.UpdateBackgroundColors) provides:
+//   Shader.SetGlobalTexture("_GradientTex",   generated 256x1 HSB-lerp LUT)
+//   Shader.SetGlobalFloat("_GradientStartY",  world-space Y where the gradient starts)
+//   Shader.SetGlobalFloat("_GradientRangeInv", 1 / (gradientEndY - gradientStartY))
+// The fragment maps the quad's world-space Y through that range and samples the LUT.
 Shader "Custom/GradientBackground_LUT_World" {
 	Properties {
+		_GradientTex ("Gradient LUT", 2D) = "white" {}
+		_GradientStartY ("Gradient Start Y (material fallback)", Float) = 0
+		_GradientInvRange ("Gradient Inv Range (material fallback)", Float) = 1
+		_GradientRangeInv ("Gradient Inv Range (global)", Float) = 0
+		_BackgroundBottomColor ("Bottom Color (fallback)", Color) = (0,0,0,1)
+		_BackgroundTopColor ("Top Color (fallback)", Color) = (1,1,1,1)
 	}
-	//DummyShaderTextExporter
 	SubShader{
 		Tags { "RenderType" = "Opaque" }
 		LOD 200
@@ -12,31 +23,56 @@ Shader "Custom/GradientBackground_LUT_World" {
 			#pragma vertex vert
 			#pragma fragment frag
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			#include "UnityCG.cginc"
 
-			struct Vertex_Stage_Input
+			// Globals pushed from C# (Level.UpdateBackgroundColors).
+			sampler2D _GradientTex;
+			float _GradientStartY;
+			float _GradientRangeInv;
+
+			// Material fallbacks (also used in edit mode before Level.Init runs).
+			float _GradientInvRange;
+			float4 _BackgroundBottomColor;
+			float4 _BackgroundTopColor;
+
+			struct appdata
 			{
 				float4 pos : POSITION;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
 				float4 pos : SV_POSITION;
+				float worldY : TEXCOORD0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata input)
 			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				v2f output;
+				output.pos = UnityObjectToClipPos(input.pos);
+				float3 worldPos = mul(unity_ObjectToWorld, input.pos).xyz;
+				output.worldY = worldPos.y;
 				return output;
 			}
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag(v2f input) : SV_TARGET
 			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+				// Prefer the runtime global range; fall back to the material value in edit mode.
+				float rangeInv = _GradientRangeInv;
+				if (rangeInv == 0.0)
+				{
+					rangeInv = _GradientInvRange;
+				}
 
+				float t = saturate((input.worldY - _GradientStartY) * rangeInv);
+
+				// The LUT is generated at runtime; before it is set the sampler returns
+				// white, so also blend the material's fallback colors for edit-mode preview.
+				float4 lut = tex2D(_GradientTex, float2(t, 0.5));
+				float4 fallback = lerp(_BackgroundBottomColor, _BackgroundTopColor, t);
+				bool lutValid = any(lut.rgb > 0.0) || lut.a > 0.0;
+				return lutValid ? lut : fallback;
+			}
 			ENDHLSL
 		}
 	}

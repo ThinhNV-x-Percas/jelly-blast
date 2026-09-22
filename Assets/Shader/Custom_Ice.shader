@@ -1,10 +1,10 @@
 Shader "Custom/Ice" {
 	Properties {
 		_ReflTex ("Reflection", 2D) = "white" {}
-		_Color ("Tint & Alpha", Vector) = (1,1,1,1)
-		_AmbientColor ("Ambient Color", Vector) = (0.2,0.2,0.2,1)
-		_LightColor ("Key Light Color", Vector) = (1,1,1,1)
-		_SpecColor ("Specular Color", Vector) = (1,1,1,1)
+		_Color ("Tint & Alpha", Color) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (0.2,0.2,0.2,1)
+		_LightColor ("Key Light Color", Color) = (1,1,1,1)
+		_SpecColor ("Specular Color", Color) = (1,1,1,1)
 		_Shininess ("Specular Power (4-256)", Range(4, 256)) = 64
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
 	}

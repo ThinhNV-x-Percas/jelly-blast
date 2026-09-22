@@ -164,7 +164,7 @@ MonoBehaviour:
   fluidSpawnMode: 0
   fluidSpawnXRange: {x: -2, y: 2}
   sectionHeight: 7.5
-  sideBackgroundMaterial: {fileID: 2100000, guid: 27e7c05c4f0252947bbce8336ac6089d, type: 2}
+  sideBackgroundMaterial: {fileID: 2100000, guid: 45e52608b450c0448866a540c8fdee61, type: 2}
   currentSection: 0
   blocks: []
   bottomTransform: {fileID: 0}
@@ -436,7 +436,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 27e7c05c4f0252947bbce8336ac6089d, type: 2}
+  - {fileID: 2100000, guid: 45e52608b450c0448866a540c8fdee61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -697,7 +697,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 27e7c05c4f0252947bbce8336ac6089d, type: 2}
+  - {fileID: 2100000, guid: 45e52608b450c0448866a540c8fdee61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -962,7 +962,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 27e7c05c4f0252947bbce8336ac6089d, type: 2}
+  - {fileID: 2100000, guid: 45e52608b450c0448866a540c8fdee61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

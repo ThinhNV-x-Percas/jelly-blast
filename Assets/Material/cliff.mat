@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cliff
-  m_Shader: {fileID: 4800000, guid: 3ac1f07fa4bd8b44eb55aa00dfeb0e4f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5937d4034b5fe2540bb37fa0ec8c828b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: f545e75ae0158a04fb8ddf85a37e1b57, type: 3}
+        m_Texture: {fileID: 2800000, guid: 390917e6ac629aa43a920d5261e3e3ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

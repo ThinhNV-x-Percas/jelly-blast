@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: w_bubbles
-  m_Shader: {fileID: 4800000, guid: c8a1b9dd030feee4bad02c4e7df7e459, type: 3}
+  m_Shader: {fileID: 4800000, guid: fb4f365b002e4ef4fbd6c85f38ebb58e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,15 +24,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _FluidTex:
-        m_Texture: {fileID: 8400000, guid: f3fe9890c6429844a822eccc1eca1b6a, type: 2}
+        m_Texture: {fileID: 8400000, guid: 690e4e1c972f28645aae1ec3d803a748, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: a195b3ea4bfd7a149806f456525d49e5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2fb81344eb7b6874b86602311076f184, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _RawFieldTex:
-        m_Texture: {fileID: 8400000, guid: 5439ff0b698ee634eb5f4734004ca7ea, type: 2}
+        m_Texture: {fileID: 8400000, guid: 897e271d3813f38449b3057aadea77ab, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

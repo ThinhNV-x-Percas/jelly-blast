@@ -5,8 +5,8 @@ Shader "Custom/SpecialFluid" {
 		_DetailTex ("Detail Texture", 2D) = "white" {}
 		_ReflectAmount ("Reflect Amount", Range(0, 1)) = 1
 		_AlphaThreshold ("Alpha Threshold", Range(0, 1)) = 1
-		_LightColor ("Light Color", Vector) = (1,1,1,1)
-		_AmbientColor ("Ambient Color", Vector) = (1,1,1,1)
+		_LightColor ("Light Color", Color) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (1,1,1,1)
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
 		_Shininess ("Shininess", Float) = 1
 		_FlipDY ("Flip DY", Float) = 1

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UnlitVertexColor
-  m_Shader: {fileID: 4800000, guid: e0a4095227473714e883614ac2cfd177, type: 3}
+  m_Shader: {fileID: 4800000, guid: bac0f50cc04c7f34db384e6dc9fd3c26, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

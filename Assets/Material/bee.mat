@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: bee
-  m_Shader: {fileID: 4800000, guid: b2cc156fce4917545a11b48fd35c52e4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6e6dbd69e9d44d444bf67b7be4814b59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,23 +24,23 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _DetailTex:
-        m_Texture: {fileID: 2800000, guid: b331689b88ac98949956f3521aa05245, type: 3}
+        m_Texture: {fileID: 2800000, guid: c232ac8bdd748854584768a678ee96b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _EmissionTex:
-        m_Texture: {fileID: 8400000, guid: 5240f17eea692f34f8373d2de018d2d2, type: 2}
+        m_Texture: {fileID: 8400000, guid: f690c0fb9be01e64fb9d8513f3028b57, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _EyesTex:
-        m_Texture: {fileID: 2800000, guid: abfa9cc0c079b1d47a3166c7c5659bf5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 86b371ba70dcc6148b5db500f0c50069, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _FluidTex:
-        m_Texture: {fileID: 8400000, guid: f3fe9890c6429844a822eccc1eca1b6a, type: 2}
+        m_Texture: {fileID: 8400000, guid: 690e4e1c972f28645aae1ec3d803a748, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _RawFieldTex:
-        m_Texture: {fileID: 8400000, guid: 5439ff0b698ee634eb5f4734004ca7ea, type: 2}
+        m_Texture: {fileID: 8400000, guid: 897e271d3813f38449b3057aadea77ab, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FacePicker
-  m_Shader: {fileID: 4800000, guid: 51ce7eb703897d54eac16a6fbd56aa72, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1c28b4fda2d5e864080e3d93f3badaa7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

@@ -382,17 +382,11 @@
     <Reference Include="nunit.framework">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.unity.ext.nunit@2.0.3\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-        <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Assets\Plugins\Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
     <Reference Include="RFUtilsNet">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Assets\RayFire\Plugins\V2\Win\x86_x64\RFUtilsNet.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.dotween@67594467a8\Editor\DemiLib\DemiEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="GameAnalyticsSDK">
-        <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Assets\Plugins\GameAnalyticsSDK.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.dotween@67594467a8\Runtime\DOTween\DOTween.dll</HintPath>
@@ -409,9 +403,6 @@
     <Reference Include="DOTweenProEditor">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.dotween@67594467a8\Editor\DOTweenPro\DOTweenProEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.IOS">
-        <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Assets\Plugins\Facebook.Unity.IOS.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -420,9 +411,6 @@
     </Reference>
     <Reference Include="DOTweenPro">
         <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Library\PackageCache\com.dotween@67594467a8\Runtime\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity">
-        <HintPath>C:\Users\Dev04\Documents\.Thinhnv\AssetRipper\Test\Output\io.heseri.blast-1.1\Assets\Plugins\Facebook.Unity.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

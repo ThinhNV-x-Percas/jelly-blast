@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa2b2d866a9a07e419e80b2e3a369f38, type: 2}
+  - {fileID: 2100000, guid: b6ef863b3a1bc844a93e57221e2b8ae9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   computeIds:
   particleSize: 0.6
   zRotation: 0
-  dust: {fileID: 198724804207875695, guid: 6951993d8883b254786ace212b49b265, type: 2}
+  dust: {fileID: 198724804207875695, guid: 2514bdde5f7ea0a4baf4d0eacb39e335, type: 2}
   levelBottomTransform: {fileID: 0}
 --- !u!114 &114884547391421755
 MonoBehaviour:

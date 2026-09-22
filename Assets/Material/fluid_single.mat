@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fluid_single
-  m_Shader: {fileID: 4800000, guid: 617f4f0c2e440164b9b4288d7ca1ad38, type: 3}
+  m_Shader: {fileID: 4800000, guid: 98874b8d13e473641972e85ca3911296, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

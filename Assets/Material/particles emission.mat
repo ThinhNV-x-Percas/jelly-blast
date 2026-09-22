@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: particles emission
-  m_Shader: {fileID: 4800000, guid: 4eb0f5c02f98a724183014ad5105fd2b, type: 3}
+  m_Shader: {fileID: 4800000, guid: e7f4debebac34144ab82fe31a7ba3434, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

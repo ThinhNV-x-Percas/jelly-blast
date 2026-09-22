@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: powerup 1
-  m_Shader: {fileID: 4800000, guid: c3870696431199d4b9ecc64ddf47f748, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8348504b1625d7d42b60ba9f5f229db5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,15 +24,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _DetailTex:
-        m_Texture: {fileID: 2800000, guid: a8b8bd201ee57364ba2f4c25bec84b36, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc7b63bc7bace3c4ea4bcd613095a10c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _FluidTex:
-        m_Texture: {fileID: 8400000, guid: f3fe9890c6429844a822eccc1eca1b6a, type: 2}
+        m_Texture: {fileID: 8400000, guid: 690e4e1c972f28645aae1ec3d803a748, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _RawFieldTex:
-        m_Texture: {fileID: 8400000, guid: 5439ff0b698ee634eb5f4734004ca7ea, type: 2}
+        m_Texture: {fileID: 8400000, guid: 897e271d3813f38449b3057aadea77ab, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

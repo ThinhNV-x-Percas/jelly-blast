@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 16995157, guid: d6117458ae53052408afa73fc00359b1, type: 3}
   m_Name: DOTweenSettings
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   useSafeMode: 1
   safeModeOptions:
     logBehaviour: 2

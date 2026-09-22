@@ -1,6 +1,6 @@
 Shader "Custom/FeverSplash" {
 	Properties {
-		_Color ("Tint Color", Vector) = (0.5,0.5,0.5,0.5)
+		_Color ("Tint Color", Color) = (0.5,0.5,0.5,0.5)
 		_Range ("Range", Range(0, 1)) = 0.5
 		_Interpolator ("Interpolator", Range(0, 1)) = 0
 		_MainTex ("Particle Texture", 2D) = "white" {}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EdgePicker
-  m_Shader: {fileID: 4800000, guid: d6ab23ea1c57f394cb5708311d04f6b1, type: 3}
+  m_Shader: {fileID: 4800000, guid: b030ac5f7414e2b4b9b313714fa14023, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

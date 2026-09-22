@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Baloo-Regular SDF Outline
   m_EditorClassIdentifier:
   hashCode: -1455075959
-  material: {fileID: 2100000, guid: a1a44d443a06f0f4fb190a627fc43258, type: 2}
+  material: {fileID: 2100000, guid: 710965297fe843a4e965099445800a9b, type: 2}
   materialHashCode: 860057225
   m_Version: 1.1.0
   m_SourceFontFileGUID: f7a24d96a654f944ba17177df272e37a
@@ -5915,7 +5915,7 @@ MonoBehaviour:
     m_GlyphIndex: 536
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 2800000, guid: 861cac3d0be46394eb6de1cfafb6c83c, type: 3}
+  - {fileID: 2800000, guid: 4a9cdb0318406a74fa68c20eb4102ca5, type: 3}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
@@ -7943,8 +7943,8 @@ MonoBehaviour:
     m_GlyphPairAdjustmentRecords: []
   fallbackFontAssets: []
   m_FallbackFontAssetTable:
-  - {fileID: 11400000, guid: d9a42ddfeb373a2498bfeac1b5d5e5aa, type: 2}
-  - {fileID: 11400000, guid: c35fc2f52fb01fe469cbfc9d688790c2, type: 2}
+  - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_CreationSettings:
     sourceFontFileName:
     sourceFontFileGUID: f7a24d96a654f944ba17177df272e37a

@@ -3,11 +3,11 @@ Shader "Custom/Mud" {
 		_RawFieldTex ("Raw Field Tex", 2DArray) = "" {}
 		_FluidTex ("Fluid Texture", 2D) = "white" {}
 		_EmissionTex ("Emission Texture", 2D) = "black" {}
-		_Color ("Color", Vector) = (1,1,1,1)
+		_Color ("Color", Color) = (1,1,1,1)
 		_NoiseTex ("Noise Texture", 2D) = "white" {}
 		_ReflectAmount ("Reflect Amount", Range(0, 1)) = 1
-		_LightColor ("Light Color", Vector) = (1,1,1,1)
-		_AmbientColor ("Ambient Color", Vector) = (1,1,1,1)
+		_LightColor ("Light Color", Color) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (1,1,1,1)
 		_Shininess ("Shininess", Float) = 1
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
 		_NoiseScale ("Noise Scale", Float) = 0.75

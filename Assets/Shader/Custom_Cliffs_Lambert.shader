@@ -2,9 +2,9 @@ Shader "Custom/Cliffs_Lambert" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
 		_TexScale ("Texture Scale", Float) = 1
-		_AmbientColor ("Ambient Color", Vector) = (0.2,0.2,0.2,1)
-		_LightColor ("Light Color", Vector) = (1,1,1,1)
-		_SpecularColor ("Specular Color", Vector) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (0.2,0.2,0.2,1)
+		_LightColor ("Light Color", Color) = (1,1,1,1)
+		_SpecularColor ("Specular Color", Color) = (1,1,1,1)
 		_Shininess ("Shininess", Float) = 16
 	}
 	//DummyShaderTextExporter

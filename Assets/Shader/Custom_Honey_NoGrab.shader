@@ -6,12 +6,12 @@ Shader "Custom/Honey_NoGrab" {
 		_ReflectAmount ("Reflect Amount", Range(0, 1)) = 1
 		_Shininess ("Shininess", Float) = 0.3
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
-		_LightColor ("Light Color", Vector) = (1,1,1,1)
-		_AmbientColor ("Ambient Color", Vector) = (1,1,1,1)
+		_LightColor ("Light Color", Color) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (1,1,1,1)
 		_NoiseTex ("Noise Texture", 2D) = "white" {}
 		_NoiseScale ("Noise Scale", Float) = 0.75
 		_NoiseMag ("Noise Mag", Float) = 1
-		_Color ("Color", Vector) = (1,1,1,0.9)
+		_Color ("Color", Color) = (1,1,1,0.9)
 		_AlphaThreshold ("Alpha Threshold", Range(0, 1)) = 1
 		_FlipDY ("Flip DY", Float) = 1
 		_RimPower ("Rim Power", Float) = 1

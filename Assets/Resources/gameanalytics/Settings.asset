@@ -67,15 +67,15 @@ MonoBehaviour:
   ClosedHints:
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
-  Logo: {fileID: 2800000, guid: f5f0cd651cccb4f49932fb6a99a5d715, type: 3}
-  UpdateIcon: {fileID: 2800000, guid: 923e126cb4c2d4b4c8116ee4a0953b1c, type: 3}
-  InfoIcon: {fileID: 2800000, guid: 90a508feb2ad1ee4b972f61c3ac4adcf, type: 3}
-  DeleteIcon: {fileID: 2800000, guid: 9107e76e6fc0ffc4697acdebb1ac926f, type: 3}
-  GameIcon: {fileID: 2800000, guid: c0f58531b7a167143a746196c8463874, type: 3}
-  HomeIcon: {fileID: 2800000, guid: 708b72e39a8d52a4ebcafda701ede8a0, type: 3}
-  InstrumentIcon: {fileID: 2800000, guid: cf48dcf49de8f5d4b90e4128530c0b0f, type: 3}
-  QuestionIcon: {fileID: 2800000, guid: a8f4cd6e9f07c9945824501854e0ab73, type: 3}
-  UserIcon: {fileID: 2800000, guid: 530e94d738529c64793d35b419cb835c, type: 3}
+  Logo: {fileID: 2800000, guid: 110a71f91f3f602449ab420c8f2e18df, type: 3}
+  UpdateIcon: {fileID: 2800000, guid: 3a74558e7f6ea7e4bbd80197a66fb13f, type: 3}
+  InfoIcon: {fileID: 2800000, guid: 23a447f7155c78b468eaa88d90f3cc45, type: 3}
+  DeleteIcon: {fileID: 2800000, guid: 0e13442ed80a51c48a0b547a3509b3ad, type: 3}
+  GameIcon: {fileID: 2800000, guid: 9a86cf5c36718d049a37802135aabe5c, type: 3}
+  HomeIcon: {fileID: 2800000, guid: c1c98e6ace23ab14c8f7875147d4f0b8, type: 3}
+  InstrumentIcon: {fileID: 2800000, guid: a61f07d93e34423428488878fc25ea5f, type: 3}
+  QuestionIcon: {fileID: 2800000, guid: 1dd043467e0b9af4b8a53a7a104e8358, type: 3}
+  UserIcon: {fileID: 2800000, guid: a12bf67a7eb5d7f46b083a48d58c2726, type: 3}
   AmazonIcon: {fileID: 0}
   GooglePlayIcon: {fileID: 0}
   iosIcon: {fileID: 0}

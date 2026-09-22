@@ -7,12 +7,12 @@ Shader "Custom/Octopus" {
 		_EyesTex ("Eyes Texture", 2D) = "white" {}
 		_EyesScale ("Eyes Scale", Float) = 1
 		_BulgeScale ("Bulge Scale", Float) = 1
-		_Color ("Color", Vector) = (1,1,1,1)
-		_SuckerColor ("Color", Vector) = (1,1,1,1)
+		_Color ("Color", Color) = (1,1,1,1)
+		_SuckerColor ("Color", Color) = (1,1,1,1)
 		_SuckerScale ("Sucker Scale", Float) = 1
 		_ReflectAmount ("Reflect Amount", Range(0, 1)) = 1
-		_LightColor ("Light Color", Vector) = (1,1,1,1)
-		_AmbientColor ("Ambient Color", Vector) = (1,1,1,1)
+		_LightColor ("Light Color", Color) = (1,1,1,1)
+		_AmbientColor ("Ambient Color", Color) = (1,1,1,1)
 		_Shininess ("Shininess", Float) = 1
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
 		_AlphaThreshold ("Alpha Threshold", Float) = 1

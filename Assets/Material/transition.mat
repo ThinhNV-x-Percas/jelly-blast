@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: transition
-  m_Shader: {fileID: 4800000, guid: c948c2c326846414cb96ace8b6e25567, type: 3}
+  m_Shader: {fileID: 4800000, guid: 296e7ac2ed1e6874abd75c6e8026f404, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

@@ -234,8 +234,8 @@
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\Api\TestAdaptorFactory.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\TestRun\Tasks\ResetInteractionModeTask.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\GUI\TestAssets\IActiveFolderTemplateAssetCreator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\TestRunner\Callbacks\WindowResultUpdater.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\UnityTestProtocol\Messages\BuildSettingsMessage.cs" />
+     <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\TestRunner\Callbacks\WindowResultUpdater.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\TestRun\TestJobDataHolder.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\TestRun\Tasks\CleanUpContext.cs" />
      <Compile Include="Library\PackageCache\com.unity.test-framework@1.4.5\UnityEditor.TestRunner\UnityTestProtocol\TestRunData.cs" />

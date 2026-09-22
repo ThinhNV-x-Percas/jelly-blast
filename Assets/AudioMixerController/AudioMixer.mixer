@@ -16,7 +16,7 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: b3719b691e98ace4c9b5e5901ee41bc0
+  - guid: f18cce9bc0ec7d545aa66c00ea705d24
     name: kptJmqN
   m_AudioMixerGroupViews:
   - guids:
@@ -34,8 +34,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 55315c5bc3a134630878423403982452
   m_Children: []
-  m_Volume: b3719b691e98ace4c9b5e5901ee41bc0
-  m_Pitch: e1d6d28324dc21c4f96205303611f0bc
+  m_Volume: f18cce9bc0ec7d545aa66c00ea705d24
+  m_Pitch: 84040a35d4b7e5d489ec9324b888ddab
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400002}
@@ -50,7 +50,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: 73cea2d6ca9ac954db6e22feb24db0a9
+  m_EffectID: 4ddedd4333d1c49428abc8aefe7655d2
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -67,6 +67,6 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9ceb0900ea15b4dd89a041047f0333a0
   m_FloatValues:
-    b3719b691e98ace4c9b5e5901ee41bc0: 0
-    e1d6d28324dc21c4f96205303611f0bc: 1
+    f18cce9bc0ec7d545aa66c00ea705d24: 0
+    84040a35d4b7e5d489ec9324b888ddab: 1
   m_TransitionOverrides: {}

@@ -1,258 +1,6 @@
 [global::Cpp2ILInjected.Token(Token = "0x20000C4")]
 public class PowerUp : SpecialFluid
 {
-	[global::System.Runtime.CompilerServices.CompilerGenerated]
-	[global::Cpp2ILInjected.Token(Token = "0x20000C5")]
-	private sealed class _003CHandleInAnim_003Ed__11 : global::System.Collections.Generic.IEnumerator<object>, global::System.Collections.IEnumerator, global::System.IDisposable
-	{
-		[global::Cpp2ILInjected.Token(Token = "0x4000449")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x10")]
-		private int _003C_003E1__state;
-
-		[global::Cpp2ILInjected.Token(Token = "0x400044A")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x18")]
-		private object _003C_003E2__current;
-
-		[global::Cpp2ILInjected.Token(Token = "0x17000039")]
-		object global::System.Collections.Generic.IEnumerator<object>.Current
-		{
-			[global::System.Diagnostics.DebuggerHidden]
-			[global::Cpp2ILInjected.Token(Token = "0x6000389")]
-			[global::Cpp2ILInjected.Address(RVA = "0x101434C", Offset = "0x101434C", Length = "0x8")]
-			[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.<>2__current;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-			get
-			{
-				return _003C_003E2__current;
-			}
-		}
-
-		[global::Cpp2ILInjected.Token(Token = "0x1700003A")]
-		object global::System.Collections.IEnumerator.Current
-		{
-			[global::System.Diagnostics.DebuggerHidden]
-			[global::Cpp2ILInjected.Token(Token = "0x600038B")]
-			[global::Cpp2ILInjected.Address(RVA = "0x1014394", Offset = "0x1014394", Length = "0x8")]
-			[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.<>2__current;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-			get
-			{
-				return _003C_003E2__current;
-			}
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x6000386")]
-		[global::Cpp2ILInjected.Address(RVA = "0x1013E30", Offset = "0x1013E30", Length = "0x2C")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tSystem.Object::.ctor(this);\n\tthis.<>1__state = <>1__state;\n\treturn;\n// 14 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		public _003CHandleInAnim_003Ed__11(int _003C_003E1__state)
-		{
-			this._003C_003E1__state = _003C_003E1__state;
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x6000387")]
-		[global::Cpp2ILInjected.Address(RVA = "0x101429C", Offset = "0x101429C", Length = "0x4")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn;\n")]
-		void global::System.IDisposable.Dispose()
-		{
-		}
-
-		[global::Cpp2ILInjected.Token(Token = "0x6000388")]
-		[global::Cpp2ILInjected.Address(RVA = "0x10142A0", Offset = "0x10142A0", Length = "0xAC")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0015;\n\tv21 = System.Xml.ValidateNames;\n\tv22 = v21 + 0x258;\n\tv23 = \"il2cpp_codegen_initialize_runtime_metadata\"(v22, methodInfo, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38);\n\tv41 = 1;\n\t*([302AA7D]) = v41;\nL_0015:\n\tv43 = this.<>1__state == 0;\n\tif (v43) goto L_0025;\n\tv53 = this.<>1__state != 1;\n\tif (v53) goto L_003B;\n\tgoto L_0036;\nL_0025:\n\tthis.<>1__state = 0xFFFFFFFF;\n\tv55 = System.Xml.ValidateNames;\n\tv58 = new *([v55 @ X8_v6 (Il2CppClass<System.Xml.ValidateNames>)+258])();\n\tUnityEngine.WaitForSeconds::.ctor(v58, 0.1f);\n\tv122 = this + 0x18;\n\tthis.<>2__current = v58;\n\tv119 = 0xF3F1B4(v122, v58, v25, v26, v27, v28, v29, v30, 0x3DCCCCCD, v32, v33, v34, v35, v36, v37, v38);\nL_0036:\n\tthis.<>1__state = v85;\nL_003B:\n\tv92 = this.<>1__state == 0;\n\treturn v92;\n// 52 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		private bool MoveNext()
-		{
-			//IL_004e: Expected I, but got O
-			//IL_006e: Expected O, but got I
-			int num;
-			if (_003C_003E1__state != 0)
-			{
-				if (_003C_003E1__state != 1)
-				{
-					goto IL_00af;
-				}
-				num = -1;
-			}
-			else
-			{
-				_003C_003E1__state = -1;
-				global::UnityEngine.WaitForSeconds waitForSeconds = new global::UnityEngine.WaitForSeconds(0.1f);
-				_003C_003E2__current = waitForSeconds;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-				num = 1;
-			}
-			_003C_003E1__state = num;
-			goto IL_00af;
-			IL_00af:
-			return _003C_003E1__state == 0;
-		}
-
-		bool global::System.Collections.IEnumerator.MoveNext()
-		{
-			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
-			return this.MoveNext();
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x600038A")]
-		[global::Cpp2ILInjected.Address(RVA = "0x1014354", Offset = "0x1014354", Length = "0x40")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = Facebook.Unity.Windows.IWindowsFacebook + 0xF30;\n\tv11 = 0xF3F22C(v10, methodInfo, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tv27 = new v11();\n\tSystem.NotSupportedException::.ctor(v27);\n\tv31 = Il2CppMethodInfo + 0x520;\n\tv32 = 0xF3F22C(v31, 0, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tthrow v27;\n// 13 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		void global::System.Collections.IEnumerator.Reset()
-		{
-			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0014: Expected O, but got Unknown
-			//IL_0039: Expected O, but got I
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			global::System.NotSupportedException ex = new global::System.NotSupportedException();
-			object obj2 = (nint)0 + (nint)1312;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			throw ex;
-		}
-	}
-
-	[global::System.Runtime.CompilerServices.CompilerGenerated]
-	[global::Cpp2ILInjected.Token(Token = "0x20000C6")]
-	private sealed class _003CRotateBlob_003Ed__13 : global::System.Collections.Generic.IEnumerator<object>, global::System.Collections.IEnumerator, global::System.IDisposable
-	{
-		[global::Cpp2ILInjected.Token(Token = "0x400044B")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x10")]
-		private int _003C_003E1__state;
-
-		[global::Cpp2ILInjected.Token(Token = "0x400044C")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x18")]
-		private object _003C_003E2__current;
-
-		[global::Cpp2ILInjected.Token(Token = "0x400044D")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x20")]
-		public PowerUp _003C_003E4__this;
-
-		[global::Cpp2ILInjected.Token(Token = "0x400044E")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x28")]
-		private float _003CstartTime_003E5__2;
-
-		[global::Cpp2ILInjected.Token(Token = "0x400044F")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x2C")]
-		private float _003Cduration_003E5__3;
-
-		[global::Cpp2ILInjected.Token(Token = "0x4000450")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x30")]
-		private float _003CendTime_003E5__4;
-
-		[global::Cpp2ILInjected.Token(Token = "0x1700003B")]
-		object global::System.Collections.Generic.IEnumerator<object>.Current
-		{
-			[global::System.Diagnostics.DebuggerHidden]
-			[global::Cpp2ILInjected.Token(Token = "0x600038F")]
-			[global::Cpp2ILInjected.Address(RVA = "0x10144A0", Offset = "0x10144A0", Length = "0x8")]
-			[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.<>2__current;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-			get
-			{
-				return _003C_003E2__current;
-			}
-		}
-
-		[global::Cpp2ILInjected.Token(Token = "0x1700003C")]
-		object global::System.Collections.IEnumerator.Current
-		{
-			[global::System.Diagnostics.DebuggerHidden]
-			[global::Cpp2ILInjected.Token(Token = "0x6000391")]
-			[global::Cpp2ILInjected.Address(RVA = "0x10144E8", Offset = "0x10144E8", Length = "0x8")]
-			[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.<>2__current;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-			get
-			{
-				return _003C_003E2__current;
-			}
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x600038C")]
-		[global::Cpp2ILInjected.Address(RVA = "0x10140B0", Offset = "0x10140B0", Length = "0x2C")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tSystem.Object::.ctor(this);\n\tthis.<>1__state = <>1__state;\n\treturn;\n// 14 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		public _003CRotateBlob_003Ed__13(int _003C_003E1__state)
-		{
-			this._003C_003E1__state = _003C_003E1__state;
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x600038D")]
-		[global::Cpp2ILInjected.Address(RVA = "0x101439C", Offset = "0x101439C", Length = "0x4")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn;\n")]
-		void global::System.IDisposable.Dispose()
-		{
-		}
-
-		[global::Cpp2ILInjected.Token(Token = "0x600038E")]
-		[global::Cpp2ILInjected.Address(RVA = "0x10143A0", Offset = "0x10143A0", Length = "0x100")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = this.<>1__state == 1;\n\tif (v18) goto L_004D;\n\tv23 = this.<>1__state == 0;\n\tv24 = ~v23;\n\tif (v24) goto L_0066;\n\tthis.<>1__state = 0xFFFFFFFF;\n\tv30 = UnityEngine.Time::get_time();\n\tthis.<startTime>5__2 = v30;\n\tthis.<duration>5__3 = 0.35f;\n\tv80 = v30 + 0x3EB33333;\n\tthis.<endTime>5__4 = v80;\n\tv82 = UnityEngine.Time::get_time();\n\tv140 = v82 >= this.<endTime>5__4;\n\tif (v140) goto L_005F;\nL_0030:\n\tv159 = UnityEngine.Time::get_time();\n\tv176 = v159 - this.<startTime>5__2;\n\tv177 = v176 / this.<duration>5__3;\n\tv162 = EasingFunction::EaseOutQuad(v177);\n\tv179 = v162 + -1f;\n\tv99 = v179 * 0.5f;\n\tPowerUp::<RotateBlob>g__SetRot|13_0(this.<>4__this, v99);\n\tv181 = this + 0x18;\n\tthis.<>2__current = 0;\n\tv183 = 0xF3F1B4(v181, 0, v165, v166, v167, v168, v169, v170, v99, 0.5f, this.<duration>5__3, v171, v172, v173, v174, v175);\n\tthis.<>1__state = 1;\n\treturn 1;\nL_004D:\n\tthis.<>1__state = 0xFFFFFFFF;\n\tv27 = UnityEngine.Time::get_time();\n\tv71 = v27 < this.<endTime>5__4;\n\tif (v71) goto L_0030;\nL_005F:\n\tPowerUp::<RotateBlob>g__SetRot|13_0(this.<>4__this, 1f);\nL_0066:\n\treturn 0;\n\treturnVal2 = new System.NullReferenceException();\n\treturn returnVal2;\n// 71 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		private bool MoveNext()
-		{
-			//IL_0135: Expected O, but got I
-			if (_003C_003E1__state != 1)
-			{
-				if (_003C_003E1__state != 0)
-				{
-					goto IL_01a5;
-				}
-				_003C_003E1__state = -1;
-				float num = (_003CstartTime_003E5__2 = global::UnityEngine.Time.time);
-				_003Cduration_003E5__3 = 0.35f;
-				float num2 = num + 0.35f;
-				_003CendTime_003E5__4 = num2;
-				float time = global::UnityEngine.Time.time;
-				if (time < _003CendTime_003E5__4)
-				{
-					goto IL_00bd;
-				}
-			}
-			else
-			{
-				_003C_003E1__state = -1;
-				float time2 = global::UnityEngine.Time.time;
-				if (time2 < _003CendTime_003E5__4)
-				{
-					goto IL_00bd;
-				}
-			}
-			_003C_003E4__this._003CRotateBlob_003Eg__SetRot_007C13_0(1f);
-			goto IL_01a5;
-			IL_01a5:
-			return false;
-			IL_00bd:
-			float time3 = global::UnityEngine.Time.time;
-			float num3 = time3 - _003CstartTime_003E5__2;
-			float t = num3 / _003Cduration_003E5__3;
-			float num4 = EasingFunction.EaseOutQuad(t);
-			float num5 = num4 + -1f;
-			float rot = num5 * 0.5f;
-			_003C_003E4__this._003CRotateBlob_003Eg__SetRot_007C13_0(rot);
-			_003C_003E2__current = null;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			_003C_003E1__state = 1;
-			return true;
-		}
-
-		bool global::System.Collections.IEnumerator.MoveNext()
-		{
-			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
-			return this.MoveNext();
-		}
-
-		[global::System.Diagnostics.DebuggerHidden]
-		[global::Cpp2ILInjected.Token(Token = "0x6000390")]
-		[global::Cpp2ILInjected.Address(RVA = "0x10144A8", Offset = "0x10144A8", Length = "0x40")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = Facebook.Unity.Windows.IWindowsFacebook + 0xF30;\n\tv11 = 0xF3F22C(v10, methodInfo, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tv27 = new v11();\n\tSystem.NotSupportedException::.ctor(v27);\n\tv31 = Il2CppMethodInfo + 0x528;\n\tv32 = 0xF3F22C(v31, 0, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tthrow v27;\n// 13 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		void global::System.Collections.IEnumerator.Reset()
-		{
-			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0014: Expected O, but got Unknown
-			//IL_0039: Expected O, but got I
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			global::System.NotSupportedException ex = new global::System.NotSupportedException();
-			object obj2 = (nint)0 + (nint)1320;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			throw ex;
-		}
-	}
-
 	[global::Cpp2ILInjected.Token(Token = "0x400043F")]
 	[global::Cpp2ILInjected.FieldOffset(Offset = "0xB0")]
 	public int mergeIndex;
@@ -304,28 +52,23 @@ public class PowerUp : SpecialFluid
 		id = _id;
 		mergeIndex = _mergeIndex;
 		mr.material = _material;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v20 @ X29_v1+10]");
-		isBig = false;
+		isBig = _isBig;
 		InitArrows();
 		if (mergeIndex >= 1)
 		{
-			object routine = new object();
-			_ = 0;
-			global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)routine);
+			StartCoroutine(HandleInAnim());
 		}
 		base.Init(_solver, _particleIds, _fluidType, _compute);
 	}
 
-	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(PowerUp._003CHandleInAnim_003Ed__11))]
 	[global::Cpp2ILInjected.Token(Token = "0x600037D")]
 	[global::Cpp2ILInjected.Address(RVA = "0x1013DD4", Offset = "0x1013DD4", Length = "0x5C")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv12 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_0014;\n\tv17 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv18 = v17 + 0x848;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv38 = 1;\n\t*([302AA7A]) = v38;\nL_0014:\n\tv40 = new *([v12 @ X20_v1 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+848])();\n\tSystem.Object::.ctor(v40);\n\t*([v40 @ X0_v3 (System.Object)+10]) = 0;\n\treturn v40;\n// 21 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public global::System.Collections.IEnumerator HandleInAnim()
 	{
-		//IL_000e: Expected I, but got O
-		object result = new object();
-		_ = 0;
-		return (global::System.Collections.IEnumerator)result;
+		// The generated state machine survived the rip only as far as this wait; whatever
+		// it animated afterwards was not recovered.
+		yield return new global::UnityEngine.WaitForSeconds(0.1f);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600037E")]
@@ -347,18 +90,30 @@ public class PowerUp : SpecialFluid
 		transform2.position = vector2;
 	}
 
-	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(PowerUp._003CRotateBlob_003Ed__13))]
 	[global::Cpp2ILInjected.Token(Token = "0x600037F")]
 	[global::Cpp2ILInjected.Address(RVA = "0x1014038", Offset = "0x1014038", Length = "0x78")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_0017;\n\tv23 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv24 = v23 + 0x850;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AA7B]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+850])();\n\tSystem.Object::.ctor(v45);\n\t*([v45 @ X0_v3 (System.Object)+10]) = 0;\n\tv49 = v45 + 0x20;\n\t*([v45 @ X0_v3 (System.Object)+20]) = this;\n\tv51 = 0xF3F1B4(v49, this, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\treturn v45;\n// 28 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public global::System.Collections.IEnumerator RotateBlob()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0037: Expected O, but got I
-		object obj = new object();
-		_ = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return (global::System.Collections.IEnumerator)obj;
+		const float duration = 0.35f;
+		float startTime = global::UnityEngine.Time.time;
+		float endTime = startTime + duration;
+
+		while (global::UnityEngine.Time.time < endTime)
+		{
+			float t = (global::UnityEngine.Time.time - startTime) / duration;
+			SetRotation((EasingFunction.EaseOutQuad(t) - 1f) * 0.5f);
+			yield return null;
+		}
+
+		SetRotation(1f);
+	}
+
+	private void SetRotation(float rot)
+	{
+		mr.GetPropertyBlock(_propBlock);
+		_propBlock.SetFloat("_Rotation", rot);
+		mr.SetPropertyBlock(_propBlock);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000380")]
@@ -515,16 +270,4 @@ public class PowerUp : SpecialFluid
 		arrowZOffset = -1f;
 	}
 
-	[global::System.Runtime.CompilerServices.CompilerGenerated]
-	[global::Cpp2ILInjected.Token(Token = "0x6000384")]
-	[global::Cpp2ILInjected.Address(RVA = "0x101420C", Offset = "0x101420C", Length = "0x90")]
-	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001A;\n\tv23 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv24 = v23 + 0x8C0;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, rot, v33, v34, v35, v36, v37, v38, v39);\n\tv42 = 1;\n\t*([302AA7C]) = v42;\nL_001A:\n\tUnityEngine.Renderer::GetPropertyBlock(this.mr, this._propBlock);\n\tv62 = \"Writing object reference to Id '{0}' for {1}.\";\n\tUnityEngine.MaterialPropertyBlock::SetFloat(this._propBlock, *([v62 @ X8_v4 (System.String)+8C0]), rot);\n\tUnityEngine.Renderer::SetPropertyBlock(this.mr, this._propBlock);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 39 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-	private void _003CRotateBlob_003Eg__SetRot_007C13_0(float rot)
-	{
-		//IL_003f: Expected O, but got I
-		mr.GetPropertyBlock(_propBlock);
-		global::UnityEngine.MaterialPropertyBlock propBlock = _propBlock;
-		propBlock.SetFloat("_Rotation", rot);
-		mr.SetPropertyBlock(_propBlock);
-	}
 }

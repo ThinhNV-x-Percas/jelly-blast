@@ -5,11 +5,11 @@
 //   Shader.SetGlobalFloat("_GradientRangeInv", 1 / (gradientEndY - gradientStartY))
 // The fragment maps the quad's world-space Y through that range and samples the LUT.
 Shader "Custom/GradientBackground_LUT_World" {
+	// _GradientTex / _GradientStartY / _GradientRangeInv are deliberately NOT properties:
+	// a declared property is serialized per material and SHADOWS Shader.SetGlobal*, which
+	// made the unset material texture (white) win over the LUT and paint the sky white.
 	Properties {
-		_GradientTex ("Gradient LUT", 2D) = "white" {}
-		_GradientStartY ("Gradient Start Y (material fallback)", Float) = 0
-		_GradientInvRange ("Gradient Inv Range (material fallback)", Float) = 1
-		_GradientRangeInv ("Gradient Inv Range (global)", Float) = 0
+		_GradientInvRange ("Gradient Inv Range (edit-mode fallback)", Float) = 1
 		_BackgroundBottomColor ("Bottom Color (fallback)", Color) = (0,0,0,1)
 		_BackgroundTopColor ("Top Color (fallback)", Color) = (1,1,1,1)
 	}

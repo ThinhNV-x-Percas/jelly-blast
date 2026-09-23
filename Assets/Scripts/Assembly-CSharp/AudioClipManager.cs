@@ -21,120 +21,22 @@ public class AudioClipManager : global::UnityEngine.ScriptableObject
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv14 = 0x302A000;\n\tv16 = CollectParticleData[];\n\tv18 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv20 = *([302A967]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_003D;\n\tv22 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv23 = *([v22 @ X8_v25+B8]);\n\tv52 = *([v23 @ X8_v26]);\n\tv25 = *([v18 @ X21_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv27 = *([v25 @ X0_v33+E0]) == 0;\n\tif (v27) goto L_004A;\nL_001B:\n\tv57 = UnityEngine.Object::op_Equality(v52, 0);\n\tv66 = ~v57;\n\tv67 = ~v66;\n\tif (v67) goto L_004D;\nL_001F:\n\tv82 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv83 = *([v82 @ X8_v22+B8]);\n\tv105 = *([v83 @ X8_v23]);\nL_0024:\n\tAudioClipManager::InitClipData(v105);\n\tv128 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv129 = *([v128 @ X8_v19+B8]);\n\treturn *([v129 @ X8_v20]);\nL_003D:\n\t*([v14 @ X19_v1+967]) = 1;\n\tv125 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv126 = *([v125 @ X8_v15+B8]);\n\tv52 = *([v126 @ X8_v16]);\n\tv47 = *([v18 @ X21_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv127 = *([v47 @ X0_v25+E0]) == 0;\n\tv49 = ~v127;\n\tif (v49) goto L_001B;\nL_004A:\n\tv71 = UnityEngine.Object::op_Equality(v61, 0);\n\tv79 = ~v71;\n\tif (v79) goto L_001F;\nL_004D:\n\tv92 = \"Argument must be of type {0}.\";\n\tv95 = Il2CppMethodInfo;\n\tv98 = UnityEngine.Resources::Load /* +1 sharing this address */(*([v92 @ X8_v4 (System.String)+348]), *([v95 @ X8_v6 (Il2CppMethodInfo)+EA8]));\n\tv119 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv120 = *([v119 @ X8_v8+B8]);\n\t*([v120 @ X8_v9]) = v98;\n\tv121 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv123 = 0xF3F1B4(*([v121 @ X8_v10+B8]), v98, v86, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tv137 = *([v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]);\n\tv110 = *([v137 @ X8_v11+B8]);\n\tv105 = *([v110 @ X8_v12]);\n\tv138 = *([v110 @ X8_v12]) == 0;\n\tv108 = ~v138;\n\tif (v108) goto L_0024;\n\treturnVal2 = new System.NullReferenceException();\n\treturn returnVal2;\n// 49 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			//IL_0009: Expected O, but got I4
-			//IL_0017: Expected I, but got O
-			//IL_0025: Expected I, but got O
-			//IL_016a: Expected O, but got I
-			//IL_017a: Expected O, but got I
-			//IL_0192: Expected O, but got I
-			//IL_00eb: Expected O, but got I4
-			//IL_0068: Expected O, but got I
-			//IL_0078: Expected O, but got I
-			//IL_0090: Expected O, but got I
-			//IL_0229: Expected O, but got I
-			//IL_0239: Expected O, but got I
-			//IL_0251: Expected O, but got I
-			//IL_0270: Expected O, but got I
-			//IL_0280: Expected O, but got I
-			//IL_0109: Expected O, but got I
-			//IL_0119: Expected O, but got I
-			//IL_01f2: Expected O, but got I4
-			//IL_013f: Expected O, but got I
-			//IL_014f: Expected O, but got I
-			object obj = 50503680;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302A967]");
-			global::UnityEngine.Object obj4;
-			global::UnityEngine.Object obj6;
-			if ((uint)((nuint)0u & (nuint)1u) != 0)
+			// The shipped body is `if (m_Instance == null) m_Instance = Resources.Load(...);
+			// m_Instance.InitClipData(); return m_Instance;` - the decompiler lost the asset
+			// name and left a chain of casts from null that threw InvalidCastException on
+			// every call, i.e. on every sound the game tried to play.
+			if (m_Instance == null)
 			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-				object obj2 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v22 @ X8_v25+B8]");
-				object obj3 = 0;
-				obj4 = (global::UnityEngine.Object)obj3;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X21_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-				object obj5 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v25 @ X0_v33+E0]");
-				bool flag = (nint)0 == 0;
-				obj6 = (global::UnityEngine.Object)obj3;
-				if (!flag)
-				{
-					goto IL_00bd;
-				}
+				m_Instance = global::UnityEngine.Resources.Load<AudioClipManager>("AudioClipManager");
 			}
-			else
+
+			if (m_Instance == null)
 			{
-				_ = 1;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-				object obj7 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v125 @ X8_v15+B8]");
-				object obj8 = 0;
-				obj4 = (global::UnityEngine.Object)obj8;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X21_v1 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-				object obj9 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v47 @ X0_v25+E0]");
-				bool flag2 = (nint)0 == 0;
-				bool flag3 = !flag2;
-				obj6 = (global::UnityEngine.Object)obj8;
-				if (flag3)
-				{
-					goto IL_00bd;
-				}
+				return null;
 			}
-			bool flag4 = obj6 == null;
-			bool flag5 = !flag4;
-			object obj10 = 0;
-			if (flag5)
-			{
-				goto IL_00f9;
-			}
-			goto IL_0200;
-			IL_00f9:
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-			object obj11 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v82 @ X8_v22+B8]");
-			object obj12 = 0;
-			AudioClipManager audioClipManager = (AudioClipManager)obj12;
-			goto IL_0126;
-			IL_0126:
-			audioClipManager.InitClipData();
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-			object obj13 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v128 @ X8_v19+B8]");
-			return audioClipManager;
-			IL_0200:
-			string text = "Argument must be of type {0}.";
-			nint num3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @118E120 (UnityEngine.Resources::Load, and 1 more at this address)");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-			object obj14 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v119 @ X8_v8+B8]");
-			object obj15 = 0;
-			global::UnityEngine.Object obj16 = default(global::UnityEngine.Object);
-			obj15 = obj16;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-			object obj17 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v16 @ X20_v1 (Il2CppClass<CollectParticleData[]>)+CF0]");
-			object obj18 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v137 @ X8_v11+B8]");
-			object obj19 = 0;
-			audioClipManager = (AudioClipManager)obj19;
-			if (obj19 == null)
-			{
-				throw new global::System.NullReferenceException();
-			}
-			goto IL_0126;
-			IL_00bd:
-			bool flag6 = obj4 == null;
-			bool flag7 = !flag6;
-			bool flag8 = !flag7;
-			obj10 = 0;
-			if (!flag8)
-			{
-				goto IL_00f9;
-			}
-			goto IL_0200;
+
+			m_Instance.InitClipData();
+			return m_Instance;
 		}
 	}
 

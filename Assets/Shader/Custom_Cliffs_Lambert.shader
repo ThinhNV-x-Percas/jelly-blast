@@ -1,62 +1,77 @@
-Shader "Custom/Cliffs_Lambert" {
-	Properties {
-		_MainTex ("Texture", 2D) = "white" {}
-		_TexScale ("Texture Scale", Float) = 1
-		_AmbientColor ("Ambient Color", Color) = (0.2,0.2,0.2,1)
-		_LightColor ("Light Color", Color) = (1,1,1,1)
-		_SpecularColor ("Specular Color", Color) = (1,1,1,1)
-		_Shininess ("Shininess", Float) = 16
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+// Reconstructed from the AssetRipper dummy export (which returned a flat colour).
+// The mesh is generated from a path and carries no UVs, so the albedo is projected
+// from world space at _TexScale - which is what _TexScale exists for.
+Shader "Custom/Cliffs_Lambert"
+{
+    Properties
+    {
+        _MainTex ("Texture", 2D) = "white" {}
+        _TexScale ("Tex Scale", Float) = 0.2
+        _AmbientColor ("Ambient Color", Color) = (1,1,1,1)
+        _LightColor ("Light Color", Color) = (1,1,1,1)
+        _SpecularColor ("Specular Color", Color) = (1,1,1,1)
+        _Shininess ("Shininess", Float) = 10
+    }
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" }
+        LOD 200
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
 
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
+            struct v2f
+            {
+                float4 pos      : SV_POSITION;
+                float3 worldPos : TEXCOORD0;
+                float3 worldNrm : TEXCOORD1;
+            };
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            sampler2D _MainTex;
+            float _TexScale;
+            float4 _AmbientColor;
+            float4 _LightColor;
+            float4 _SpecularColor;
+            float _Shininess;
+            float4 _LightDirection;
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.worldNrm = UnityObjectToWorldNormal(v.normal);
+                return o;
+            }
 
-			struct Fragment_Stage_Input
-			{
-				float2 uv : TEXCOORD0;
-			};
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 albedo = tex2D(_MainTex, i.worldPos.xy * _TexScale);
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
-			}
+                float3 n = normalize(i.worldNrm);
+                float3 lightDir = normalize(-_LightDirection.xyz + float3(0, 0, -1));
+                float ndotl = saturate(dot(n, lightDir));
 
-			ENDHLSL
-		}
-	}
-	Fallback "Diffuse"
+                float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
+                float3 halfDir = normalize(lightDir + viewDir);
+                float spec = pow(saturate(dot(n, halfDir)), max(1.0, _Shininess));
+
+                fixed3 lit = albedo.rgb * (_AmbientColor.rgb + _LightColor.rgb * ndotl)
+                           + _SpecularColor.rgb * spec;
+                return fixed4(lit, 1);
+            }
+            ENDHLSL
+        }
+    }
 }

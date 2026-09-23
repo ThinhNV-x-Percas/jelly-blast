@@ -67,7 +67,10 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		{
 			outputSDF.Release();
 		}
-		outputSDF = new global::UnityEngine.RenderTexture(texWidth, texHeight, 0, global::UnityEngine.RenderTextureFormat.ARGBHalf);
+		// FluidPhysicsCoupler.RegisterSDF reads this back into a NativeArray<float4>, so the
+		// texture has to be 32-bit per channel - a half texture is read at half the stride
+		// and every other value comes back as NaN.
+		outputSDF = new global::UnityEngine.RenderTexture(texWidth, texHeight, 0, global::UnityEngine.RenderTextureFormat.ARGBFloat);
 		outputSDF.name = "SDFOutput";
 		outputSDF.filterMode = global::UnityEngine.FilterMode.Point;
 		outputSDF.wrapMode = global::UnityEngine.TextureWrapMode.Clamp;

@@ -51,10 +51,16 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 		int gridY = (int)global::UnityEngine.Mathf.Floor(pos.y / radius);
 		float density = 0f;
 		float nearDensity = 0f;
-		for (int dy = 0; dy < 2; dy++)
+		// 2D spiky kernel normalisation. Without it Sum(mass*q^2) can only reach
+		// targetDensity by crushing ~30 particles into one point; with it, rest
+		// spacing lands on particleRadius, which is what targetDensity was tuned for.
+		float scale2 = 6f / (global::UnityEngine.Mathf.PI * radius * radius);
+		float scale3 = 10f / (global::UnityEngine.Mathf.PI * radius * radius * radius);
+		// Fixed-radius hash with cellSize == radius: the 3x3 ring, not a 2x2 corner.
+		for (int dy = -1; dy <= 1; dy++)
 		{
 			int hashY = (gridY + dy) * 0x3DCF;
-			for (int dx = 0; dx < 2; dx++)
+			for (int dx = -1; dx <= 1; dx++)
 			{
 				int key = (hashY + (gridX + dx) * 0x949475) % capacity;
 				if (!cellMap.TryGetFirstValue(key, out int neighbor, out var it))
@@ -85,8 +91,8 @@ public struct DensityJob : global::Unity.Jobs.IJobParallelFor
 					float q = 1f - dist / radius;
 					if (q > 0f)
 					{
-						density += mass * q * q;
-						nearDensity += mass * q * q * q;
+						density += mass * q * q * scale2;
+						nearDensity += mass * q * q * q * scale3;
 					}
 				}
 				while (cellMap.TryGetNextValue(out neighbor, ref it));

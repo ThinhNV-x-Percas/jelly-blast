@@ -84,7 +84,7 @@ public class AudioManager : Singleton<AudioManager>
 	public void PlayClip(string clipName)
 	{
 		AudioClipManager instance = AudioClipManager.Instance;
-		if (instance.GetAudioClip(clipName, out var result))
+		if (instance != null && instance.GetAudioClip(clipName, out var result))
 		{
 			PlayClip(result, new AudioClipSettings());
 		}
@@ -96,7 +96,7 @@ public class AudioManager : Singleton<AudioManager>
 	public void PlayClip(string clipName, AudioClipSettings settings)
 	{
 		AudioClipManager instance = AudioClipManager.Instance;
-		if (instance.GetAudioClip(clipName, out var result))
+		if (instance != null && instance.GetAudioClip(clipName, out var result))
 		{
 			PlayClip(result, settings);
 		}

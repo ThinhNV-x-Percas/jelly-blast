@@ -485,8 +485,8 @@ public class FluidSolver : MonoBehaviour
         {
             positions = positions,
             deltaVel = deltaVel,
-            blobIds = fishIds,
-            blobMidpoints = fishMidpoints,
+            blobIds = caterpillarIds,
+            blobMidpoints = caterpillarMidpoints,
             cohesionRadius = fishCohesionRadius,
             springStrength = fishSpringStrength,
             dt = dt
@@ -495,8 +495,8 @@ public class FluidSolver : MonoBehaviour
         {
             positions = positions,
             deltaVel = deltaVel,
-            blobIds = powerUpIds,
-            blobMidpoints = powerUpMidpoints,
+            blobIds = beeIds,
+            blobMidpoints = beeMidpoints,
             cohesionRadius = powerUpCohesionRadius,
             springStrength = powerUpSpringStrength,
             dt = dt
@@ -546,13 +546,21 @@ public class FluidSolver : MonoBehaviour
         // so the body job must wait for the head job as well as the region-map chain.
         }, ActiveCount, 64, Unity.Jobs.JobHandle.CombineDependencies(dependsOn18, jobHandle));
         Unity.Jobs.JobHandle dependsOn19 = jobHandle3;
+        // Pressure/Viscosity/Buoyancy/SplashDown/Cohesion all accumulate into deltaVel;
+        // without this the whole force pipeline is discarded and particles never repel.
+        Unity.Jobs.JobHandle dependsOn20 = Unity.Jobs.IJobParallelForExtensions.Schedule(new ApplyDeltaJob
+        {
+            velocities = velocities,
+            deltaVel = deltaVel,
+            isStatic = isStatic
+        }, ActiveCount, 64, dependsOn19);
         Unity.Jobs.JobHandle jobHandle4 = Unity.Jobs.IJobParallelForExtensions.Schedule(new IntegrateJob
         {
             positions = positions,
             velocities = velocities,
             isStatic = isStatic,
             dt = dt
-        }, ActiveCount, 64, dependsOn19);
+        }, ActiveCount, 64, dependsOn20);
         _lastJob.Complete();
         _lastJob = jobHandle4;
         // Complete this step's chain before onStep callbacks and any other main-thread

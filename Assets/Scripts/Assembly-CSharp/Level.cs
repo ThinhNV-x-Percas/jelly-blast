@@ -303,7 +303,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.enableBeeSpawning;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return EnableBeeSpawning;
+			return enableBeeSpawning;
 		}
 	}
 
@@ -315,7 +315,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.fluidCollectionThreshold;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return FluidCollectionThreshold;
+			return fluidCollectionThreshold;
 		}
 	}
 
@@ -327,7 +327,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.fluidsCollectedSinceLastBee;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return FluidsCollectedSinceLastBee;
+			return fluidsCollectedSinceLastBee;
 		}
 	}
 
@@ -339,7 +339,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.totalFluidsCollected;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return TotalFluidsCollected;
+			return totalFluidsCollected;
 		}
 	}
 
@@ -351,7 +351,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.maxBeesSpawned;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return MaxBeesSpawned;
+			return maxBeesSpawned;
 		}
 	}
 
@@ -363,7 +363,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\treturn this.beesSpawnedCount;\n// 1 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		get
 		{
-			return BeesSpawnedCount;
+			return beesSpawnedCount;
 		}
 	}
 
@@ -472,153 +472,58 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv20 = 0x302A000;\n\tv22 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv24 = *([302AABE]) & 1;\n\tv25 = v24 == 0;\n\tif (v25) goto L_0037;\n\tv78 = Il2CppMethodInfo + 0xC90;\n\tv28 = *([v22 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv30 = *([v28 @ X0_v90+E0]) == 0;\n\tif (v30) goto L_0041;\nL_0019:\n\tv74 = Singleton`1::get_Instance /* +1 sharing this address */(*([v78 @ X21_v3]));\n\tv67 = v74 == 0;\n\tv68 = ~v67;\n\tif (v68) goto L_0046;\n\tgoto L_0148;\nL_0037:\n\t*([v20 @ X21_v1+ABE]) = 1;\n\tv78 = Il2CppMethodInfo + 0xC90;\n\tv50 = *([v22 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]);\n\tv329 = *([v50 @ X0_v86+E0]) == 0;\n\tv52 = ~v329;\n\tif (v52) goto L_0019;\nL_0041:\n\tv74 = Singleton`1::get_Instance /* +1 sharing this address */(*([v62 @ X21_v11]));\nL_0046:\n\tv81 = this + 0x80;\n\tthis.solver = *([v74 @ X0_v3+30]);\n\tv82 = 0xF3F1B4(v81, *([v74 @ X0_v3+30]), v104, v266, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv199 = Singleton`1::get_Instance /* +1 sharing this address */(*([v78 @ X21_v3]));\n\t*([v199 @ X0_v8+48]) = this.numParticles;\n\tthis.currentSection = 0;\n\tthis.introPlaying = 1;\n\tthis.cameraTargetY = NaNf;\n\tv318 = this + 0x118;\n\tthis.cameraMoveTween = 0;\n\tv200 = 0xF3F1B4(v318, 0, v104, v266, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48);\n\tv242 = this.sections;\n\tv123 = v242._size < 1;\n\tif (v123) goto L_007D;\n\tv201 = UnityEngine.Camera::get_main();\n\tv334 = UnityEngine.Camera::get_aspect(v201);\n\tv107 = this.sectionHeight * v334;\n\tv126 = v107 >= this.levelWidth;\n\tif (v126) goto L_00BF;\nL_007D:\n\tv202 = UnityEngine.Camera::get_main();\n\tv335 = Il2CppMethodInfo;\n\tv203 = UnityEngine.Component::GetComponent /* +1 sharing this address */(v202, *([v335 @ X8_v17 (Il2CppMethodInfo)+658]));\n\t*([v203 @ X0_v37+20]) = this.levelWidth;\n\tv245 = this.sections;\n\tv125 = v245._size < 1;\n\tif (v125) goto L_00EA;\n\tv204 = UnityEngine.Camera::get_main();\n\tv383 = UnityEngine.Component::get_transform(v204);\n\tv390 = Il2CppMethodInfo;\n\tv206 = System.Collections.Generic.List`1<LevelSection>::get_Item(this.sections, 0);\n\t// 176 MakeStruct v91 @ AGG100A4DC_1_v4 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), 0, v206.y (System.Single), -10f\n\tUnityEngine.Transform::set_position(v383, v91);\n\tv104 = *([v390 @ X21_v9 (Il2CppMethodInfo)+5B8]);\n\tv208 = System.Collections.Generic.List`1<LevelSection>::get_Item(this.sections, 0);\n\tv352 = v208.y;\n\tgoto L_00E9;\nL_00BF:\n\tv337 = Il2CppMethodInfo;\n\tv104 = *([v337 @ X8_v21 (Il2CppMethodInfo)+5B8]);\n\tv210 = System.Collections.Generic.List`1<LevelSection>::get_Item(this.sections, 0);\n\tv352 = v210.y;\n\tv211 = UnityEngine.Camera::get_main();\n\tv114 = this.sectionHeight * 0.5f;\n\tUnityEngine.Camera::set_orthographicSize(v211, v114);\n\tv212 = UnityEngine.Camera::get_main();\n\tv401 = Il2CppMethodInfo;\n\tv213 = UnityEngine.Component::GetComponent /* +1 sharing this address */(v212, *([v401 @ X8_v23 (Il2CppMethodInfo)+658]));\n\t*([v213 @ X0_v54+20]) = v107;\n\tv214 = UnityEngine.Camera::get_main();\n\tv215 = UnityEngine.Component::get_transform(v214);\n\t// 231 MakeStruct v430 @ AGG100A590_1_v4 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), 0, v210.y (System.Single), -10f\n\tUnityEngine.Transform::set_position(v215, v430);\nL_00E9:\n\tthis.cameraTargetY = v352;\nL_00EA:\n\tv373 = \"IsCyrillic\";\n\tv375 = \"Parent table name is missing in relation '{0}'.\";\n\tv378 = this.levelWidth * 0.5f;\n\tv99 = this.sideColliderSize * 0.5f;\n\tv120 = v378 + v99;\n\tv380 = -v120;\n\tLevel::CreateSideCollider(this, *([v373 @ X8_v10 (System.String)+758]), v380);\n\tLevel::CreateSideCollider(this, *([v375 @ X20_v5 (System.String)+CF8]), v120);\n\tv249 = this.blocks;\n\tv268 = v249._version + 1;\n\tv249._size = 0;\n\tv249._version = v268;\n\tv282 = v249._size < 1;\n\tif (v282) goto L_0116;\n\tSystem.Array::Clear(v249._items, 0, v249._size);\nL_0116:\n\tv398 = UnityEngine.Component::get_transform(this);\n\tLevel::CollectBlocksRecursive(this, v398);\n\tLevel::AssignLocksToSections(this);\n\tLevel::UpdateBackgroundColors(this);\n\tthis.fluidsCollectedSinceLastBee = 0;\n\tthis.beesSpawnedCount = 0;\n\tv408 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_012E;\n\tv412 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv413 = v412 + 0x168;\n\tv414 = \"il2cpp_codegen_initialize_runtime_metadata\"(v413, v399, v385, v266, v37, v38, v39, v40, v115, v99, v95, v44, v45, v46, v47, v48);\n\tv416 = 1;\n\t*([302AABF]) = v416;\nL_012E:\n\tv418 = new *([v408 @ X21_v5 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+168])();\n\tSystem.Object::.ctor(v418);\n\t*([v418 @ X0_v22 (System.Object)+10]) = 0;\n\tv423 = v418 + 0x20;\n\t*([v418 @ X0_v22 (System.Object)+20]) = this;\n\tv425 = 0xF3F1B4(v423, this, v249._size, 0, v37, v38, v39, v40, v120, v99, this.sideColliderSize, v44, v45, v46, v47, v48);\n\tv432 = UnityEngine.MonoBehaviour::StartCoroutine(this, v418);\n\tLevel::CreateSideBackgrounds(this);\n\treturn;\nL_0148:\n\tthrow System.NullReferenceException;\n// 219 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void Init()
 	{
-		//IL_0009: Expected O, but got I4
-		//IL_0017: Expected I, but got O
-		//IL_00dc: Expected O, but got I
-		//IL_00ec: Expected O, but got I
-		//IL_0056: Expected O, but got I
-		//IL_0066: Expected O, but got I
-		//IL_014c: Expected O, but got I
-		//IL_015e: Expected O, but got I
-		//IL_01ab: Expected O, but got I
-		//IL_0367: Expected O, but got I
-		//IL_05a4: Expected O, but got I
-		//IL_05ba: Expected O, but got I
-		//IL_051b: Expected I, but got O
-		//IL_05e8: Expected O, but got I
-		//IL_0326: Expected O, but got I
-		object obj = 50503680;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [302AABE]");
-		object obj4;
-		object obj2;
-		if ((uint)((nuint)0u & (nuint)1u) != 0)
+		GameManager gameManager = Singleton<GameManager>.Instance;
+		solver = gameManager != null ? gameManager.solver : null;
+		if (gameManager != null)
 		{
-			obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v22 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj3 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v28 @ X0_v90+E0]");
-			bool flag = (nint)0 == 0;
-			obj4 = obj2;
-			if (!flag)
-			{
-				goto IL_0093;
-			}
+			gameManager.targetParticleCount = numParticles;
 		}
-		else
-		{
-			_ = 1;
-			obj2 = (nint)0 + (nint)3216;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v22 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A48]");
-			object obj5 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v50 @ X0_v86+E0]");
-			bool flag2 = (nint)0 == 0;
-			bool flag3 = !flag2;
-			obj4 = obj2;
-			if (flag3)
-			{
-				goto IL_0093;
-			}
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		obj2 = obj4;
-		goto IL_0140;
-		IL_0540:
-		string text = "IsCyrillic";
-		string text2 = "Parent table name is missing in relation '{0}'.";
-		float num2 = levelWidth * 0.5f;
-		float num3 = sideColliderSize * 0.5f;
-		float num4 = num2 + num3;
-		float xPos = 0f - num4;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v373 @ X8_v10 (System.String)+758]");
-		CreateSideCollider("SideColliderLeft", xPos);
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v375 @ X20_v5 (System.String)+CF8]");
-		CreateSideCollider("SideColliderRight", num4);
-		blocks.Clear();
-		global::UnityEngine.Transform parent = base.transform;
-		CollectBlocksRecursive(parent);
-		AssignLocksToSections();
-		UpdateBackgroundColors();
-		fluidsCollectedSinceLastBee = 0;
-		totalFluidsCollected = 0;
-		beesSpawnedCount = 0;
-		global::UnityEngine.Coroutine coroutine = StartCoroutine(IntroCameraAnimation());
-		CreateSideBackgrounds();
-		return;
-		IL_0442:
-		float y;
-		cameraTargetY = y;
-		goto IL_0540;
-		IL_0140:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v74 @ X0_v3+30]");
-		solver = null;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		_ = numParticles;
+
 		currentSection = 0;
 		introPlaying = true;
 		cameraTargetY = float.NaN;
 		cameraMoveTween = null;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::System.Collections.Generic.List<LevelSection> list2 = sections;
-		if (list2.Count >= 1)
+
+		global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
+		if (main != null)
 		{
-			global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
-			float aspect = main.aspect;
-			float num6 = sectionHeight * aspect;
-			if (!(num6 < levelWidth))
+			float sectionWidth = sectionHeight * main.aspect;
+			bool fitToSection = sections.Count >= 1 && sectionWidth >= levelWidth;
+
+			if (fitToSection)
 			{
-				nint num7 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v337 @ X8_v21 (Il2CppMethodInfo)+5B8]");
-				object obj10 = 0;
-				LevelSection levelSection = sections[0];
-				y = levelSection.y;
-				global::UnityEngine.Camera main2 = global::UnityEngine.Camera.main;
-				float orthographicSize = sectionHeight * 0.5f;
-				main2.orthographicSize = orthographicSize;
-				global::UnityEngine.Camera main3 = global::UnityEngine.Camera.main;
-				nint num8 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-				global::UnityEngine.Camera main4 = global::UnityEngine.Camera.main;
-				global::UnityEngine.Transform transform = main4.transform;
-				global::UnityEngine.Vector3 position = default(global::UnityEngine.Vector3);
-				position.x = 0f;
-				position.y = levelSection.y;
-				position.z = -10f;
-				transform.position = position;
-				goto IL_0442;
+				main.orthographicSize = sectionHeight * 0.5f;
+			}
+
+			HorizontalFOV horizontalFOV = main.GetComponent<HorizontalFOV>();
+			if (horizontalFOV != null)
+			{
+				horizontalFOV.targetWidth = (fitToSection ? sectionWidth : levelWidth);
+			}
+
+			if (sections.Count >= 1)
+			{
+				float sectionY = sections[0].y;
+				main.transform.position = new global::UnityEngine.Vector3(0f, sectionY, -10f);
+				cameraTargetY = sectionY;
 			}
 		}
-		global::UnityEngine.Camera main5 = global::UnityEngine.Camera.main;
-		nint num9 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		_ = levelWidth;
-		global::System.Collections.Generic.List<LevelSection> list3 = sections;
-		if (list3.Count >= 1)
-		{
-			global::UnityEngine.Camera main6 = global::UnityEngine.Camera.main;
-			global::UnityEngine.Transform transform2 = main6.transform;
-			nint num10 = 0;
-			LevelSection levelSection2 = sections[0];
-			global::UnityEngine.Vector3 position2 = default(global::UnityEngine.Vector3);
-			position2.x = 0f;
-			position2.y = levelSection2.y;
-			position2.z = -10f;
-			transform2.position = position2;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v390 @ X21_v9 (Il2CppMethodInfo)+5B8]");
-			object obj10 = 0;
-			LevelSection levelSection3 = sections[0];
-			y = levelSection3.y;
-			goto IL_0442;
-		}
-		goto IL_0540;
-		IL_0093:
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18AB640 (Singleton`1::get_Instance, and 1 more at this address)");
-		object obj11 = default(object);
-		if (obj11 == null)
-		{
-			throw new global::System.NullReferenceException();
-		}
-		goto IL_0140;
+
+		float sideOffset = levelWidth * 0.5f + sideColliderSize * 0.5f;
+		CreateSideCollider("SideColliderLeft", 0f - sideOffset);
+		CreateSideCollider("SideColliderRight", sideOffset);
+
+		blocks.Clear();
+		CollectBlocksRecursive(base.transform);
+		AssignLocksToSections();
+		UpdateBackgroundColors();
+
+		fluidsCollectedSinceLastBee = 0;
+		totalFluidsCollected = 0;
+		beesSpawnedCount = 0;
+
+		StartCoroutine(IntroCameraAnimation());
+		CreateSideBackgrounds();
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000350")]
@@ -671,6 +576,14 @@ public class Level : global::UnityEngine.MonoBehaviour
 		// decompiled binary; wait out the intro and mark it finished.
 		yield return new global::UnityEngine.WaitForSeconds(global::UnityEngine.Mathf.Max(0.01f, introDuration));
 		introPlaying = false;
+
+		// Leaves EstablishingShot; GameManager only drains its particle queue from
+		// IntroScreen/Gameplay, so the level never fills without this.
+		GameManager gameManager = Singleton<GameManager>.Instance;
+		if (gameManager != null)
+		{
+			gameManager.StartIntroScreen();
+		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000353")]

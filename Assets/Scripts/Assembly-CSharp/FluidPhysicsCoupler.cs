@@ -583,21 +583,32 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001C;\n\tv27 = Il2CppMethodInfo;\n\tv28 = v27 + 0xF0;\n\tv29 = \"il2cpp_codegen_initialize_runtime_metadata\"(v28, rt, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv49 = Il2CppMethodInfo;\n\tv50 = v49 + 0xB58;\n\tv45 = \"il2cpp_codegen_initialize_runtime_metadata\"(v50, rt, methodInfo, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43);\n\tv47 = 1;\n\t*([302A9F3]) = v47;\nL_001C:\n\t;\n\tv59 = UnityEngine.RenderTexture::get_width(rt);\n\tv59 = UnityEngine.RenderTexture::get_height(rt);\n\tv66 = v59 * v59;\n\tUnity.Collections.NativeArray`1<Unity.Mathematics.float4>::.ctor(&v71 @ stack_-60_v2 (Unity.Collections.NativeArray`1<Unity.Mathematics.float4>), v66, 4, 0);\n\tv75 = this + 0x58;\n\tthis._sdfField = v71;\n\tv81 = UnityEngine.Rendering.AsyncGPUReadback::RequestIntoNativeArray(v75, rt, 0, 0);\n\tUnityEngine.Rendering.AsyncGPUReadbackRequest::WaitForCompletion(&v81 @ X0_v9 (UnityEngine.Rendering.AsyncGPUReadbackRequest));\n\tv59 = UnityEngine.RenderTexture::get_width(rt);\n\tv59 = UnityEngine.RenderTexture::get_height(rt);\n\tv120 = v59 | v59;\n\tthis._sdfRes = v120;\n\t// 81 NotImplemented \"Instruction UNIMPLEMENTED not yet implemented.\"\n\tv139 = this.halfBounds + this.halfBounds;\n\tv100 = v59 / v139;\n\tthis._invWorldPerTexel = v100;\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 68 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public unsafe void RegisterSDF(global::UnityEngine.RenderTexture rt)
 	{
-		//IL_00ba: Expected O, but got I4
-		//IL_00fb: Expected O, but got F4
+		// Decompiled as `width = rt.width; width = rt.height;` - the width was overwritten,
+		// so the resolution came out square (1024x1024 for a 245x1024 texture) and
+		// invWorldPerTexel was 4.18x too large. SampleSDF then read the field at the wrong
+		// stride and reported "no geometry" everywhere: the fluid fell through the level.
+		if (_sdfField.IsCreated)
+		{
+			_sdfField.Dispose();
+		}
+
 		int width = rt.width;
-		width = rt.height;
-		int length = width * width;
-		_sdfField = new global::Unity.Collections.NativeArray<global::Unity.Mathematics.float4>(length, global::Unity.Collections.Allocator.Persistent, default(global::Unity.Collections.NativeArrayOptions));
+		int height = rt.height;
+
+		_sdfField = new global::Unity.Collections.NativeArray<global::Unity.Mathematics.float4>(
+			width * height,
+			global::Unity.Collections.Allocator.Persistent,
+			default(global::Unity.Collections.NativeArrayOptions));
+
 		global::UnityEngine.Rendering.AsyncGPUReadback.RequestIntoNativeArray(ref _sdfField, rt).WaitForCompletion();
-		width = rt.width;
-		width = rt.height;
-		int num = width | width;
-		_sdfRes = (global::Unity.Mathematics.int2)num;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Not implemented instruction: \"Instruction UNIMPLEMENTED not yet implemented.\"");
-		float num2 = halfBounds.x + halfBounds.x;
-		float num3 = (float)width / num2;
-		_invWorldPerTexel = (global::Unity.Mathematics.float2)num3;
+
+		_sdfRes = new global::Unity.Mathematics.int2(width, height);
+
+		// SampleSDF multiplies (worldPos - center + halfBounds) by this, so it is
+		// texels per world unit on each axis.
+		_invWorldPerTexel = new global::Unity.Mathematics.float2(
+			width / (halfBounds.x * 2f),
+			height / (halfBounds.y * 2f));
 	}
 
 	[global::System.Runtime.CompilerServices.MethodImpl(global::System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]

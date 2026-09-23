@@ -107,10 +107,11 @@ public struct PressureJob : global::Unity.Jobs.IJobParallelFor
 		int gridX = (int)global::UnityEngine.Mathf.Floor(pos.x / radius);
 		int gridY = (int)global::UnityEngine.Mathf.Floor(pos.y / radius);
 		global::Unity.Mathematics.float2 impulse = default(global::Unity.Mathematics.float2);
-		for (int dy = 0; dy < 2; dy++)
+		// Fixed-radius hash with cellSize == radius: the 3x3 ring, not a 2x2 corner.
+		for (int dy = -1; dy <= 1; dy++)
 		{
 			int hashY = (gridY + dy) * 0x3DCF;
-			for (int dx = 0; dx < 2; dx++)
+			for (int dx = -1; dx <= 1; dx++)
 			{
 				int key = (hashY + (gridX + dx) * 0x949475) % capacity;
 				if (!cellMap.TryGetFirstValue(key, out int neighbor, out var it))

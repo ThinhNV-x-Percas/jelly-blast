@@ -27,6 +27,23 @@ namespace PathCreation.Examples
         private MeshRenderer meshRenderer;
         private Mesh mesh;
 
+        // PathSceneTool is only driven by its editor inspector, and the prefab ships with
+        // m_Mesh: {fileID: 0} - nothing rebuilt the tube at runtime, so it was invisible.
+        // Same hook PathCollider2D already uses for the collider half.
+        private void OnEnable()
+        {
+            if (pathCreator == null)
+                return;
+            pathCreator.pathUpdated += PathUpdated;
+            PathUpdated();
+        }
+
+        private void OnDisable()
+        {
+            if (pathCreator != null)
+                pathCreator.pathUpdated -= PathUpdated;
+        }
+
         protected override void PathUpdated()
         {
             if (pathCreator == null)
@@ -161,72 +178,55 @@ namespace PathCreation.Examples
 
                 int currentRingStart = verts.Count;
 
+                // The whole ring has to exist before any triangle is emitted: AddTriangle
+                // READS verts[]/normals[] to correct winding, and the original interleaved
+                // loop indexed the next vertex of the ring before adding it - which threw
+                // ArgumentOutOfRangeException out of PathUpdated and left the tube empty.
                 for (int currentRes = 0; currentRes < segmentsU; currentRes++)
                 {
                     float phi = (currentRes / (float)segmentsU) * (Mathf.PI * 2f);
-                    float sinPhi = Mathf.Sin(phi);
-                    float cosPhi = Mathf.Cos(phi);
+                    Vector3 radial = pathNormal * Mathf.Sin(phi) + tangent * Mathf.Cos(phi);
+                    Vector3 sphereNormal = poleDirection * cosTheta + radial * sinTheta;
 
-                    // Circular direction matches the cylinder side ring at theta = PI/2.
-                    Vector3 radial = pathNormal * sinPhi + tangent * cosPhi;
-                    Vector3 sphereNormal =
-                        poleDirection * cosTheta +
-                        radial * sinTheta;
-
-                    Vector3 point = center + sphereNormal * thickness;
-
-                    verts.Add(transform.InverseTransformPoint(point));
+                    verts.Add(transform.InverseTransformPoint(center + sphereNormal * thickness));
                     normals.Add(ToLocalNormal(sphereNormal));
+                }
 
-                    // Build the cap surface while keeping winding consistent with the pole.
+                for (int currentRes = 0; currentRes < segmentsU; currentRes++)
+                {
+                    int nextRes = (currentRes + 1) % segmentsU;
+
                     if (ring == 1)
                     {
-                        int nextRes = (currentRes + 1) % segmentsU;
-
                         if (startCap)
                         {
-                            AddTriangle(
-                                triangles,
-                                poleIndex,
-                                currentRingStart + nextRes,
-                                currentRingStart + currentRes,
-                                verts,
-                                normals);
+                            AddTriangle(triangles, poleIndex, currentRingStart + nextRes, currentRingStart + currentRes, verts, normals);
                         }
                         else
                         {
-                            AddTriangle(
-                                triangles,
-                                poleIndex,
-                                currentRingStart + currentRes,
-                                currentRingStart + nextRes,
-                                verts,
-                                normals);
+                            AddTriangle(triangles, poleIndex, currentRingStart + currentRes, currentRingStart + nextRes, verts, normals);
                         }
+
+                        continue;
+                    }
+
+                    int previousRingStart = currentRingStart - segmentsU;
+                    int a = previousRingStart + currentRes;
+                    int b = previousRingStart + nextRes;
+                    int c = currentRingStart + currentRes;
+                    int d = currentRingStart + nextRes;
+
+                    if (startCap)
+                    {
+                        AddTriangle(triangles, d, b, a, verts, normals);
+                        AddTriangle(triangles, d, c, b, verts, normals);
                     }
                     else
                     {
-                        int previousRingStart = currentRingStart - segmentsU;
-                        int nextRes = (currentRes + 1) % segmentsU;
-
-                        int a = previousRingStart + currentRes;
-                        int b = previousRingStart + nextRes;
-                        int c = currentRingStart + currentRes;
-                        int d = currentRingStart + nextRes;
-
-                        if (startCap)
-                        {
-                            AddTriangle(triangles, d, b, a, verts, normals);
-                            AddTriangle(triangles, d, c, b, verts, normals);
-                        }
-                        else
-                        {
-                            AddTriangle(triangles, a, b, d, verts, normals);
-                            AddTriangle(triangles, a, d, c, verts, normals);
-                        }
+                        AddTriangle(triangles, a, b, d, verts, normals);
+                        AddTriangle(triangles, a, d, c, verts, normals);
                     }
                 }
-
             }
         }
 

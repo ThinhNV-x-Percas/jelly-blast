@@ -85,8 +85,9 @@ public class GameManager : Singleton<GameManager>
                 return;
             }
 
+            GameState previous = _gameState;
             _gameState = value;
-            m_OnGameStateChanged?.Invoke(_gameState, value);
+            m_OnGameStateChanged?.Invoke(previous, value);
         }
     }
 
@@ -120,21 +121,13 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(4f);
 
-        if (_gameState != GameState.Gameplay)
-        {
-            _gameState = GameState.Gameplay;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.Gameplay);
-        }
+        gameState = GameState.Gameplay;
     }
 
     public void OnClickUserInputPanel(Vector2 mousePos)
     {
         // Leaving EstablishingShot / IntroScreen transitions the game into Gameplay.
-        if (_gameState != GameState.Gameplay)
-        {
-            _gameState = GameState.Gameplay;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.Gameplay);
-        }
+        gameState = GameState.Gameplay;
 
         if (level == null || level.moveCount < 1 || solver == null)
         {
@@ -427,31 +420,19 @@ public class GameManager : Singleton<GameManager>
 
     public void StartIntroScreen()
     {
-        if (_gameState != GameState.IntroScreen)
-        {
-            _gameState = GameState.IntroScreen;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.IntroScreen);
-        }
+        gameState = GameState.IntroScreen;
 
         StartCoroutine(HandleIntro());
     }
 
     public void EndIntro()
     {
-        if (_gameState != GameState.Gameplay)
-        {
-            _gameState = GameState.Gameplay;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.Gameplay);
-        }
+        gameState = GameState.Gameplay;
     }
 
     public void Win()
     {
-        if (_gameState != GameState.Win)
-        {
-            _gameState = GameState.Win;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.Win);
-        }
+        gameState = GameState.Win;
 
         ApplicationData appData = ApplicationManager.appData;
         PlayerData playerData = appData.playerData;
@@ -465,20 +446,12 @@ public class GameManager : Singleton<GameManager>
 
     public void Fail()
     {
-        if (_gameState != GameState.Fail)
-        {
-            _gameState = GameState.Fail;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.Fail);
-        }
+        gameState = GameState.Fail;
     }
 
     public void Reset()
     {
-        if (_gameState != GameState.None)
-        {
-            _gameState = GameState.None;
-            m_OnGameStateChanged?.Invoke(_gameState, GameState.None);
-        }
+        gameState = GameState.None;
 
         Singleton<ApplicationManager>.Instance.ReloadActiveScene();
     }

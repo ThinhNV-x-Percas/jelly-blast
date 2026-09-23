@@ -120,10 +120,7 @@ public class GameBehaviour : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0041: Expected O, but got I
-		object obj = new object();
-		_ = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		global::UnityEngine.Coroutine coroutine = StartCoroutine((global::System.Collections.IEnumerator)obj);
+		StartCoroutine(IntroSequence());
 	}
 
 	[global::System.Runtime.CompilerServices.IteratorStateMachine(typeof(GameBehaviour._003CIntroSequence_003Ed__3))]
@@ -134,10 +131,8 @@ public class GameBehaviour : global::UnityEngine.MonoBehaviour
 	{
 		//IL_000e: Expected I, but got O
 		//IL_0037: Expected O, but got I
-		object obj = new object();
-		_ = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		return (global::System.Collections.IEnumerator)obj;
+		// Same broken cast as PowerUp's coroutines; the sequence itself was not recovered.
+		yield break;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000135")]

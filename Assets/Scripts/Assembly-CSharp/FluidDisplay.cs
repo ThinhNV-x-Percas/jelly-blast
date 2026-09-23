@@ -119,6 +119,7 @@ public class FluidDisplay : FluidRendererBase
                 {
                     compute.positions[computeIndex] = interpPositions[i];
                     compute.scales[computeIndex] = scales[i];
+                    compute.particleTypes[computeIndex] = solver.particleTypes[solverIndex];
 
                     float4 emission = solver.emissionColors[solverIndex];
                     compute.emissionColors[computeIndex] =

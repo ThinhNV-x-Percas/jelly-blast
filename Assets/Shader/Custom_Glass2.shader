@@ -1,58 +1,76 @@
-Shader "Custom/Glass2" {
-	Properties {
-		[NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
-		_RefractDist ("Refract Dist", Float) = 0.3
-		_RimPower ("Rim Power", Float) = 3
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+// Reconstructed from the AssetRipper dummy export (which returned a flat _MainTex sample).
+// The original almost certainly refracted through a GrabPass; _RefractDist survives as the
+// only evidence of it. Rendered here as transparent rim-lit glass so the tube reads as glass
+// and stays behind the fluid (queue Transparent < the fluid's Transparent+1).
+Shader "Custom/Glass2"
+{
+    Properties
+    {
+        [NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
+        _RefractDist ("Refract Dist", Float) = 0.3
+        _RimPower ("Rim Power", Float) = 3
+        _GlassColor ("Glass Color", Color) = (0.72, 0.87, 1, 0.18)
+    }
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+    SubShader
+    {
+        Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "IgnoreProjector" = "True" }
+        LOD 200
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
+        Cull Back
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
 
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
+            struct v2f
+            {
+                float4 pos      : SV_POSITION;
+                float3 worldPos : TEXCOORD0;
+                float3 worldNrm : TEXCOORD1;
+            };
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            sampler2D _MainTex;
+            float _RefractDist;
+            float _RimPower;
+            float4 _GlassColor;
+            float4 _LightDirection;
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.worldNrm = UnityObjectToWorldNormal(v.normal);
+                return o;
+            }
 
-			struct Fragment_Stage_Input
-			{
-				float2 uv : TEXCOORD0;
-			};
+            fixed4 frag (v2f i) : SV_Target
+            {
+                float3 n = normalize(i.worldNrm);
+                float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
-			}
+                float rim = pow(saturate(1.0 - abs(dot(n, viewDir))), max(0.01, _RimPower));
+                float ndotl = saturate(dot(n, normalize(-_LightDirection.xyz + float3(0, 0, -1))));
 
-			ENDHLSL
-		}
-	}
+                // _RefractDist only shifts where the surface tint is sampled; without a
+                // GrabPass there is nothing behind to bend, so it modulates the tint instead.
+                float3 tint = _GlassColor.rgb * (1.0 + _RefractDist * (ndotl - 0.5));
+                float alpha = saturate(_GlassColor.a + rim);
+
+                return fixed4(tint + rim.xxx * 0.6, alpha);
+            }
+            ENDHLSL
+        }
+    }
 }

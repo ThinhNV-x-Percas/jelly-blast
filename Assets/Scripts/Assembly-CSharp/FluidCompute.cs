@@ -234,12 +234,14 @@ public class FluidCompute : MonoBehaviour
             "_TexSize",
             new Vector4(W, H, 0f, 0f));
 
+        // Normalised over the OUTPUT size: the kernel walks _TexSize and samples the
+        // raw field by uv. Using 1/rawW here scales the field by fieldDownscale/rawFieldDownscale.
         cmd.SetComputeVectorParam(
             fluidCS,
             "_InvTexSize",
             new Vector4(
-                rawW > 0 ? 1f / rawW : 0f,
-                rawH > 0 ? 1f / rawH : 0f,
+                W > 0 ? 1f / W : 0f,
+                H > 0 ? 1f / H : 0f,
                 0f,
                 0f));
 

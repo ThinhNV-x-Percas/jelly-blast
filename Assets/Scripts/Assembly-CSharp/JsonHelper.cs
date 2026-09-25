@@ -1,25 +1,20 @@
-[global::Cpp2ILInjected.Token(Token = "0x20000B9")]
+using Newtonsoft.Json;
+
 public static class JsonHelper
 {
-	[global::Cpp2ILInjected.Token(Token = "0x40003F2")]
-	private static readonly global::Newtonsoft.Json.JsonSerializerSettings _settings;
+    private static readonly JsonSerializerSettings _settings = new JsonSerializerSettings
+    {
+        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+        Converters = { new Float3Converter(), new Float2Converter() }
+    };
 
-	public static string Serialize<T>(T obj)
-	{
-		return global::Newtonsoft.Json.JsonConvert.SerializeObject(obj, _settings);
-	}
+    public static string Serialize<T>(T obj)
+    {
+        return JsonConvert.SerializeObject(obj, _settings);
+    }
 
-	public static T Deserialize<T>(string json)
-	{
-		return global::Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json, _settings);
-	}
-
-	static JsonHelper()
-	{
-		global::Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new global::Newtonsoft.Json.JsonSerializerSettings();
-		jsonSerializerSettings.ReferenceLoopHandling = global::Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-		jsonSerializerSettings.Converters.Add(new Float3Converter());
-		jsonSerializerSettings.Converters.Add(new Float2Converter());
-		_settings = jsonSerializerSettings;
-	}
+    public static T Deserialize<T>(string json)
+    {
+        return JsonConvert.DeserializeObject<T>(json, _settings);
+    }
 }

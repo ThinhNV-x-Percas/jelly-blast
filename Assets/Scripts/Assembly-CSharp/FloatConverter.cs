@@ -1,55 +1,42 @@
-[global::Cpp2ILInjected.Token(Token = "0x20000B6")]
-public abstract class FloatConverter<T> : global::Newtonsoft.Json.JsonConverter
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Unity.Mathematics;
+
+public abstract class FloatConverter<T> : JsonConverter
 {
-	[global::Cpp2ILInjected.Token(Token = "0x1700002C")]
-	protected abstract int ComponentCount
-	{
-		[global::Cpp2ILInjected.Token(Token = "0x6000335")]
-		get;
-	}
+    protected abstract int ComponentCount { get; }
 
-	[global::Cpp2ILInjected.Token(Token = "0x6000334")]
-	protected abstract T CreateInstance(float x, float y, float z = 0f);
+    protected abstract T CreateInstance(float x, float y, float z = 0f);
 
-	public override void WriteJson(global::Newtonsoft.Json.JsonWriter writer, object value, global::Newtonsoft.Json.JsonSerializer serializer)
-	{
-		global::Newtonsoft.Json.Linq.JObject jObject = new global::Newtonsoft.Json.Linq.JObject();
-		if (value != null)
-		{
-			global::System.Type type = value.GetType();
-			float x = (float)type.GetField("x").GetValue(value);
-			float y = (float)type.GetField("y").GetValue(value);
-			jObject["x"] = x;
-			jObject["y"] = y;
-			if (ComponentCount == 3)
-			{
-				float z = (float)type.GetField("z").GetValue(value);
-				jObject["z"] = z;
-			}
-		}
-		jObject.WriteTo(writer);
-	}
+    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    {
+        var jObject = new JObject();
+        if (value is float2 f2)
+        {
+            jObject["x"] = f2.x;
+            jObject["y"] = f2.y;
+        }
+        else if (value is float3 f3)
+        {
+            jObject["x"] = f3.x;
+            jObject["y"] = f3.y;
+            jObject["z"] = f3.z;
+        }
+        jObject.WriteTo(writer);
+    }
 
-	public override object ReadJson(global::Newtonsoft.Json.JsonReader reader, global::System.Type objectType, object existingValue, global::Newtonsoft.Json.JsonSerializer serializer)
-	{
-		global::Newtonsoft.Json.Linq.JObject jObject = global::Newtonsoft.Json.Linq.JObject.Load(reader);
-		float x = (float?)jObject["x"] ?? 0f;
-		float y = (float?)jObject["y"] ?? 0f;
-		float z = 0f;
-		if (ComponentCount == 3)
-		{
-			z = (float?)jObject["z"] ?? 0f;
-		}
-		return CreateInstance(x, y, z);
-	}
+    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    {
+        JObject jObject = JObject.Load(reader);
+        float x = jObject["x"]?.Value<float>() ?? 0f;
+        float y = jObject["y"]?.Value<float>() ?? 0f;
+        float z = ComponentCount == 3 ? jObject["z"]?.Value<float>() ?? 0f : 0f;
+        return CreateInstance(x, y, z);
+    }
 
-	public override bool CanConvert(global::System.Type objectType)
-	{
-		global::System.Type typeFromHandle = typeof(T);
-		return objectType == typeFromHandle;
-	}
-
-	protected internal FloatConverter()
-	{
-	}
+    public override bool CanConvert(Type objectType)
+    {
+        return objectType == typeof(T);
+    }
 }

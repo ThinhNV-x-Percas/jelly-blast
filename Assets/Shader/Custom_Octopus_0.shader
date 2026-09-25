@@ -1,4 +1,8 @@
-Shader "Custom/Octopus" {
+// Reconstruction (see SpecialFluidCommon.cginc). Used by caterpillar.mat. The export named this shader
+// "Custom/Octopus" as well, clashing with Custom_Octopus.shader; caterpillar.mat binds it by GUID, so it
+// is renamed to "Custom/Caterpillar". Body-space segment bands (_DetailTex) and the eyes decal follow the
+// blob's _Position / _Rotation from RotatingSpecialFluid.
+Shader "Custom/Caterpillar" {
 	Properties {
 		_RawFieldTex ("Raw Field Tex", 2DArray) = "" {}
 		_FluidTex ("Fluid Texture", 2D) = "white" {}
@@ -17,45 +21,49 @@ Shader "Custom/Octopus" {
 		_SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
 		_AlphaThreshold ("Alpha Threshold", Float) = 1
 		_FlipDY ("Flip DY", Float) = 1
+		_Alpha ("Alpha", Range(0, 1)) = 1
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+
+	SubShader {
+		Tags { "Queue"="Transparent+2" "RenderType"="Transparent" "IgnoreProjector"="True" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
-		Pass
-		{
+		Pass {
 			HLSLPROGRAM
-			#pragma vertex vert
+			#pragma target 3.5
+			#pragma vertex SFVert
 			#pragma fragment frag
+			#include "SpecialFluidCommon.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
+			sampler2D _DetailTex;
+			sampler2D _EyesTex;
+			float _DetailTexScale;
+			float _DetailTexMag;
+			float _DetailTexProfileMag;
+			float _EyesScale;
 			float4 _Color;
+			float4 _Position;
+			float4 _Rotation;
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag(sf_v2f i) : SV_Target
 			{
-				return _Color; // RGBA
-			}
+				SFSurface s = SFSample(i);
 
+				float2 local = SFToLocal(i.worldPos.xy - _Position.xy, _Rotation.y);
+				float bands = tex2D(_DetailTex, local * _DetailTexScale * 0.5 + 0.5).r;
+				float3 albedo = _Color.rgb * lerp(1.0, bands, saturate(_DetailTexProfileMag * 0.08));
+
+				float3 col = SFShade(s, albedo);
+
+				float4 eyes = SFDecal(_EyesTex, local, 1.0 / max(_EyesScale, 0.01));
+				col = lerp(col, eyes.rgb, eyes.a);
+
+				col = SFApplyEmission(col, s.screenUV);
+				return float4(col, SFAlpha(s));
+			}
 			ENDHLSL
 		}
 	}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,7 @@ public class SecondaryImageColor : BaseMeshEffect
         if (!IsActive())
             return;
 
-        var vertices = new System.Collections.Generic.List<UIVertex>();
+        var vertices = new List<UIVertex>();
         vh.GetUIVertexStream(vertices);
         for (int i = 0; i < vertices.Count; i++)
         {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class ImageSliceWithUV : BaseMeshEffect
         if (!IsActive())
             return;
 
-        var vertices = new System.Collections.Generic.List<UIVertex>();
+        var vertices = new List<UIVertex>();
         vh.GetUIVertexStream(vertices);
         if (vertices.Count == 0)
             return;

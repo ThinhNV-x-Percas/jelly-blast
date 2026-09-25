@@ -20,20 +20,20 @@ public class FluidSolver : MonoBehaviour
     public int maxTypeBatches;
     public int colorFluidTypes;
     public int mudFluidType;
-    public int snowFluidType;
-    public int honeyFluidType;
-    public HashSet<int> usedFluidTypes;
+    public int snowFluidType = 9;
+    public int honeyFluidType = 10;
+    public HashSet<int> usedFluidTypes = new HashSet<int>();
 
     [UnityEngine.Space(5f)]
     public float viscosityStrength;
     public float pressureMultiplier;
     public float nearPressureMultiplier;
     public float targetDensity;
-    public float buoyancyStrength;
-    public float waterReactionMultiplier;
-    public float splashDownStrength;
-    public int powerUpThreshold;
-    public int bigPowerUpThreshold;
+    public float buoyancyStrength = 4f;
+    public float waterReactionMultiplier = 0.12f;
+    public float splashDownStrength = 8f;
+    public int powerUpThreshold = 25;
+    public int bigPowerUpThreshold = 50;
     public float particleRadius;
     public float particleMass;
     public float alphaFadePerSecond;
@@ -46,11 +46,11 @@ public class FluidSolver : MonoBehaviour
     [UnityEngine.Header("Explosion Settings")]
     public float destroyBandThickness;
     public float destroyRadius;
-    public float destroyDuration;
-    public float chargeDuration;
+    public float destroyDuration = 0.2f;
+    public float chargeDuration = 0.5f;
 
     [UnityEngine.Header("Chain Reaction Settings")]
-    public float chainDelay;
+    public float chainDelay = 0.5f;
 
     private int _activeCount;
     private float _lastStepWallTime;
@@ -84,9 +84,9 @@ public class FluidSolver : MonoBehaviour
     internal Unity.Jobs.JobHandle _lastJob;
 
     public PowerUp powerUpPrefab;
-    public UnityEngine.Material[] powerUpMaterials;
-    public List<PowerUp> powerUps;
-    private readonly Dictionary<int, PowerUp> powerUpById;
+    public UnityEngine.Material[] powerUpMaterials = new UnityEngine.Material[3];
+    public List<PowerUp> powerUps = new List<PowerUp>();
+    private readonly Dictionary<int, PowerUp> powerUpById = new Dictionary<int, PowerUp>();
 
     public Action<HashSet<int>, bool> OnRemoveHoneyCoating;
     public Action<HashSet<int>> OnAddParticles;
@@ -96,7 +96,7 @@ public class FluidSolver : MonoBehaviour
     public Action<HashSet<int>, int> OnRemoveRegionComplete;
     public Action<PowerUp> OnDetonatePowerUp;
 
-    private readonly Queue<int> explosionQueue;
+    private readonly Queue<int> explosionQueue = new Queue<int>();
     private bool isProcessing;
 
     [UnityEngine.Header("Power-ups")]
@@ -112,25 +112,25 @@ public class FluidSolver : MonoBehaviour
     [UnityEngine.Header("Octopi")]
     public float octopusHeadCohesionRadius;
     public float octopusHeadSpringStrength;
-    public int octopusHeadParticleCount;
+    public int octopusHeadParticleCount = 4;
     public float octopusBodyCohesionForce;
     public Unity.Collections.NativeArray<int> octopusIds;
     public Unity.Collections.NativeArray<bool> inOctopusHead;
-    public List<Octopus> octopi;
+    public List<Octopus> octopi = new List<Octopus>();
     private Unity.Collections.NativeArray<bool> regionHasHead;
 
     public Unity.Collections.NativeArray<int> caterpillarIds;
     public Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> caterpillarMidpoints;
-    public List<Caterpillar> caterpillars;
+    public List<Caterpillar> caterpillars = new List<Caterpillar>();
     public Unity.Collections.NativeArray<int> beeIds;
     public Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> beeMidpoints;
-    public List<Bee> bees;
+    public List<Bee> bees = new List<Bee>();
 
     [UnityEngine.Header("Sponges")]
-    public List<Sponge> sponges;
+    public List<Sponge> sponges = new List<Sponge>();
     public Unity.Collections.NativeArray<int> spongeIds;
-    public float spongeCohesionRadius;
-    public float spongeSpringStrength;
+    public float spongeCohesionRadius = 0.15f;
+    public float spongeSpringStrength = 40f;
     public Unity.Collections.NativeArray<bool> isWater;
 
     public Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> powerUpMidpoints;
@@ -141,31 +141,31 @@ public class FluidSolver : MonoBehaviour
 
     private Unity.Collections.NativeArray<int> octUFParent;
     private Unity.Collections.NativeArray<byte> octComponentHasHead;
-    private readonly HashSet<int> _pendingRemovalIds;
+    private readonly HashSet<int> _pendingRemovalIds = new HashSet<int>();
     private Unity.Collections.NativeHashMap<ulong, byte> ignorePairs;
 
     [UnityEngine.Header("Power-up Merging")]
-    public float powerUpMergeDistance;
-    public float mergeDuration;
-    private readonly Dictionary<int, PowerUpMergeData> merging;
+    public float powerUpMergeDistance = 0.6f;
+    public float mergeDuration = 0.5f;
+    private readonly Dictionary<int, PowerUpMergeData> merging = new Dictionary<int, PowerUpMergeData>();
     private Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> mergeDeltas;
-    public readonly HashSet<int> exploding;
+    public readonly HashSet<int> exploding = new HashSet<int>();
 
-    public List<Honey> honeys;
+    public List<Honey> honeys = new List<Honey>();
     public FluidCompute compute;
-    public List<Clump> clumps;
+    public List<Clump> clumps = new List<Clump>();
 
     [UnityEngine.Header("Fish Blob")]
     public Fish fishPrefab;
     public UnityEngine.Material fishMaterial;
-    public List<Fish> fishes;
+    public List<Fish> fishes = new List<Fish>();
     public Unity.Mathematics.float2 defaultGravity;
     public Unity.Mathematics.float2 fishGravity;
     private float _nextFishZ;
     public Action OnStep;
     public Mud mudInstance;
     public Snow snowInstance;
-    public float splashDestroyRadius;
+    public float splashDestroyRadius = 0.4f;
     public const float goldenConstant = 137.508f;
 
     private IEnumerator rejectFlash;
@@ -208,7 +208,7 @@ public class FluidSolver : MonoBehaviour
         return p > 0 ? p : value;
     }
 
-    private static GameManager Game => global::Singleton<GameManager>.Instance;
+    private static GameManager Game => Singleton<GameManager>.Instance;
 
     private static FluidCompute SharedCompute
     {
@@ -338,7 +338,7 @@ public class FluidSolver : MonoBehaviour
                 dt = dt
             }, ActiveCount, 64).Complete();
         }
-        Unity.Collections.NativeArray<global::Unity.Mathematics.float2>.Copy(positions, positionsPrev);
+        Unity.Collections.NativeArray<Unity.Mathematics.float2>.Copy(positions, positionsPrev);
         Unity.Jobs.JobHandle dependsOn = Unity.Jobs.IJobParallelForExtensions.Schedule(new ClearDeltaJob
         {
             deltaVel = deltaVel
@@ -518,11 +518,23 @@ public class FluidSolver : MonoBehaviour
         {
             parent = octUFParent
         }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
+        // Link octopus particles into connected regions. It reads predicted/cellMap, so it
+        // runs after the main chain (jobHandle) has finished building and relaxing them.
+        Unity.Jobs.JobHandle octUfUnion = Unity.Jobs.IJobExtensions.Schedule(new OctUF_UnionJob
+        {
+            pos = predicted,
+            octopusIds = octopusIds,
+            cellMap = cellMap,
+            parent = octUFParent,
+            capacity = capacity,
+            count = ActiveCount,
+            cellSize = particleRadius * 2f
+        }, Unity.Jobs.JobHandle.CombineDependencies(jobHandle2, jobHandle));
         Unity.Jobs.JobHandle dependsOn16 = Unity.Jobs.IJobParallelForExtensions.Schedule(new ClearByteJob
         {
             array = octComponentHasHead
         }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
-        Unity.Jobs.JobHandle octUfPreparation = Unity.Jobs.JobHandle.CombineDependencies(jobHandle2, dependsOn16);
+        Unity.Jobs.JobHandle octUfPreparation = Unity.Jobs.JobHandle.CombineDependencies(octUfUnion, dependsOn16);
         Unity.Jobs.JobHandle dependsOn17 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_FlagHeadJob
         {
             parent = octUFParent,
@@ -568,7 +580,7 @@ public class FluidSolver : MonoBehaviour
         // Complete this step's chain before onStep callbacks and any other main-thread
         // access to the native containers (input queries, coupler jobs, rendering reads).
         _lastJob.Complete();
-        global::System.Action onStep = OnStep;
+        System.Action onStep = OnStep;
         if (onStep != null)
         {
             onStep();
@@ -1043,7 +1055,7 @@ public class FluidSolver : MonoBehaviour
         {
             if (idToIndex.TryGetValue(id, out int idx)) { isHoneyCoated[idx] = false; isStatic[idx] = false; }
         }
-        CollectionManager collectionManager = global::Singleton<CollectionManager>.Instance;
+        CollectionManager collectionManager = Singleton<CollectionManager>.Instance;
         if (collectionManager != null)
         {
             collectionManager.OnRemoveHoney(particleIdsToUncoat);
@@ -1089,7 +1101,7 @@ public class FluidSolver : MonoBehaviour
         Fish fish = UnityEngine.Object.Instantiate(fishPrefab, transform);
         fish.transform.position = new UnityEngine.Vector3(pos.x, pos.y, _nextFishZ);
         _nextFishZ += 0.001f;
-        fish.Init(this, fishId, ids, type, null, fishMaterial, isBig);
+        fish.Init(this, fishId, ids, type, SharedCompute, fishMaterial, isBig);
         fishes.Add(fish);
         return fish;
     }
@@ -1126,7 +1138,7 @@ public class FluidSolver : MonoBehaviour
         powerUpById[puId] = powerUp;
         powerUp.StartCoroutine(powerUp.RotateBlob());
 
-        AudioManager audioManager = global::Singleton<AudioManager>.Instance;
+        AudioManager audioManager = Singleton<AudioManager>.Instance;
         if (audioManager != null)
         {
             audioManager.PlayClip("charge up", new AudioClipSettings
@@ -1480,7 +1492,7 @@ public class FluidSolver : MonoBehaviour
         var blastOrigin = new Unity.Mathematics.float2(root.position.x, root.position.y);
         int blastBandType = root.mergeIndex;
 
-        AudioManager audioManager = global::Singleton<AudioManager>.Instance;
+        AudioManager audioManager = Singleton<AudioManager>.Instance;
         if (audioManager != null)
         {
             audioManager.PlayClip("explode 1", new AudioClipSettings
@@ -1497,7 +1509,7 @@ public class FluidSolver : MonoBehaviour
         }
 
         OnDetonatePowerUp?.Invoke(root);
-        global::TapticPlugin.TapticManager.Impact(global::TapticPlugin.ImpactFeedback.Heavy);
+        TapticPlugin.TapticManager.Impact(TapticPlugin.ImpactFeedback.Heavy);
         RemovePowerUp(rootId);
 
         var dehoneyedBeeIds = new HashSet<int>();
@@ -1544,7 +1556,7 @@ public class FluidSolver : MonoBehaviour
                             UnityEngine.Vector2 headPos = octopusHeadMidpoints.TryGetValue(octId, out Unity.Mathematics.float2 mid)
                                 ? new UnityEngine.Vector2(mid.x, mid.y)
                                 : new UnityEngine.Vector2(positions[idx].x, positions[idx].y);
-                            CollectionManager collectionManager = global::Singleton<CollectionManager>.Instance;
+                            CollectionManager collectionManager = Singleton<CollectionManager>.Instance;
                             if (collectionManager != null) collectionManager.OnCollectOctopus(headPos);
                             RemoveOctopus(octopus);
                         }
@@ -1710,7 +1722,7 @@ public class FluidSolver : MonoBehaviour
 
         if (!dehoneyedBeeIds.Contains(beeId))
         {
-            CollectionManager collectionManager = global::Singleton<CollectionManager>.Instance;
+            CollectionManager collectionManager = Singleton<CollectionManager>.Instance;
             if (collectionManager != null) collectionManager.OnCollectBee(bee.position);
             RemoveBee(bee);
         }
@@ -1744,45 +1756,5 @@ public class FluidSolver : MonoBehaviour
         if (ids == null) return;
         foreach (int id in ids)
             if (idToIndex.TryGetValue(id, out int idx)) emissionColors[idx] = new Unity.Mathematics.float4(0f, g, 0f, a);
-    }
-
-    public FluidSolver()
-    {
-        usedFluidTypes = new HashSet<int>();
-        powerUps = new List<PowerUp>();
-        powerUpById = new Dictionary<int, PowerUp>();
-        explosionQueue = new Queue<int>();
-        octopi = new List<Octopus>();
-        caterpillars = new List<Caterpillar>();
-        bees = new List<Bee>();
-        sponges = new List<Sponge>();
-        _pendingRemovalIds = new HashSet<int>();
-        merging = new Dictionary<int, PowerUpMergeData>();
-        exploding = new HashSet<int>();
-        honeys = new List<Honey>();
-        clumps = new List<Clump>();
-        fishes = new List<Fish>();
-        powerUpMaterials = new UnityEngine.Material[3];
-
-        viscosityStrength = 0f;
-        buoyancyStrength = 4f;
-        waterReactionMultiplier = 0.12f;
-        splashDownStrength = 8f;
-        powerUpThreshold = 0;
-        bigPowerUpThreshold = 0;
-        particleRadius = 0f;
-        honeyRepelStrength = 0f;
-        destroyDuration = 0.2f;
-        chargeDuration = 0.5f;
-        chainDelay = 0.5f;
-        powerUpCohesionRadius = 0f;
-        fishCohesionRadius = 0f;
-        spongeCohesionRadius = 0.15f;
-        spongeSpringStrength = 40f;
-        octopusHeadParticleCount = 4;
-        powerUpMergeDistance = 0.6f;
-        mergeDuration = 0.5f;
-        splashDestroyRadius = 0.4f;
-        defaultGravity = Unity.Mathematics.float2.zero;
     }
 }

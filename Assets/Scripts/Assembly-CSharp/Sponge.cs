@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +6,11 @@ using DG.Tweening;
 
 public class Sponge : SpecialFluid
 {
-    private readonly Dictionary<int, Vector2> prevOffset;
+    private readonly Dictionary<int, Vector2> prevOffset = new Dictionary<int, Vector2>();
 
     public float zRotation;
 
-    private HashSet<int> removedParticles;
+    private HashSet<int> removedParticles = new HashSet<int>();
     private bool isCleared;
 
     [Header("Sponge Shader Properties")]
@@ -295,6 +294,8 @@ public class Sponge : SpecialFluid
                     targetPosition,
                     duration)
                 .SetEase(suckEase)
+                // Kill the tween with the sponge so it never touches the solver's disposed containers.
+                .SetLink(gameObject)
                 .OnComplete(() =>
                 {
                     removedParticles.Add(particleId);
@@ -307,11 +308,5 @@ public class Sponge : SpecialFluid
         }
 
         StartCoroutine(HandlePopIn());
-    }
-
-    public Sponge()
-    {
-        prevOffset = new Dictionary<int, Vector2>();
-        removedParticles = new HashSet<int>();
     }
 }

@@ -22,15 +22,15 @@ public class Fish : SpecialFluid
 
     [SerializeField]
     [Header("Ease Curves")]
-    private AnimationCurve centerEase;
+    private AnimationCurve centerEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     [SerializeField]
-    private AnimationCurve menuEase;
+    private AnimationCurve menuEase = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
     [SerializeField]
     [Tooltip("Ease for the scale-up (0→1 over the first leg)")]
     [Header("Scale Settings")]
-    private AnimationCurve scaleEase;
+    private AnimationCurve scaleEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     [SerializeField]
     [Header("Face Blend-Shapes")]
@@ -51,16 +51,16 @@ public class Fish : SpecialFluid
     [Header("Move Durations")]
     private float centerMoveDuration;
 
-    private float menuMoveDuration;
+    private float menuMoveDuration = 0.8f;
 
     [SerializeField]
     [Tooltip("How much bigger the fish gets at centre (1 = no change)")]
     [Header("Scale Multipliers")]
-    private float growScaleMultiplier;
+    private float growScaleMultiplier = 1f;
 
     [SerializeField]
     [Tooltip("How small the fish should be when it hits the menu (1 = no change)")]
-    private float shrinkScaleMultiplier;
+    private float shrinkScaleMultiplier = 0.5f;
 
     private bool _isFinalFish;
 
@@ -192,10 +192,14 @@ public class Fish : SpecialFluid
         if (mr != null)
             mr.enabled = false;
 
+        // pendingFish counts fish that are flying to the goal but not yet credited; the fish
+        // that brings the outstanding count to zero plays the final-fish animation.
+        GameManager gameManager = Singleton<GameManager>.Instance;
+        gameManager.pendingFish++;
         if (!_isFinalFish)
         {
-            GoalData goalData = Singleton<GameManager>.Instance.level.goals.Find((GoalData g) => g.goalType == GoalType.Fish);
-            if (goalData != null && goalData.displayedCount + 1 >= goalData.count)
+            GoalData goalData = gameManager.level.goals.Find(g => g.goalType == GoalType.Fish);
+            if (goalData != null && goalData.count - gameManager.pendingFish == 0)
             {
                 _isFinalFish = true;
             }
@@ -353,15 +357,6 @@ public class Fish : SpecialFluid
 
     public Fish()
     {
-        centerEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-        menuEase = AnimationCurve.Linear(0f, 0f, 1f, 1f);
-        scaleEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-
-        diveAngle = 0f;
-        menuMoveDuration = 0.8f;
-        growScaleMultiplier = 1f;
-        shrinkScaleMultiplier = 0.5f;
-
         zPos = -1f;
         particleSize = 0.8f;
         particleBoundsRadius = 0.4f;
@@ -381,26 +376,7 @@ public class Fish : SpecialFluid
 
     private void SetAnimatorSwim(bool value)
     {
-        if (animator == null)
-            return;
-
-        AnimatorControllerParameter[] parameters = animator.parameters;
-
-        for (int i = 0; i < parameters.Length; ++i)
-        {
-            AnimatorControllerParameter parameter = parameters[i];
-
-            if (parameter.type != AnimatorControllerParameterType.Bool)
-                continue;
-
-            if (string.Equals(parameter.name, "Swim", StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(parameter.name, "IsSwim", StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(parameter.name, "HasSwum", StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(parameter.name, "Swimming", StringComparison.OrdinalIgnoreCase))
-            {
-                animator.SetBool(parameter.name, value);
-                return;
-            }
-        }
+        if (animator != null)
+            animator.SetBool("Swim", value);
     }
 }

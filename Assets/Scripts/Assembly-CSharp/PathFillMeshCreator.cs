@@ -49,6 +49,19 @@ public class PathFillMeshCreator : PathSceneTool
             pathCreator.pathUpdated -= PathUpdated;
     }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        if (mesh == null)
+            return;
+
+        if (Application.isPlaying)
+            Destroy(mesh);
+        else
+            DestroyImmediate(mesh);
+        mesh = null;
+    }
+
     protected override void PathUpdated()
     {
         if (pathCreator == null)

@@ -1,6 +1,5 @@
-using UnityEngine;
-using System;
 using System.Threading;
+using UnityEngine;
 
 public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 {
@@ -43,8 +42,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
                     return _instance;
                 }
 
-                // Preserve the recovered behaviour:
-                // keep the first instance returned by Unity and destroy the duplicates.
+                // Keep the first instance returned by Unity and destroy the duplicates.
                 _instance = instances[0];
 
                 for (int i = 1; i < instances.Length; i++)
@@ -88,15 +86,6 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     protected virtual void OnAwake()
     {
     }
-
-    protected Singleton()
-    {
-    }
-
-    static Singleton()
-    {
-        Lock = new object();
-    }
 }
 
 public abstract class Singleton : MonoBehaviour
@@ -117,9 +106,5 @@ public abstract class Singleton : MonoBehaviour
     private void OnEnable()
     {
         Quitting = false;
-    }
-
-    protected Singleton()
-    {
     }
 }

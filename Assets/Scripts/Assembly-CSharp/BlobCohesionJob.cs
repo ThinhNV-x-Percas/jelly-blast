@@ -24,9 +24,6 @@ public struct BlobCohesionJob : IJobParallelFor
     public void Execute(int index)
     {
         int blobId = blobIds[index];
-
-        // The native reconstruction tests (blobId + 1) against zero,
-        // which is equivalent to skipping the sentinel value -1.
         if (blobId == -1)
         {
             return;
@@ -36,6 +33,7 @@ public struct BlobCohesionJob : IJobParallelFor
         {
             return;
         }
+
         float2 offset = midpoint - positions[index];
         float distanceSq = math.lengthsq(offset);
 
@@ -50,12 +48,6 @@ public struct BlobCohesionJob : IJobParallelFor
             return;
         }
 
-        // Reconstructed from the native sequence:
-        //   offset / distance
-        //   * (distance - cohesionRadius)
-        //   * springStrength
-        //   * dt
-        // added to deltaVel[index].
         float2 direction = offset / distance;
         float displacement = distance - cohesionRadius;
         float2 cohesionVelocity = direction * displacement * springStrength * dt;

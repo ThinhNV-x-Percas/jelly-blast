@@ -13,20 +13,20 @@ public class GameManager : Singleton<GameManager>
     public FluidPhysicsCoupler coupler;
     public FluidDisplay display;
 
-    public int targetParticleCount;
+    public int targetParticleCount = 450;
 
     [Tooltip("Number of coloured particles that must spawn before a new fish appears")]
     [Header("Fish Spawn Settings")]
-    public int fishSpawnThreshold;
+    public int fishSpawnThreshold = 300;
 
     private int _particlesSpawnedSinceLastFish;
     private int _fishSpawnedCount;
     private int _activeFishCount;
     private int _fishGoalTarget;
 
-    public float selectionRadius;
+    public float selectionRadius = 0.5f;
     public int minRemoveParticles;
-    public float powerUpMergeDistance;
+    public float powerUpMergeDistance = 1f;
 
     [Header("Lighting")]
     public Vector3 lightRot;
@@ -38,9 +38,9 @@ public class GameManager : Singleton<GameManager>
     public Action OnInit;
     public Action<Vector2> OnTooSmallReject;
 
-    public int coinsCollected;
+    public int coinsCollected = 100;
 
-    public List<Water> waters;
+    public List<Water> waters = new List<Water>();
 
     public Mud mudPrefab;
     public Snow snowPrefab;
@@ -55,7 +55,7 @@ public class GameManager : Singleton<GameManager>
     public Butterfly butterflyPrefab;
     public FluidCompute compute;
 
-    public float failTimerDuration;
+    public float failTimerDuration = 3f;
     public Honey honeyTest;
     public FluidCollectDisplay mudCollectDisplay;
 
@@ -68,7 +68,7 @@ public class GameManager : Singleton<GameManager>
 
     public Light light;
     public SplashEffect splashEffectPrefab;
-    public List<ParticleQueueData> particleQueue;
+    public List<ParticleQueueData> particleQueue = new List<ParticleQueueData>();
 
     private int queuedCount;
 
@@ -115,6 +115,14 @@ public class GameManager : Singleton<GameManager>
 
         Singleton<UIIconGenerator>.Instance.UpdateIcons();
         OnInit?.Invoke();
+
+        solver.OnStep += CheckFishHitWater;
+    }
+
+    private void OnDestroy()
+    {
+        if (solver != null)
+            solver.OnStep -= CheckFishHitWater;
     }
 
     private IEnumerator HandleIntro()
@@ -160,10 +168,9 @@ public class GameManager : Singleton<GameManager>
             return;
         }
 
-        // Do not interact with particles belonging to special objects.
+        // Tapping a fish does nothing; other special objects reject the input.
         if (solver.fishIds.IsCreated && solver.fishIds[particleIndex] != -1)
         {
-            RejectInput(region, worldPosition3D);
             return;
         }
 
@@ -243,7 +250,7 @@ public class GameManager : Singleton<GameManager>
         SplashEffect splashEffect = Instantiate(splashEffectPrefab);
         if (splashEffect != null)
         {
-            splashEffect.transform.position = worldPosition;
+            splashEffect.transform.position = worldPosition + Vector3.back * 9f;
             Destroy(splashEffect.gameObject, 0.5f);
         }
     }
@@ -270,7 +277,7 @@ public class GameManager : Singleton<GameManager>
                 particleQueue.Add(new ParticleQueueData
                 {
                     count = count,
-                    time = Time.time
+                    time = Time.time + 1f
                 });
                 queuedCount += count;
             }
@@ -308,18 +315,13 @@ public class GameManager : Singleton<GameManager>
         float sectionY = currentSection != null ? currentSection.y : 0f;
         float spawnBaseY = sectionY + cameraHeight;
 
-        float spawnBaseX;
-        float spread;
+        // Default mode spawns around the horizontal centre with a wide spread.
+        float spawnBaseX = 0f;
+        float spread = 2f;
         if (level.fluidSpawnMode == FluidSpawnMode.CustomRange)
         {
             spawnBaseX = UnityEngine.Random.Range(level.fluidSpawnXRange.x, level.fluidSpawnXRange.y);
             spread = 0.2f;
-        }
-        else
-        {
-            float halfWidth = cameraHeight * mainCamera.aspect;
-            spawnBaseX = UnityEngine.Random.Range(-halfWidth, halfWidth);
-            spread = 2f;
         }
 
         Vector2 baseOffset = UnityEngine.Random.insideUnitCircle;
@@ -474,7 +476,7 @@ public class GameManager : Singleton<GameManager>
 
         foreach (Fish fish in solver.fishes)
         {
-            if (fish == null || fish.particleIds == null)
+            if (fish == null || fish.hasSwum || fish.particleIds == null)
             {
                 continue;
             }
@@ -499,8 +501,29 @@ public class GameManager : Singleton<GameManager>
                 GoalData goalData = level.goals[i];
                 if (goalData != null && goalData.goalType == GoalType.Fish && goalData.count >= 1)
                 {
-                    Vector2 worldGoalPosition = Viewport.GetViewport<GameplayScreen>().GetWorldGoalPosition(i);
-                    fish.PlayHitWaterAnimation(worldGoalPosition);
+                    GameplayScreen gameplayScreen = Viewport.GetViewport<GameplayScreen>();
+                    if (gameplayScreen == null)
+                    {
+                        break;
+                    }
+
+                    int goalIndex = i;
+
+                    // The goal is credited when the fish reaches the goal icon. Fish clears this
+                    // subscription itself if it leaves the water before taking off.
+                    fish.OnMenuReached += () =>
+                    {
+                        goalData.count--;
+                        pendingFish = Mathf.Max(0, pendingFish - 1);
+                        if (gameplayScreen.goals != null &&
+                            goalIndex < gameplayScreen.goals.Length && gameplayScreen.goals[goalIndex] != null)
+                        {
+                            gameplayScreen.goals[goalIndex].RecieveParticle();
+                        }
+                        CheckWinCondition();
+                    };
+
+                    fish.PlayHitWaterAnimation(gameplayScreen.GetWorldGoalPosition(i));
                     break;
                 }
             }
@@ -526,17 +549,5 @@ public class GameManager : Singleton<GameManager>
         }
 
         return _fishSpawnedCount < _fishGoalTarget;
-    }
-
-    public GameManager()
-    {
-        targetParticleCount = 0;
-        fishSpawnThreshold = 300;
-        selectionRadius = 0.5f;
-        powerUpMergeDistance = 1f;
-        coinsCollected = 100;
-        waters = new List<Water>();
-        failTimerDuration = 3f;
-        particleQueue = new List<ParticleQueueData>();
     }
 }

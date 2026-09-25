@@ -5,8 +5,8 @@ using UnityEngine.Rendering;
 
 public class FluidCompute : MonoBehaviour
 {
-    public int layerCount;
-    public int maxParticles;
+    public int layerCount = 8;
+    public int maxParticles = 512;
     public int activeCount;
 
     protected CommandBuffer cmd;
@@ -21,7 +21,7 @@ public class FluidCompute : MonoBehaviour
     [HideInInspector]
     public int[] particleIds;
 
-    public Dictionary<int, int> idToIndex;
+    public Dictionary<int, int> idToIndex = new Dictionary<int, int>();
 
     private int nextId;
 
@@ -37,8 +37,8 @@ public class FluidCompute : MonoBehaviour
     [Header("Compute Shader Pass")]
     public ComputeShader fluidCS;
     public RenderTexture fluidRT;
-    public float rawFieldDownscale;
-    public float fieldDownscale;
+    public float rawFieldDownscale = 0.125f;
+    public float fieldDownscale = 0.25f;
 
     protected int W;
     protected int H;
@@ -51,6 +51,8 @@ public class FluidCompute : MonoBehaviour
     private int ty;
 
     private Vector4[] colorsVec;
+
+    private const int MaxInstancesPerDraw = 1023;
 
     public Action OnPreUpdate;
 
@@ -149,7 +151,8 @@ public class FluidCompute : MonoBehaviour
         OnPreUpdate?.Invoke();
         cmd.Clear();
 
-        int renderCount = Mathf.Clamp(activeCount, 0, maxParticles);
+        // DrawMeshInstanced accepts at most 1023 instances per call.
+        int renderCount = Mathf.Clamp(activeCount, 0, Mathf.Min(maxParticles, MaxInstancesPerDraw));
         int usedLayers = 0;
 
         for (int i = 0; i < renderCount; i++)
@@ -522,14 +525,5 @@ public class FluidCompute : MonoBehaviour
         }
 
         texture = null;
-    }
-
-    public FluidCompute()
-    {
-        layerCount = 8;
-        maxParticles = 512;
-        idToIndex = new Dictionary<int, int>();
-        rawFieldDownscale = 0.125f;
-        fieldDownscale = 0.25f;
     }
 }

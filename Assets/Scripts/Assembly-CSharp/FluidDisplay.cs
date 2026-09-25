@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
@@ -8,7 +7,7 @@ public class FluidDisplay : FluidRendererBase
     private FluidSolver solver;
     private float fixedDeltaTime;
 
-    public float particleSize;
+    public float particleSize = 0.2f;
     public int[] particleIds;
 
     public override void Init()
@@ -18,18 +17,17 @@ public class FluidDisplay : FluidRendererBase
         particleIds = new int[maxParticles];
 
         GameManager gameManager = Singleton<GameManager>.Instance;
-        if (gameManager == null)
-        {
-            solver = null;
-            fixedDeltaTime = Time.fixedDeltaTime;
-            return;
-        }
+        solver = gameManager != null ? gameManager.solver : null;
 
-        solver = gameManager.solver;
-        fixedDeltaTime = Time.fixedDeltaTime;
+        // The solver steps at the coupler's fixed timestep, not Unity's physics timestep.
+        fixedDeltaTime = gameManager != null && gameManager.coupler != null
+            ? gameManager.coupler.fixedDeltaTime
+            : Time.fixedDeltaTime;
 
         if (solver != null)
         {
+            solver.OnAddParticles -= OnSolverAddParticles;
+            solver.OnStartRemoveParticles -= OnSolverRemoveParticlesStart;
             solver.OnAddParticles += OnSolverAddParticles;
             solver.OnStartRemoveParticles += OnSolverRemoveParticlesStart;
         }
@@ -140,11 +138,5 @@ public class FluidDisplay : FluidRendererBase
         }
 
         base.OnDestroy();
-    }
-
-    public FluidDisplay()
-    {
-        particleSize = 0.2f;
-        particleBoundsRadius = 0.4f;
     }
 }

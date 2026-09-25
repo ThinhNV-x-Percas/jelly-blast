@@ -4,41 +4,35 @@ using UnityEngine;
 public class UIIconGenerator : Singleton<UIIconGenerator>
 {
     [Header("Render settings")]
-    public int renderLayer;
+    public int renderLayer = 9;
     public Camera renderCamera;
-    public int resolution;
+    public int resolution = 256;
 
     [Header("Prefabs & Materials")]
     public MeshRenderer quadPrefab;
     private MaterialPropertyBlock _propBlock;
     public Texture2D fluidTex;
     private Texture2DArray fluidTexArray;
+    private Texture2D whiteNoiseTex;
     public Texture2D reflectionTex;
     public Material colorMaterial;
 
     [Header("Custom PNG Icons")]
     public Sprite fishIconSprite;
 
-    private sealed class ColorIconPropertyBlockSetter
-    {
-        private readonly Color _color;
-
-        public ColorIconPropertyBlockSetter(Color color)
-        {
-            _color = color;
-        }
-
-        public void Apply(MaterialPropertyBlock pb)
-        {
-            pb.SetColor("_Color", _color);
-            pb.SetFloat("_Alpha", 0.3f);
-        }
-    }
-
     private void Awake()
     {
         _propBlock = new MaterialPropertyBlock();
         fluidTexArray = CreateArrayFromTexture(fluidTex);
+    }
+
+    private void OnDestroy()
+    {
+        // Both are runtime textures; the white one is DontSave and would otherwise outlive the scene.
+        if (fluidTexArray != null)
+            Destroy(fluidTexArray);
+        if (whiteNoiseTex != null)
+            Destroy(whiteNoiseTex);
     }
 
     public void UpdateIcons()
@@ -140,8 +134,11 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
 
     private void RenderColorIcon(RenderTexture targetRT, Color color)
     {
-        ColorIconPropertyBlockSetter setter = new ColorIconPropertyBlockSetter(color);
-        RenderFluidIcon(targetRT, colorMaterial, 0.3f, setter.Apply);
+        RenderFluidIcon(targetRT, colorMaterial, 0.3f, pb =>
+        {
+            pb.SetColor("_Color", color);
+            pb.SetFloat("_Alpha", 0.3f);
+        });
     }
 
     private void RenderMudIcon(RenderTexture targetRT)
@@ -195,7 +192,9 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
         }
 
         _propBlock.SetTexture("_FluidTexArray", fluidTexArray);
-        _propBlock.SetTexture("_NoiseTex", SolidColor(Color.white));
+        if (whiteNoiseTex == null)
+            whiteNoiseTex = SolidColor(Color.white);
+        _propBlock.SetTexture("_NoiseTex", whiteNoiseTex);
         _propBlock.SetTexture("_ReflectionTex", reflectionTex);
         _propBlock.SetInt("_FluidType", 0);
         _propBlock.SetFloat("_Seed", -1f);
@@ -425,11 +424,5 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
         texture2D.hideFlags = HideFlags.DontSave;
 
         return texture2D;
-    }
-
-    public UIIconGenerator()
-    {
-        renderLayer = 9;
-        resolution = 256;
     }
 }

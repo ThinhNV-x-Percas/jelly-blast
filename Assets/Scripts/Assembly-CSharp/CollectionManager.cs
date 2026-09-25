@@ -26,17 +26,26 @@ public class CollectionManager : Singleton<CollectionManager>
     // reference makes the reconstructed code deterministic while still allowing automatic lookup.
     [SerializeField] private Butterfly butterflyPrefab;
 
+    private GameManager gameManager;
+
     private void Awake()
     {
-        Init();
+        // The level is instantiated in GameManager.Start, so initialisation waits for OnInit.
+        gameManager = Singleton<GameManager>.Instance;
+        if (gameManager != null)
+            gameManager.OnInit += Init;
+    }
+
+    private void OnDestroy()
+    {
+        if (gameManager != null)
+            gameManager.OnInit -= Init;
     }
 
     private void Init()
     {
-        // The native code retrieves these objects from the game singleton. Scene lookup is used
-        // here because the decompiler did not recover the original GameManager field names.
-        solver = FindObjectOfType<FluidSolver>();
-        level = FindObjectOfType<Level>();
+        solver = gameManager.solver;
+        level = gameManager.level;
 
         if (solver == null)
             return;
@@ -47,13 +56,13 @@ public class CollectionManager : Singleton<CollectionManager>
         solver.OnCreatePowerup -= OnCreatePowerup;
         solver.OnCreatePowerup += OnCreatePowerup;
 
-        InitDisplay(colorDisplay, null);
-        InitDisplay(mudDisplay, solver.mudFluidType);
-        InitDisplay(honeyDisplay, solver.honeyFluidType);
-        InitDisplay(snowDisplay, solver.snowFluidType);
+        InitDisplay(colorDisplay, null, gameManager.colorMaterial);
+        InitDisplay(mudDisplay, solver.mudFluidType, gameManager.mudMaterial);
+        InitDisplay(honeyDisplay, solver.honeyFluidType, gameManager.honeyMaterial);
+        InitDisplay(snowDisplay, solver.snowFluidType, gameManager.snowMaterial);
     }
 
-    private void InitDisplay(FluidCollectDisplay display, int? fluidType)
+    private void InitDisplay(FluidCollectDisplay display, int? fluidType, Material sourceMaterial)
     {
         if (display == null)
             return;
@@ -62,7 +71,7 @@ public class CollectionManager : Singleton<CollectionManager>
             display.fluidType = fluidType.Value;
 
         if (lowResCompute != null && display.mr != null)
-            display.mr.material = CloneMaterialLowRes(display.mr.sharedMaterial);
+            display.mr.material = CloneMaterialLowRes(sourceMaterial != null ? sourceMaterial : display.mr.sharedMaterial);
 
         display.Init();
     }

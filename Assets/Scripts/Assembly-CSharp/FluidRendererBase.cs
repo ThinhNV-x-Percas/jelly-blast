@@ -37,6 +37,8 @@ public abstract class FluidRendererBase : MonoBehaviour
 
         if (compute != null)
         {
+            // Guard against double subscription if Init is called more than once.
+            compute.OnPreUpdate -= OnPreComputeUpdate;
             compute.OnPreUpdate += OnPreComputeUpdate;
         }
     }
@@ -59,8 +61,7 @@ public abstract class FluidRendererBase : MonoBehaviour
             if (count <= 0)
             {
                 position = Vector2.zero;
-                Vector3 currentPosition1 = targetTransform.position;
-                targetTransform.position = new Vector3(0f, 0f, currentPosition1.z);
+                targetTransform.position = new Vector3(0f, 0f, targetTransform.position.z);
                 targetTransform.localScale = Vector3.zero;
                 return;
             }

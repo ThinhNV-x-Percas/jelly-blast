@@ -6,20 +6,20 @@ namespace PathCreation.Examples
     public class CylinderMeshCreator : PathSceneTool
     {
         [Tooltip("Radius of the cylinder and hemisphere caps.")]
-        public float thickness;
+        public float thickness = 0.15f;
 
         [Range(3f, 30f)]
         public int resolutionU;
 
         [Min(0f)]
-        public float resolutionV;
+        public float resolutionV = 20f;
 
         [Tooltip("Enable to add hemispherical caps at the ends of the cylinder.")]
         public bool addCaps;
 
         [Tooltip("Number of segments from pole to equator for each hemispherical cap.")]
         [Min(1f)]
-        public int capSegmentsV;
+        public int capSegmentsV = 10;
 
         public Material material;
 
@@ -42,6 +42,20 @@ namespace PathCreation.Examples
         {
             if (pathCreator != null)
                 pathCreator.pathUpdated -= PathUpdated;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (mesh == null)
+                return;
+
+            // The mesh is created at runtime and is not owned by any asset.
+            if (Application.isPlaying)
+                Destroy(mesh);
+            else
+                DestroyImmediate(mesh);
+            mesh = null;
         }
 
         protected override void PathUpdated()
@@ -67,12 +81,6 @@ namespace PathCreation.Examples
             // round(path length * resolutionV) + 1, with at least 2 rings.
             int numCircles = Mathf.Max(2, Mathf.RoundToInt(path.length * resolutionV) + 1);
             int radialSegments = Mathf.Max(1, resolutionU);
-
-            if (radialSegments < 1)
-            {
-                ClearMesh();
-                return;
-            }
 
             var pathInstruction = EndOfPathInstruction.Stop;
 
@@ -270,17 +278,6 @@ namespace PathCreation.Examples
             return transform.InverseTransformDirection(worldNormal / magnitude).normalized;
         }
 
-        private void ClearMesh()
-        {
-            if (mesh == null)
-                mesh = new Mesh();
-            else
-                mesh.Clear();
-
-            if (meshFilter != null)
-                meshFilter.sharedMesh = mesh;
-        }
-
         private void AssignMeshComponents()
         {
             meshFilter = GetComponent<MeshFilter>();
@@ -301,13 +298,6 @@ namespace PathCreation.Examples
         {
             if (meshRenderer != null && material != null)
                 meshRenderer.sharedMaterial = material;
-        }
-
-        public CylinderMeshCreator()
-        {
-            thickness = 0.15f;
-            resolutionV = 20f;
-            capSegmentsV = 10;
         }
     }
 }

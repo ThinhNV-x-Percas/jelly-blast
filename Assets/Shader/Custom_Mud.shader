@@ -1,3 +1,5 @@
+// Reconstruction (see SpecialFluidCommon.cginc). Used by mud.mat and snow.mat: a flat _Color broken up
+// by world-space noise (_NoiseTex, _NoiseScale, _NoiseMag), lit like the colour fluid.
 Shader "Custom/Mud" {
 	Properties {
 		_RawFieldTex ("Raw Field Tex", 2DArray) = "" {}
@@ -14,45 +16,40 @@ Shader "Custom/Mud" {
 		_NoiseMag ("Noise Mag", Float) = 1
 		_AlphaThreshold ("Alpha Threshold", Range(0, 1)) = 1
 		_FlipDY ("Flip DY", Float) = 1
+		_Alpha ("Alpha", Range(0, 1)) = 1
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+
+	SubShader {
+		Tags { "Queue"="Transparent+2" "RenderType"="Transparent" "IgnoreProjector"="True" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
-		Pass
-		{
+		Pass {
 			HLSLPROGRAM
-			#pragma vertex vert
+			#pragma target 3.5
+			#pragma vertex SFVert
 			#pragma fragment frag
+			#include "SpecialFluidCommon.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
+			sampler2D _NoiseTex;
 			float4 _Color;
+			float _NoiseScale;
+			float _NoiseMag;
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag(sf_v2f i) : SV_Target
 			{
-				return _Color; // RGBA
-			}
+				SFSurface s = SFSample(i);
 
+				float2 noiseUV = (SFIsIcon() ? i.uv : i.worldPos.xy) * _NoiseScale;
+				float noise = tex2D(_NoiseTex, noiseUV).r;
+				float3 albedo = _Color.rgb * (1.0 + (noise - 0.5) * 0.35 * _NoiseMag);
+
+				float3 col = SFShade(s, albedo);
+				col = SFApplyEmission(col, s.screenUV);
+				return float4(col, SFAlpha(s));
+			}
 			ENDHLSL
 		}
 	}

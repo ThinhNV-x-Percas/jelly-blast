@@ -1523,6 +1523,11 @@ public class FluidSolver : MonoBehaviour
             float currR = destroyRadius * ((UnityEngine.Time.time - startDet) / destroyDuration);
             var toRemove = new HashSet<int>();
             var dehoneyedParticleIds = new HashSet<int>();
+            // Octopus splits and clump removals add/remove solver particles, which compacts the arrays;
+            // doing them inside the index loop skipped or double-hit particles, so they run after it.
+            var hitOctopusIds = new List<int>();
+            var hitClumpIds = new List<int>();
+            var hitBeeParticleIds = new List<int>();
 
             for (int i = 0; i < ActiveCount; ++i)
             {
@@ -1542,42 +1547,17 @@ public class FluidSolver : MonoBehaviour
                 }
                 else if (octopusIds[idx] >= 0)
                 {
-                    int octId = octopusIds[idx];
-                    for (int k = 0; octopi != null && k < octopi.Count; ++k)
-                    {
-                        Octopus octopus = octopi[k];
-                        if (octopus == null || octopus.id != octId) continue;
-                        if (octopus.splitIndex >= 1)
-                        {
-                            octopus.Split();
-                        }
-                        else
-                        {
-                            UnityEngine.Vector2 headPos = octopusHeadMidpoints.TryGetValue(octId, out Unity.Mathematics.float2 mid)
-                                ? new UnityEngine.Vector2(mid.x, mid.y)
-                                : new UnityEngine.Vector2(positions[idx].x, positions[idx].y);
-                            CollectionManager collectionManager = Singleton<CollectionManager>.Instance;
-                            if (collectionManager != null) collectionManager.OnCollectOctopus(headPos);
-                            RemoveOctopus(octopus);
-                        }
-                        break;
-                    }
+                    if (!hitOctopusIds.Contains(octopusIds[idx])) hitOctopusIds.Add(octopusIds[idx]);
                 }
                 else if (caterpillarIds[idx] < 0)
                 {
                     if (beeIds[idx] >= 0)
                     {
-                        OnHitBeeParticle(idx, beeIds[idx], ref dehoneyedParticleIds, ref dehoneyedBeeIds);
+                        hitBeeParticleIds.Add(pid);
                     }
                     else if (clumpIds[idx] >= 0)
                     {
-                        int clumpId = clumpIds[idx];
-                        for (int k = 0; clumps != null && k < clumps.Count; ++k)
-                        {
-                            if (clumps[k].id != clumpId) continue;
-                            RemoveClump(clumps[k]);
-                            break;
-                        }
+                        if (!hitClumpIds.Contains(clumpIds[idx])) hitClumpIds.Add(clumpIds[idx]);
                     }
                     else if (isHoneyCoated[idx])
                     {
@@ -1588,6 +1568,44 @@ public class FluidSolver : MonoBehaviour
                     {
                         toRemove.Add(pid);
                     }
+                }
+            }
+
+            // A hit can remove the whole bee, so each index is resolved again right before use.
+            foreach (int pid in hitBeeParticleIds)
+                if (idToIndex.TryGetValue(pid, out int idx) && beeIds[idx] >= 0)
+                    OnHitBeeParticle(idx, beeIds[idx], ref dehoneyedParticleIds, ref dehoneyedBeeIds);
+
+            foreach (int octId in hitOctopusIds)
+            {
+                for (int k = 0; octopi != null && k < octopi.Count; ++k)
+                {
+                    Octopus octopus = octopi[k];
+                    if (octopus == null || octopus.id != octId) continue;
+                    if (octopus.splitIndex >= 1)
+                    {
+                        octopus.Split();
+                    }
+                    else
+                    {
+                        UnityEngine.Vector2 headPos = octopusHeadMidpoints.TryGetValue(octId, out Unity.Mathematics.float2 mid)
+                            ? new UnityEngine.Vector2(mid.x, mid.y)
+                            : (UnityEngine.Vector2)octopus.transform.position;
+                        CollectionManager collectionManager = Singleton<CollectionManager>.Instance;
+                        if (collectionManager != null) collectionManager.OnCollectOctopus(headPos);
+                        RemoveOctopus(octopus);
+                    }
+                    break;
+                }
+            }
+
+            foreach (int clumpId in hitClumpIds)
+            {
+                for (int k = 0; clumps != null && k < clumps.Count; ++k)
+                {
+                    if (clumps[k].id != clumpId) continue;
+                    RemoveClump(clumps[k]);
+                    break;
                 }
             }
 

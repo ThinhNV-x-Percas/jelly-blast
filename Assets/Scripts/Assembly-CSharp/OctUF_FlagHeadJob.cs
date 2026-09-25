@@ -1,51 +1,43 @@
-[global::Unity.Burst.BurstCompile(global::Unity.Burst.FloatPrecision.Low, global::Unity.Burst.FloatMode.Fast)]
-[global::Cpp2ILInjected.Token(Token = "0x2000083")]
-internal struct OctUF_FlagHeadJob : global::Unity.Jobs.IJobParallelFor
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Jobs;
+
+[BurstCompile(FloatPrecision.Low, FloatMode.Fast)]
+internal struct OctUF_FlagHeadJob : IJobParallelFor
 {
-	[global::Unity.Collections.NativeDisableParallelForRestriction]
-	[global::Cpp2ILInjected.Token(Token = "0x4000261")]
-	[global::Cpp2ILInjected.FieldOffset(Offset = "0x0")]
-	public global::Unity.Collections.NativeArray<int> parent;
+    // Path compression writes from several threads are benign: every writer stores
+    // the same root, and no unions happen while this job runs.
+    [NativeDisableParallelForRestriction]
+    public NativeArray<int> parent;
 
-	[global::Unity.Collections.ReadOnly]
-	[global::Cpp2ILInjected.Token(Token = "0x4000262")]
-	[global::Cpp2ILInjected.FieldOffset(Offset = "0x10")]
-	public global::Unity.Collections.NativeArray<byte> isHead;
+    [ReadOnly]
+    public NativeArray<byte> isHead;
 
-	[global::Unity.Collections.NativeDisableParallelForRestriction]
-	[global::Cpp2ILInjected.Token(Token = "0x4000263")]
-	[global::Cpp2ILInjected.FieldOffset(Offset = "0x20")]
-	public global::Unity.Collections.NativeArray<byte> componentHasHead;
+    [NativeDisableParallelForRestriction]
+    public NativeArray<byte> componentHasHead;
 
-	[global::Cpp2ILInjected.Token(Token = "0x6000254")]
-	[global::Cpp2ILInjected.Address(RVA = "0xFFB6D4", Offset = "0xFFB6D4", Length = "0x40")]
-	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\nL_000D:\n\tv7 = *([p @ X1 (Unity.Collections.NativeArray`1<System.Int32>)+v32 @ X9_v2 (System.Int32)*4]) != v32;\n\tif (v7) goto L_000D;\n\tv37 = x << 2;\n\tv71 = p + v37;\n\tv69 = *([v71 @ X8_v4]);\n\tv44 = *([v71 @ X8_v4]) == *([p @ X1 (Unity.Collections.NativeArray`1<System.Int32>)+v32 @ X9_v2 (System.Int32)*4]);\n\tif (v44) goto L_002B;\nL_001C:\n\t*([v71 @ X8_v4]) = v32;\n\tv68 = v69 << 2;\n\tv71 = p + v68;\n\tv69 = *([v71 @ X8_v4]);\n\tv50 = *([v71 @ X8_v4]) != v32;\n\tif (v50) goto L_001C;\nL_002B:\n\treturn v32;\n// 30 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-	private static int Find(int x, global::Unity.Collections.NativeArray<int> p)
-	{
-		int root = x;
-		while (p[root] != root)
-		{
-			root = p[root];
-		}
-		while (p[x] != root)
-		{
-			int next = p[x];
-			p[x] = root;
-			x = next;
-		}
-		return root;
-	}
+    private static int Find(int x, NativeArray<int> p)
+    {
+        int root = x;
+        while (p[root] != root)
+        {
+            root = p[root];
+        }
+        while (p[x] != root)
+        {
+            int next = p[x];
+            p[x] = root;
+            x = next;
+        }
+        return root;
+    }
 
-	[global::Cpp2ILInjected.Token(Token = "0x6000255")]
-	[global::Cpp2ILInjected.Address(RVA = "0xFFB714", Offset = "0xFFB714", Length = "0x44")]
-	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = this.isHead;\n\tv14 = *([v10 @ X8_v1 (Unity.Collections.NativeArray`1<System.Byte>)+i @ X1 (System.Int32)]) == 0;\n\tif (v14) goto L_0018;\n\tv20 = OctUF_FlagHeadJob::Find(i, this.parent);\n\tv30 = this.componentHasHead;\n\t*([v30 @ X8_v5 (Unity.Collections.NativeArray`1<System.Byte>)+v20 @ X0_v3 (System.Int32)]) = 1;\nL_0018:\n\treturn;\n// 18 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-	public void Execute(int i)
-	{
-		if (isHead[i] == 0)
-		{
-			return;
-		}
-		int root = Find(i, parent);
-		componentHasHead[root] = 1;
-	}
+    public void Execute(int i)
+    {
+        if (isHead[i] == 0)
+        {
+            return;
+        }
+        componentHasHead[Find(i, parent)] = 1;
+    }
 }

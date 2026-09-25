@@ -76,6 +76,20 @@ public class PathFillMeshCreator : PathSceneTool
         if (built == null)
             return;
 
+        // CreateMesh returns vertices in the attached body's space (world space when the collider has
+        // no Rigidbody2D, as every floor does), but the MeshFilter applies this transform again, which
+        // drew each floor offset by its own position (and rotated/scaled twice). Bring them back to local.
+        Rigidbody2D body = polyCollider.attachedRigidbody;
+        Matrix4x4 meshToWorld = body != null
+            ? Matrix4x4.TRS(body.transform.position, body.transform.rotation, Vector3.one)
+            : Matrix4x4.identity;
+        Matrix4x4 meshToLocal = transform.worldToLocalMatrix * meshToWorld;
+        Vector3[] vertices = built.vertices;
+        for (int i = 0; i < vertices.Length; i++)
+            vertices[i] = meshToLocal.MultiplyPoint3x4(vertices[i]);
+        built.vertices = vertices;
+        built.RecalculateBounds();
+
         Vector3[] normals = new Vector3[built.vertexCount];
         Vector3 facing = flipGeometry ? Vector3.forward : Vector3.back;
         for (int i = 0; i < normals.Length; i++)

@@ -1,42 +1,29 @@
+// Replacement shader used by SDFCollider to capture every collider mesh on the collision layers as a
+// white mask, which is then turned into the fluid's signed distance field. Rewritten from the AssetRipper
+// dummy (which already returned white) to not cull back faces: floor meshes built from colliders can face
+// either way, and a culled floor would silently vanish from the SDF.
 Shader "Hidden/WhiteMask" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+	SubShader {
+		Tags { "RenderType"="Opaque" }
+		Cull Off
+		ZWrite Off
+		ZTest Always
 
-		Pass
-		{
+		Pass {
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-
-			struct Vertex_Stage_Input
+			float4 vert(float4 vertex : POSITION) : SV_POSITION
 			{
-				float4 pos : POSITION;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				return UnityObjectToClipPos(vertex);
 			}
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag() : SV_Target
 			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
+				return float4(1.0, 1.0, 1.0, 1.0);
 			}
-
 			ENDHLSL
 		}
 	}

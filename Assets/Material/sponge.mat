@@ -23,6 +23,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+      _EmissionTex:
+        m_Texture: {fileID: 8400000, guid: f690c0fb9be01e64fb9d8513f3028b57, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
       _EyesTex:
         m_Texture: {fileID: 2800000, guid: 95b9ff5a85cdfa04bb85d45915cc2a01, type: 3}
         m_Scale: {x: 0.6, y: 0.48}
@@ -37,6 +41,10 @@ Material:
         m_Offset: {x: 0, y: 0}
       _NoiseTex2:
         m_Texture: {fileID: 2800000, guid: 4e9e4725760d3b448a24cbd0db2a2e8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _RawFieldTex:
+        m_Texture: {fileID: 8400000, guid: 897e271d3813f38449b3057aadea77ab, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

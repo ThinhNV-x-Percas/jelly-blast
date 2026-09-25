@@ -1,3 +1,6 @@
+// Reconstruction (see SpecialFluidCommon.cginc). Honey coating drawn over honey-coated jelly: a
+// translucent amber layer (_Color.a) with light noise, a denser rim (_RimPower) and a sharp highlight.
+// "NoGrab": no refraction pass, the jelly underneath simply shows through the alpha.
 Shader "Custom/Honey_NoGrab" {
 	Properties {
 		_RawFieldTex ("Raw Field Tex", 2DArray) = "" {}
@@ -15,45 +18,46 @@ Shader "Custom/Honey_NoGrab" {
 		_AlphaThreshold ("Alpha Threshold", Range(0, 1)) = 1
 		_FlipDY ("Flip DY", Float) = 1
 		_RimPower ("Rim Power", Float) = 1
+		_Alpha ("Alpha", Range(0, 1)) = 1
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+
+	SubShader {
+		// After the colour fluid (Transparent+1) so the coating sits on top of the jelly it covers.
+		Tags { "Queue"="Transparent+3" "RenderType"="Transparent" "IgnoreProjector"="True" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
-		Pass
-		{
+		Pass {
 			HLSLPROGRAM
-			#pragma vertex vert
+			#pragma target 3.5
+			#pragma vertex SFVert
 			#pragma fragment frag
+			#include "SpecialFluidCommon.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
+			sampler2D _NoiseTex;
 			float4 _Color;
+			float _NoiseScale;
+			float _NoiseMag;
+			float _RimPower;
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag(sf_v2f i) : SV_Target
 			{
-				return _Color; // RGBA
-			}
+				SFSurface s = SFSample(i);
 
+				float2 noiseUV = (SFIsIcon() ? i.uv : i.worldPos.xy) * _NoiseScale;
+				float noise = tex2D(_NoiseTex, noiseUV + _Time.x * 0.05).r;
+				float3 albedo = _Color.rgb * (1.0 + (noise - 0.5) * _NoiseMag);
+
+				float3 col = SFShade(s, albedo);
+				col = SFApplyEmission(col, s.screenUV);
+
+				// Thicker, more saturated honey towards the edge of the coating.
+				float edgeDensity = pow(saturate(1.0 - s.density), max(_RimPower, 0.01));
+				float opacity = saturate(_Color.a + edgeDensity * (1.0 - _Color.a));
+				return float4(col, SFAlpha(s) * opacity);
+			}
 			ENDHLSL
 		}
 	}

@@ -1,221 +1,184 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace PathCreation.Examples
 {
-	[global::UnityEngine.RequireComponent(typeof(global::UnityEngine.MeshFilter), typeof(global::UnityEngine.MeshRenderer))]
-	[global::Cpp2ILInjected.Token(Token = "0x2000104")]
-	public class PlanarLineMeshCreator : global::PathCreation.Examples.PathSceneTool
-	{
-		[global::UnityEngine.Tooltip("Half-width of the ribbon (world units).")]
-		[global::UnityEngine.Header("Shape")]
-		[global::Cpp2ILInjected.Token(Token = "0x400052D")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x34")]
-		public float thickness;
+    [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+    public class PlanarLineMeshCreator : PathSceneTool
+    {
+        [Header("Shape")]
+        [Tooltip("Half-width of the ribbon (world units).")]
+        public float thickness = 0.05f;
 
-		[global::UnityEngine.Range(1f, 20f)]
-		[global::UnityEngine.Tooltip("Sub-samples per repeat segment (smoothness).")]
-		[global::Cpp2ILInjected.Token(Token = "0x400052E")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x38")]
-		public int subdivisionsPerSegment;
+        [Tooltip("Sub-samples per repeat segment (smoothness).")]
+        [Range(1f, 20f)]
+        public int subdivisionsPerSegment;
 
-		[global::UnityEngine.Header("Layering")]
-		[global::UnityEngine.Tooltip("Local-space Z written into every vertex.")]
-		[global::Cpp2ILInjected.Token(Token = "0x400052F")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x3C")]
-		public float localZ;
+        [Header("Layering")]
+        [Tooltip("Local-space Z written into every vertex.")]
+        public float localZ;
 
-		[global::UnityEngine.Header("UV Options")]
-		[global::Cpp2ILInjected.Token(Token = "0x4000530")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x40")]
-		public bool flipU;
+        [Header("UV Options")]
+        public bool flipU;
+        public bool flipV;
 
-		[global::Cpp2ILInjected.Token(Token = "0x4000531")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x41")]
-		public bool flipV;
+        private MeshFilter mf;
+        private MeshRenderer mr;
+        private Mesh mesh;
 
-		[global::Cpp2ILInjected.Token(Token = "0x4000532")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x48")]
-		private global::UnityEngine.MeshFilter mf;
+        public float innerSegmentLengthRatio = 4f;
 
-		[global::Cpp2ILInjected.Token(Token = "0x4000533")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x50")]
-		private global::UnityEngine.MeshRenderer mr;
+        // PathSceneTool is only driven by its editor inspector and the level prefabs ship with
+        // m_Mesh: {fileID: 0}, so without this the ribbon is never built at runtime.
+        // Same hook CylinderMeshCreator and PathFillMeshCreator use.
+        private void OnEnable()
+        {
+            if (pathCreator == null)
+                return;
+            pathCreator.pathUpdated += PathUpdated;
+            PathUpdated();
+        }
 
-		[global::Cpp2ILInjected.Token(Token = "0x4000534")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x58")]
-		private global::UnityEngine.Mesh mesh;
+        private void OnDisable()
+        {
+            if (pathCreator != null)
+                pathCreator.pathUpdated -= PathUpdated;
+        }
 
-		[global::Cpp2ILInjected.Token(Token = "0x4000535")]
-		[global::Cpp2ILInjected.FieldOffset(Offset = "0x60")]
-		public float innerSegmentLengthRatio;
+        protected override void PathUpdated()
+        {
+            if (pathCreator == null)
+                return;
+            if (mf == null)
+                mf = GetComponent<MeshFilter>();
+            if (mr == null)
+                mr = GetComponent<MeshRenderer>();
+            BuildMesh();
+        }
 
-		[global::Cpp2ILInjected.Token(Token = "0x60004A1")]
-		protected override void PathUpdated()
-		{
-			if (pathCreator == null)
-			{
-				return;
-			}
-			if (mf == null)
-			{
-				mf = GetComponent<global::UnityEngine.MeshFilter>();
-			}
-			if (mr == null)
-			{
-				mr = GetComponent<global::UnityEngine.MeshRenderer>();
-			}
-			BuildMesh();
-		}
+        private void BuildMesh()
+        {
+            if (mesh == null)
+                mesh = new Mesh();
+            else
+                mesh.Clear();
 
-		[global::Cpp2ILInjected.Token(Token = "0x60004A2")]
-		private void BuildMesh()
-		{
-			if (mesh == null)
-			{
-				mesh = new global::UnityEngine.Mesh();
-			}
-			else
-			{
-				mesh.Clear();
-			}
+            VertexPath vertexPath = pathCreator.path;
+            float pathLength = vertexPath.length;
 
-			global::PathCreation.VertexPath vertexPath = pathCreator.path;
-			float usableLength = global::UnityEngine.Mathf.Max(0f, vertexPath.length - thickness * 2f);
-			int numInnerSegments;
-			float innerSegmentLength;
-			if (usableLength > 0f)
-			{
-				float rawInnerSegmentLength = thickness * innerSegmentLengthRatio;
-				numInnerSegments = global::UnityEngine.Mathf.Max(1, global::UnityEngine.Mathf.RoundToInt(usableLength / rawInnerSegmentLength));
-				innerSegmentLength = usableLength / numInnerSegments;
-			}
-			else
-			{
-				numInnerSegments = 0;
-				innerSegmentLength = 0f;
-			}
+            // Layout along the path: an end cap of length `thickness` at each end and
+            // evenly sized repeat segments of roughly thickness * innerSegmentLengthRatio in between.
+            float usableLength = Mathf.Max(0f, pathLength - thickness * 2f);
+            int numInnerSegments = 0;
+            float innerSegmentLength = 0f;
+            if (usableLength > 0f)
+            {
+                float targetSegmentLength = thickness * innerSegmentLengthRatio;
+                numInnerSegments = Mathf.Max(1, Mathf.RoundToInt(usableLength / targetSegmentLength));
+                innerSegmentLength = usableLength / numInnerSegments;
+            }
 
-			global::System.Collections.Generic.List<float> segmentStarts = new global::System.Collections.Generic.List<float>();
-			global::System.Collections.Generic.List<float> segmentEnds = new global::System.Collections.Generic.List<float>();
-			segmentStarts.Add(0f);
-			segmentEnds.Add(thickness);
-			for (int i = 0; i < numInnerSegments; i++)
-			{
-				segmentStarts.Add(thickness + i * innerSegmentLength);
-				segmentEnds.Add(thickness + (i + 1) * innerSegmentLength);
-			}
-			segmentStarts.Add(vertexPath.length - thickness);
-			segmentEnds.Add(vertexPath.length);
+            var segmentStarts = new List<float> { 0f };
+            var segmentEnds = new List<float> { thickness };
+            for (int i = 0; i < numInnerSegments; i++)
+            {
+                float start = thickness + i * innerSegmentLength;
+                segmentStarts.Add(start);
+                segmentEnds.Add(start + innerSegmentLength);
+            }
+            segmentStarts.Add(pathLength - thickness);
+            segmentEnds.Add(pathLength);
 
-			int subdivisions = global::UnityEngine.Mathf.Max(1, subdivisionsPerSegment);
+            int subdivisions = Mathf.Max(1, subdivisionsPerSegment);
 
-			global::System.Collections.Generic.List<float> sampleDistances = new global::System.Collections.Generic.List<float>();
-			global::System.Collections.Generic.List<int> sampleSegmentIndex = new global::System.Collections.Generic.List<int>();
-			global::System.Collections.Generic.List<float> sampleT = new global::System.Collections.Generic.List<float>();
-			for (int i = 0; i < segmentStarts.Count; i++)
-			{
-				float start = segmentStarts[i];
-				float end = segmentEnds[i];
-				float length = end - start;
-				int jStart = (i == 0) ? 0 : 1;
-				if (i != 0)
-				{
-					sampleDistances.Add(start);
-					sampleSegmentIndex.Add(i);
-					sampleT.Add(0f);
-				}
-				for (int j = jStart; j <= subdivisions; j++)
-				{
-					float t = (float)j / subdivisions;
-					sampleDistances.Add(start + length * t);
-					sampleSegmentIndex.Add(i);
-					sampleT.Add(t);
-				}
-			}
+            // Each segment gets its own run of samples so its UVs restart at 0 (repeating texture).
+            var sampleDistances = new List<float>();
+            var sampleSegmentIndex = new List<int>();
+            var sampleT = new List<float>();
+            for (int i = 0; i < segmentStarts.Count; i++)
+            {
+                float start = segmentStarts[i];
+                float length = segmentEnds[i] - start;
+                for (int j = 0; j <= subdivisions; j++)
+                {
+                    float t = (float)j / subdivisions;
+                    sampleDistances.Add(start + length * t);
+                    sampleSegmentIndex.Add(i);
+                    sampleT.Add(t);
+                }
+            }
 
-			if (sampleDistances.Count < 2)
-			{
-				mf.sharedMesh = mesh;
-				return;
-			}
+            if (sampleDistances.Count < 2)
+            {
+                mf.sharedMesh = mesh;
+                return;
+            }
 
-			int capacity = sampleDistances.Count << 1;
-			global::System.Collections.Generic.List<global::UnityEngine.Vector3> verts = new global::System.Collections.Generic.List<global::UnityEngine.Vector3>(capacity);
-			global::System.Collections.Generic.List<global::UnityEngine.Vector2> uvs = new global::System.Collections.Generic.List<global::UnityEngine.Vector2>(capacity);
-			global::System.Collections.Generic.List<global::UnityEngine.Vector3> normals = new global::System.Collections.Generic.List<global::UnityEngine.Vector3>(capacity);
-			global::System.Collections.Generic.List<int> triangles = new global::System.Collections.Generic.List<int>(sampleDistances.Count * 6);
+            int vertexCount = sampleDistances.Count * 2;
+            var verts = new List<Vector3>(vertexCount);
+            var uvs = new List<Vector2>(vertexCount);
+            var normals = new List<Vector3>(vertexCount);
+            var triangles = new List<int>(sampleDistances.Count * 6);
 
-			global::UnityEngine.Transform tr = base.transform;
-			global::UnityEngine.Vector3 localNormal = tr.InverseTransformDirection(global::UnityEngine.Vector3.back);
-			float normalLen = localNormal.magnitude;
-			localNormal = (normalLen > 1E-05f) ? (localNormal / normalLen) : global::UnityEngine.Vector3.back;
+            Transform tr = transform;
+            Vector3 localNormal = tr.InverseTransformDirection(Vector3.back);
+            float normalLength = localNormal.magnitude;
+            localNormal = normalLength > 1E-05f ? localNormal / normalLength : Vector3.back;
 
-			for (int k = 0; k < sampleDistances.Count; k++)
-			{
-				float d = sampleDistances[k];
-				global::UnityEngine.Vector3 pointAtDistance = vertexPath.GetPointAtDistance(d, global::PathCreation.EndOfPathInstruction.Stop);
-				global::UnityEngine.Vector3 directionAtDistance = vertexPath.GetDirectionAtDistance(d, global::PathCreation.EndOfPathInstruction.Stop);
-				float len = global::UnityEngine.Mathf.Sqrt(directionAtDistance.y * directionAtDistance.y + directionAtDistance.x * directionAtDistance.x);
-				float px;
-				float py;
-				if (len > 1E-05f)
-				{
-					px = 0f - directionAtDistance.y / len;
-					py = directionAtDistance.x / len;
-				}
-				else
-				{
-					px = 0f;
-					py = 0f;
-				}
+            float vA = flipV ? 1f : 0f;
+            float vB = flipV ? 0f : 1f;
 
-				global::UnityEngine.Vector3 leftWorld = new global::UnityEngine.Vector3(pointAtDistance.x - px * thickness, pointAtDistance.y - py * thickness, pointAtDistance.z);
-				global::UnityEngine.Vector3 rightWorld = new global::UnityEngine.Vector3(pointAtDistance.x + px * thickness, pointAtDistance.y + py * thickness, pointAtDistance.z);
-				global::UnityEngine.Vector3 leftLocal = tr.InverseTransformPoint(leftWorld);
-				leftLocal.z = localZ;
-				global::UnityEngine.Vector3 rightLocal = tr.InverseTransformPoint(rightWorld);
-				rightLocal.z = localZ;
-				verts.Add(leftLocal);
-				verts.Add(rightLocal);
-				normals.Add(localNormal);
-				normals.Add(localNormal);
+            for (int k = 0; k < sampleDistances.Count; k++)
+            {
+                float d = sampleDistances[k];
+                Vector3 point = vertexPath.GetPointAtDistance(d, EndOfPathInstruction.Stop);
+                Vector3 dir = vertexPath.GetDirectionAtDistance(d, EndOfPathInstruction.Stop);
 
-				float t = sampleT[k];
-				float u = flipU ? (1f - t) : t;
-				float vA = flipV ? 1f : 0f;
-				float vB = flipV ? 0f : 1f;
-				uvs.Add(new global::UnityEngine.Vector2(u, vA));
-				uvs.Add(new global::UnityEngine.Vector2(u, vB));
-			}
+                // Perpendicular in the XY plane.
+                float dirLength = Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
+                float px = 0f;
+                float py = 0f;
+                if (dirLength > 1E-05f)
+                {
+                    px = -dir.y / dirLength;
+                    py = dir.x / dirLength;
+                }
 
-			for (int k = 1; k < sampleDistances.Count; k++)
-			{
-				if (sampleSegmentIndex[k] != sampleSegmentIndex[k - 1])
-				{
-					continue;
-				}
-				int baseIndex = (k - 1) * 2;
-				triangles.Add(baseIndex);
-				triangles.Add(baseIndex + 1);
-				triangles.Add(baseIndex + 2);
-				triangles.Add(baseIndex + 2);
-				triangles.Add(baseIndex + 1);
-				triangles.Add(baseIndex + 3);
-			}
+                var leftWorld = new Vector3(point.x - px * thickness, point.y - py * thickness, point.z);
+                var rightWorld = new Vector3(point.x + px * thickness, point.y + py * thickness, point.z);
+                Vector3 leftLocal = tr.InverseTransformPoint(leftWorld);
+                leftLocal.z = localZ;
+                Vector3 rightLocal = tr.InverseTransformPoint(rightWorld);
+                rightLocal.z = localZ;
+                verts.Add(leftLocal);
+                verts.Add(rightLocal);
+                normals.Add(localNormal);
+                normals.Add(localNormal);
 
-			mesh.SetVertices(verts);
-			mesh.SetUVs(0, uvs);
-			mesh.SetNormals(normals);
-			mesh.SetTriangles(triangles, 0);
-			mesh.RecalculateBounds();
-			mf.sharedMesh = mesh;
-		}
+                float u = flipU ? 1f - sampleT[k] : sampleT[k];
+                uvs.Add(new Vector2(u, vA));
+                uvs.Add(new Vector2(u, vB));
+            }
 
-		[global::Cpp2ILInjected.Token(Token = "0x60004A3")]
-		[global::Cpp2ILInjected.Address(RVA = "0x1024EEC", Offset = "0x1024EEC", Length = "0x20")]
-		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tthis.thickness = 0.05f;\n\tthis.innerSegmentLengthRatio = 4f;\n\tPathCreation.Examples.PathSceneTool::.ctor(this);\n\treturn;\n// 5 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
-		public PlanarLineMeshCreator()
-		{
-			thickness = 0.05f;
-			innerSegmentLengthRatio = 4f;
-		}
-	}
+            for (int k = 1; k < sampleDistances.Count; k++)
+            {
+                if (sampleSegmentIndex[k] != sampleSegmentIndex[k - 1])
+                    continue;
+                int baseIndex = (k - 1) * 2;
+                triangles.Add(baseIndex);
+                triangles.Add(baseIndex + 1);
+                triangles.Add(baseIndex + 2);
+                triangles.Add(baseIndex + 2);
+                triangles.Add(baseIndex + 1);
+                triangles.Add(baseIndex + 3);
+            }
+
+            mesh.SetVertices(verts);
+            mesh.SetUVs(0, uvs);
+            mesh.SetNormals(normals);
+            mesh.SetTriangles(triangles, 0);
+            mesh.RecalculateBounds();
+            mf.sharedMesh = mesh;
+        }
+    }
 }

@@ -96,7 +96,7 @@ public struct ViscosityJob : global::Unity.Jobs.IJobParallelFor
 					int neighborPowerUpId = powerUpIds[neighbor];
 					if (myPowerUpId != -1 && neighborPowerUpId != -1)
 					{
-						ulong key2 = (ulong)(uint)(myPowerUpId | neighborPowerUpId);
+						ulong key2 = ((ulong)(uint)myPowerUpId << 32) | (uint)neighborPowerUpId;
 						if (ignorePairs.ContainsKey(key2))
 						{
 							continue;

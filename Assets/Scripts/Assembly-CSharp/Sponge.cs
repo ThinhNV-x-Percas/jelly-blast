@@ -5,32 +5,8 @@ using UnityEngine;
 using Unity.Mathematics;
 using DG.Tweening;
 
-/// <summary>
-/// Reconstructed Sponge implementation from the supplied IL2CPP/AssetRipper output.
-/// Invalid native/decompiler expressions have been replaced with normal C# while
-/// preserving the recoverable gameplay flow:
-/// - optional debug particle spawning with the S key;
-/// - per-particle sponge rotation tracking;
-/// - viewport/rotation shader data through MaterialPropertyBlock;
-/// - water overlap detection;
-/// - temporary disabling of water simulation;
-/// - tweening water particles into the sponge;
-/// - removing absorbed water particles and restoring the sponge pop-in state.
-///
-/// Two shader property names were not recoverable from the decompiled binary because
-/// the metadata/string operands were corrupted. They are therefore exposed as
-/// Inspector fields instead of inventing a hard-coded property ID.
-/// </summary>
 public class Sponge : SpecialFluid
 {
-    [Serializable]
-    private sealed class SuckParticleTween
-    {
-        public int particleId;
-        public int particleIndex;
-        public HashSet<int> particleSet;
-    }
-
     private readonly Dictionary<int, Vector2> prevOffset;
 
     public float zRotation;
@@ -82,8 +58,6 @@ public class Sponge : SpecialFluid
 
     public override void OnPreComputeUpdate()
     {
-        // Recovered debug helper from the original method:
-        // pressing S injects a new sponge particle at the current sponge position.
         if (Input.GetKeyDown(KeyCode.S) && solver != null)
         {
             Vector2 spawnPosition = position;
@@ -108,8 +82,6 @@ public class Sponge : SpecialFluid
             particleIds.UnionWith(addedIds);
         }
 
-        // The original method enters this particle loop only while the sponge
-        // has not yet been cleared.
         if (!isCleared)
         {
             UpdateRotationFromParticleOffsets();
@@ -180,8 +152,6 @@ public class Sponge : SpecialFluid
             prevOffset[particleId] = currentOffset;
         }
 
-        // Native reconstruction:
-        //   averageDegrees * (-PI / 180) -> zRotation
         zRotation +=
             (accumulatedAngleDegrees / particleIds.Count) *
             (-Mathf.PI / 180f);
@@ -297,85 +267,45 @@ public class Sponge : SpecialFluid
         if (water == null || solver == null || water.particleIds == null)
             yield break;
 
-        // First pass from the recovered iterator state-machine:
-        // water particles are taken out of the fluid simulation, then one frame
-        // is yielded before the tween pass starts.
         foreach (int waterParticleId in water.particleIds)
         {
-            if (!solver.idToIndex.TryGetValue(waterParticleId, out int index))
-                continue;
-
-            if (index < 0 || index >= solver.isSimulated.Length)
-                continue;
-
-            solver.isSimulated[index] = false;
+            if (solver.idToIndex.TryGetValue(waterParticleId, out int index))
+                solver.isSimulated[index] = false;
         }
 
         yield return null;
 
         Vector2 targetPosition = position;
-
-        foreach (int waterParticleId in water.particleIds)
+        List<int> waterIds = new List<int>(water.particleIds);
+        foreach (int waterParticleId in waterIds)
         {
-            if (!solver.idToIndex.TryGetValue(waterParticleId, out int particleIndex))
+            if (!solver.idToIndex.ContainsKey(waterParticleId))
                 continue;
 
-            if (particleIndex < 0 || particleIndex >= solver.positions.Length)
-                continue;
-
-            int capturedIndex = particleIndex;
-            var particleState = new SuckParticleTween
-            {
-                particleId = waterParticleId,
-                particleIndex = capturedIndex,
-                particleSet = new HashSet<int> { waterParticleId }
-            };
-
-            float durationMin = Mathf.Max(0f, suckDurationMin);
-            float durationMax = Mathf.Max(durationMin, suckDurationMax);
-            float duration = UnityEngine.Random.Range(durationMin, durationMax);
-
+            int particleId = waterParticleId;
+            HashSet<int> particleSet = new HashSet<int> { particleId };
+            float duration = UnityEngine.Random.Range(suckDurationMin, Mathf.Max(suckDurationMin, suckDurationMax));
             DOTween.To(
-                    () =>
-                    {
-                        if (capturedIndex < 0 ||
-                            capturedIndex >= solver.positions.Length)
-                        {
-                            return targetPosition;
-                        }
-
-                        float2 value = solver.positions[capturedIndex];
-                        return new Vector2(value.x, value.y);
-                    },
+                    () => solver.idToIndex.TryGetValue(particleId, out int i) ? (Vector2)solver.positions[i] : targetPosition,
                     value =>
                     {
-                        if (capturedIndex < 0 ||
-                            capturedIndex >= solver.positions.Length)
-                        {
-                            return;
-                        }
-
-                        solver.positions[capturedIndex] = new float2(value.x, value.y);
+                        if (solver.idToIndex.TryGetValue(particleId, out int i))
+                            solver.positions[i] = value;
                     },
                     targetPosition,
                     duration)
                 .SetEase(suckEase)
                 .OnComplete(() =>
                 {
-                    removedParticles.Add(particleState.particleId);
-
-                    // The decompiled state machine allocates a one-element
-                    // HashSet for each tween before attaching the completion
-                    // callback. The recoverable use of that set is to mark the
-                    // absorbed particle as removed. Physical array compaction is
-                    // deliberately not done here because all active tweens hold
-                    // the original particle indices.
-                    removedParticles.UnionWith(particleState.particleSet);
+                    removedParticles.Add(particleId);
+                    if (!solver.idToIndex.ContainsKey(particleId))
+                        return;
+                    solver.LastJobComplete();
+                    solver.OnStartRemoveParticles?.Invoke(particleSet, false);
+                    solver.RemoveParticles(particleSet);
                 });
         }
 
-        // Recovered tail of the generated iterator:
-        // once the suction pass has been launched, restore the sponge pop-in flow.
         StartCoroutine(HandlePopIn());
     }
 

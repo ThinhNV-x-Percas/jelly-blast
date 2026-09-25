@@ -6,7 +6,7 @@ Tags { "RenderType" = "Opaque" }
 LOD 200
 Pass
 {
-Blend One One
+Blend One OneMinusSrcColor
 ZWrite Off
 ZTest Always
 Cull Off
@@ -55,20 +55,14 @@ float4 frag(VertexOut input) : SV_TARGET
     int channel = fluidType - layer * 4;
     if (layer != _Layer)
         return float4(0, 0, 0, 0);
-    float2 centered = (input.uv - 0.5) * 2.0;
-    float dd = length(centered);
-    // The footprint must die out at 0.8 of the quad's half-extent, because that is what
-    // FluidRendererBase.particleBoundsRadius (0.4 of the full quad) sizes the display quad to.
-    // A falloff reaching 1.0 - as the stand-in shader had - is still at cover 0.42 where the
-    // quad clips, i.e. above _AlphaThreshold (0.4): every blob on the outside of the mass was
-    // sliced flat exactly where its outline should be.
-    float cover = 1.0 - smoothstep(0.44, 0.8, dd);
-    float innerRadius = _InnerRadii[id];
-    if (innerRadius > 0.001)
-        cover *= smoothstep(innerRadius * 0.6, innerRadius, dd);
-    cover = saturate(cover);
-    if (cover <= 0.0)
-        return float4(0, 0, 0, 0);
+    float dd = length((input.uv - 0.5) * 2.0);
+    bool rounded = _IsRounded[id] > 0.0;
+    float x = max(1.0 - dd, 0.0) * (rounded ? 0.5 : 0.4);
+    float sq = 2.0 * x * x;
+    float ease = x < 0.5 ? sq : 1.0 - 0.5 * (2.0 - 2.0 * x) * (2.0 - 2.0 * x);
+    float falloff = rounded ? sq : ease * 3.0;
+    float inner = smoothstep(0.0, 1.0, saturate((dd + 0.4 - _InnerRadii[id]) * 2.5));
+    float cover = falloff * inner;
     float4 result = float4(0, 0, 0, 0);
     if (channel == 0) result.r = cover;
     else if (channel == 1) result.g = cover;

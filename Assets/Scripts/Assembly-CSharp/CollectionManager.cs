@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Unity.Mathematics;
 
@@ -176,13 +175,14 @@ public class CollectionManager : Singleton<CollectionManager>
                     if (goal == null)
                         continue;
 
+                    int goalSlot = goalIndex;
                     TryCollect(
                         goal,
                         particleType,
                         position,
                         velocity,
-                        GetGoalTargetPosition(goal),
-                        null);
+                        () => GoalWorldPosition(goalSlot),
+                        () => ReceiveGoalParticle(goalSlot));
                 }
             }
 
@@ -217,75 +217,21 @@ public class CollectionManager : Singleton<CollectionManager>
         GameManager.Instance?.CheckWinCondition();
     }
 
-    private Func<Vector2> GetGoalTargetPosition(GoalData goal)
+    private Vector2 GoalWorldPosition(int index)
     {
-        // Target callbacks are generated closures in the original binary. Their exact backing
-        // member was not recovered, so return a callback only when a usable world-space position
-        // can be obtained from the goal object. Otherwise AddParticle simply uses no target.
-        if (goal == null)
-            return null;
-
-        Vector2 target;
-        if (TryReadVector2Member(goal, "targetPosition", out target) ||
-            TryReadVector2Member(goal, "targetPos", out target) ||
-            TryReadVector2Member(goal, "position", out target) ||
-            TryReadVector2Member(goal, "worldPosition", out target))
-        {
-            return () => target;
-        }
-
-        return null;
+        GameplayScreen screen = Viewport.GetViewport<GameplayScreen>();
+        return screen != null && screen.goals != null && index < screen.goals.Length
+            ? screen.GetWorldGoalPosition(index)
+            : (Vector2)transform.position;
     }
 
-    private static bool TryReadVector2Member(object source, string name, out Vector2 value)
+    private void ReceiveGoalParticle(int index)
     {
-        value = default;
-        if (source == null)
-            return false;
+        GameplayScreen screen = Viewport.GetViewport<GameplayScreen>();
+        if (screen == null || screen.goals == null || index >= screen.goals.Length || screen.goals[index] == null)
+            return;
 
-        var type = source.GetType();
-
-        var field = type.GetField(name,
-            System.Reflection.BindingFlags.Instance |
-            System.Reflection.BindingFlags.Public |
-            System.Reflection.BindingFlags.NonPublic);
-
-        if (field != null)
-        {
-            object raw = field.GetValue(source);
-            if (raw is Vector2 v2)
-            {
-                value = v2;
-                return true;
-            }
-            if (raw is Vector3 v3)
-            {
-                value = v3;
-                return true;
-            }
-        }
-
-        var property = type.GetProperty(name,
-            System.Reflection.BindingFlags.Instance |
-            System.Reflection.BindingFlags.Public |
-            System.Reflection.BindingFlags.NonPublic);
-
-        if (property != null && property.CanRead)
-        {
-            object raw = property.GetValue(source, null);
-            if (raw is Vector2 v2)
-            {
-                value = v2;
-                return true;
-            }
-            if (raw is Vector3 v3)
-            {
-                value = v3;
-                return true;
-            }
-        }
-
-        return false;
+        screen.goals[index].RecieveParticle();
     }
 
     private void TryCollect(
@@ -387,13 +333,15 @@ public class CollectionManager : Singleton<CollectionManager>
         if (level == null)
             return;
 
-        foreach (GoalData goal in level.goals)
+        for (int i = 0; i < level.goals.Count; i++)
         {
+            GoalData goal = level.goals[i];
             if (goal == null || goal.count < 1 || goal.goalType != GoalType.Ice)
                 continue;
 
+            int index = i;
             if (spriteDisplay != null)
-                spriteDisplay.AddSprite(goal.sprite, pos, vel, 0.1f, null, null);
+                spriteDisplay.AddSprite(goal.sprite, pos, vel, 0.1f, () => GoalWorldPosition(index), () => ReceiveGoalParticle(index));
 
             goal.count--;
         }
@@ -421,17 +369,19 @@ public class CollectionManager : Singleton<CollectionManager>
         if (level == null)
             return;
 
-        foreach (GoalData goal in level.goals)
+        for (int i = 0; i < level.goals.Count; i++)
         {
+            GoalData goal = level.goals[i];
             if (goal == null || goal.count < 1 || goal.goalType != GoalType.Butterfly)
                 continue;
 
+            int goalSlot = i;
             Butterfly butterfly = CreateButterfly();
             if (butterfly != null)
             {
                 butterfly.transform.SetParent(transform, false);
                 butterfly.transform.position = new Vector3(pos.x, pos.y, 0f);
-                butterfly.Init(pos, null, null);
+                butterfly.Init(pos, () => GoalWorldPosition(goalSlot), () => ReceiveGoalParticle(goalSlot));
             }
 
             goal.count--;
@@ -445,13 +395,15 @@ public class CollectionManager : Singleton<CollectionManager>
         if (level == null)
             return;
 
-        foreach (GoalData goal in level.goals)
+        for (int i = 0; i < level.goals.Count; i++)
         {
+            GoalData goal = level.goals[i];
             if (goal == null || goal.count < 1 || goal.goalType != type)
                 continue;
 
+            int index = i;
             if (spriteDisplay != null)
-                spriteDisplay.AddSprite(goal.sprite, pos, vel, duration, null, null);
+                spriteDisplay.AddSprite(goal.sprite, pos, vel, duration, () => GoalWorldPosition(index), () => ReceiveGoalParticle(index));
 
             goal.count--;
         }

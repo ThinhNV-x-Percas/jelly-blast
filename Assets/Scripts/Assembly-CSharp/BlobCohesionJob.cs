@@ -32,7 +32,10 @@ public struct BlobCohesionJob : IJobParallelFor
             return;
         }
 
-        float2 midpoint = blobMidpoints[blobId];
+        if (!blobMidpoints.TryGetValue(blobId, out float2 midpoint))
+        {
+            return;
+        }
         float2 offset = midpoint - positions[index];
         float distanceSq = math.lengthsq(offset);
 

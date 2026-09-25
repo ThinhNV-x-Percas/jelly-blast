@@ -27,9 +27,10 @@ public class Octopus : SpecialFluid
 	{
 		base.OnPreComputeUpdate();
 		mr.GetPropertyBlock(_propBlock);
-		global::Unity.Mathematics.float2 headMidpoint = solver.octopusHeadMidpoints[id];
-		global::UnityEngine.Vector4 value = new global::UnityEngine.Vector4(headMidpoint.x, headMidpoint.y, 0f, 0f);
-		_propBlock.SetVector("_HeadPosition", value);
+		if (solver.octopusHeadMidpoints.TryGetValue(id, out global::Unity.Mathematics.float2 headMidpoint))
+		{
+			_propBlock.SetVector("_HeadPosition", new global::UnityEngine.Vector4(headMidpoint.x, headMidpoint.y, 0f, 0f));
+		}
 		mr.SetPropertyBlock(_propBlock);
 		global::UnityEngine.Vector3 position = base.transform.position;
 		position.z = id * depthStride - 1f;
@@ -103,21 +104,16 @@ public class Octopus : SpecialFluid
 		float len = global::UnityEngine.Mathf.Sqrt(axisX * axisX + axisY * axisY);
 		axisX /= len;
 		axisY /= len;
-		global::System.Func<int, float> keySelector = (int particleId3) =>
+		global::System.Collections.Generic.List<int> sorted = new global::System.Collections.Generic.List<int>(particleIds);
+		global::System.Collections.Generic.Dictionary<int, float> keys = new global::System.Collections.Generic.Dictionary<int, float>(sorted.Count);
+		foreach (int particleId3 in sorted)
 		{
-			if (!solver.idToIndex.TryGetValue(particleId3, out int index3))
-			{
-				return 0f;
-			}
-			global::Unity.Mathematics.float2 pos3 = solver.positions[index3];
-			return (pos3.x - meanX) * axisX + (pos3.y - meanY) * axisY;
-		};
-		global::System.Collections.Generic.List<int> sorted = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(particleIds, keySelector));
+			keys[particleId3] = solver.idToIndex.TryGetValue(particleId3, out int index3) ? (solver.positions[index3].x - meanX) * axisX + (solver.positions[index3].y - meanY) * axisY : 0f;
+		}
+		sorted.Sort((a, b) => keys[a].CompareTo(keys[b]));
 		int half = (count + 1) >> 1;
-		global::System.Collections.Generic.List<int> ids = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.Take(sorted, half));
-		global::System.Collections.Generic.List<int> list3 = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.Skip(sorted, half));
-		AddOctopus(ids);
-		AddOctopus(list3);
+		AddOctopus(sorted.GetRange(0, half));
+		AddOctopus(sorted.GetRange(half, sorted.Count - half));
 		solver.RemoveOctopus(this);
 	}
 

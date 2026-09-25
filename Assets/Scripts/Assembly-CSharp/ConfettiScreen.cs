@@ -68,32 +68,24 @@ public class ConfettiScreen : Viewport
 		for (int i = 0; i < count; i++)
 		{
 			CoinParticle particle = global::UnityEngine.Object.Instantiate(particlePrefab);
-			particle.transform.SetParent(base.transform, worldPositionStays: false);
-			particles[i] = particle;
-			global::UnityEngine.RectTransform rt = particle.rt;
-			float anchorX = (i < count * 0.5f) ? 0f : 1f;
-			rt.anchorMin = new global::UnityEngine.Vector2(anchorX, 0.5f);
-			rt.anchorMax = new global::UnityEngine.Vector2(anchorX, 0.5f);
-			rt.pivot = new global::UnityEngine.Vector2(0.5f, 0.5f);
-			rt.anchoredPosition = global::UnityEngine.Vector2.zero;
-			rt.localScale = global::UnityEngine.Vector3.one;
-			float angleDeg = global::UnityEngine.Random.Range(-1f, 1f) * 15f;
-			float angleRad = angleDeg * global::UnityEngine.Mathf.Deg2Rad;
-			float dirSign = (anchorX == 0f) ? 1f : -1f;
-			float speedScale = global::UnityEngine.Random.Range(0.5f, 1f);
-			particle.velocity = new global::UnityEngine.Vector2(dirSign * speedScale * maxVel * global::UnityEngine.Mathf.Sin(angleRad), speedScale * maxVel * global::UnityEngine.Mathf.Cos(angleRad));
+			particle.transform.SetParent(base.transform, false);
+			float anchorX = count * 0.5f > i ? 1f : 0f;
+			particle.rt.anchorMin = new global::UnityEngine.Vector2(anchorX, 0.5f);
+			particle.rt.anchorMax = new global::UnityEngine.Vector2(anchorX, 0.5f);
+			particle.rt.pivot = new global::UnityEngine.Vector2(0.5f, 0.5f);
+			particle.rt.anchoredPosition = global::UnityEngine.Vector2.zero;
+			particle.rt.localScale = global::UnityEngine.Vector3.zero;
+			float angle = global::UnityEngine.Random.Range(-1f, 1f) * global::UnityEngine.Mathf.Deg2Rad * 15f;
+			float speed = global::UnityEngine.Random.Range(0.5f, 1f) * maxVel;
+			particle.velocity = new global::UnityEngine.Vector2(speed * global::UnityEngine.Mathf.Sin(angle), speed * global::UnityEngine.Mathf.Cos(angle));
 			particle.rotation = global::UnityEngine.Random.Range(0f, 360f);
 			particle.angularVelocity = global::UnityEngine.Random.Range(-1f, 1f) * maxAngularVelocity;
-			if (colors != null && colors.Length > 0)
-			{
-				global::UnityEngine.UI.Graphic graphic = particle.GetComponent<global::UnityEngine.UI.Graphic>();
-				if (graphic != null)
-				{
-					graphic.color = colors[global::UnityEngine.Random.Range(0, colors.Length)];
-				}
-			}
-			targetScales[i] = global::UnityEngine.Random.Range(0.2f, 1f);
+			particle.GetComponent<global::UnityEngine.UI.Image>().color = colors[global::UnityEngine.Random.Range(0, colors.Length)];
+			if ((particle.velocity.x < 0f ? -1f : 1f) != (anchorX == 0f ? 1f : -1f))
+				particle.velocity.x = -particle.velocity.x;
+			particles[i] = particle;
 			startTimes[i] = global::UnityEngine.Time.time + global::UnityEngine.Random.Range(0f, maxStartDelay);
+			targetScales[i] = global::UnityEngine.Random.Range(0.2f, 1f);
 		}
 	}
 
@@ -101,31 +93,20 @@ public class ConfettiScreen : Viewport
 	[global::Cpp2ILInjected.Address(RVA = "0x101D4B4", Offset = "0x101D4B4", Length = "0x304")]
 	private void FixedUpdate()
 	{
-		CoinParticle[] array = particles;
-		if (array == null)
-		{
+		if (particles == null)
 			return;
-		}
-		for (int i = 0; i < array.Length; i++)
+		for (int i = 0; i < particles.Length; i++)
 		{
-			CoinParticle particle = array[i];
-			if (particle == null)
-			{
+			CoinParticle particle = particles[i];
+			if (!particle)
 				continue;
-			}
-			float t = global::UnityEngine.Mathf.Clamp01((global::UnityEngine.Time.time - startTimes[i]) / scaleDuration);
-			float eased = EasingFunction.EaseInOutCubic(t);
-			float scale = eased * targetScales[i];
-			particle.rt.localScale = new global::UnityEngine.Vector3(scale, scale, scale);
-			if (global::UnityEngine.Time.time > startTimes[i])
-			{
-				particle.acceleration = new global::UnityEngine.Vector2(0f, gravity);
-				particle.UpdatePhysics();
-				if (global::UnityEngine.Time.time > startTimes[i] + duration)
-				{
-					global::UnityEngine.Object.Destroy(particle.gameObject);
-				}
-			}
+			particle.rt.localScale = global::UnityEngine.Vector3.one * (EasingFunction.EaseInOutCubic(global::UnityEngine.Mathf.Clamp01((global::UnityEngine.Time.time - startTimes[i]) / scaleDuration)) * targetScales[i]);
+			if (global::UnityEngine.Time.time <= startTimes[i])
+				continue;
+			particle.acceleration = global::UnityEngine.Vector2.up * gravity;
+			particle.UpdatePhysics();
+			if (global::UnityEngine.Time.time > startTimes[i] + duration)
+				global::UnityEngine.Object.Destroy(particle.gameObject);
 		}
 	}
 
@@ -136,6 +117,9 @@ public class ConfettiScreen : Viewport
 		count = 100;
 		maxVel = 4000f;
 		gravity = -100f;
-		maxStartDelay = 0f;
+		maxStartDelay = 0.3f;
+		scaleDuration = 1f;
+		duration = 4f;
+		maxAngularVelocity = 100f;
 	}
 }

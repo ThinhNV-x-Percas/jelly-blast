@@ -37,24 +37,9 @@ public class UIButtonStyler : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv13 = this + 0x20;\n\tthis.buttonStyle = _buttonStyle;\n\tv16 = 0xF3F1B4(v13, _buttonStyle, methodInfo, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30);\n\tv31 = this.buttonStyle;\n\tv33 = this.image;\n\tv54 = UnityEngine.UI.Graphic::set_color(v33, Color_arg);\n\tv52 = this.buttonStyle;\n\t// 41 MakeStruct v59 @ AGG101A740_1_v1 (UnityEngine.Color), typeof(UnityEngine.Color), v52.bottomColor (UnityEngine.Color), v52.bottomColor.g (System.Single), v52.bottomColor.b (System.Single), v52.bottomColor.a (System.Single)\n\tSecondaryImageColor::set_SecondaryColor(this.secondaryImageColor, v59);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 34 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void SetStyle(UIButtonStyle _buttonStyle)
 	{
-		//IL_000c: Expected O, but got I
 		buttonStyle = _buttonStyle;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		UIButtonStyle uIButtonStyle = buttonStyle;
-		global::UnityEngine.UI.Image image = this.image;
-		global::UnityEngine.Color color = default(global::UnityEngine.Color);
-		color.r = uIButtonStyle.topColor.r;
-		color.g = uIButtonStyle.topColor.g;
-		color.b = uIButtonStyle.topColor.b;
-		color.a = uIButtonStyle.topColor.a;
-		image.color = color;
-		UIButtonStyle uIButtonStyle2 = buttonStyle;
-		global::UnityEngine.Color secondaryColor = default(global::UnityEngine.Color);
-		secondaryColor.r = uIButtonStyle2.bottomColor.r;
-		secondaryColor.g = uIButtonStyle2.bottomColor.g;
-		secondaryColor.b = uIButtonStyle2.bottomColor.b;
-		secondaryColor.a = uIButtonStyle2.bottomColor.a;
-		secondaryImageColor.SecondaryColor = secondaryColor;
+		image.color = buttonStyle.topColor;
+		secondaryImageColor.SecondaryColor = buttonStyle.bottomColor;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000403")]

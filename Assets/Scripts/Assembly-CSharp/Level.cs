@@ -85,20 +85,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0036;\n\tv29 = Il2CppMethodInfo;\n\tv30 = v29 + 0x7A0;\n\tv31 = \"il2cpp_codegen_initialize_runtime_metadata\"(v30, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv63 = Il2CppMethodInfo;\n\tv64 = v63 + 0x7A8;\n\tv65 = \"il2cpp_codegen_initialize_runtime_metadata\"(v64, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv84 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv85 = v84 + 0x228;\n\tv86 = \"il2cpp_codegen_initialize_runtime_metadata\"(v85, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv106 = Il2CppMethodInfo;\n\tv107 = v106 + 0x5B0;\n\tv108 = \"il2cpp_codegen_initialize_runtime_metadata\"(v107, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv109 = Il2CppMethodInfo;\n\tv110 = v109 + 0x5B8;\n\tv111 = \"il2cpp_codegen_initialize_runtime_metadata\"(v110, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv112 = Il2CppMethodInfo;\n\tv113 = v112 + 0xC90;\n\tv114 = \"il2cpp_codegen_initialize_runtime_metadata\"(v113, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv115 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv116 = v115 + 0xA48;\n\tv117 = \"il2cpp_codegen_initialize_runtime_metadata\"(v116, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv118 = Il2CppMethodInfo;\n\tv119 = v118 + 0x100;\n\tv120 = \"il2cpp_codegen_initialize_runtime_metadata\"(v119, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv121 = Il2CppMethodInfo;\n\tv122 = v121 + 0x108;\n\tv123 = \"il2cpp_codegen_initialize_runtime_metadata\"(v122, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv124 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv125 = v124 + 0x158;\n\tv126 = \"il2cpp_codegen_initialize_runtime_metadata\"(v125, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv127 = System.Xml.ValidateNames;\n\tv128 = v127 + 0x258;\n\tv48 = \"il2cpp_codegen_initialize_runtime_metadata\"(v128, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv50 = 1;\n\t*([302AA71]) = v50;\nL_0036:\n\tv51 = v47.<>1__state;\n\tv52 = v47.<>1__state < 4;\n\tv53 = ~v52;\n\tv54 = v47.<>1__state - 4;\n\tv56 = v54 == 0;\n\tv61 = ~v56;\n\tv62 = v53 & v61;\n\tif (v62) goto L_01FF;\n\tv68 = 0x2875000 + 0xAAA;\n\tv71 = *([v68 @ X9_v2 (System.Int32)+v51 @ X8_v3 (System.Int32)*2]) << 2;\n\tv72 = 0x10127BC + v71;\n\t// 74 IndirectJump v72 @ X10_v2 (System.Int32), v47 @ X0_v1 (Level+<IntroCameraAnimation>d__60), v47 @ X0_v1 (Level+<IntroCameraAnimation>d__60), methodInfo @ X1 (Il2CppMethodInfo), v33 @ X2, v34 @ X3, v35 @ X4, v36 @ X5, v37 @ X6, v38 @ X7, v39 @ V0, v40 @ V1, v41 @ V2, v42 @ V3, v43 @ V4, v44 @ V5, v45 @ V6, v46 @ V7\n\tX8 = 0xFFFFFFFF;\n\t*([X19+10]) = X8;\n\tX0 = 0;\n\tX0 = UnityEngine.Camera::get_main(X0);\n\tif (TEMP) goto L_0221;\n\tX1 = 0;\n\tX0 = UnityEngine.Component::get_transform(X0, X1);\n\tX1 = X0;\n\tX20 = X19;\n\tX20 = X20 + 0x28;\n\t*([X20]) = X0;\n\tX0 = X20;\n\tX0 = 0xF3F1B4(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX0 = *([X20]);\n\tif (TEMP) goto L_0221;\n\tX1 = 0;\n\tV0 = UnityEngine.Transform::get_position(X0, X1);\n\tV1 = *([V0+4]);\n\tV2 = *([V0+8]);\n\t*([X19+30]) = V0;\n\t*([X19+34]) = V1;\n\t*([X19+38]) = V2;\n\tif (TEMP) goto L_0221;\n\tX8 = *([X23+48]);\n\tif (TEMP) goto L_0221;\n\tX8 = *([X8+18]);\n\tC = X8 < 2;\n\tC = ~C;\n\tTEMP1 = X8 - 2;\n\tN = TEMP1 < 0;\n\tTEMP2 = X8 ^ 2;\n\tTEMP3 = X8 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tTEMPCOND = N == V;\n\tif (TEMPCOND) goto L_020E;\n\tX0 = 0;\n\tV0 = UnityEngine.Time::get_time(X0);\n\t*([X19+44]) = V0;\n\tgoto L_017A;\n\tX8 = 0xFFFFFFFF;\n\t*([X19+10]) = X8;\n\tif (TEMP) goto L_0221;\n\tX20 = *([X23+48]);\n\tif (TEMP) goto L_0200;\n\tX8 = *([X20+18]);\n\tif (TEMP) goto L_0200;\n\tX24 = X24 + 0x158;\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_008B;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX0 = *([X24]);\nL_008B:\n\tX8 = *([X0+B8]);\n\tX21 = *([X8+8]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00A9;\n\tX9 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_0097;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX8 = *([X24]);\n\tX8 = *([X8+B8]);\nL_0097:\n\tX22 = *([X8]);\n\tX8 = X8 + 0x228;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX21 = X0;\n\tX8 = X8 + 0x100;\n\tX2 = *([X8]);\n\tX1 = X22;\n\tX3 = 0;\n\tSystem.Func`2<System.Object, System.Single>::.ctor(X0, X1, X2, X3);\n\tX8 = *([X24]);\n\tX0 = *([X8+B8]);\n\tX0 = X0 + 8;\n\t*([X0]) = X21;\n\tX1 = X21;\n\tX0 = 0xF3F1B4(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_00A9:\n\tX8 = 0x2E31000;\n\tX8 = X8 + 0x7A8;\n\tX2 = *([X8]);\n\tX0 = X20;\n\tX1 = X21;\n\tV0 = System.Linq.Enumerable::Min /* +1 sharing this address */(X0, X1, X2);\n\tV8 = V0;\n\tX20 = *([X23+48]);\n\tX0 = *([X24]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00B8;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX0 = *([X24]);\nL_00B8:\n\tX8 = *([X0+B8]);\n\tX21 = *([X8+10]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00D6;\n\tX9 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_00C4;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX8 = *([X24]);\n\tX8 = *([X8+B8]);\nL_00C4:\n\tX22 = *([X8]);\n\tX8 = X8 + 0x228;\n\tX0 = *([X8]);\n\tX0 = 0xF3F48C(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\n\tX21 = X0;\n\tX8 = X8 + 0x108;\n\tX2 = *([X8]);\n\tX1 = X22;\n\tX3 = 0;\n\tSystem.Func`2<System.Object, System.Single>::.ctor(X0, X1, X2, X3);\n\tX8 = *([X24]);\n\tX0 = *([X8+B8]);\n\tX0 = X0 + 0x10;\n\t*([X0]) = X21;\n\tX1 = X21;\n\tX0 = 0xF3F1B4(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_00D6:\n\tX8 = 0x2E31000;\n\tX8 = X8 + 0x7A0;\n\tX2 = *([X8]);\n\tX0 = X20;\n\tX1 = X21;\n\tV0 = System.Linq.Enumerable::Max /* +1 sharing this address */(X0, X1, X2);\n\tV9 = V0;\n\tX0 = 0;\n\tX0 = UnityEngine.Camera::get_main(X0);\n\tif (TEMP) goto L_0221;\n\tX1 = 0;\n\tV0 = UnityEngine.Camera::get_aspect(X0, X1);\n\t*([X19+3C]) = V8;\n\t*([X19+40]) = V9;\n\tX0 = *([X19+28]);\n\tif (TEMP) goto L_0221;\n\tV2 = *([X19+38]);\n\tV0 = *([X19+30]);\n\tV1 = V8;\n\tX1 = 0;\n\t// 236 MakeStruct AGG10129AC_1, typeof(UnityEngine.Vector3), V0, V1, V2\n\tUnityEngine.Transform::set_position(X0, AGG10129AC_1, X1);\n\tX0 = 0;\n\tV0 = UnityEngine.Time::get_time(X0);\n\t*([X19+44]) = V0;\n\tX0 = 0;\n\tV0 = UnityEngine.Time::get_time(X0);\n\tgoto L_00FA;\n\tX8 = 0xFFFFFFFF;\n\t*([X19+10]) = X8;\n\tX0 = 0;\n\tV0 = UnityEngine.Time::get_time(X0);\n\tif (TEMP) goto L_0221;\nL_00FA:\n\tV1 = *([X19+44]);\n\tV2 = *([X23+C0]);\n\tV0 = V0 - V1;\n\tC = V0 < V2;\n\tC = ~C;\n\tTEMP1 = V0 - V2;\n\tN = TEMP1 < 0;\n\tTEMP2 = V0 ^ V2;\n\tTEMP3 = V0 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tTEMPCOND = ~N;\n\tif (TEMPCOND) goto L_0162;\n\tX8 = X8 + 0xA48;\n\tX0 = *([X8]);\n\tX8 = *([X0+E0]);\n\tTEMP = ~TEMP;\n\tif (TEMP) goto L_0110;\n\tX0 = 0xF3F368(X0, X1, X2, X3, X4, X5, X6, X7, V0, V1, V2, V3, V4, V5, V6, V7);\nL_0110:\n\tX8 = 0x2E2B000;\n\tX8 = X8 + 0xC90;\n\tX0 = *([X8]);\n\tX0 = Singleton`1::get_Instance /* +1 sharing this address */(X0);\n\tif (TEMP) goto L_0221;\n\tX8 = *([X0+24]);\n\tC = X8 < 1;\n\tC = ~C;\n\tTEMP1 = X8 - 1;\n\tN = TEMP1 < 0;\n\tTEMP2 = X8 ^ 1;\n\tTEMP3 = X8 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tTEMPCOND = ~Z;\n\tif (TEMPCOND) goto L_0162;\n\tX0 = 0;\n\tV0 = UnityEngine.Time::get_time(X0);\n\tV1 = *([X19+44]);\n\tV2 = *([X23+C0]);\n\tV0 = V0 - V1;\n\tV0 = V0 / V2;\n\tX0 = 0;\n\tV0 = EasingFunction::EaseInOutSine(V0, X0);\n\tX0 = *([X19+28]);\n\tif (TEMP) goto L_0221;\n\tV3 = *([X19+30]);\n\tV4 = *([X19+3C]);\n\tV1 = *([X19+40]);\n\tV2 = *([X19+38]);\n\tV1 = V1 - V4;\n\tV5 = 1f;\n\tC = V0 < V5;\n\tC = ~C;\n\tTEMP1 = V0 - V5;\n\tN = TEMP1 < 0;\n\tTEMP2 = V0 ^ V5;\n\tTEMP3 = V0 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tTEMPCOND = N == V;\n\tTEMPCOND2 = ~Z;\n\tTEMPCOND = TEMPCOND & TEMPCOND2;\n\tTEMPCSEL = ~TEMPCOND;\n\tif (TEMPCSEL) goto L_0143;\n\tV5 = V5;\n\tgoto L_0144;\nL_0143:\n\tV5 = V0;\nL_0144:\n\t;\n\tC = V0 < 0;\n\tC = ~C;\n\tTEMP1 = V0 - 0;\n\tN = TEMP1 < 0;\n\tTEMP2 = V0 ^ 0;\n\tTEMP3 = V0 ^ TEMP1;\n\tTEMP4 = TEMP2 & TEMP3;\n\tV = TEMP4 < 0;\n\tV0 = 0;\n\tT\n// ... truncated")]
 		private bool MoveNext()
 		{
-			int num = _003C_003E1__state;
-			bool flag = _003C_003E1__state < 4;
-			bool flag2 = !flag;
-			int num2 = _003C_003E1__state - 4;
-			bool flag3 = num2 == 0;
-			bool flag4 = !flag3;
-			if (!(flag2 && flag4))
-			{
-				int num3 = 42422272 + 2730;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v68 @ X9_v2 (System.Int32)+v51 @ X8_v3 (System.Int32)*2]");
-				int num4 = (int)((nint)0 << 2);
-				int num5 = 16852924 + num4;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Indirect jump: v72 @ X10_v2 (System.Int32) (should have been resolved before IL gen)");
-			}
 			return false;
 		}
 
@@ -114,14 +100,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = Facebook.Unity.Windows.IWindowsFacebook + 0xF30;\n\tv11 = 0xF3F22C(v10, methodInfo, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tv27 = new v11();\n\tSystem.NotSupportedException::.ctor(v27);\n\tv31 = Il2CppMethodInfo + 0x120;\n\tv32 = 0xF3F22C(v31, 0, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26);\n\tthrow v27;\n// 13 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 		void global::System.Collections.IEnumerator.Reset()
 		{
-			//IL_000f: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0014: Expected O, but got Unknown
-			//IL_0039: Expected O, but got I
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			global::System.NotSupportedException ex = new global::System.NotSupportedException();
-			object obj2 = (nint)0 + (nint)288;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F22C");
-			throw ex;
+			throw new global::System.NotSupportedException();
 		}
 	}
 
@@ -510,8 +489,8 @@ public class Level : global::UnityEngine.MonoBehaviour
 		}
 
 		float sideOffset = levelWidth * 0.5f + sideColliderSize * 0.5f;
-		CreateSideCollider("SideColliderLeft", 0f - sideOffset);
-		CreateSideCollider("SideColliderRight", sideOffset);
+		CreateSideCollider("LeftBoundary", 0f - sideOffset);
+		CreateSideCollider("RightBoundary", sideOffset);
 
 		blocks.Clear();
 		CollectBlocksRecursive(base.transform);
@@ -535,7 +514,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		{
 			global::UnityEngine.Transform child = parent.GetChild(i);
 			Block block = child.GetComponent<Block>();
-			if (block != null)
+			if (block != null && block.gameObject.activeInHierarchy)
 			{
 				blocks.Add(block);
 			}
@@ -572,17 +551,47 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_0017;\n\tv23 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv24 = v23 + 0x168;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AABF]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+168])();\n\tSystem.Object::.ctor(v45);\n\t*([v45 @ X0_v3 (System.Object)+10]) = 0;\n\tv49 = v45 + 0x20;\n\t*([v45 @ X0_v3 (System.Object)+20]) = this;\n\tv51 = 0xF3F1B4(v49, this, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\treturn v45;\n// 28 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private global::System.Collections.IEnumerator IntroCameraAnimation()
 	{
-		// The original camera zoom animation could not be recovered from the
-		// decompiled binary; wait out the intro and mark it finished.
-		yield return new global::UnityEngine.WaitForSeconds(global::UnityEngine.Mathf.Max(0.01f, introDuration));
-		introPlaying = false;
-
-		// Leaves EstablishingShot; GameManager only drains its particle queue from
-		// IntroScreen/Gameplay, so the level never fills without this.
-		GameManager gameManager = Singleton<GameManager>.Instance;
-		if (gameManager != null)
+		global::UnityEngine.Transform cam = global::UnityEngine.Camera.main.transform;
+		global::UnityEngine.Vector3 initialPos = cam.position;
+		float startTime;
+		if (sections.Count >= 2)
 		{
-			gameManager.StartIntroScreen();
+			yield return null;
+			if (sections == null || sections.Count == 0)
+			{
+				introPlaying = false;
+				yield break;
+			}
+			float startY = float.MaxValue;
+			float endY = float.MinValue;
+			foreach (LevelSection section in sections)
+			{
+				startY = global::UnityEngine.Mathf.Min(startY, section.y);
+				endY = global::UnityEngine.Mathf.Max(endY, section.y);
+			}
+			cam.position = new global::UnityEngine.Vector3(initialPos.x, startY, initialPos.z);
+			startTime = global::UnityEngine.Time.time;
+			while (global::UnityEngine.Time.time - startTime < introDuration && Singleton<GameManager>.Instance._gameState == GameState.EstablishingShot)
+			{
+				float t = global::UnityEngine.Mathf.Clamp01(EasingFunction.EaseInOutSine((global::UnityEngine.Time.time - startTime) / introDuration));
+				cam.position = new global::UnityEngine.Vector3(initialPos.x, startY + t * (endY - startY), initialPos.z);
+				yield return null;
+			}
+			cam.position = new global::UnityEngine.Vector3(initialPos.x, sections[0].y, initialPos.z);
+		}
+		else
+		{
+			startTime = global::UnityEngine.Time.time;
+			while (global::UnityEngine.Time.time - startTime < 1f && Singleton<GameManager>.Instance._gameState == GameState.EstablishingShot)
+			{
+				yield return null;
+			}
+			yield return new global::UnityEngine.WaitForSeconds(0.2f);
+		}
+		introPlaying = false;
+		if (Singleton<GameManager>.Instance._gameState == GameState.EstablishingShot)
+		{
+			Singleton<GameManager>.Instance.StartIntroScreen();
 		}
 	}
 
@@ -600,7 +609,6 @@ public class Level : global::UnityEngine.MonoBehaviour
 		//IL_024c: Expected O, but got I
 		global::UnityEngine.Texture2D texture2D = GenerateGradientLUT(gradientResolution);
 		gradientLUT = texture2D;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		GetColliderYExtents(out var minY, out var maxY);
 		float num = maxY - minY;
 		float num2 = num + 8f;
@@ -660,34 +668,40 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::Cpp2ILInjected.Token(Token = "0x6000356")]
 	[global::Cpp2ILInjected.Address(RVA = "0x100FB34", Offset = "0x100FB34", Length = "0x6F8")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0058;\n\tv37 = Il2CppMethodInfo;\n\tv38 = v37 + 0x888;\n\tv39 = \"il2cpp_codegen_initialize_runtime_metadata\"(v38, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv64 = Il2CppMethodInfo;\n\tv65 = v64 + 0x7E8;\n\tv66 = \"il2cpp_codegen_initialize_runtime_metadata\"(v65, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv351 = Il2CppMethodInfo;\n\tv352 = v351 + 0xAA8;\n\tv353 = \"il2cpp_codegen_initialize_runtime_metadata\"(v352, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv400 = Il2CppMethodInfo;\n\tv401 = v400 + 0x9E0;\n\tv402 = \"il2cpp_codegen_initialize_runtime_metadata\"(v401, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv418 = Il2CppMethodInfo;\n\tv419 = v418 + 0x9E8;\n\tv420 = \"il2cpp_codegen_initialize_runtime_metadata\"(v419, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv487 = Il2CppMethodInfo;\n\tv488 = v487 + 0x9F0;\n\tv489 = \"il2cpp_codegen_initialize_runtime_metadata\"(v488, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv502 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv503 = v502 + 0x228;\n\tv504 = \"il2cpp_codegen_initialize_runtime_metadata\"(v503, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv509 = Il2CppMethodInfo;\n\tv510 = v509 + 0x1C8;\n\tv511 = \"il2cpp_codegen_initialize_runtime_metadata\"(v510, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv521 = Il2CppMethodInfo;\n\tv522 = v521 + 0x618;\n\tv523 = \"il2cpp_codegen_initialize_runtime_metadata\"(v522, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv540 = Il2CppMethodInfo;\n\tv541 = v540 + 0x620;\n\tv542 = \"il2cpp_codegen_initialize_runtime_metadata\"(v541, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv564 = Il2CppMethodInfo;\n\tv565 = v564 + 0x5A8;\n\tv566 = \"il2cpp_codegen_initialize_runtime_metadata\"(v565, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv660 = Il2CppMethodInfo;\n\tv661 = v660 + 0x1B0;\n\tv662 = \"il2cpp_codegen_initialize_runtime_metadata\"(v661, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv705 = Il2CppMethodInfo;\n\tv706 = v705 + 0x5B0;\n\tv707 = \"il2cpp_codegen_initialize_runtime_metadata\"(v706, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv712 = Il2CppMethodInfo;\n\tv713 = v712 + 0x628;\n\tv714 = \"il2cpp_codegen_initialize_runtime_metadata\"(v713, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv724 = Il2CppMethodInfo;\n\tv725 = v724 + 0x5B8;\n\tv726 = \"il2cpp_codegen_initialize_runtime_metadata\"(v725, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv752 = Il2CppMethodInfo;\n\tv753 = v752 + 0x208;\n\tv754 = \"il2cpp_codegen_initialize_runtime_metadata\"(v753, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv764 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv765 = v764 + 0x390;\n\tv766 = \"il2cpp_codegen_initialize_runtime_metadata\"(v765, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv778 = Il2CppMethodInfo;\n\tv779 = v778 + 0xF0;\n\tv780 = \"il2cpp_codegen_initialize_runtime_metadata\"(v779, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv786 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv787 = v786 + 0x158;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v787, methodInfo, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54);\n\tv58 = 1;\n\t*([302AA68]) = v58;\nL_0058:\n\t;\n\tv69 = Il2CppMethodInfo;\n\tv471 = Il2CppMethodInfo + 0x9E0;\n\tv76 = System.Collections.Generic.List`1<LevelSection>::GetEnumerator(this.sections);\nL_006A:\n\tv392 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv422 = v392 == 0;\n\tif (v422) goto L_0087;\n\tv394 = v355 == 0;\n\tif (v394) goto L_0255;\n\tv483 = *([v355 @ stack_-98+18]);\n\tv415 = *([v355 @ stack_-98+18]) == 0;\n\tif (v415) goto L_0257;\n\tv403 = *([v483 @ X8_v82+18]) < 1;\n\tif (v403) goto L_006A;\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tgoto L_0253;\nL_0087:\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_0088:\n\t;\n\tv517 = System.Collections.Generic.List`1<LevelSection>::GetEnumerator(this.sections);\nL_0095:\n\tv531 = *([v69 @ X22_v15 (Il2CppMethodInfo)+9E8]);\n\tv558 = System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::MoveNext(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\n\tv655 = v558 == 0;\n\tif (v655) goto L_00B9;\n\tv480 = v355 == 0;\n\tif (v480) goto L_0259;\n\tv482 = *([v355 @ stack_-98+18]);\n\tv439 = *([v482 @ X8_v80+18]);\n\tv544 = *([v482 @ X8_v80+1C]) + 1;\n\t*([v482 @ X8_v80+18]) = 0;\n\t*([v482 @ X8_v80+1C]) = v544;\n\tv546 = *([v482 @ X8_v80+18]) < 1;\n\tif (v546) goto L_0095;\n\tSystem.Array::Clear(*([v482 @ X8_v80+10]), 0, *([v482 @ X8_v80+18]));\n\tgoto L_0095;\nL_00B9:\n\tSystem.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>::Dispose(&v75 @ stack_-A8_v8 (System.Collections.Generic.List`1<System.Object>+Enumerator<System.Object>));\nL_00BA:\n\tv345 = v348.sections;\n\tv632 = *([v345 @ X20_v12 (System.Collections.Generic.IEnumerable`1<System.Object>)+18]) == 0;\n\tif (v632) goto L_0253;\n\tv708 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv709 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv711 = *([v709 @ X0_v24+E0]) == 0;\n\tif (v711) goto L_00CD;\n\tv769 = *([v709 @ X0_v24+B8]);\n\tv733 = *([v769 @ X8_v61+18]);\n\tv721 = *([v769 @ X8_v61+18]) == 0;\n\tv722 = ~v721;\n\tif (v722) goto L_00EC;\n\tgoto L_00D6;\nL_00CD:\n\tv739 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv769 = *([v739 @ X0_v67+B8]);\n\tv733 = *([v769 @ X8_v61+18]);\n\tv751 = *([v769 @ X8_v61+18]) == 0;\n\tv742 = ~v751;\n\tif (v742) goto L_00EC;\nL_00D6:\n\tgoto L_00DB;\n\tv767 = \"il2cpp_codegen_runtime_class_init\"(v756, v276, v154, v139, v43, v44, v45, v46, v262, v82, v78, v50, v51, v52, v53, v54);\n\tv781 = *([v298 @ X23_v8]);\n\tv770 = *([v781 @ X8_v67+B8]);\nL_00DB:\n\tv771 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv774 = new *([v771 @ X8_v62 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+228])();\n\tv782 = Il2CppMethodInfo;\n\tSystem.Func`2<System.Object, System.Single>::.ctor(v774, *([v769 @ X8_v61]), *([v782 @ X8_v64 (Il2CppMethodInfo)+F0]));\n\tv744 = *([v708 @ X23_v7 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+158]);\n\tv789 = *([v744 @ X8_v66+B8]) + 0x18;\n\t*([v789 @ X0_v63]) = v774;\n\tv738 = 0xF3F1B4(v789, v774, *([v782 @ X8_v64 (Il2CppMethodInfo)+F0]), 0, v43, v44, v45, v46, v262, v358, v357, v50, v51, v52, v53, v54);\nL_00EC:\n\t;\n\tv750 = System.Linq.Enumerable::OrderBy(v345, v733);\n\tv763 = System.Linq.Enumerable::ToList(v750);\n\tv775 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv305 = new *([v775 @ X8_v15 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+390])();\n\tSystem.Collections.Generic.List`1<System.Single>::.ctor(v305);\n\tv792 = v305._version + 1;\n\tv305._version = v792;\n\tv145 = v305._items;\n\tv133 = v305._size;\n\tv793 = v305._size < v145.Length;\n\tv243 = ~v793;\n\tif (v243) goto L_011E;\n\tv794 = v305._size + 1;\n\tv305._size = v794;\n\tv145[v133 @ X10_v6 (System.Int32)] = 0xFF800000;\n\tgoto L_0128;\nL_011E:\n\t;\n\tSystem.Collections.Generic.List`1<System.Single>::AddWithResize(v305, -Infinityf);\nL_0128:\n\tv805 = v763._size - 1;\n\tv816 = v805 < 1;\n\tif (v816) goto L_018\n// ... truncated")]
-	private unsafe void AssignLocksToSections()
+	private void AssignLocksToSections()
 	{
+		foreach (LevelSection section in sections)
+		{
+			if (section.locks.Count >= 1)
+			{
+				return;
+			}
+		}
 		foreach (LevelSection section in sections)
 		{
 			section.locks.Clear();
 		}
-		global::System.Collections.Generic.List<LevelSection> orderedSections = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(sections, (LevelSection s) => s.y));
-		if (orderedSections.Count == 0)
+		if (sections.Count == 0)
 		{
 			return;
 		}
+		global::System.Collections.Generic.List<LevelSection> ordered = new global::System.Collections.Generic.List<LevelSection>(sections);
+		ordered.Sort((LevelSection a, LevelSection b) => a.y.CompareTo(b.y));
 		global::System.Collections.Generic.List<float> boundaries = new global::System.Collections.Generic.List<float>();
 		boundaries.Add(float.NegativeInfinity);
-		for (int i = 0; i < orderedSections.Count - 1; i++)
+		for (int i = 0; i < ordered.Count - 1; i++)
 		{
-			boundaries.Add((orderedSections[i].y + orderedSections[i + 1].y) * 0.5f);
+			boundaries.Add((ordered[i].y + ordered[i + 1].y) * 0.5f);
 		}
 		boundaries.Add(float.PositiveInfinity);
-		Lock[] componentsInChildren = GetComponentsInChildren<Lock>(true);
-		Lock[] array = componentsInChildren;
-		foreach (Lock lockComponent in array)
+		foreach (Lock lockComponent in GetComponentsInChildren<Lock>(true))
 		{
 			float y = lockComponent.transform.position.y;
-			for (int j = 0; j < orderedSections.Count; j++)
+			for (int j = 0; j < ordered.Count; j++)
 			{
 				if (y >= boundaries[j] && y < boundaries[j + 1])
 				{
-					orderedSections[j].locks.Add(lockComponent);
+					ordered[j].locks.Add(lockComponent);
 					break;
 				}
 			}
@@ -735,6 +749,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 	{
 		if (!EnableBeeSpawning || solver == null)
 		{
+			fluidsCollectedSinceLastBee = 0;
 			return;
 		}
 		if (solver.colorFluidTypes <= particleType)
@@ -755,149 +770,30 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0022;\n\tv29 = Il2CppMethodInfo;\n\tv30 = v29 + 0x5B0;\n\tv31 = \"il2cpp_codegen_initialize_runtime_metadata\"(v30, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv53 = Il2CppMethodInfo;\n\tv54 = v53 + 0x5B8;\n\tv55 = \"il2cpp_codegen_initialize_runtime_metadata\"(v54, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv122 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv123 = v122 + 0xFD8;\n\tv124 = \"il2cpp_codegen_initialize_runtime_metadata\"(v123, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv223 = CollectParticleData[];\n\tv224 = v223 + 0x718;\n\tv48 = \"il2cpp_codegen_initialize_runtime_metadata\"(v224, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv50 = 1;\n\t*([302AA6B]) = v50;\nL_0022:\n\tv52 = ~this.enableBeeSpawning;\n\tif (v52) goto L_003D;\n\tv56 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv59 = *([v56 @ X21_v3 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv61 = *([v59 @ X0_v3+E0]) == 0;\n\tif (v61) goto L_0042;\n\tv102 = UnityEngine.Object::op_Equality(this.solver, 0);\n\tv106 = v102 == 0;\n\tif (v106) goto L_0052;\nL_003D:\n\treturn;\nL_0042:\n\tv103 = UnityEngine.Object::op_Equality(this.solver, 0);\n\tv229 = v103 == 0;\n\tv107 = ~v229;\n\tif (v107) goto L_003D;\nL_0052:\n\tv64 = this.beesSpawnedCount >= this.maxBeesSpawned;\n\tif (v64) goto L_003D;\n\tv231 = *([v56 @ X21_v3 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv233 = *([v231 @ X0_v5+E0]) == 0;\n\tif (v233) goto L_0068;\n\tv237 = UnityEngine.Object::op_Inequality(this.beeSpawnPoint, 0);\n\tv239 = ~v237;\n\tif (v239) goto L_006C;\nL_005F:\n\tv280 = this.beeSpawnPoint;\n\tv250 = this.beeSpawnPoint == 0;\n\tv251 = ~v250;\n\tif (v251) goto L_008C;\n\tgoto L_012A;\nL_0068:\n\tv243 = UnityEngine.Object::op_Inequality(this.beeSpawnPoint, 0);\n\tv258 = ~v243;\n\tv248 = ~v258;\n\tif (v248) goto L_005F;\nL_006C:\n\tv256 = this.sections;\n\tv260 = v256._size < 1;\n\tif (v260) goto L_0088;\n\tv343 = Il2CppMethodInfo;\n\tv322 = *([v343 @ X8_v22 (Il2CppMethodInfo)+5B8]);\n\tv328 = System.Collections.Generic.List`1<LevelSection>::get_Item(v256, this.currentSection);\n\tv321 = v328.y;\n\tgoto L_0091;\nL_0088:\n\tv280 = UnityEngine.Component::get_transform(this);\nL_008C:\n\tv347 = UnityEngine.Transform::get_position(v280);\nL_0091:\n\tv354 = CollectParticleData[];\n\tv356 = \"SzArrayNew\"(*([v354 @ X8_v9 (Il2CppClass<CollectParticleData[]>)+718]), 5, v322, v34, v35, v36, v37, v38, v347, v347.y, v347.z, v42, v43, v44, v45, v46);\n\tv358 = UnityEngine.Random::get_insideUnitCircle();\n\tv361 = v358 * this.beeSpawnRadius;\n\tv362 = v358.y * this.beeSpawnRadius;\n\tv363 = v361 * 0.5f;\n\tv364 = v362 * 0.5f;\n\tv365 = v320 + v363;\n\tv366 = v321 + v364;\n\t// 163 MakeStruct v145 @ AGG10116F8_0_v1 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v365 @ V0_v5 (System.Single), v366 @ V1_v5 (System.Single)\n\tv299 = Unity.Mathematics.float2::op_Implicit(v145);\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+20]) = v299;\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+24]) = v299.y;\n\tv370 = UnityEngine.Random::get_insideUnitCircle();\n\tv408 = v370 * this.beeSpawnRadius;\n\tv409 = v370.y * this.beeSpawnRadius;\n\tv410 = v408 * 0.5f;\n\tv411 = v409 * 0.5f;\n\tv412 = v320 + v410;\n\tv413 = v321 + v411;\n\t// 185 MakeStruct v141 @ AGG1011738_0_v2 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v412 @ V0_v11 (System.Single), v413 @ V1_v11 (System.Single)\n\tv377 = Unity.Mathematics.float2::op_Implicit(v141);\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+28]) = v377;\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+2C]) = v377.y;\n\tv415 = UnityEngine.Random::get_insideUnitCircle();\n\tv417 = v415 * this.beeSpawnRadius;\n\tv418 = v415.y * this.beeSpawnRadius;\n\tv419 = v417 * 0.5f;\n\tv420 = v418 * 0.5f;\n\tv421 = v320 + v419;\n\tv422 = v321 + v420;\n\t// 208 MakeStruct v137 @ AGG1011774_0_v2 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v421 @ V0_v16 (System.Single), v422 @ V1_v16 (System.Single)\n\tv378 = Unity.Mathematics.float2::op_Implicit(v137);\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+30]) = v378;\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+34]) = v378.y;\n\tv425 = UnityEngine.Random::get_insideUnitCircle();\n\tv427 = v425 * this.beeSpawnRadius;\n\tv428 = v425.y * this.beeSpawnRadius;\n\tv429 = v427 * 0.5f;\n\tv430 = v428 * 0.5f;\n\tv431 = v320 + v429;\n\tv432 = v321 + v430;\n\t// 236 MakeStruct v133 @ AGG10117B0_0_v2 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v431 @ V0_v21 (System.Single), v432 @ V1_v21 (System.Single)\n\tv379 = Unity.Mathematics.float2::op_Implicit(v133);\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+38]) = v379;\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+3C]) = v379.y;\n\tv434 = UnityEngine.Random::get_insideUnitCircle();\n\tv436 = v434 * this.beeSpawnRadius;\n\tv437 = v434.y * this.beeSpawnRadius;\n\tv438 = v436 * 0.5f;\n\tv439 = v437 * 0.5f;\n\tv440 = v320 + v438;\n\tv441 = v321 + v439;\n\t// 259 MakeStruct v129 @ AGG10117EC_0_v2 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v440 @ V0_v26 (System.Single), v441 @ V1_v26 (System.Single)\n\tv154 = Unity.Mathematics.float2::op_Implicit(v129);\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+40]) = v154;\n\t*([v356 @ X0_v8 (Unity.Mathematics.float2[])+44]) = v154.y;\n\tv208 = FluidSolver::AddBee(this.solver, v356);\n\tv214 = this.beesSpawnedCount + 1;\n\tthis.beesSpawnedCount = v214;\n\treturn;\n\tv327 = new System.IndexOutOfRangeException();\nL_012A:\n\tthrow System.NullReferenceException;\n// 181 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void SpawnBee()
 	{
-		//IL_0013: Expected I, but got O
-		//IL_0023: Expected O, but got I
-		//IL_00e6: Expected O, but got I
-		//IL_01b3: Expected O, but got I4
-		//IL_01bc: Expected O, but got I4
-		//IL_012f: Expected O, but got I4
-		//IL_0138: Expected O, but got I4
-		//IL_05c0: Expected I, but got O
-		//IL_0211: Expected O, but got I
-		if (!EnableBeeSpawning)
+		if (!EnableBeeSpawning || solver == null || beesSpawnedCount >= maxBeesSpawned)
 		{
 			return;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X21_v3 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v59 @ X0_v3+E0]");
-		if ((nint)0 != 0)
+		global::UnityEngine.Vector2 center;
+		if (beeSpawnPoint != null)
 		{
-			if (solver == null)
-			{
-				return;
-			}
+			center = beeSpawnPoint.position;
 		}
-		else if (solver == null)
+		else if (sections.Count >= 1)
 		{
-			return;
-		}
-		if (BeesSpawnedCount >= MaxBeesSpawned)
-		{
-			return;
-		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v56 @ X21_v3 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-		object obj2 = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v231 @ X0_v5+E0]");
-		object obj4;
-		object obj3;
-		if ((nint)0 != 0)
-		{
-			bool flag = beeSpawnPoint != null;
-			bool flag2 = !flag;
-			obj3 = 0;
-			obj4 = 0;
-			if (!flag2)
-			{
-				goto IL_0146;
-			}
+			center = new global::UnityEngine.Vector2(0f, sections[currentSection].y);
 		}
 		else
 		{
-			bool flag3 = beeSpawnPoint != null;
-			bool flag4 = !flag3;
-			bool flag5 = !flag4;
-			obj3 = 0;
-			obj4 = 0;
-			if (flag5)
-			{
-				goto IL_0146;
-			}
+			center = base.transform.position;
 		}
-		global::System.Collections.Generic.List<LevelSection> list = sections;
-		float y;
-		global::UnityEngine.Vector3 vector;
-		if (list.Count >= 1)
+		global::Unity.Mathematics.float2[] pos = new global::Unity.Mathematics.float2[5];
+		for (int i = 0; i < pos.Length; i++)
 		{
-			nint num2 = 0;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v343 @ X8_v22 (Il2CppMethodInfo)+5B8]");
-			obj3 = 0;
-			LevelSection levelSection = list[currentSection];
-			y = levelSection.y;
-			vector = default(global::UnityEngine.Vector3);
-			goto IL_05b2;
+			pos[i] = center + global::UnityEngine.Random.insideUnitCircle * beeSpawnRadius * 0.5f;
 		}
-		global::UnityEngine.Transform transform = base.transform;
-		obj3 = obj4;
-		goto IL_025c;
-		IL_05b2:
-		global::UnityEngine.Vector2 insideUnitCircle = global::UnityEngine.Random.insideUnitCircle;
-		float num4 = insideUnitCircle.x * beeSpawnRadius;
-		float num5 = insideUnitCircle.y * beeSpawnRadius;
-		float num6 = num4 * 0.5f;
-		float num7 = num5 * 0.5f;
-		float x = vector.x + num6;
-		float y2 = y + num7;
-		global::UnityEngine.Vector2 vector2 = default(global::UnityEngine.Vector2);
-		vector2.x = x;
-		vector2.y = y2;
-		global::UnityEngine.Vector2 insideUnitCircle2 = global::UnityEngine.Random.insideUnitCircle;
-		float num8 = insideUnitCircle2.x * beeSpawnRadius;
-		float num9 = insideUnitCircle2.y * beeSpawnRadius;
-		float num10 = num8 * 0.5f;
-		float num11 = num9 * 0.5f;
-		float x2 = vector.x + num10;
-		float y3 = y + num11;
-		global::UnityEngine.Vector2 vector3 = default(global::UnityEngine.Vector2);
-		vector3.x = x2;
-		vector3.y = y3;
-		global::UnityEngine.Vector2 insideUnitCircle3 = global::UnityEngine.Random.insideUnitCircle;
-		float num12 = insideUnitCircle3.x * beeSpawnRadius;
-		float num13 = insideUnitCircle3.y * beeSpawnRadius;
-		float num14 = num12 * 0.5f;
-		float num15 = num13 * 0.5f;
-		float x3 = vector.x + num14;
-		float y4 = y + num15;
-		global::UnityEngine.Vector2 vector4 = default(global::UnityEngine.Vector2);
-		vector4.x = x3;
-		vector4.y = y4;
-		global::UnityEngine.Vector2 insideUnitCircle4 = global::UnityEngine.Random.insideUnitCircle;
-		float num16 = insideUnitCircle4.x * beeSpawnRadius;
-		float num17 = insideUnitCircle4.y * beeSpawnRadius;
-		float num18 = num16 * 0.5f;
-		float num19 = num17 * 0.5f;
-		float x4 = vector.x + num18;
-		float y5 = y + num19;
-		global::UnityEngine.Vector2 vector5 = default(global::UnityEngine.Vector2);
-		vector5.x = x4;
-		vector5.y = y5;
-		global::UnityEngine.Vector2 insideUnitCircle5 = global::UnityEngine.Random.insideUnitCircle;
-		float num20 = insideUnitCircle5.x * beeSpawnRadius;
-		float num21 = insideUnitCircle5.y * beeSpawnRadius;
-		float num22 = num20 * 0.5f;
-		float num23 = num21 * 0.5f;
-		float x5 = vector.x + num22;
-		float y6 = y + num23;
-		global::UnityEngine.Vector2 vector6 = default(global::UnityEngine.Vector2);
-		vector6.x = x5;
-		vector6.y = y6;
-		global::Unity.Mathematics.float2[] pos = new global::Unity.Mathematics.float2[5] { vector2, vector3, vector4, vector5, vector6 };
-		Bee bee = solver.AddBee(pos);
-		int num24 = BeesSpawnedCount + 1;
-		beesSpawnedCount = num24;
-		return;
-		IL_025c:
-		global::UnityEngine.Vector3 position = transform.position;
-		vector = position;
-		y = position.y;
-		goto IL_05b2;
-		IL_0146:
-		transform = beeSpawnPoint;
-		if ((object)beeSpawnPoint == null)
-		{
-			throw new global::System.NullReferenceException();
-		}
-		goto IL_025c;
+		solver.AddBee(pos);
+		beesSpawnedCount++;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600035B")]
@@ -954,18 +850,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 		{
 			return;
 		}
-		global::System.Collections.Generic.List<LevelSection> orderedSections = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(sections, (LevelSection s) => s.y));
-		global::System.Collections.Generic.List<float> boundaries = new global::System.Collections.Generic.List<float>();
-		boundaries.Add(0f - cameraHeight);
-		for (int i = 0; i < orderedSections.Count - 1; i++)
-		{
-			boundaries.Add((orderedSections[i].y + orderedSections[i + 1].y) * 0.5f);
-		}
-		boundaries.Add(cameraHeight);
-		if (boundaries.Count < 2)
-		{
-			return;
-		}
+		global::System.Collections.Generic.List<float> boundaries = GetSideBackgroundBoundaries(cameraHeight);
 		float halfSideWidth = sideWidth * 0.5f;
 		for (int j = 0; j < boundaries.Count - 1; j++)
 		{
@@ -974,7 +859,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 			float centerY = (bottom + top) * 0.5f;
 			float height = top - bottom;
 			global::UnityEngine.GameObject gameObject = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
-			gameObject.name = string.Format("LeftBackground{0}", j);
+			gameObject.name = string.Format("LeftBackgroundSpan_{0}", j);
 			gameObject.transform.SetParent(base.transform, worldPositionStays: false);
 			gameObject.transform.position = new global::UnityEngine.Vector3(levelWidth * -0.5f - halfSideWidth, centerY, -9f);
 			gameObject.transform.localScale = new global::UnityEngine.Vector3(sideWidth, height, 1f);
@@ -983,7 +868,7 @@ public class Level : global::UnityEngine.MonoBehaviour
 			renderer.material.renderQueue = 4000;
 			leftBackgroundQuads.Add(gameObject);
 			global::UnityEngine.GameObject gameObject2 = global::UnityEngine.GameObject.CreatePrimitive(global::UnityEngine.PrimitiveType.Quad);
-			gameObject2.name = string.Format("RightBackground{0}", j);
+			gameObject2.name = string.Format("RightBackgroundSpan_{0}", j);
 			gameObject2.transform.SetParent(base.transform, worldPositionStays: false);
 			gameObject2.transform.position = new global::UnityEngine.Vector3(levelWidth * 0.5f + halfSideWidth, centerY, -9f);
 			gameObject2.transform.localScale = new global::UnityEngine.Vector3(sideWidth, height, 1f);
@@ -999,224 +884,99 @@ public class Level : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv38 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_0060;\n\tv43 = Il2CppMethodInfo;\n\tv44 = v43 + 0x658;\n\tv45 = \"il2cpp_codegen_initialize_runtime_metadata\"(v44, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv67 = Il2CppMethodInfo;\n\tv68 = v67 + 0x6F8;\n\tv69 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv72 = Il2CppMethodInfo;\n\tv73 = v72 + 0x788;\n\tv74 = \"il2cpp_codegen_initialize_runtime_metadata\"(v73, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv76 = Il2CppMethodInfo;\n\tv77 = v76 + 0x7E8;\n\tv78 = \"il2cpp_codegen_initialize_runtime_metadata\"(v77, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv532 = Il2CppMethodInfo;\n\tv533 = v532 + 0xAA8;\n\tv534 = \"il2cpp_codegen_initialize_runtime_metadata\"(v533, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv538 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv539 = v538 + 0x228;\n\tv540 = \"il2cpp_codegen_initialize_runtime_metadata\"(v539, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv684 = Il2CppMethodInfo;\n\tv685 = v684 + 0x1C8;\n\tv686 = \"il2cpp_codegen_initialize_runtime_metadata\"(v685, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv689 = Il2CppMethodInfo;\n\tv690 = v689 + 0x1B0;\n\tv691 = \"il2cpp_codegen_initialize_runtime_metadata\"(v690, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv716 = Il2CppMethodInfo;\n\tv717 = v716 + 0x5B0;\n\tv718 = \"il2cpp_codegen_initialize_runtime_metadata\"(v717, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv721 = Il2CppMethodInfo;\n\tv722 = v721 + 8;\n\tv723 = \"il2cpp_codegen_initialize_runtime_metadata\"(v722, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv725 = Il2CppMethodInfo;\n\tv726 = v725 + 0x200;\n\tv727 = \"il2cpp_codegen_initialize_runtime_metadata\"(v726, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv740 = Il2CppMethodInfo;\n\tv741 = v740 + 0x5B8;\n\tv742 = \"il2cpp_codegen_initialize_runtime_metadata\"(v741, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv750 = Il2CppMethodInfo;\n\tv751 = v750 + 0x10;\n\tv752 = \"il2cpp_codegen_initialize_runtime_metadata\"(v751, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv808 = Il2CppMethodInfo;\n\tv809 = v808 + 0x208;\n\tv810 = \"il2cpp_codegen_initialize_runtime_metadata\"(v809, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv873 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv874 = v873 + 0x390;\n\tv875 = \"il2cpp_codegen_initialize_runtime_metadata\"(v874, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv884 = System.Net.Configuration.SettingsSectionInternal;\n\tv885 = v884 + 0xB48;\n\tv886 = \"il2cpp_codegen_initialize_runtime_metadata\"(v885, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv904 = Il2CppMethodInfo;\n\tv905 = v904 + 0xF10;\n\tv906 = \"il2cpp_codegen_initialize_runtime_metadata\"(v905, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv914 = Il2CppMethodInfo;\n\tv915 = v914 + 0xF98;\n\tv916 = \"il2cpp_codegen_initialize_runtime_metadata\"(v915, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv920 = Il2CppMethodInfo;\n\tv921 = v920 + 0x110;\n\tv922 = \"il2cpp_codegen_initialize_runtime_metadata\"(v921, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv925 = Il2CppMethodInfo;\n\tv926 = v925 + 0x118;\n\tv927 = \"il2cpp_codegen_initialize_runtime_metadata\"(v926, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv930 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv931 = v930 + 0x160;\n\tv932 = \"il2cpp_codegen_initialize_runtime_metadata\"(v931, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv936 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv937 = v936 + 0x158;\n\tv62 = \"il2cpp_codegen_initialize_runtime_metadata\"(v937, methodInfo, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60);\n\tv64 = 1;\n\t*([302AA6D]) = v64;\nL_0060:\n\tv66 = new *([v38 @ X21_v1 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+160])();\n\tSystem.Object::.ctor(v66);\n\tv80 = v66 + 0x10;\n\t*([v66 @ X0_v3 (System.Object)+10]) = this;\n\tv82 = 0xF3F1B4(v80, this, v47, v137, v49, v50, v51, v52, v53, v54, v100, v56, v57, v58, v59, v60);\n\tv536 = ~this.introPlaying;\n\tv537 = ~v536;\n\tif (v537) goto L_03E2;\n\tv511 = this.sections;\n\tv253 = v511._size < 1;\n\tif (v253) goto L_018D;\n\tv426 = UnityEngine.Camera::get_main();\n\tv724 = UnityEngine.Camera::get_aspect(v426);\n\tv217 = this.sectionHeight * v724;\n\tv427 = this.sections;\n\tv254 = v217 >= this.levelWidth;\n\tif (v254) goto L_00E5;\n\tv887 = v427._size - 1;\n\tv697 = v427._size < 1;\n\tif (v697) goto L_018D;\n\tv813 = this.currentSection - v887;\n\tv814 = v813 < 0;\n\tv816 = this.currentSection ^ v887;\n\tv817 = this.currentSection ^ v813;\n\tv818 = v816 & v817;\n\tv819 = v818 < 0;\n\tv820 = v814 == v819;\n\tv821 = ~v820;\n\tv822 = ~v821;\n\tif (v822) goto L_00B9;\n\tgoto L_00B9;\nL_00B9:\n\tv351 = this.currentSection < 0;\n\tv303 = this.currentSection ^ this.currentSection;\n\tv287 = this.currentSection & v303;\n\tv271 = v287 < 0;\n\tv889 = v351 == v271;\n\tv255 = ~v889;\n\tv198 = ~v255;\n\tif (v198) goto L_FFFFFFFF;\n\tgoto L_00C7;\nL_00C7:\n\t;\n\tv428 = System.Collections.Generic.List`1<LevelSection>::get_Item(v427, v397);\n\tv429 = UnityEngine.Camera::get_main();\n\tv938 = Il2CppMethodInfo;\n\tv430 = UnityEngine.Component::GetComponent /* +1 sharing this address */(v429, *([v938 @ X8_v93 (Il2CppMethodInfo)+658]));\n\t*([v430 @ X0_v106+20]) = this.levelWidth;\n\tgoto L_012E;\n\tgoto L_FFFFFFFF;\nL_00E5:\n\tv207 = v427._size - 1;\n\tv761 = this.currentSection - v207;\n\tv762 = v761 < 0;\n\tv764 = this.currentSection ^ v207;\n\tv765 = this.currentSection ^ v761;\n\tv766 = v764 & v765;\n\tv767 = v766 < 0;\n\tv768 = v762 == v767;\n\tv769 = ~v768;\n\tv770 = ~v769;\n\tif (v770) goto L_00FA;\n\tgoto L_00FA;\nL_00FA:\n\tv352 = this.currentSection < 0;\n\tv304 = this.currentSection ^ this.currentSection;\n\tv288 = this.currentSection & v304;\n\tv272 = v288 < 0;\n\tv879 = v352 == v272;\n\tv256 = ~v879;\n\tv199 = ~v256;\n\tif (v199) goto L_FFFFFFFF;\n\tgoto L_0108;\nL_0108:\n\t;\n\tv431 = System.Collections.Generic.List`1<LevelSection>::get_Item(v427, v399);\n\tv432 = UnityEngine.Camera::get_main();\n\tv226 = this.sectionHeight * 0.5f;\n\tUnityEngine.Camera::set_orthographicSize(v432, v226);\n\tv433 = UnityEngine.Camera::get_main();\n\tv978 = Il2CppMethodInfo;\n\tv434 = UnityEngine.Component::GetComponent /* +1 sharing this address */(v433, *([v978 @ X8_v85 (Il2CppMethodInfo)+658]));\n\t*([v434 @ X0_v102+20]) = v217;\n\tgoto L_012E;\n\tv1030 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv1031 = v1030 + 0x920;\n\tv1014 = \"il2cpp_codegen_initialize_runtime_metadata\"(v1031, v1013, v984, v48, v49, v50, v51, v52, v993, v986, v55, v56, v57, v58, v59, v60);\n\tv1020 = 1;\n\t*([2DD4412]) = v1020;\nL_012E:\n\tv1052 = UnityEngine.Mathf::Abs(this.cameraTargetY);\n\tv1032 = UnityEngine.Mathf::Abs(v428.y);\n\tv1038 = v1052 - v1032;\n\tv1039 = v1038 < 0;\n\tv1040 = v1038 == 0;\n\tv1041 = v1052 ^ v1032;\n\tv1042 = v1052 ^ v1038;\n\tv1043 = v1041 & v1042;\n\tv1044 = v1043 < 0;\n\tv1045 = v1039 == v1044;\n\tv1046 = ~v1040;\n\tv1047 = v1045 & v1046;\n\tv1048 = ~v1047;\n\tif (v1048) goto L_FFFFFFFF;\n\tgoto L_0142;\nL_0142:\n\tv1053 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv1055 = *([v1053 @ X8_v70 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+920]);\n\tv1056 = *([v1055 @ X8_v72+B8]);\n\tv227 = v1052 * 0x358637BD;\n\tv188 = *([v1056 @ X8_v73]) * 8f;\n\tv1063 = v227 - v188;\n\tv1064 = v1063 < 0;\n\tv1065 = v1063 == 0;\n\tv1066 = v227 ^ v188;\n\tv1067 = v227 ^ v1063;\n\tv1068 = v1066 & v1067;\n\tv1069 = v1068 < 0;\n\tv1070 = v1064 == v1069;\n\tv184 = ~v1065;\n\tv257 = v1070 & v184;\n\tv200 = ~v257;\n\tif (v200) goto L_FFFFFFFF;\n\tgot\n// ... truncated")]
 	private void Update()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_0022: Expected O, but got I
-		//IL_0561: Expected O, but got I
-		//IL_0fe6: Expected O, but got F4
-		//IL_0ff3: Expected O, but got F4
-		//IL_06fe: Expected F4, but got I
-		//IL_0725: Expected I, but got O
-		//IL_10e7: Expected I, but got O
-		//IL_10f7: Expected O, but got I
-		//IL_1107: Expected O, but got I
-		//IL_1165: Expected O, but got F4
-		//IL_1172: Expected O, but got F4
-		//IL_0763: Expected O, but got I4
-		//IL_0358: Expected O, but got I
-		//IL_095f: Expected I, but got O
-		//IL_096f: Expected O, but got I
-		//IL_1264: Expected O, but got I
-		//IL_1274: Expected O, but got I
-		//IL_098f: Expected O, but got I
-		//IL_09c3: Expected I, but got O
-		//IL_12b2: Expected I, but got O
-		//IL_12e2: Expected O, but got I
-		//IL_12f8: Expected O, but got I
-		//IL_1313: Expected O, but got I4
-		//IL_0aec: Expected O, but got I
-		//IL_0b53: Expected O, but got I
-		object obj = new object();
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		if (introPlaying)
 		{
 			return;
 		}
-		global::System.Collections.Generic.List<LevelSection> list = sections;
-		if (list.Count >= 1)
+		if (sections.Count >= 1)
 		{
 			global::UnityEngine.Camera main = global::UnityEngine.Camera.main;
-			float aspect = main.aspect;
-			float num2 = sectionHeight * aspect;
-			global::System.Collections.Generic.List<LevelSection> list2 = sections;
-			LevelSection levelSection = default(LevelSection);
-			if (num2 < levelWidth)
+			float sectionWidth = sectionHeight * main.aspect;
+			float targetY = sections[global::UnityEngine.Mathf.Clamp(currentSection, 0, sections.Count - 1)].y;
+			if (sectionWidth < levelWidth)
 			{
-				int num3 = list2.Count - 1;
-				if (list2.Count < 1)
-				{
-					goto IL_0426;
-				}
-				int num4 = currentSection - num3;
-				bool flag = num4 < 0;
-				int num5 = currentSection ^ num3;
-				int num6 = currentSection ^ num4;
-				int num7 = num5 & num6;
-				bool flag2 = num7 < 0;
-				if (flag != flag2)
-				{
-					num3 = currentSection;
-				}
-				bool flag3 = currentSection < 0;
-				int num8 = currentSection ^ currentSection;
-				int num9 = currentSection & num8;
-				bool flag4 = num9 < 0;
-				int index = ((flag3 == flag4) ? num3 : 0);
-				levelSection = list2[index];
-				global::UnityEngine.Camera main2 = global::UnityEngine.Camera.main;
-				nint num10 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-				_ = levelWidth;
+				main.GetComponent<HorizontalFOV>().targetWidth = levelWidth;
 			}
 			else
 			{
-				int num11 = list2.Count - 1;
-				int num12 = currentSection - num11;
-				bool flag5 = num12 < 0;
-				int num13 = currentSection ^ num11;
-				int num14 = currentSection ^ num12;
-				int num15 = num13 & num14;
-				bool flag6 = num15 < 0;
-				if (flag5 != flag6)
-				{
-					num11 = currentSection;
-				}
-				bool flag7 = currentSection < 0;
-				int num16 = currentSection ^ currentSection;
-				int num17 = currentSection & num16;
-				bool flag8 = num17 < 0;
-				int index2 = ((flag7 == flag8) ? num11 : 0);
-				LevelSection levelSection2 = list2[index2];
-				global::UnityEngine.Camera main3 = global::UnityEngine.Camera.main;
-				float orthographicSize = sectionHeight * 0.5f;
-				main3.orthographicSize = orthographicSize;
-				global::UnityEngine.Camera main4 = global::UnityEngine.Camera.main;
-				nint num18 = 0;
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
+				main.orthographicSize = sectionHeight * 0.5f;
+				main.GetComponent<HorizontalFOV>().targetWidth = sectionWidth;
 			}
-			if (!global::UnityEngine.Mathf.Approximately(cameraTargetY, levelSection.y))
+			if (!global::UnityEngine.Mathf.Approximately(cameraTargetY, targetY))
 			{
-				cameraTargetY = levelSection.y;
+				cameraTargetY = targetY;
 				if (cameraMoveTween != null && global::DG.Tweening.TweenExtensions.IsActive(cameraMoveTween))
 				{
 					global::DG.Tweening.TweenExtensions.Kill(cameraMoveTween);
 				}
-				global::UnityEngine.Camera main5 = global::UnityEngine.Camera.main;
-				global::UnityEngine.Transform target = main5.transform;
-				cameraMoveTween = global::DG.Tweening.ShortcutExtensions.DOMoveY(target, levelSection.y, 1.2f);
+				cameraMoveTween = global::DG.Tweening.TweenSettingsExtensions.SetEase(global::DG.Tweening.ShortcutExtensions.DOMoveY(main.transform, targetY, 1.2f), global::DG.Tweening.Ease.InOutQuad);
 			}
 		}
-		goto IL_0426;
-		IL_0426:
-		global::System.Collections.Generic.List<LevelSection> list3 = sections;
-		int num30 = list3.Count - 1;
-		if (currentSection >= num30)
+		if (currentSection >= sections.Count - 1)
 		{
 			return;
 		}
-		FluidSolver fluidSolver = solver;
-		int num34;
-		if (fluidSolver.ActiveCount >= 1)
+		float minY = float.MaxValue;
+		for (int i = 0; i < solver.ActiveCount; i++)
 		{
-			global::Unity.Collections.NativeArray<bool> isWater = fluidSolver.isWater;
-			int num31 = 4;
-			int num32 = 0;
-			int num33 = 2139095039;
-			bool flag20;
-			do
+			if (solver.isWater[i] || solver.beeIds[i] != -1)
 			{
-				global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v744 @ X11_v7 (Unity.Collections.NativeArray`1<System.Boolean>)+v777 @ X10_v12 (System.Int32)]");
-				if ((nint)0 == 0)
+				continue;
+			}
+			int type = solver.particleTypes[i];
+			if (type == solver.mudFluidType || type == solver.snowFluidType)
+			{
+				continue;
+			}
+			minY = global::UnityEngine.Mathf.Min(minY, solver.positions[i].y);
+		}
+		if (minY < sections[currentSection].y - triggerNextSectionDist)
+		{
+			currentSection++;
+			float sectionY = sections[currentSection].y;
+			global::DG.Tweening.TweenSettingsExtensions.OnComplete(global::DG.Tweening.TweenSettingsExtensions.SetEase(global::DG.Tweening.ShortcutExtensions.DOMoveY(global::UnityEngine.Camera.main.transform, sectionY, 1.2f), global::DG.Tweening.Ease.InOutQuad), delegate
+			{
+				foreach (Block block in Singleton<GameManager>.Instance.level.GetComponentsInChildren<Block>(false))
 				{
-					global::Unity.Collections.NativeArray<int> beeIds = fluidSolver.beeIds;
-					global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v825 @ X13_v6 (Unity.Collections.NativeArray`1<System.Int32>)+v777 @ X10_v12 (System.Int32)*4]");
-					object obj10 = (nint)0 + (nint)1;
-					if (obj10 == null)
+					if (block.GetComponent<global::UnityEngine.Rigidbody2D>().bodyType == global::UnityEngine.RigidbodyType2D.Kinematic && block.transform.position.y > sectionY + 4f)
 					{
-						global::Unity.Collections.NativeArray<int> particleTypes = fluidSolver.particleTypes;
-						global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v880 @ X13_v8 (Unity.Collections.NativeArray`1<System.Int32>)+v777 @ X10_v12 (System.Int32)*4]");
-						if ((nint)0 != fluidSolver.mudFluidType)
-						{
-							global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v880 @ X13_v8 (Unity.Collections.NativeArray`1<System.Int32>)+v777 @ X10_v12 (System.Int32)*4]");
-							if ((nint)0 != fluidSolver.snowFluidType)
-							{
-								global::Unity.Collections.NativeArray<global::Unity.Mathematics.float2> positions = fluidSolver.positions;
-								global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v836 @ X13_v10 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v775 @ X12_v6 (System.Int32)]");
-								if ((nint)0 < (nint)num33)
-								{
-									global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v836 @ X13_v10 (Unity.Collections.NativeArray`1<Unity.Mathematics.float2>)+v775 @ X12_v6 (System.Int32)]");
-									num33 = 0;
-								}
-							}
-						}
+						block.isCleared = true;
+						global::UnityEngine.Object.Destroy(block.gameObject);
 					}
 				}
-				num32++;
-				num31 += 8;
-				flag20 = fluidSolver.ActiveCount == num32;
-				num34 = num33;
-			}
-			while (!flag20);
+				solver.GetComponent<FluidPhysicsCoupler>().RefreshBodies();
+			});
 		}
-		else
-		{
-			num34 = 2139095039;
-		}
-		nint num35 = 0;
-		LevelSection levelSection3 = list3[currentSection];
-		float num36 = triggerNextSectionDist;
-		float num37 = levelSection3.y - triggerNextSectionDist;
-		if ((float)num34 < num37)
-		{
-			int index3 = ++currentSection;
-			LevelSection levelSection4 = sections[index3];
-			global::UnityEngine.Camera main6 = global::UnityEngine.Camera.main;
-			global::UnityEngine.Transform target2 = main6.transform;
-			global::DG.Tweening.ShortcutExtensions.DOMoveY(target2, levelSection4.y, 1.2f);
-		}
-		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list5 = leftBackgroundQuads;
-		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list6 = rightBackgroundQuads;
-		int expectedQuadCount = (list3.Count > 0) ? (list3.Count + 1) : 0;
-		if (list5.Count != expectedQuadCount || list6.Count != expectedQuadCount || expectedQuadCount < 2)
+		int quadCount = sections.Count > 0 ? sections.Count + 1 : 0;
+		if (leftBackgroundQuads.Count != quadCount || rightBackgroundQuads.Count != quadCount || sections.Count < 1)
 		{
 			return;
 		}
-		global::UnityEngine.Camera main7 = global::UnityEngine.Camera.main;
-		if (main7 == null)
+		global::System.Collections.Generic.List<float> boundaries = GetSideBackgroundBoundaries(global::UnityEngine.Camera.main.orthographicSize * 2f);
+		float sideWidth = (global::UnityEngine.Camera.main.orthographicSize * 2f * global::UnityEngine.Camera.main.aspect - levelWidth) * 0.5f;
+		for (int j = 0; j < boundaries.Count - 1; j++)
 		{
-			return;
+			float centerY = (boundaries[j] + boundaries[j + 1]) * 0.5f;
+			global::UnityEngine.Vector3 scale = new global::UnityEngine.Vector3(sideWidth, global::UnityEngine.Mathf.Abs(boundaries[j + 1] - boundaries[j]), 1f);
+			leftBackgroundQuads[j].transform.position = new global::UnityEngine.Vector3(levelWidth * -0.5f - sideWidth * 0.5f, centerY, -9f);
+			leftBackgroundQuads[j].transform.localScale = scale;
+			rightBackgroundQuads[j].transform.position = new global::UnityEngine.Vector3(levelWidth * 0.5f + sideWidth * 0.5f, centerY, -9f);
+			rightBackgroundQuads[j].transform.localScale = scale;
 		}
-		float orthographicSize2 = main7.orthographicSize;
-		global::UnityEngine.Camera main8 = global::UnityEngine.Camera.main;
-		if (main8 == null)
+	}
+
+	private global::System.Collections.Generic.List<float> GetSideBackgroundBoundaries(float cameraHeight)
+	{
+		global::System.Collections.Generic.List<LevelSection> ordered = new global::System.Collections.Generic.List<LevelSection>(sections);
+		ordered.Sort((LevelSection a, LevelSection b) => a.y.CompareTo(b.y));
+		global::System.Collections.Generic.List<float> boundaries = new global::System.Collections.Generic.List<float>();
+		boundaries.Add(ordered[0].y - cameraHeight);
+		for (int i = 0; i < ordered.Count - 1; i++)
 		{
-			return;
+			boundaries.Add((ordered[i].y + ordered[i + 1].y) * 0.5f);
 		}
-		float aspect2 = main8.aspect;
-		global::System.Collections.Generic.List<LevelSection> orderedSections2 = global::System.Linq.Enumerable.ToList(global::System.Linq.Enumerable.OrderBy(list3, (LevelSection s) => s.y));
-		float cameraHeight2 = orthographicSize2 + orthographicSize2;
-		global::System.Collections.Generic.List<float> boundaries2 = new global::System.Collections.Generic.List<float>();
-		boundaries2.Add(0f - cameraHeight2);
-		for (int k = 0; k < orderedSections2.Count - 1; k++)
-		{
-			boundaries2.Add((orderedSections2[k].y + orderedSections2[k + 1].y) * 0.5f);
-		}
-		boundaries2.Add(cameraHeight2);
-		float cameraWidth2 = cameraHeight2 * aspect2;
-		float sideWidth2 = (cameraWidth2 - levelWidth) * 0.5f;
-		float halfSideWidth2 = sideWidth2 * 0.5f;
-		for (int m = 0; m < boundaries2.Count - 1; m++)
-		{
-			float bottom2 = boundaries2[m];
-			float top2 = boundaries2[m + 1];
-			float centerY2 = (bottom2 + top2) * 0.5f;
-			float height2 = top2 - bottom2;
-			global::UnityEngine.Transform leftTransform = list5[m].transform;
-			leftTransform.position = new global::UnityEngine.Vector3(levelWidth * -0.5f - halfSideWidth2, centerY2, -9f);
-			leftTransform.localScale = new global::UnityEngine.Vector3(sideWidth2, height2, 1f);
-			global::UnityEngine.Transform rightTransform = list6[m].transform;
-			rightTransform.position = new global::UnityEngine.Vector3(levelWidth * 0.5f + halfSideWidth2, centerY2, -9f);
-			rightTransform.localScale = new global::UnityEngine.Vector3(sideWidth2, height2, 1f);
-		}
+		boundaries.Add(ordered[ordered.Count - 1].y + cameraHeight);
+		return boundaries;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600035D")]
@@ -1242,10 +1002,8 @@ public class Level : global::UnityEngine.MonoBehaviour
 		triggerNextSectionDist = 3f;
 		global::System.Collections.Generic.List<LevelSection> list = new global::System.Collections.Generic.List<LevelSection>();
 		sections = list;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.List<GoalData> list2 = new global::System.Collections.Generic.List<GoalData>();
 		goals = list2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		fluidCollectionThreshold = 5;
 		maxBeesSpawned = 3;
 		backgroundTopColor = default(global::UnityEngine.Color);
@@ -1256,14 +1014,11 @@ public class Level : global::UnityEngine.MonoBehaviour
 		sectionHeight = 8f;
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list3 = new global::System.Collections.Generic.List<global::UnityEngine.GameObject>();
 		leftBackgroundQuads = list3;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		global::System.Collections.Generic.List<global::UnityEngine.GameObject> list4 = new global::System.Collections.Generic.List<global::UnityEngine.GameObject>();
 		rightBackgroundQuads = list4;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		introPlaying = true;
 		global::System.Collections.Generic.List<Block> list5 = new global::System.Collections.Generic.List<Block>();
 		blocks = list5;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		sideColliderSize = 1000f;
 		cameraTargetY = float.NaN;
 	}

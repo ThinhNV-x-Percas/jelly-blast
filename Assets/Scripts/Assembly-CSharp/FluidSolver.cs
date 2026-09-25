@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Unity.Collections;
 using Unity.Jobs;
@@ -328,14 +327,17 @@ public class FluidSolver : MonoBehaviour
         UpdateMergeDeltasAndFinish();
         lastStepWallTime = UnityEngine.Time.time;
         lastStepDt = dt;
-        Unity.Jobs.IJobParallelForExtensions.Schedule(new PowerUpMergeTranslateJob
+        if (merging.Count > 0)
         {
-            positions = positions,
-            velocities = velocities,
-            powerUpIds = powerUpIds,
-            mergeDeltas = mergeDeltas,
-            dt = dt
-        }, ActiveCount, 64).Complete();
+            Unity.Jobs.IJobParallelForExtensions.Schedule(new PowerUpMergeTranslateJob
+            {
+                positions = positions,
+                velocities = velocities,
+                powerUpIds = powerUpIds,
+                mergeDeltas = mergeDeltas,
+                dt = dt
+            }, ActiveCount, 64).Complete();
+        }
         Unity.Collections.NativeArray<global::Unity.Mathematics.float2>.Copy(positions, positionsPrev);
         Unity.Jobs.JobHandle dependsOn = Unity.Jobs.IJobParallelForExtensions.Schedule(new ClearDeltaJob
         {
@@ -718,7 +720,8 @@ public class FluidSolver : MonoBehaviour
         var remaining = new HashSet<int>(ids);
         while (remaining.Count > 0)
         {
-            int id = remaining.First();
+            int id = 0;
+            foreach (int first in remaining) { id = first; break; }
             if (!idToIndex.TryGetValue(id, out int seedIndex))
             {
                 remaining.Remove(id);
@@ -773,9 +776,16 @@ public class FluidSolver : MonoBehaviour
     {
         if (ids == null || ids.Count == 0) yield break;
         _lastJob.Complete();
-        OnStartRemoveParticles?.Invoke(ids, explode);
         foreach (int id in ids)
             if (idToIndex.TryGetValue(id, out int index)) scales[index] = 0f;
+        if (OnStartRemoveParticles != null)
+        {
+            foreach (Delegate handler in OnStartRemoveParticles.GetInvocationList())
+            {
+                try { ((Action<HashSet<int>, bool>)handler)(ids, explode); }
+                catch (Exception e) { UnityEngine.Debug.LogError(e); }
+            }
+        }
         yield return new UnityEngine.WaitForSeconds(delay);
         RemoveParticles(ids, onRemove);
         foreach (int id in ids) _pendingRemovalIds.Remove(id);
@@ -786,9 +796,6 @@ public class FluidSolver : MonoBehaviour
         if (ids == null || ids.Count == 0) return;
         _lastJob.Complete();
 
-        // The original invokes the callback *before* compacting, then drops the ids from the map
-        // and stream-compacts the surviving particles (order preserving).
-        onRemove?.Invoke(ids);
         foreach (int id in ids) idToIndex.Remove(id);
 
         int writeIndex = 0;
@@ -831,6 +838,7 @@ public class FluidSolver : MonoBehaviour
             writeIndex++;
         }
         ActiveCount = writeIndex;
+        onRemove?.Invoke(ids);
     }
 
     public int GetNextUnusedFluidType()
@@ -872,7 +880,7 @@ public class FluidSolver : MonoBehaviour
         HashSet<int> ids = AddParticles(pos, fluidType, ctx =>
         {
             octopusIds[ctx.Index] = octId;
-            if (octopusHeadParticleCount > 0) { inOctopusHead[ctx.Index] = true; headIds.Add(ctx.Id); }
+            if (ctx.Local < octopusHeadParticleCount) { inOctopusHead[ctx.Index] = true; headIds.Add(ctx.Id); }
         });
         GameManager game = Game;
         if (game == null || game.octopusPrefab == null) return null;
@@ -1116,13 +1124,12 @@ public class FluidSolver : MonoBehaviour
         powerUp.Init(this, puId, ids, fluidType, SharedCompute, mergeIndex, powerUpMaterials[mergeIndex], isBig);
         powerUps.Add(powerUp);
         powerUpById[puId] = powerUp;
-        powerUp.StartCoroutine(powerUp.HandleInAnim());
         powerUp.StartCoroutine(powerUp.RotateBlob());
 
         AudioManager audioManager = global::Singleton<AudioManager>.Instance;
         if (audioManager != null)
         {
-            audioManager.PlayClip("cp420", new AudioClipSettings
+            audioManager.PlayClip("charge up", new AudioClipSettings
             {
                 pitch = 1.5f,
                 pitchVariance = 0.2f
@@ -1151,9 +1158,6 @@ public class FluidSolver : MonoBehaviour
                 PowerUp b = powerUps[j];
                 if (b == null || exploding.Contains(b.id) || merging.ContainsKey(b.id)) continue;
                 if (a.mergeIndex != b.mergeIndex) continue;
-                if (ignorePairs.IsCreated &&
-                    (ignorePairs.ContainsKey(PairKey(a.id, b.id)) || ignorePairs.ContainsKey(PairKey(b.id, a.id))))
-                    continue;
 
                 float dx = a.position.x - b.position.x;
                 float dy = a.position.y - b.position.y;
@@ -1479,13 +1483,13 @@ public class FluidSolver : MonoBehaviour
         AudioManager audioManager = global::Singleton<AudioManager>.Instance;
         if (audioManager != null)
         {
-            audioManager.PlayClip("cp420", new AudioClipSettings
+            audioManager.PlayClip("explode 1", new AudioClipSettings
             {
                 volume = 0.5f,
                 pitch = 1f,
                 pitchVariance = 0.1f
             });
-            audioManager.PlayClip("papayawhip", new AudioClipSettings
+            audioManager.PlayClip("shatter", new AudioClipSettings
             {
                 volume = 0.1f,
                 pitchVariance = 0.2f
@@ -1613,7 +1617,8 @@ public class FluidSolver : MonoBehaviour
     {
         if (ids == null || ids.Count == 0) return;
 
-        int seedId = ids.First();
+        int seedId = 0;
+        foreach (int first in ids) { seedId = first; break; }
         if (idToIndex.TryGetValue(seedId, out int seedIdx) && particleTypes[seedIdx] == snowFluidType) return;
 
         HashSet<int> snowHits = CollectNearbyParticles(ids, splashDestroyRadius, i => particleTypes[i] == snowFluidType);

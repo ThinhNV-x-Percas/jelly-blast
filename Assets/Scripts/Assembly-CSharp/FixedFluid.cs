@@ -71,17 +71,20 @@ public class FixedFluid : global::UnityEngine.MonoBehaviour
 			solver.AddSnow(positions);
 			break;
 		default:
-			solver.AddParticles(positions, 0, OnParticleInit);
+			solver.AddParticles(positions, colorIdx, OnParticleInit);
 			break;
 		}
 	}
 
 	private void OnParticleInit(ParticleInitData ctx)
 	{
-		if (isHoneyCoated)
+		if (!isHoneyCoated)
 		{
-			Singleton<GameManager>.Instance.solver.isHoneyCoated[ctx.Index] = true;
+			return;
 		}
+		GameManager gameManager = Singleton<GameManager>.Instance;
+		gameManager.solver.isHoneyCoated[ctx.Index] = true;
+		gameManager.honeyTest.AddSolverParticle(ctx);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600023C")]
@@ -89,48 +92,11 @@ public class FixedFluid : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0014;\n\tv17 = Il2CppMethodInfo;\n\tv18 = v17 + 0x690;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302A9E3]) = v37;\nL_0014:\n\tv40 = UnityEngine.Component::get_transform(this);\n\tv43 = UnityEngine.Transform::get_parent(v40);\n\tv137 = Il2CppMethodInfo;\n\tv95 = UnityEngine.Component::GetComponent /* +1 sharing this address */(v43, *([v137 @ X8_v5 (Il2CppMethodInfo)+690]));\n\tv60 = this.colorIdx << 4;\n\tv184 = *([v95 @ X0_v9+28]) + v60;\n\tv57 = *([v184 @ X8_v8+20]);\n\tv55 = *([v184 @ X8_v8+24]);\n\tv53 = *([v184 @ X8_v8+28]);\n\tv189 = this.type != 2;\n\tif (v189) goto L_0046;\n\tgoto L_0046;\nL_0046:\n\tv192 = this.type != 2;\n\tif (v192) goto L_004C;\n\tgoto L_004C;\nL_004C:\n\tv49 = this.type != 2;\n\tif (v49) goto L_0053;\n\tgoto L_0053;\nL_0053:\n\t// 83 MakeStruct v46 @ AGGFF8BC8_0_v3 (UnityEngine.Color), typeof(UnityEngine.Color), v57 @ V0_v4 (System.Single), v55 @ V1_v4 (System.Single), v53 @ V2_v4 (System.Single), 0.5f\n\tUnityEngine.Gizmos::set_color(v46);\n\tv96 = UnityEngine.Component::get_transform(this);\n\tv159 = UnityEngine.Transform::get_position(v96);\n\t// 104 MakeStruct v140 @ AGGFF8BF8_1_v1 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), this.width (System.Single), this.height (System.Single), 0\n\tUnityEngine.Gizmos::DrawCube(v159, v140);\n\treturn;\n\tv106 = new System.NullReferenceException();\n\tthrow System.IndexOutOfRangeException;\n\treturn;\n// 76 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void OnDrawGizmos()
 	{
-		//IL_0051: Expected O, but got I
-		//IL_0061: Expected F4, but got I
-		//IL_0071: Expected F4, but got I
-		//IL_0081: Expected F4, but got I
-		global::UnityEngine.Transform transform = base.transform;
-		global::UnityEngine.Transform parent = transform.parent;
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @111C708 (UnityEngine.Component::GetComponent, and 1 more at this address)");
-		int num2 = colorIdx << 4;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v95 @ X0_v9+28]");
-		object obj = (nint)0 + (nint)num2;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v184 @ X8_v8+20]");
-		float r = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v184 @ X8_v8+24]");
-		float g = 0f;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v184 @ X8_v8+28]");
-		float b = 0f;
-		if (type == FixedFluid.SpecialFluidType.Water)
-		{
-			r = 0.5f;
-		}
-		if (type == FixedFluid.SpecialFluidType.Water)
-		{
-			g = 0.5f;
-		}
-		if (type == FixedFluid.SpecialFluidType.Water)
-		{
-			b = 0.5f;
-		}
-		global::UnityEngine.Color color = default(global::UnityEngine.Color);
-		color.r = r;
-		color.g = g;
-		color.b = b;
+		Level level = transform.parent != null ? transform.parent.GetComponent<Level>() : null;
+		global::UnityEngine.Color color = type == FixedFluid.SpecialFluidType.Water || level == null || level.colors == null || colorIdx >= level.colors.Length ? new global::UnityEngine.Color(0.5f, 0.5f, 0.5f) : level.colors[colorIdx];
 		color.a = 0.5f;
 		global::UnityEngine.Gizmos.color = color;
-		global::UnityEngine.Transform transform2 = base.transform;
-		global::UnityEngine.Vector3 position = transform2.position;
-		global::UnityEngine.Vector3 size = default(global::UnityEngine.Vector3);
-		size.x = width;
-		size.y = height;
-		size.z = 0f;
-		global::UnityEngine.Gizmos.DrawCube(position, size);
+		global::UnityEngine.Gizmos.DrawCube(transform.position, new global::UnityEngine.Vector3(width, height, 0f));
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600023D")]

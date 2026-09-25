@@ -131,15 +131,10 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv12 = this + 0x40;\n\tv13 = this.m_TShowHide;\n\tv14 = this.m_TShowHide == 0;\n\tif (v14) goto L_001F;\n\tv15 = *([v13 @ X0_v1 (BFS.Essential.Tween)]);\n\tv19 = BFS.Essential.Tween::Kill(this.m_TShowHide, 0);\n\tthis.m_TShowHide = 0;\n\tv39 = 0xF3F1B4(v12, 0, *([v15 @ X8_v1 (Il2CppClass<BFS.Essential.Tween>)+1B0]), v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32);\n\treturn;\nL_001F:\n\treturn;\n// 22 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void StopFadeTask()
 	{
-		//IL_000c: Expected O, but got I
-		//IL_003d: Expected I, but got O
-		global::BFS.Essential.Tween tShowHide = m_TShowHide;
-		if (m_TShowHide != null)
-		{
-			m_TShowHide.Kill();
-			m_TShowHide = null;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
-		}
+		if (m_TShowHide == null)
+			return;
+		m_TShowHide.Kill();
+		m_TShowHide = null;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000056")]
@@ -147,37 +142,32 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv36 = Sponge+<>c__DisplayClass7_0;\n\tgoto L_0035;\n\tv41 = System.Collections.Generic.NullableComparer`1;\n\tv42 = v41 + 0xD40;\n\tv43 = \"il2cpp_codegen_initialize_runtime_metadata\"(v42, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv62 = CollectParticleData[];\n\tv63 = v62 + 0x990;\n\tv64 = \"il2cpp_codegen_initialize_runtime_metadata\"(v63, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv67 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv68 = v67 + 0x2E8;\n\tv69 = \"il2cpp_codegen_initialize_runtime_metadata\"(v68, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv71 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv72 = v71 + 0xFD8;\n\tv73 = \"il2cpp_codegen_initialize_runtime_metadata\"(v72, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv256 = Il2CppMethodInfo;\n\tv257 = v256 + 0x5E0;\n\tv258 = \"il2cpp_codegen_initialize_runtime_metadata\"(v257, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv263 = Il2CppMethodInfo;\n\tv264 = v263 + 0x5E8;\n\tv265 = \"il2cpp_codegen_initialize_runtime_metadata\"(v264, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv340 = Il2CppMethodInfo;\n\tv341 = v340 + 0x5F0;\n\tv342 = \"il2cpp_codegen_initialize_runtime_metadata\"(v341, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv369 = Sponge+<>c__DisplayClass7_0;\n\tv370 = v369 + 0x6A0;\n\tv57 = \"il2cpp_codegen_initialize_runtime_metadata\"(v370, on, callback, methodInfo, v45, v46, v47, v48, duration, v49, v50, v51, v52, v53, v54, v55);\n\tv59 = 1;\n\t*([302A8CF]) = v59;\nL_0035:\n\tv61 = new *([v36 @ X23_v1 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+6A0])();\n\tSystem.Object::.ctor(v61);\n\tv75 = v61 + 0x10;\n\t*([v61 @ X0_v3 (System.Object)+10]) = this;\n\tv77 = 0xF3F1B4(v75, this, v192, methodInfo, v45, v46, v47, v48, duration, v49, v106, v96, v82, v53, v54, v55);\n\tv260 = v61 + 0x20;\n\t*([v61 @ X0_v3 (System.Object)+20]) = v192;\n\t*([v61 @ X0_v3 (System.Object)+18]) = on;\n\tv262 = 0xF3F1B4(v260, v192, v192, methodInfo, v45, v46, v47, v48, duration, v49, v106, v96, v82, v53, v54, v55);\n\tv249 = this + 0x40;\n\tv267 = this.m_TShowHide;\n\tv268 = this.m_TShowHide == 0;\n\tif (v268) goto L_0055;\n\tv343 = *([v267 @ X0_v12 (BFS.Essential.Tween)]);\n\tv347 = BFS.Essential.Tween::Kill(this.m_TShowHide, 0);\n\tthis.m_TShowHide = 0;\n\tv350 = 0xF3F1B4(v249, 0, *([v343 @ X8_v31 (Il2CppClass<BFS.Essential.Tween>)+1B0]), methodInfo, v45, v46, v47, v48, duration, v49, v106, v96, v82, v53, v54, v55);\nL_0055:\n\tthis.m_IsShow = *([v61 @ X0_v3 (System.Object)+18]);\n\tv356 = this->klass;\n\tif (*([v61 @ X0_v3 (System.Object)+18])) goto L_FFFFFFFF;\n\tgoto L_006B;\nL_006B:\n\tif (*([v61 @ X0_v3 (System.Object)+18])) goto L_FFFFFFFF;\n\tgoto L_0073;\nL_0073:\n\t*([v356 @ X9_v3 (Il2CppClass<Viewport>)+v378 @ X10_v4 (System.Int32)])(v380, this, *([v356 @ X9_v3 (Il2CppClass<Viewport>)+v373 @ X8_v7 (System.Int32)]), *([v343 @ X8_v31 (Il2CppClass<BFS.Essential.Tween>)+1B0]), methodInfo, v45, v46, v47, v48, duration, v49, v106, v96, v82, v53, v54, v55);\n\tv134 = *([v61 @ X0_v3 (System.Object)+18]) != 0;\n\tif (v134) goto L_FFFFFFFF;\n\tgoto L_0087;\nL_0087:\n\tv384 = ~this.ShouldAnimate;\n\tif (v384) goto L_00E4;\n\tv385 = System.Collections.Generic.NullableComparer`1;\n\tv386 = Il2CppMethodInfo;\n\tv388 = System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>;\n\tv389 = Il2CppMethodInfo;\n\tv133 = *([v61 @ X0_v3 (System.Object)+18]) != 0;\n\tif (v133) goto L_FFFFFFFF;\n\tgoto L_00A1;\nL_00A1:\n\tv395 = new *([v385 @ X9_v10 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D40])();\n\tSystem.Action`1<System.Single>::.ctor(v395, v61, *([v386 @ X22_v6 (Il2CppMethodInfo)+5E0]));\n\tv419 = BFS.Essential.MyTween::DoFloat(v124, v130, duration, v395);\n\tv209 = new *([v388 @ X23_v5 (Il2CppClass<System.Func`1<UnityEngine.UIElements.ValidateCommandEvent>>)+2E8])();\n\tSystem.Func`2<System.Single, System.Single>::.ctor(v209, v61, *([v389 @ X24_v3 (Il2CppMethodInfo)+5E8]));\n\tv439 = CollectParticleData[];\n\tv440 = Il2CppMethodInfo;\n\tv444 = BFS.Essential.Tween::SetInterpolator(v419, v209);\n\tv210 = new *([v439 @ X23_v7 (Il2CppClass<CollectParticleData[]>)+990])();\n\tSystem.Action::.ctor(v210, v61, *([v440 @ X24_v5 (Il2CppMethodInfo)+5F0]));\n\tv321 = *([v444 @ X0_v52 (BFS.Essential.Tween)]);\n\tv461 = BFS.Essential.Tween::OnComplete(v444, v210);\n\tthis.m_TShowHide = v461;\n\tv315 = 0xF3F1B4(v249, v461, *([v321 @ X8_v28 (Il2CppClass<BFS.Essential.Tween>)+180]), 0, v45, v46, v47, v48, v124, v130, duration, v96, v82, v53, v54, v55);\n\treturn;\nL_00E4:\n\tv211 = Viewport::get_CanvasGroup(this);\n\tv245 = 1f - v130;\n\tv397 = v245 / this.transitionFadeRange;\n\tv399 = 1f - v397;\n\tv402 = v399 - 1f;\n\tv403 = v402 < 0;\n\tv404 = v402 == 0;\n\tv405 = v399 ^ 1f;\n\tv406 = v399 ^ v402;\n\tv407 = v405 & v406;\n\tv408 = v407 < 0;\n\tv409 = v403 == v408;\n\tv99 = ~v404;\n\tv102 = v409 & v99;\n\tv410 = ~v102;\n\tif (v410) goto L_FFFFFFFF;\n\tgoto L_0108;\nL_0108:\n\tv135 = v399 >= 0;\n\tif (v135) goto L_FFFFFFFF;\n\tgoto L_010F;\nL_010F:\n\tUnityEngine.CanvasGroup::set_alpha(v211, v119);\n\tv434 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv436 = *([v434 @ X8_v9 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv438 = *([v436 @ X0_v18+E0]) == 0;\n\tif (v438) goto L_0121;\n\tv448 = UnityEngine.Object::op_Implicit(this.main);\n\tv450 = ~v448;\n\tv451 = ~v450;\n\tif (v451) goto L_0129;\n\tgoto L_018E;\nL_0121:\n\tv454 = UnityEngine.Object::op_Implicit(this.main);\n\tv457 = ~v454;\n\tif (v457) goto L_018E;\nL_0129:\n\tv169 = this.transitionType == 1;\n\tif (v169) goto L_0168;\n\tv508 = this.transitionType == 0;\n\tv499 = ~v508;\n\tif (v499) goto L_018E;\n\tv513 = UnityEngine.Component::get_transform(this.main);\n\tgoto L_0144;\n\tv530 = System.Xml.ValidateNames;\n\tv531 = v530 + 0xD0;\n\tv532 = \"il2cpp_codegen_initialize_runtime_metadata\"(v531, v207, v192, methodInfo, v45, v46, v47, v48, v116, v109, v50, v51, v52, v53, v54, v55);\n\tv533 = 1;\n\t*([2DD441A]) = v533;\nL_0144:\n\tv541 = System.Xml.ValidateNames;\n\tv543 = *([v541 @ X8_v22 (Il2CppClass<System.Xml.ValidateNames>)+D0]);\n\tv501 = *([v543 @ X8_v24+B8]);\n\tv552 = -v245;\n\tv473 = *([v61 @ X0_v3 (System.Object)+18]) != 0;\n\tif (v473) goto L_015B;\n\tgoto L_015B;\nL_015B:\n\tv554 = this.mainTransitionScaleDelta * v552;\n\tv96 = v554 + 1f;\n\tv106 = *([v501 @ X8_v25+14]) * v96;\n\tv112 = *([v501 @ X8_v25+10]) * v96;\n\tv119 = *([v501 @ X8_v25+C]) * v96;\n\t// 357 MakeStruct v463 @ AGGFD56FC_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), v119 @ V0_v8 (System.Single), v112 @ V1_v4 (System.Single), v106 @ V2_v2 (System.Single)\n\tUnityEngine.Transform::set_localScale(v513, v463);\n\tgoto L_018E;\nL_0168:\n\tthis.interp = v245;\n\tv117 = UnityEngine.RectTransform::get_rect(this.main);\n\tv106 = v117.m_Width;\n\tv96 = v117.m_Height;\n\tv520 = 1f - v245;\n\tv521 = v520 * v117.m_Width;\n\tv246 = -v521;\n\tv524 = UnityEngine.RectTransform::get_offsetMin(this.main);\n\t// 383 MakeStruct v92 @ AGGFD5744_1_v3 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v246 @ V8_v7 (System.Single), v524.y (System.Single)\n\tUnityEngine.RectTransform::set_offsetMin(this.main, v92);\n\tv551 = UnityEngine.RectTransform::get_offsetMin(this.main);\n\tv112 = v551.y;\n\t// 395 MakeStruct v465 @ AGGFD5768_1_v3 (UnityEngine.Vector2), typeof(UnityEngine.Vector2), v246 @ V8_v7 (System.Single), v551.y (System.Single)\n\tUnityEngine.RectTransform::set_offsetMax(this.main, v465);\nL_018E:\n\tv503 = this->klass;\n\tv507 = *([v61 @ X0_v3 (System.Object)+18]) != 0;\n\tif (v507) goto L_FFFFFFFF;\n\tgoto L_01A2;\nL_01A2:\n\tv136 = *([v61 @ X0_v3 (System.Object)+18]) != 0;\n\tif (v136) goto L_FFFFFFFF;\n\tgoto L_01AB;\nL_01AB:\n\t*([v503 @ X9_v6 (Il2CppClass<Viewport>)+v525 @ X10_v8 (System.Int32)])(v528, this, *([v503 @ X9_v6 (Il2CppClass<Viewport>)+v511 @ X8_v15 (System.Int32)]), *([v343 @ X8_v31 (Il2CppClass<BFS.Essential.Tween>)+1B0]), methodInfo, v45, v46, v47, v48, v119, v112, v106, v96, *([v501 @ X8_v25+C]), v53, v54, v55);\n\tv234 = *([v61 @ X0_v3 (System.Object)+20]);\n\tv529 = *([v61 @ X0_v3 (System.Object)+20]) == 0;\n\tif (v529) goto L_01B5;\n\n// ... truncated")]
 	private void ShowHide(bool on, float duration, global::System.Action callback)
 	{
-		if (m_TShowHide != null)
-		{
-			m_TShowHide.Kill();
-			m_TShowHide = null;
-		}
+		StopFadeTask();
 		m_IsShow = on;
+		if (on)
+			OnStartShow();
+		else
+			OnStartHide();
 		float target = on ? 1f : 0f;
-		if (ShouldAnimate)
+		if (!ShouldAnimate)
 		{
-			float start = on ? 0f : 1f;
-			global::System.Func<float, float> interpolator = new global::System.Func<float, float>(EasingFunction.GetEasingFunction(ease));
-			global::BFS.Essential.Tween tween = global::BFS.Essential.MyTween.DoFloat(start, target, duration, ApplyTransition);
-			tween = tween.SetInterpolator(interpolator);
-			m_TShowHide = tween.OnComplete(delegate
-			{
-				FinishTransition(on);
-				callback?.Invoke();
-			});
+			ApplyTransition(target);
+			FinishTransition(on, callback);
 			return;
 		}
-		ApplyTransition(target);
-		FinishTransition(on);
-		callback?.Invoke();
+		m_TShowHide = global::BFS.Essential.MyTween.DoFloat(on ? 0f : 1f, target, duration, ApplyTransition)
+			.SetInterpolator(new global::System.Func<float, float>(EasingFunction.GetEasingFunction(ease)))
+			.OnComplete(() => FinishTransition(on, callback));
 	}
 
-	private void FinishTransition(bool on)
+	private void FinishTransition(bool on, global::System.Action callback)
 	{
-		if (!on)
-		{
-			base.gameObject.SetActive(false);
-		}
+		if (on)
+			OnEndShow();
+		else
+			OnEndHide();
+		callback?.Invoke();
+		base.gameObject.SetActive(on);
 	}
 
 	private void ApplyTransition(float t)
@@ -185,25 +175,17 @@ public class Viewport : global::UnityEngine.MonoBehaviour
 		float hiddenAmount = 1f - t;
 		CanvasGroup.alpha = global::UnityEngine.Mathf.Clamp01(1f - hiddenAmount / transitionFadeRange);
 		if (!main)
-		{
 			return;
-		}
 		if (transitionType == Viewport.TransitionType.Slide)
 		{
 			interp = hiddenAmount;
-			global::UnityEngine.Rect rect = main.rect;
-			float offsetX = 0f - hiddenAmount * rect.width;
-			global::UnityEngine.Vector2 offsetMin = main.offsetMin;
-			main.offsetMin = new global::UnityEngine.Vector2(offsetX, offsetMin.y);
-			global::UnityEngine.Vector2 offsetMin2 = main.offsetMin;
-			main.offsetMax = new global::UnityEngine.Vector2(offsetX, offsetMin2.y);
+			float offsetX = -t * main.rect.width;
+			main.offsetMin = new global::UnityEngine.Vector2(offsetX, main.offsetMin.y);
+			main.offsetMax = new global::UnityEngine.Vector2(offsetX, main.offsetMin.y);
+			return;
 		}
-		else if (transitionType == Viewport.TransitionType.Scale)
-		{
-			float signedAmount = m_IsShow ? hiddenAmount : (0f - hiddenAmount);
-			float scale = 1f + mainTransitionScaleDelta * signedAmount;
-			main.transform.localScale = new global::UnityEngine.Vector3(scale, scale, scale);
-		}
+		if (transitionType == Viewport.TransitionType.Scale)
+			main.transform.localScale = global::UnityEngine.Vector3.one * (1f + mainTransitionScaleDelta * (m_IsShow ? -hiddenAmount : hiddenAmount));
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000057")]

@@ -100,6 +100,11 @@ public class InterpolateChild : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Quaternion rotation = global::UnityEngine.Quaternion.Slerp(prevRot, currRot, t);
 		global::UnityEngine.Vector3 position = global::UnityEngine.Vector3.Lerp(prevPos, currPos, t);
 		position.z = visualZ;
+		Block block = GetComponent<Block>();
+		if (block != null && block.isCleared)
+		{
+			return;
+		}
 		visual.position = position;
 		visual.rotation = rotation;
 	}

@@ -16,16 +16,8 @@ public class Bee : RotatingSpecialFluid
 	public override void OnPreComputeUpdate()
 	{
 		base.OnPreComputeUpdate();
-		global::UnityEngine.Transform transform = base.transform;
-		global::UnityEngine.Vector3 vector = transform.position;
-		global::UnityEngine.Transform transform2 = base.transform;
-		int num = id * 916964780;
-		float z = (float)num + -6.25f;
-		global::UnityEngine.Vector3 vector2 = default(global::UnityEngine.Vector3);
-		vector2.x = vector.x;
-		vector2.y = vector.y;
-		vector2.z = z;
-		transform2.position = vector2;
+		global::UnityEngine.Vector3 pos = transform.position;
+		transform.position = new global::UnityEngine.Vector3(pos.x, pos.y, id * depthStride - 6.25f);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600016F")]

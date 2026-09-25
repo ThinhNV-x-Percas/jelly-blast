@@ -29,19 +29,16 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 	[global::Cpp2ILInjected.Address(RVA = "0xFEDC28", Offset = "0xFEDC28", Length = "0x118")]
 	public void OnRemoveRegionStart(bool createPowerup, global::UnityEngine.Vector2 wPos)
 	{
-		if (createPowerup)
-		{
-			global::UnityEngine.Vector3 screenPos = global::UnityEngine.Camera.main.WorldToScreenPoint(new global::UnityEngine.Vector3(wPos.x, wPos.y, 0f));
-			StartCoroutine(HandleEffect(screenPos, "Power Up!"));
-		}
+		if (!createPowerup)
+			return;
+		StartCoroutine(HandleEffect(global::UnityEngine.Camera.main.WorldToScreenPoint(wPos), "Great!"));
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60001BA")]
 	[global::Cpp2ILInjected.Address(RVA = "0xFEDDE0", Offset = "0xFEDDE0", Length = "0xFC")]
 	public void OnTooSmallReject(global::UnityEngine.Vector2 wPos)
 	{
-		global::UnityEngine.Vector3 screenPos = global::UnityEngine.Camera.main.WorldToScreenPoint(new global::UnityEngine.Vector3(wPos.x, wPos.y, 0f));
-		StartCoroutine(HandleEffect(screenPos, "Too Small!"));
+		StartCoroutine(HandleEffect(global::UnityEngine.Camera.main.WorldToScreenPoint(wPos), "Too small"));
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60001BB")]
@@ -50,18 +47,14 @@ public class CollectRegionTextEffect : global::UnityEngine.MonoBehaviour
 	{
 		global::UnityEngine.GameObject effect = global::UnityEngine.Object.Instantiate(effectPrefab);
 		effect.transform.SetParent(base.transform);
-		global::TMPro.TextMeshProUGUI text = effect.GetComponentInChildren<global::TMPro.TextMeshProUGUI>();
-		text.text = content;
-		global::UnityEngine.RectTransform rt = effect.GetComponent<global::UnityEngine.RectTransform>();
-		rt.position = new global::UnityEngine.Vector3(pos.x, pos.y, 0f);
+		effect.GetComponentInChildren<global::TMPro.TextMeshProUGUI>().text = content;
+		effect.GetComponent<global::UnityEngine.RectTransform>().position = pos;
 		global::ElasticScale elasticScale = effect.GetComponent<global::ElasticScale>();
 		elasticScale.SetScale(0f);
 		elasticScale.Pop();
-		global::UnityEngine.Vector3 endValue = new global::UnityEngine.Vector3(pos.x, pos.y + 100f, 0f);
-		global::DG.Tweening.ShortcutExtensions.DOMove(rt, endValue, 0.5f);
+		global::DG.Tweening.ShortcutExtensions.DOMove(effect.transform, pos + global::UnityEngine.Vector2.up * 180f, 0.5f);
 		yield return new global::UnityEngine.WaitForSeconds(0.5f);
-		global::UnityEngine.CanvasGroup canvasGroup = effect.GetComponent<global::UnityEngine.CanvasGroup>();
-		global::DG.Tweening.DOTweenModuleUI.DOFade(canvasGroup, 0f, 0.25f);
+		global::DG.Tweening.DOTweenModuleUI.DOFade(effect.GetComponent<global::UnityEngine.CanvasGroup>(), 0f, 0.25f);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60001BC")]

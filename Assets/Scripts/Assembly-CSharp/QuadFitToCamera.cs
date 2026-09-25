@@ -56,10 +56,6 @@ public class QuadFitToCamera : global::UnityEngine.MonoBehaviour
 			position3.z = position2.z;
 			transform3.position = position3;
 		}
-		else
-		{
-			global::UnityEngine.Debug.LogWarning("QuadFitToCamera requires an orthographic camera.");
-		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000397")]

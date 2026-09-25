@@ -85,7 +85,7 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 	protected internal void ShatterDestroy()
 	{
 		global::UnityEngine.Transform transform = base.transform;
-		global::UnityEngine.Object.Instantiate(dust, transform.position, transform.rotation);
+		global::UnityEngine.Object.Instantiate(dust, transform.position, global::UnityEngine.Quaternion.identity);
 		isCleared = true;
 		global::UnityEngine.Collider2D collider = GetComponent<global::UnityEngine.Collider2D>();
 		if (collider != null)
@@ -120,7 +120,8 @@ public abstract class Block : global::UnityEngine.MonoBehaviour
 			renderer.enabled = false;
 		}
 		Singleton<GameManager>.Instance.coupler.RefreshBodies();
-		Singleton<AudioManager>.Instance.PlayClip(shatterClip, new AudioClipSettings());
+		Singleton<AudioManager>.Instance.PlayClip(shatterClip, new AudioClipSettings { pitchVariance = 0.2f, volume = 0.1f });
+		Singleton<GameManager>.Instance.level.blocks.Remove(this);
 		global::UnityEngine.Object.Destroy(base.gameObject);
 	}
 

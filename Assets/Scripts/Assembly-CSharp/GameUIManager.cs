@@ -1,55 +1,37 @@
 using System.Collections;
 using UnityEngine;
 
-[global::Cpp2ILInjected.Token(Token = "0x20000D8")]
 public class GameUIManager : MonoBehaviour
 {
+	#region Unity Callbacks
 	private void Awake()
 	{
 		Singleton<GameManager>.Instance.OnGameStateChanged += OnGameStateChanged;
 	}
+	#endregion
 
-	private void OnDestroy()
-	{
-		GameManager gameManager = Singleton<GameManager>.Instance;
-		if (gameManager != null)
-		{
-			gameManager.OnGameStateChanged -= OnGameStateChanged;
-		}
-	}
-
-	// The shipped body is a jump table the decompiler could not resolve, and every
-	// Viewport.GetViewport<T> in it lost its type argument. Rebuilt from the screens
-	// the scene actually carries and from the two coroutines' surviving structure.
+	#region Private Methods
 	private void OnGameStateChanged(GameState fromState, GameState toState)
 	{
 		if (fromState == GameState.None)
-		{
 			Viewport.GetViewport<TransitionScreen>().Hide();
-		}
 
 		switch (toState)
 		{
-			case GameState.EstablishingShot:
-				Viewport.GetViewport<LevelIntroScreen>().Hide();
+			case GameState.None:
+				Viewport.GetViewport<TransitionScreen>().Show();
 				break;
-
 			case GameState.IntroScreen:
 				Viewport.GetViewport<LevelIntroScreen>().Show();
 				break;
-
 			case GameState.Gameplay:
 				Viewport.GetViewport<LevelIntroScreen>().Hide();
-				Viewport.GetViewport<GameplayScreen>().Show();
-				Viewport.GetViewport<InputPanelScreen>().Show();
 				break;
-
-			case GameState.Win:
-				StartCoroutine(HandleWin());
-				break;
-
 			case GameState.Fail:
 				StartCoroutine(HandleFail());
+				break;
+			case GameState.Win:
+				StartCoroutine(HandleWin());
 				break;
 		}
 	}
@@ -57,15 +39,12 @@ public class GameUIManager : MonoBehaviour
 	private IEnumerator HandleWin()
 	{
 		yield return new WaitForSeconds(1.5f);
-
 		Viewport.GetViewport<GameplayScreen>().Hide();
-		Viewport.GetViewport<InputPanelScreen>().Hide();
+		Viewport.GetViewport<CoinsScreen>().Hide();
 		Viewport.GetViewport<TintScreen>().Show();
 		Viewport.GetViewport<ConfettiScreen>().Show(0f);
 		Viewport.GetViewport<WinScreen>().Show();
-
 		yield return new WaitForSeconds(3f);
-
 		Viewport.GetViewport<WinScreen>().Hide();
 		Viewport.GetViewport<LevelCompleteScreen>().Show();
 		Viewport.GetViewport<CoinsScreen>().Show();
@@ -74,16 +53,14 @@ public class GameUIManager : MonoBehaviour
 	private IEnumerator HandleFail()
 	{
 		yield return new WaitForSeconds(0f);
-
+		Viewport.GetViewport<SettingsScreen>().Hide();
 		Viewport.GetViewport<GameplayScreen>().Hide();
-		Viewport.GetViewport<InputPanelScreen>().Hide();
-		Viewport.GetViewport<LevelIntroScreen>().Hide();
+		Viewport.GetViewport<CoinsScreen>().Hide();
 		Viewport.GetViewport<TintScreen>().Show();
 		Viewport.GetViewport<FailScreen>().Show();
-
 		yield return new WaitForSeconds(3f);
-
 		Viewport.GetViewport<FailScreen>().Hide();
 		Viewport.GetViewport<LevelFailedScreen>().Show();
 	}
+	#endregion
 }

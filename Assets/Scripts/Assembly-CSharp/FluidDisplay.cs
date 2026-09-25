@@ -129,20 +129,6 @@ public class FluidDisplay : FluidRendererBase
         }
 
         base.OnPreComputeUpdate();
-
-        if (solver == null)
-            return;
-
-        for (int j = 0; j < solver.ActiveCount; j++)
-        {
-            float2 pos = solver.positions[j];
-
-            if (float.IsNaN(pos.x) || float.IsInfinity(pos.x) ||
-                float.IsNaN(pos.y) || float.IsInfinity(pos.y))
-            {
-                Debug.Log("NaN fluid position detected");
-            }
-        }
     }
 
     protected override void OnDestroy()

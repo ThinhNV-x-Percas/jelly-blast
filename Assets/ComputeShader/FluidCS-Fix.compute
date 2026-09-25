@@ -55,16 +55,5 @@ void MergeField(uint3 id : SV_DispatchThreadID)
         }
     }
 
-    // Empty field: output fully transparent instead of fluid color 0.
-    if (bestValue <= 0.0f)
-    {
-        _FluidOutputTex[id.xy] = float4(0.0f, 0.0f, 0.0f, 0.0f);
-        return;
-    }
-
-    // The recovered asset stores 8 fluid colors.
-    uint safeIndex = min(bestIndex, 7u);
-    float4 fluidColor = _FluidColors[safeIndex];
-    fluidColor.a *= saturate(bestValue);
-    _FluidOutputTex[id.xy] = fluidColor;
+    _FluidOutputTex[id.xy] = float4(_FluidColors[min(bestIndex, 7u)].rgb, bestValue);
 }

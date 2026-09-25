@@ -40,12 +40,9 @@ public class SettingsScreen : Viewport
 	{
 		hapticButtonStyler = hapticButton.GetComponent<UIButtonStyler>();
 		soundsButtonStyler = soundsButton.GetComponent<UIButtonStyler>();
-		resetButton.gameObject.SetActive(value: false);
+		resetButton.gameObject.SetActive(Singleton<ApplicationManager>.Instance.isDeveloperMode);
 		resetButton.m_OnClick.AddListener(ResetGameData);
-		backButton.m_OnClick.AddListener(delegate
-		{
-			Hide();
-		});
+		backButton.m_OnClick.AddListener(() => Hide());
 		AddButtonListener(hapticButton, ApplicationManager.ToggleHaptic, UpdateHapticVisual);
 		AddButtonListener(soundsButton, ApplicationManager.ToggleSounds, UpdateSoundsVisual);
 		UpdateAllVisuals();
@@ -68,9 +65,8 @@ public class SettingsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0014;\n\tv17 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tv18 = v17 + 0xE48;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302AB3B]) = v37;\nL_0014:\n\tv40 = ApplicationManager::get_appData();\n\tv42 = v40.playerData;\n\tv64 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tSettingsScreen::UpdateButtonVisual(this, this.hapticButton, *([v64 @ X9_v2 (System.String)+E48]), v42.hapticOn);\n\tgoto L_002E;\n\tv91 = \"Scrollbar Horizontal\";\n\tv92 = v91 + 0x4C8;\n\tv93 = \"il2cpp_codegen_initialize_runtime_metadata\"(v92, v45, v47, v49, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv95 = 1;\n\t*([302AB3C]) = v95;\nL_002E:\n\tv54 = ApplicationManager::get_appData();\n\tv60 = v54.playerData;\n\tv97 = \"Scrollbar Horizontal\";\n\tSettingsScreen::UpdateButtonVisual(this, this.soundsButton, *([v97 @ X9_v4 (System.String)+4C8]), v60.soundsOn);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 44 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void UpdateAllVisuals()
 	{
-		PlayerData playerData = ApplicationManager.appData.playerData;
-		UpdateButtonVisual(hapticButton, null, playerData.hapticOn);
-		UpdateButtonVisual(soundsButton, null, playerData.soundsOn);
+		UpdateButtonVisual(hapticButton, "Haptic", ApplicationManager.appData.playerData.hapticOn);
+		UpdateButtonVisual(soundsButton, "Sounds", ApplicationManager.appData.playerData.soundsOn);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000478")]
@@ -78,8 +74,7 @@ public class SettingsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0014;\n\tv17 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tv18 = v17 + 0xE48;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302AB3B]) = v37;\nL_0014:\n\tv40 = ApplicationManager::get_appData();\n\tv42 = v40.playerData;\n\tv47 = \"Expected ComplexType. Schema was not generated using this tool.\";\n\tSettingsScreen::UpdateButtonVisual(this, this.hapticButton, *([v47 @ X9_v1 (System.String)+E48]), v42.hapticOn);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 28 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void UpdateHapticVisual()
 	{
-		PlayerData playerData = ApplicationManager.appData.playerData;
-		UpdateButtonVisual(hapticButton, null, playerData.hapticOn);
+		UpdateButtonVisual(hapticButton, "Haptic", ApplicationManager.appData.playerData.hapticOn);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000479")]
@@ -87,8 +82,7 @@ public class SettingsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0014;\n\tv17 = \"Scrollbar Horizontal\";\n\tv18 = v17 + 0x4C8;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302AB3C]) = v37;\nL_0014:\n\tv40 = ApplicationManager::get_appData();\n\tv42 = v40.playerData;\n\tv47 = \"Scrollbar Horizontal\";\n\tSettingsScreen::UpdateButtonVisual(this, this.soundsButton, *([v47 @ X9_v1 (System.String)+4C8]), v42.soundsOn);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 28 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void UpdateSoundsVisual()
 	{
-		PlayerData playerData = ApplicationManager.appData.playerData;
-		UpdateButtonVisual(soundsButton, null, playerData.soundsOn);
+		UpdateButtonVisual(soundsButton, "Sounds", ApplicationManager.appData.playerData.soundsOn);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600047A")]
@@ -96,11 +90,12 @@ public class SettingsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0026;\n\tv35 = Il2CppMethodInfo;\n\tv36 = v35 + 0x798;\n\tv37 = \"il2cpp_codegen_initialize_runtime_metadata\"(v36, button, label, isOn, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv55 = \", R=\";\n\tv56 = v55 + 0xEF8;\n\tv57 = \"il2cpp_codegen_initialize_runtime_metadata\"(v56, button, label, isOn, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv162 = \"Min\";\n\tv163 = v162 + 0x9C0;\n\tv164 = \"il2cpp_codegen_initialize_runtime_metadata\"(v163, button, label, isOn, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv166 = \"Min\";\n\tv167 = v166 + 0x998;\n\tv51 = \"il2cpp_codegen_initialize_runtime_metadata\"(v167, button, label, isOn, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv53 = 1;\n\t*([302AAF6]) = v53;\nL_0026:\n\tv58 = Il2CppMethodInfo;\n\tv60 = \", R=\";\n\tv63 = \"Min\" + 0x9C0;\n\tv65 = \"Min\" + 0x998;\n\tv68 = UnityEngine.Component::GetComponentInChildren /* +1 sharing this address */(button, *([v58 @ X8_v4 (Il2CppMethodInfo)+798]));\n\tv103 = isOn == 0;\n\tv84 = ~v103;\n\tv80 = ~v84;\n\tif (v80) goto L_FFFFFFFF;\n\tgoto L_0046;\nL_0046:\n\tv129 = System.String::Concat(label, *([v60 @ X23_v3 (System.String)+EF8]), *([v149 @ X8_v6]));\n\tv150 = *([v68 @ X0_v5]);\n\t*([v150 @ X8_v7+558])(v235, v68, v129, *([v150 @ X8_v7+560]), 0, methodInfo, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49);\n\tv131 = UnityEngine.Component::get_gameObject(this.hapticButton);\n\tv236 = UnityEngine.GameObject::get_activeInHierarchy(v131);\n\tv237 = ~v236;\n\tif (v237) goto L_007E;\n\tv132 = ApplicationManager::get_appData();\n\tv151 = v132.playerData;\n\tif (v151.hapticOn) goto L_FFFFFFFF;\n\tgoto L_0079;\nL_0079:\n\tUIButtonStyler::SetStyle(this.hapticButtonStyler, *([this @ X0 (SettingsScreen)+v254 @ X8_v18 (System.Int32)]));\nL_007E:\n\tv134 = UnityEngine.Component::get_gameObject(this.soundsButton);\n\tv210 = UnityEngine.GameObject::get_activeInHierarchy(v134);\n\tv212 = ~v210;\n\tif (v212) goto L_00BC;\n\tv135 = ApplicationManager::get_appData();\n\tv153 = v135.playerData;\n\tif (v153.soundsOn) goto L_FFFFFFFF;\n\tgoto L_00AF;\nL_00AF:\n\tUIButtonStyler::SetStyle(this.soundsButtonStyler, *([this @ X0 (SettingsScreen)+v214 @ X8_v12 (System.Int32)]));\n\treturn;\nL_00BC:\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 141 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void UpdateButtonVisual(UIButton button, string label, bool isOn)
 	{
-		UIButtonStyler styler = (button == hapticButton) ? hapticButtonStyler : soundsButtonStyler;
-		if (button.gameObject.activeInHierarchy)
-		{
-			styler.SetStyle(isOn ? onButtonStyle : offButtonStyle);
-		}
+		button.GetComponentInChildren<global::TMPro.TextMeshProUGUI>().text = label + ": " + (isOn ? "ON" : "OFF");
+		PlayerData playerData = ApplicationManager.appData.playerData;
+		if (hapticButton.gameObject.activeSelf)
+			hapticButtonStyler.SetStyle(playerData.hapticOn ? onButtonStyle : offButtonStyle);
+		if (soundsButton.gameObject.activeSelf)
+			soundsButtonStyler.SetStyle(playerData.soundsOn ? onButtonStyle : offButtonStyle);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600047B")]
@@ -108,7 +103,9 @@ public class SettingsScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv10 = 0x302A000;\n\tv12 = System.Xml.ValidateNames;\n\tv14 = *([302AAF7]) & 1;\n\tv15 = v14 == 0;\n\tif (v15) goto L_0026;\n\tv45 = Il2CppMethodInfo + 0xCD8;\n\tv18 = *([v12 @ X19_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv20 = *([v18 @ X0_v31+E0]) == 0;\n\tif (v20) goto L_0030;\nL_0014:\n\tv64 = Viewport::GetViewport /* +1 sharing this address */(*([v45 @ X20_v10]));\n\tv57 = v64 == 0;\n\tv58 = ~v57;\n\tif (v58) goto L_0038;\n\tgoto L_0056;\nL_0026:\n\t*([v10 @ X20_v1+AF7]) = 1;\n\tv45 = Il2CppMethodInfo + 0xCD8;\n\tv40 = *([v12 @ X19_v1 (Il2CppClass<System.Xml.ValidateNames>)+198]);\n\tv97 = *([v40 @ X0_v27+E0]) == 0;\n\tv42 = ~v97;\n\tif (v42) goto L_0014;\nL_0030:\n\tv64 = Viewport::GetViewport /* +1 sharing this address */(*([v52 @ X20_v7]));\nL_0038:\n\tViewport::Show(v64, 0.3f, 0);\n\tv82 = ApplicationManager::get_appData();\n\tv115 = Il2CppMethodInfo;\n\tApplicationData::ClearPlayerData(v82);\n\tgoto L_004A;\n\tv119 = \"il2cpp_codegen_runtime_class_init\"(v116, v79, v73, v26, v27, v28, v29, v30, v71, v32, v33, v34, v35, v36, v37, v38);\nL_004A:\n\tv83 = Singleton`1::get_Instance /* +1 sharing this address */(*([v115 @ X19_v4 (Il2CppMethodInfo)+C60]));\n\tApplicationManager::LoadScene(v83, 0);\n\treturn;\nL_0056:\n\tthrow System.NullReferenceException;\n// 57 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void ResetGameData()
 	{
-		Singleton<ApplicationManager>.Instance.ResetApplication();
+		Viewport.GetViewport<TransitionScreen>().Show();
+		ApplicationManager.appData.ClearPlayerData();
+		Singleton<ApplicationManager>.Instance.LoadScene(0);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600047C")]

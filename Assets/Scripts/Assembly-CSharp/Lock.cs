@@ -39,7 +39,7 @@ public class Lock : global::UnityEngine.MonoBehaviour
 	private void Start()
 	{
 		goalData.displayedCount = goalData.count;
-		counterText.text = goalData.displayedCount.ToString();
+		counterText.text = goalData.displayedCount.ToString("D2");
 		_propBlock = new global::UnityEngine.MaterialPropertyBlock();
 		global::UnityEngine.MeshRenderer[] array = colorMeshRenderers;
 		for (int i = 0; i < array.Length; i++)
@@ -48,17 +48,17 @@ public class Lock : global::UnityEngine.MonoBehaviour
 			global::UnityEngine.Color.RGBToHSV(baseColor, out var h, out var s, out var v);
 			global::UnityEngine.Color darkColor = global::UnityEngine.Color.HSVToRGB(h, s, v * 0.75f, hdr: true);
 			array[i].GetPropertyBlock(_propBlock, 0);
-			_propBlock.SetColor("_Color", darkColor);
-			_propBlock.SetColor("_Color2", baseColor);
+			_propBlock.SetColor("_Color", baseColor);
+			_propBlock.SetColor("_EmissionColor", darkColor);
 			array[i].SetPropertyBlock(_propBlock, 0);
 			array[i].GetPropertyBlock(_propBlock, 2);
-			_propBlock.SetColor("_Color", darkColor);
-			_propBlock.SetColor("_Color2", baseColor);
+			_propBlock.SetColor("_Color", baseColor);
+			_propBlock.SetColor("_EmissionColor", darkColor);
 			array[i].SetPropertyBlock(_propBlock, 2);
 		}
 		float sign = (global::UnityEngine.Random.Range(-1f, 1f) < 0f) ? -1f : 1f;
 		float magnitude = global::UnityEngine.Random.Range(2f, 3f);
-		global::UnityEngine.Vector2 force = new global::UnityEngine.Vector2(sign * magnitude, magnitude);
+		global::UnityEngine.Vector2 force = global::UnityEngine.Vector2.right * (sign * magnitude);
 		pad.AddForce(force, global::UnityEngine.ForceMode2D.Impulse);
 	}
 
@@ -68,7 +68,7 @@ public class Lock : global::UnityEngine.MonoBehaviour
 	public void RecieveParticle()
 	{
 		goalData.displayedCount--;
-		counterText.text = goalData.displayedCount.ToString();
+		counterText.text = goalData.displayedCount.ToString("D2");
 		counterElasticScale.Pop();
 		if (goalData.displayedCount == 0)
 		{
@@ -81,7 +81,7 @@ public class Lock : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0015;\n\tv17 = \"Cannot load image: download failed\";\n\tv18 = v17 + 0xE78;\n\tv19 = \"il2cpp_codegen_initialize_runtime_metadata\"(v18, methodInfo, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);\n\tv37 = 1;\n\t*([302AAC1]) = v37;\nL_0015:\n\tv40 = \"Cannot load image: download failed\";\n\tv42 = this.counterText;\n\tv43 = this.goalData + 0x1C;\n\tv46 = System.Int32::ToString(v43, *([v40 @ X9_v2 (System.String)+E78]));\n\tv57 = *([v42 @ X19_v3 (TMPro.TextMeshPro)]);\n\tv58 = *([v57 @ X8_v4 (Il2CppClass<TMPro.TextMeshPro>)+558]);\n\tv59 = *([v57 @ X8_v4 (Il2CppClass<TMPro.TextMeshPro>)+560]);\n\t// 40 IndirectJump v58 @ X3_v1, v42 @ X19_v3 (TMPro.TextMeshPro), v42 @ X19_v3 (TMPro.TextMeshPro), v46 @ X0_v5 (System.String), v59 @ X2_v3, v58 @ X3_v1, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7\n\tthrow System.NullReferenceException;\n\treturn;\n// 27 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void UpdateCounterText()
 	{
-		counterText.text = goalData.displayedCount.ToString();
+		counterText.text = goalData.displayedCount.ToString("D2");
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000372")]
@@ -89,8 +89,8 @@ public class Lock : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv22 = Il2CppMethodInfo;\n\tgoto L_0025;\n\tv29 = Il2CppMethodInfo;\n\tv30 = v29 + 0x780;\n\tv31 = \"il2cpp_codegen_initialize_runtime_metadata\"(v30, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv54 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv55 = v54 + 0xFD8;\n\tv56 = \"il2cpp_codegen_initialize_runtime_metadata\"(v55, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv62 = Il2CppMethodInfo;\n\tv63 = v62 + 0xC90;\n\tv64 = \"il2cpp_codegen_initialize_runtime_metadata\"(v63, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv69 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv70 = v69 + 0xA48;\n\tv48 = \"il2cpp_codegen_initialize_runtime_metadata\"(v70, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv50 = 1;\n\t*([302AA73]) = v50;\nL_0025:\n\tv53 = UnityEngine.Component::GetComponentInChildren /* +1 sharing this address */(this, *([v22 @ X22_v1 (Il2CppMethodInfo)+780]));\n\tgoto L_002F;\n\tv65 = \"il2cpp_codegen_runtime_class_init\"(v58, v51, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\nL_002F:\n\tUnityEngine.Object::Destroy(v53);\n\tv147 = this.destroyObjects;\n\tv76 = Il2CppMethodInfo;\n\tgoto L_004A;\nL_003B:\n\tUnityEngine.Object::DestroyImmediate(v147[v115 @ X24_v3 (System.Int32)]);\n\tv115 = v115 + 1;\n\tv147 = this.destroyObjects;\nL_004A:\n\tv84 = v115 >= v147.Length;\n\tif (v84) goto L_005A;\n\tgoto L_003B;\n\tv194 = \"il2cpp_codegen_runtime_class_init\"(v150, v118, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tgoto L_003B;\nL_005A:\n\tgoto L_005D;\n\tv196 = \"il2cpp_codegen_runtime_class_init\"(v154, v118, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\nL_005D:\n\tv121 = Singleton`1::get_Instance /* +1 sharing this address */(*([v76 @ X22_v4 (Il2CppMethodInfo)+C90]));\n\tFluidPhysicsCoupler::RefreshBodies(*([v121 @ X0_v13+38]));\n\tv202 = UnityEngine.Component::get_gameObject(this);\n\tgoto L_007B;\n\tv206 = \"il2cpp_codegen_runtime_class_init\"(v204, v201, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\nL_007B:\n\tUnityEngine.Object::Destroy(v202, 5f);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 85 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void Open()
 	{
-		global::UnityEngine.ParticleSystem particleSystem = GetComponentInChildren<global::UnityEngine.ParticleSystem>();
-		global::UnityEngine.Object.Destroy(particleSystem);
+		global::UnityEngine.HingeJoint2D joint = GetComponentInChildren<global::UnityEngine.HingeJoint2D>();
+		global::UnityEngine.Object.Destroy(joint);
 		global::UnityEngine.GameObject[] array = destroyObjects;
 		for (int i = 0; i < array.Length; i++)
 		{

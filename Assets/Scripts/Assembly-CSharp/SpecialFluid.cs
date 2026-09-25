@@ -436,11 +436,35 @@ public class SpecialFluid : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv24 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tgoto L_0023;\n\tv29 = System.Collections.Generic.NullableComparer`1;\n\tv30 = v29 + 0xD10;\n\tv31 = \"il2cpp_codegen_initialize_runtime_metadata\"(v30, id, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tv52 = Il2CppMethodInfo;\n\tv53 = v52 + 0xC30;\n\tv54 = \"il2cpp_codegen_initialize_runtime_metadata\"(v53, id, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tv57 = Il2CppMethodInfo;\n\tv58 = v57 + 0xFB0;\n\tv59 = \"il2cpp_codegen_initialize_runtime_metadata\"(v58, id, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tv61 = TMPro.KerningTable+<>c__DisplayClass3_0;\n\tv62 = v61 + 0xFE0;\n\tv47 = \"il2cpp_codegen_initialize_runtime_metadata\"(v62, id, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tv49 = 1;\n\t*([302A9CB]) = v49;\nL_0023:\n\tv51 = new *([v24 @ X22_v1 (Il2CppClass<TMPro.KerningTable+<>c__DisplayClass3_0>)+FE0])();\n\tSystem.Object::.ctor(v51);\n\tv64 = v51 + 0x10;\n\t*([v51 @ X0_v3 (System.Object)+10]) = this;\n\tv66 = 0xF3F1B4(v64, this, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\n\tSpecialFluid::EnsureCapacity(this, this.activeCount);\n\tv137 = this.solverIds;\n\tv118 = this.activeCount;\n\tv137[v118 @ X9_v3 (System.Int32)] = id;\n\tv216 = Il2CppMethodInfo;\n\tv217 = this.solver + 0x1F8;\n\tv218 = Unity.Collections.NativeHashMap`2::get_Item /* +1 sharing this address */(v217, id, *([v216 @ X9_v4 (Il2CppMethodInfo)+C30]));\n\t*([v51 @ X0_v3 (System.Object)+18]) = v218;\n\tv127 = IdGenerator::Next();\n\tv139 = this.computeIds;\n\tv120 = this.activeCount;\n\tv221 = System.Collections.Generic.NullableComparer`1;\n\tv222 = Il2CppMethodInfo;\n\tv139[v120 @ X9_v6 (System.Int32)] = v127;\n\tv142 = this.compute;\n\tv128 = new *([v221 @ X10_v5 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D10])();\n\tSystem.Action`1<ParticleInitData>::.ctor(v128, v51, *([v222 @ X24_v3 (Il2CppMethodInfo)+FB0]));\n\tFluidCompute::InitParticle(this.compute, v127, v142.activeCount);\n\tv202 = v128 == 0;\n\tif (v202) goto L_0085;\n\tParticleInitData::.ctor(&v231 @ stack_-50_v3 (ParticleInitData), v142.activeCount, v127, 0);\n\tv128.invoke_impl(v238, v128.method_code, v231, 0, v128.method, 0, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45);\nL_0085:\n\tv242 = v142.activeCount + 1;\n\tv142.activeCount = v242;\n\tv206 = this.activeCount + 1;\n\tthis.activeCount = v206;\n\treturn;\n\tv143 = new System.NullReferenceException();\n\tthrow System.IndexOutOfRangeException;\n\treturn;\n// 100 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void AddSolverParticle(int id)
 	{
+		if (solver == null || compute == null || particleIds == null)
+		{
+			return;
+		}
+
 		EnsureCapacity(activeCount);
 		solverIds[activeCount] = id;
+
+		if (solver.idToIndex.TryGetValue(id, out int solverIndex))
+		{
+			positions[activeCount] = solver.positions[solverIndex];
+			interpPositions[activeCount] = solver.positions[solverIndex];
+			scales[activeCount] = particleSize * solver.scales[solverIndex];
+		}
+
 		int computeId = IdGenerator.Next();
 		computeIds[activeCount] = computeId;
 		compute.AddParticle(computeId);
+
+		if (compute.idToIndex.TryGetValue(computeId, out int computeIndex))
+		{
+			// InitParticle defaults to fluid type 0. Every SpecialFluid must overwrite this;
+			// otherwise its particles are rasterized into the wrong raw-field layer and the
+			// SpecialFluid shader (which samples this type's layer/channel) sees an empty field.
+			compute.particleTypes[computeIndex] = fluidType;
+			compute.positions[computeIndex] = positions[activeCount];
+			compute.scales[computeIndex] = scales[activeCount];
+		}
+
 		activeCount++;
 	}
 
@@ -520,6 +544,15 @@ public class SpecialFluid : FluidRendererBase
 	[global::Cpp2ILInjected.Token(Token = "0x60001FA")]
 	[global::Cpp2ILInjected.Address(RVA = "0xFF24AC", Offset = "0xFF24AC", Length = "0x28")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tthis.zPos = -1f;\n\tthis.particleSize = 0.8f;\n\tthis.particleBoundsRadius = 0.4f;\n\tUnityEngine.MonoBehaviour::.ctor(this);\n\treturn;\n// 6 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
+	protected override void OnDestroy()
+	{
+		if (solver != null)
+		{
+			solver.OnStartRemoveParticles -= OnSolverRemoveParticlesStart;
+		}
+		base.OnDestroy();
+	}
+
 	public SpecialFluid()
 	{
 		zPos = -1f;

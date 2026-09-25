@@ -126,8 +126,11 @@ public class GameManager : Singleton<GameManager>
 
     public void OnClickUserInputPanel(Vector2 mousePos)
     {
-        // Leaving EstablishingShot / IntroScreen transitions the game into Gameplay.
-        gameState = GameState.Gameplay;
+        if (_gameState == GameState.EstablishingShot || _gameState == GameState.IntroScreen)
+            gameState = GameState.Gameplay;
+
+        if (_gameState != GameState.Gameplay)
+            return;
 
         if (level == null || level.moveCount < 1 || solver == null)
         {
@@ -217,7 +220,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         TapticPlugin.TapticManager.Impact(TapticPlugin.ImpactFeedback.Medium);
-        Singleton<AudioManager>.Instance.PlayClip("pop");
+        Singleton<AudioManager>.Instance.PlayClip("bubble pop");
 
         if (region.Count > minRemoveParticles)
         {
@@ -432,6 +435,9 @@ public class GameManager : Singleton<GameManager>
 
     public void Win()
     {
+        if (_gameState == GameState.Win)
+            return;
+
         gameState = GameState.Win;
 
         ApplicationData appData = ApplicationManager.appData;
@@ -446,6 +452,9 @@ public class GameManager : Singleton<GameManager>
 
     public void Fail()
     {
+        if (_gameState != GameState.Gameplay)
+            return;
+
         gameState = GameState.Fail;
     }
 

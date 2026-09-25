@@ -8,23 +8,16 @@ public class WinScreen : Viewport
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = Sponge+<>c__DisplayClass7_0;\n\tgoto L_0017;\n\tv23 = Sponge+<>c__DisplayClass7_0;\n\tv24 = v23 + 0x770;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv43 = 1;\n\t*([302AAFC]) = v43;\nL_0017:\n\tv45 = new *([v18 @ X21_v1 (Il2CppClass<Sponge+<>c__DisplayClass7_0>)+770])();\n\tSystem.Object::.ctor(v45);\n\t*([v45 @ X0_v3 (System.Object)+10]) = 0;\n\tv49 = v45 + 0x20;\n\t*([v45 @ X0_v3 (System.Object)+20]) = this;\n\tv51 = 0xF3F1B4(v49, this, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv61 = UnityEngine.MonoBehaviour::StartCoroutine(this, v45);\n\treturn;\n// 30 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	protected internal override void OnStartShow()
 	{
-		global::UnityEngine.Coroutine coroutine = StartCoroutine(HandleStartShow());
+		StartCoroutine(HandleStartShow());
 	}
 
 	private global::System.Collections.IEnumerator HandleStartShow()
 	{
 		titleTextEffect.gameObject.SetActive(false);
 		yield return new global::UnityEngine.WaitForSeconds(0.1f);
-		AudioClipSettings settings = new AudioClipSettings
-		{
-			pitch = 1.8f
-		};
-		AudioManager.Instance.PlayClip("l1", settings);
-		PlayerData playerData = ApplicationManager.appData.playerData;
-		if (playerData.hapticOn)
-		{
+		Singleton<AudioManager>.Instance.PlayClip("level complete", new AudioClipSettings { pitch = 1.8f });
+		if (ApplicationManager.appData.playerData.hapticOn)
 			global::TapticPlugin.TapticManager.Impact(global::TapticPlugin.ImpactFeedback.Heavy);
-		}
 		titleTextEffect.gameObject.SetActive(true);
 		titleTextEffect.StartTransition();
 	}

@@ -92,7 +92,7 @@ public class Chain : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Vector2 mid = (start + end) * 0.5f;
 		mid.y -= sagDepth;
 		float bezLen = ApproxQuadLen(start, mid, end);
-		int linkCount = global::UnityEngine.Mathf.Max(2, global::UnityEngine.Mathf.RoundToInt(bezLen / (anchorOffset + anchorOffset)));
+		int linkCount = global::UnityEngine.Mathf.Clamp(global::UnityEngine.Mathf.RoundToInt(bezLen / (anchorOffset + anchorOffset)) + 1, 2, 64);
 		float[] ts = EvenTByArc(start, mid, end, linkCount, bezLen);
 		SpawnLinks(start, mid, end, ts, startPoint, endPoint);
 		_lastStartPos = start;
@@ -139,17 +139,14 @@ public class Chain : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0023;\n\tv39 = Il2CppMethodInfo;\n\tv40 = v39 + 0x908;\n\tv41 = \"il2cpp_codegen_initialize_runtime_metadata\"(v40, rb, target, methodInfo, v43, v44, v45, v46, localAnchor, v0, targetAnchor, v2, v47, v48, v49, v50);\n\tv54 = 1;\n\t*([302A97F]) = v54;\nL_0023:\n\tv58 = UnityEngine.Component::get_gameObject(rb);\n\tv69 = Il2CppMethodInfo;\n\tv62 = UnityEngine.GameObject::AddComponent /* +1 sharing this address */(v58, *([v69 @ X8_v4 (Il2CppMethodInfo)+908]));\n\tUnityEngine.AnchoredJoint2D::set_autoConfigureConnectedAnchor(v62, 0);\n\tUnityEngine.AnchoredJoint2D::set_anchor(v62, localAnchor);\n\tUnityEngine.Joint2D::set_connectedBody(v62, target);\n\tUnityEngine.AnchoredJoint2D::set_connectedAnchor(v62, targetAnchor);\n\tUnityEngine.DistanceJoint2D::set_autoConfigureDistance(v62, 1);\n\tUnityEngine.DistanceJoint2D::set_maxDistanceOnly(v62, 1);\n\tUnityEngine.Joint2D::set_enableCollision(v62, 0);\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 71 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void ConnectRope(global::UnityEngine.Rigidbody2D rb, global::UnityEngine.Rigidbody2D target, global::UnityEngine.Vector2 localAnchor, global::UnityEngine.Vector2 targetAnchor)
 	{
-		global::UnityEngine.GameObject gameObject = rb.gameObject;
-		nint num = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @11481F4 (UnityEngine.GameObject::AddComponent, and 1 more at this address)");
-		global::UnityEngine.AnchoredJoint2D anchoredJoint2D = default(global::UnityEngine.AnchoredJoint2D);
-		anchoredJoint2D.autoConfigureConnectedAnchor = false;
-		anchoredJoint2D.anchor = localAnchor;
-		anchoredJoint2D.connectedBody = target;
-		anchoredJoint2D.connectedAnchor = targetAnchor;
-		((global::UnityEngine.DistanceJoint2D)anchoredJoint2D).autoConfigureDistance = true;
-		((global::UnityEngine.DistanceJoint2D)anchoredJoint2D).maxDistanceOnly = true;
-		anchoredJoint2D.enableCollision = false;
+		global::UnityEngine.DistanceJoint2D joint = rb.gameObject.AddComponent<global::UnityEngine.DistanceJoint2D>();
+		joint.autoConfigureConnectedAnchor = false;
+		joint.anchor = localAnchor;
+		joint.connectedBody = target;
+		joint.connectedAnchor = targetAnchor;
+		joint.autoConfigureDistance = true;
+		joint.maxDistanceOnly = true;
+		joint.enableCollision = false;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600018C")]

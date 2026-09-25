@@ -38,9 +38,7 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 		[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv0 = this + 0x20;\n\tthis.m_OnClick = value;\n\tv3 = 0xF3F1B4(v0, value, methodInfo, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17);\n\treturn;\n")]
 		set
 		{
-			//IL_000c: Expected O, but got I
 			m_OnClick = value;
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @F3F1B4");
 		}
 	}
 
@@ -72,15 +70,9 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv16 = 0x302A000;\n\tv18 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv20 = *([302AAA3]) & 1;\n\tv21 = v20 == 0;\n\tif (v21) goto L_0026;\n\tv51 = Il2CppMethodInfo + 0xC70;\n\tv24 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv26 = *([v24 @ X0_v21+E0]) == 0;\n\tif (v26) goto L_0030;\nL_0017:\n\tv70 = Singleton`1::get_Instance /* +1 sharing this address */(*([v51 @ X21_v8]));\n\tv63 = v70 == 0;\n\tv64 = ~v63;\n\tif (v64) goto L_0033;\n\tgoto L_0046;\nL_0026:\n\t*([v16 @ X21_v1+AA3]) = 1;\n\tv51 = Il2CppMethodInfo + 0xC70;\n\tv46 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A38]);\n\tv81 = *([v46 @ X0_v17+E0]) == 0;\n\tv48 = ~v81;\n\tif (v48) goto L_0017;\nL_0030:\n\tv70 = Singleton`1::get_Instance /* +1 sharing this address */(*([v58 @ X21_v5]));\nL_0033:\n\tv75 = \"focus\";\n\tAudioManager::PlayClip(v70, *([v75 @ X8_v4 (System.String)+4E0]));\n\tv88 = this.elasticScale;\n\tv88.targetScale = 0.8f;\n\treturn;\nL_0046:\n\tthrow System.NullReferenceException;\n// 45 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void OnPointerDown(global::UnityEngine.EventSystems.PointerEventData eventData)
 	{
-		AudioManager audioManager = Singleton<AudioManager>.Instance;
-		if (audioManager != null)
-		{
-			audioManager.PlayClip("focus");
-		}
+		Singleton<AudioManager>.Instance?.PlayClip("hit");
 		if (elasticScale != null)
-		{
 			elasticScale.targetScale = 0.8f;
-		}
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003FD")]
@@ -89,19 +81,11 @@ public class UIButton : global::UnityEngine.MonoBehaviour, global::UnityEngine.E
 	public void OnPointerUp(global::UnityEngine.EventSystems.PointerEventData eventData)
 	{
 		global::TapticPlugin.TapticManager.Impact(global::TapticPlugin.ImpactFeedback.Medium);
-		if (m_OnClick != null)
-		{
-			m_OnClick.Invoke();
-		}
-		AudioManager audioManager = Singleton<AudioManager>.Instance;
-		if (audioManager != null)
-		{
-			audioManager.PlayClip("focus");
-		}
-		if (elasticScale != null)
-		{
-			elasticScale.targetScale = 1f;
-			elasticScale.Pop();
-		}
+		m_OnClick?.Invoke();
+		Singleton<AudioManager>.Instance?.PlayClip("click");
+		if (elasticScale == null)
+			return;
+		elasticScale.targetScale = 1f;
+		elasticScale.Pop();
 	}
 }

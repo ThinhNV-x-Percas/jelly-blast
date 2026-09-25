@@ -198,7 +198,10 @@ public class FluidCollectDisplay : FluidRendererBase
 			{
 				interpPositions[i] = particles[i].prevPos + (positions[i] - particles[i].prevPos) * t;
 			}
-			int computeIndex = compute.idToIndex[particles[i].particleId];
+			if (!compute.idToIndex.TryGetValue(particles[i].particleId, out int computeIndex))
+			{
+				continue;
+			}
 			compute.positions[computeIndex] = interpPositions[i];
 			compute.innerRadii[computeIndex] = particles[i].innerRadius;
 			compute.scales[computeIndex] = scales[i];

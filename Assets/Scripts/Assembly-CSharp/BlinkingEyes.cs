@@ -46,7 +46,7 @@ public class BlinkingEyes : global::UnityEngine.MonoBehaviour
 	private void LateUpdate()
 	{
 		float total = blinkDuration + blinkHold;
-		float t = (global::UnityEngine.Time.time - blinkStartTime) / total;
+		float t = ((global::UnityEngine.Time.time - blinkStartTime) % blinkPeriod) / total;
 		float value;
 		if (t < 0.5f)
 		{

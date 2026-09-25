@@ -532,6 +532,10 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 	[global::Cpp2ILInjected.FieldOffset(Offset = "0x84")]
 	public float particleCollisionRadius;
 
+	[global::UnityEngine.Tooltip("Số bước mô phỏng tối đa mỗi frame, chặn vòng lặp tụt FPS.")]
+	[global::UnityEngine.Range(1f, 10f)]
+	public int maxStepsPerFrame = 5;
+
 	[global::Cpp2ILInjected.Token(Token = "0x6000259")]
 	[global::Cpp2ILInjected.Address(RVA = "0xFFB7E8", Offset = "0xFFB7E8", Length = "0x38")]
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv13 = UnityEngine.Time::get_frameCount();\n\tv14 = v13 + 1;\n\tv15 = v14 ^ v14;\n\tv16 = v15 ^ v15;\n\tv17 = v16 ^ v16;\n\tthis._rng = v17;\n\treturn;\n// 13 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
@@ -699,15 +703,16 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = UnityEngine.Time::get_deltaTime();\n\tv19 = this.accumulator + v18;\n\tthis.accumulator = v19;\n\tv31 = v19 < this.fixedDeltaTime;\n\tif (v31) goto L_0033;\nL_001D:\n\tFluidPhysicsCoupler::Step(this, this.fixedDeltaTime);\n\tv51 = this.accumulator - this.fixedDeltaTime;\n\tthis.accumulator = v51;\n\tv33 = v51 >= this.fixedDeltaTime;\n\tif (v33) goto L_001D;\nL_0033:\n\treturn;\n// 41 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Update()
 	{
-		float deltaTime = global::UnityEngine.Time.deltaTime;
-		if (!((accumulator += deltaTime) < fixedDeltaTime))
+		accumulator += global::UnityEngine.Time.deltaTime;
+		int steps = 0;
+		while (accumulator >= fixedDeltaTime && steps < maxStepsPerFrame)
 		{
-			do
-			{
-				Step(fixedDeltaTime);
-			}
-			while (!((accumulator -= fixedDeltaTime) < fixedDeltaTime));
+			Step(fixedDeltaTime);
+			accumulator -= fixedDeltaTime;
+			steps++;
 		}
+		if (steps == maxStepsPerFrame)
+			accumulator = global::UnityEngine.Mathf.Min(accumulator, fixedDeltaTime);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000260")]
@@ -718,6 +723,13 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 		if (solver == null)
 		{
 			return;
+		}
+		for (int i = bodies.Count - 1; i >= 0; i--)
+		{
+			if (bodies[i].body == null || !bodies[i].body.simulated)
+			{
+				bodies.RemoveAt(i);
+			}
 		}
 		solver.Step(dt);
 		Shuffle(bodies);
@@ -749,7 +761,7 @@ public class FluidPhysicsCoupler : global::UnityEngine.MonoBehaviour
 			bodyData.isKinematic = !isDynamic;
 			bodyDataArray[i] = bodyData;
 		}
-		global::Unity.Collections.NativeArray<FluidPhysicsCoupler.ForceBundle> resultArray = new global::Unity.Collections.NativeArray<FluidPhysicsCoupler.ForceBundle>(fluidSolver.ActiveCount, global::Unity.Collections.Allocator.TempJob);
+		global::Unity.Collections.NativeArray<FluidPhysicsCoupler.ForceBundle> resultArray = new global::Unity.Collections.NativeArray<FluidPhysicsCoupler.ForceBundle>(list.Count, global::Unity.Collections.Allocator.TempJob);
 		FluidPhysicsCoupler.CouplerJob couplerJob = default(FluidPhysicsCoupler.CouplerJob);
 		couplerJob.positions = positionsArray;
 		couplerJob.velocities = fluidSolver.velocities;

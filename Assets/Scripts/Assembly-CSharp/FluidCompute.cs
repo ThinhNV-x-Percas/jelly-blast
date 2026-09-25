@@ -44,6 +44,7 @@ public class FluidCompute : MonoBehaviour
     protected int H;
     protected int rawW;
     protected int rawH;
+    protected int colorLayerCount;
 
     private int kMerge;
     private int tx;
@@ -130,6 +131,7 @@ public class FluidCompute : MonoBehaviour
             colorCount = gameManager.solver.colorFluidTypes;
         }
 
+        colorLayerCount = Mathf.Clamp(Mathf.CeilToInt(Mathf.Max(colorCount, 1) / 4f), 1, layerCount);
         colorsVec = new Vector4[colorCount];
         particleMatrices = new Matrix4x4[maxParticles];
         props = new MaterialPropertyBlock();
@@ -148,9 +150,11 @@ public class FluidCompute : MonoBehaviour
         cmd.Clear();
 
         int renderCount = Mathf.Clamp(activeCount, 0, maxParticles);
+        int usedLayers = 0;
 
         for (int i = 0; i < renderCount; i++)
         {
+            usedLayers |= 1 << ((int)(particleTypes[i] + 0.5f) >> 2);
             Vector2 position = positions[i];
             float scale = scales[i];
 
@@ -211,7 +215,7 @@ public class FluidCompute : MonoBehaviour
                 cmd.ClearRenderTarget(true, true, Color.clear);
                 cmd.SetGlobalInt("_Layer", layer);
 
-                if (renderCount > 0)
+                if ((usedLayers & (1 << layer)) != 0)
                 {
                     cmd.DrawMeshInstanced(
                         quadMesh,
@@ -245,7 +249,7 @@ public class FluidCompute : MonoBehaviour
                 0f,
                 0f));
 
-        cmd.SetComputeIntParam(fluidCS, "_LayerCount", layerCount);
+        cmd.SetComputeIntParam(fluidCS, "_LayerCount", colorLayerCount);
 
         GameManager gameManager = Singleton<GameManager>.Instance;
         if (colorsVec != null)

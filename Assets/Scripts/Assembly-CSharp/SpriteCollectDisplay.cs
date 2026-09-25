@@ -42,16 +42,25 @@ public class SpriteCollectDisplay : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_0023;\n\tv45 = Il2CppMethodInfo;\n\tv46 = v45 + 0xA38;\n\tv47 = \"il2cpp_codegen_initialize_runtime_metadata\"(v46, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv69 = Il2CppMethodInfo;\n\tv70 = v69 + 0xA40;\n\tv64 = \"il2cpp_codegen_initialize_runtime_metadata\"(v70, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv66 = 1;\n\t*([302A9D2]) = v66;\nL_0023:\n\tv67 = this.sprites;\n\tv180 = v67._size;\n\tv75 = v67._size < 1;\n\tif (v75) goto L_010E;\n\tv183 = Il2CppMethodInfo;\n\tv184 = System.Xml.ValidateNames;\n\tgoto L_004F;\nL_004A:\n\tv212 = v180 <= 0;\n\tif (v212) goto L_010E;\nL_004F:\n\tv180 = v180 - 1;\n\tv303 = System.Collections.Generic.List`1<CollectSprite>::get_Item(this.sprites, v180);\n\tv105 = UnityEngine.Time::get_time();\n\tv303.prevPos = v303.pos;\n\tv159 = v105 < v303.startTime;\n\tif (v159) goto L_004A;\n\tgoto L_006C;\n\tv346 = v131;\n\tv347 = \"il2cpp_codegen_initialize_runtime_metadata\"(v346, v111, v114, v50, v51, v52, v53, v54, v105, v102, v96, v58, v59, v60, v61, v62);\n\t*([2DD4424]) = v129;\nL_006C:\n\tv178 = v303.getTargetPos;\n\tv178.invoke_impl(v349, v178.method_code, v178.method, *([v183 @ X24_v4 (Il2CppMethodInfo)+A40]), v50, v51, v52, v53, v54, v105, v303.startTime, v303.startPos, v58, v59, v60, v61, v62);\n\tv303.targetPos = v105;\n\tv303.targetPos.y = v303.startTime;\n\tv351 = UnityEngine.Time::get_time();\n\tv354 = v351 - v303.startTime;\n\tv355 = v354 / v303.applyForceDuration;\n\tv358 = v355 - 1f;\n\tv359 = v358 < 0;\n\tv360 = v358 == 0;\n\tv361 = v355 ^ 1f;\n\tv362 = v355 ^ v358;\n\tv363 = v361 & v362;\n\tv364 = v363 < 0;\n\tv365 = v359 == v364;\n\tv314 = ~v360;\n\tv366 = v365 & v314;\n\tv367 = ~v366;\n\tif (v367) goto L_0096;\n\tgoto L_0096;\nL_0096:\n\tv313 = v355 >= 0;\n\tif (v313) goto L_00A0;\n\tgoto L_00A0;\nL_00A0:\n\tv385 = *([2DD4421]) == 0;\n\tif (v385) goto L_00F3;\n\tgoto L_00A6;\nL_00A6:\n\tv400 = v303.targetPos - v303.pos;\n\tv401 = v400 * v400;\n\t// 168 NotImplemented \"Instruction FADDP not yet implemented.\"\n\tv402 = UnityEngine.Mathf::Sqrt(v401);\n\tv417 = v402 <= 0x3727C5AC;\n\tif (v417) goto L_00BE;\n\t// 184 NotImplemented \"Instruction DUP not yet implemented.\"\n\tv422 = v400 / v402;\n\tgoto L_00C6;\nL_00BE:\n\tgoto L_00C2;\n\tv433 = v131;\n\tv434 = \"il2cpp_codegen_initialize_runtime_metadata\"(v433, v319, v114, v50, v51, v52, v53, v54, v400, v402, v405, v58, v59, v60, v61, v62);\n\t*([2DD4424]) = v129;\nL_00C2:\n\tv435 = *([v184 @ X21_v4 (Il2CppClass<System.Xml.ValidateNames>)+98]);\n\tv426 = *([v435 @ X8_v16+B8]);\n\tv422 = *([v426 @ X8_v17]);\nL_00C6:\n\tv428 = v422 * v429;\n\tv432 = UnityEngine.Time::get_fixedDeltaTime();\n\tv436 = v428 * v437;\n\tv438 = v303.vel + v436;\n\tv303.vel = v438;\n\tv440 = v438 * v437;\n\tv442 = UnityEngine.Time::get_fixedDeltaTime();\n\tv443 = v440 * v437;\n\tv312 = v438 - v443;\n\tv303.vel = v312;\n\tv444 = UnityEngine.Time::get_fixedDeltaTime();\n\tv445 = v312 * v437;\n\tv446 = v303.pos + v445;\n\tv303.pos = v446;\n\tv448 = v446 - v303.targetPos;\n\tv317 = v303.targetPos - v303.startPos;\n\tv318 = v448 * v317;\n\t// 223 NotImplemented \"Instruction FADDP not yet implemented.\"\n\tv322 = v318 <= 0;\n\tif (v322) goto L_004A;\n\tSpriteCollectDisplay::RemoveSprite(this, v303);\n\tgoto L_004A;\nL_00F3:\n\t*([2DD4421]) = 1;\n\tgoto L_00A6;\n\tv393 = \"il2cpp_codegen_runtime_class_init\"(v403, v319, v114, v50, v51, v52, v53, v54, v355, v370, v353, v58, v59, v60, v61, v62);\n\tgoto L_00A6;\nL_010E:\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 174 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void FixedUpdate()
 	{
+		if (sprites == null)
+		{
+			return;
+		}
 		for (int i = sprites.Count - 1; i >= 0; i--)
 		{
 			CollectSprite collectSprite = sprites[i];
+			if (collectSprite == null)
+			{
+				sprites.RemoveAt(i);
+				continue;
+			}
 			float time = global::UnityEngine.Time.time;
 			collectSprite.prevPos = collectSprite.pos;
 			if (time < collectSprite.startTime)
 			{
 				continue;
 			}
-			collectSprite.targetPos = collectSprite.getTargetPos();
+			collectSprite.targetPos = collectSprite.getTargetPos != null ? collectSprite.getTargetPos() : base.transform.position;
 			float dt = global::UnityEngine.Time.fixedDeltaTime;
 			global::UnityEngine.Vector2 toTarget = collectSprite.targetPos - collectSprite.pos;
 			float dist = toTarget.magnitude;

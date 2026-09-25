@@ -20,7 +20,7 @@ public class AudioManager : Singleton<AudioManager>
 	{
 		PlayerData playerData = ApplicationManager.appData.playerData;
 		float value = playerData.soundsOn ? 0f : (-80f);
-		masterMixer.SetFloat("MasterVolume", value);
+		masterMixer.SetFloat("masterVolume", value);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x6000166")]
@@ -28,23 +28,11 @@ public class AudioManager : Singleton<AudioManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_001C;\n\tv29 = Il2CppMethodInfo;\n\tv30 = v29 + 0x30;\n\tv31 = \"il2cpp_codegen_initialize_runtime_metadata\"(v30, clip, settings, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv51 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv52 = v51 + 0xFD8;\n\tv46 = \"il2cpp_codegen_initialize_runtime_metadata\"(v52, clip, settings, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\n\tv48 = 1;\n\t*([302A96A]) = v48;\nL_001C:\n\tv50 = ~this.enableSounds;\n\tif (v50) goto L_0087;\n\tv53 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv55 = *([v53 @ X22_v4 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]);\n\tv57 = *([v55 @ X0_v3+E0]) == 0;\n\tif (v57) goto L_002E;\n\tv128 = UnityEngine.Object::op_Implicit(clip);\n\tv126 = ~v128;\n\tv67 = ~v126;\n\tif (v67) goto L_0031;\n\tgoto L_0087;\nL_002E:\n\tv128 = UnityEngine.Object::op_Implicit(clip);\n\tv68 = ~v128;\n\tif (v68) goto L_0087;\nL_0031:\n\tv65 = ApplicationManager::get_appData();\n\tv131 = v65.playerData;\n\tv69 = ~v131.soundsOn;\n\tif (v69) goto L_0087;\n\tgoto L_0041;\n\tv153 = \"il2cpp_codegen_runtime_class_init\"(v149, v61, settings, methodInfo, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44);\nL_0041:\n\tv155 = Il2CppMethodInfo;\n\tv157 = UnityEngine.Object::Instantiate /* +1 sharing this address */(this.sourcePrefab, *([v155 @ X8_v10 (Il2CppMethodInfo)+30]));\n\tv136 = UnityEngine.Time::get_timeScale();\n\tv160 = settings.pitchVariance * -0.5f;\n\tv133 = settings.pitchVariance * 0.5f;\n\tv137 = UnityEngine.Random::Range(v160, v133);\n\tv161 = settings.pitch + v137;\n\tv162 = v136 * v161;\n\tUnityEngine.AudioSource::set_pitch(v157, v162);\n\tUnityEngine.AudioSource::set_volume(v157, settings.volume);\n\tUnityEngine.AudioSource::set_clip(v157, clip);\n\tUnityEngine.AudioSource::Play(v157);\n\tv144 = UnityEngine.Component::get_gameObject(v157);\n\tv175 = UnityEngine.AudioClip::get_length(clip);\n\tv101 = v175 * 3f;\n\tUnityEngine.Object::Destroy(v144, v101);\n\treturn;\nL_0087:\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 89 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void PlayClip(global::UnityEngine.AudioClip clip, AudioClipSettings settings)
 	{
-		//IL_0013: Expected I, but got O
-		//IL_0023: Expected O, but got I
 		if (!enableSounds)
 		{
 			return;
 		}
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v53 @ X22_v4 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+FD8]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v55 @ X0_v3+E0]");
-		if ((nint)0 != 0)
-		{
-			if (!clip)
-			{
-				return;
-			}
-		}
-		else if (!clip)
+		if (!clip)
 		{
 			return;
 		}
@@ -109,7 +97,7 @@ public class AudioManager : Singleton<AudioManager>
 	{
 		PlayerData playerData = ApplicationManager.appData.playerData;
 		float value = playerData.soundsOn ? 0f : (-80f);
-		masterMixer.SetFloat("MasterVolume", value);
+		masterMixer.SetFloat("masterVolume", value);
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x600016B")]

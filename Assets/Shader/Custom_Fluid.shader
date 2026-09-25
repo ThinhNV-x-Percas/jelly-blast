@@ -70,35 +70,40 @@ Shader "Custom/Fluid"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.screenPos.xy / i.screenPos.w;
+                float4 fluid = tex2D(_FluidTex, uv);
 
-                fixed4 fluidCol = tex2D(_FluidTex, uv);
-                fixed4 emitCol  = tex2D(_EmissionTex, uv);
+                float edge = pow(1.0 - fluid.a, 4.0) * 180.0;
+                float3 n = float3(-ddx(fluid.a) * edge, ddy(fluid.a) * _FlipDY * edge, -0.01);
+                float invLen = rsqrt(dot(n, n));
+                n *= invLen;
+                float fresnel = 1.0 - invLen * 0.01;
 
-                // FluidCS writes the merged metaball field into alpha; threshold it into a surface.
-                // The raw field is ~1/3 of screen resolution, so widen the edge to hide its steps.
-                float edge = fwidth(fluidCol.a) * 1.5 + 0.02;
-                float coverage = smoothstep(_AlphaThreshold - edge, _AlphaThreshold + edge, fluidCol.a);
-                clip(coverage - 0.001);
+                float3 halfDir = normalize(-_LightDirection.xyz + float3(0.0, 0.0, -1.0));
+                float spec = pow(saturate(dot(n, halfDir)), _Shininess) * _SpecularIntensity;
+                float diffuse = saturate(dot(n, -_LightDirection.xyz));
+                float3 light = _LightColor.rgb * diffuse + _AmbientColor.rgb;
 
-                // Field gradient stands in for the surface normal.
-                float2 texel = _FluidTex_TexelSize.xy;
-                float dx = tex2D(_FluidTex, uv + float2(texel.x, 0)).a - tex2D(_FluidTex, uv - float2(texel.x, 0)).a;
-                float dy = tex2D(_FluidTex, uv + float2(0, texel.y)).a - tex2D(_FluidTex, uv - float2(0, texel.y)).a;
-                float3 normal = normalize(float3(-dx, -dy * _FlipDY, 0.35));
+                float t = saturate((fluid.a - (_AlphaThreshold - 0.02)) * 25.0);
+                float coverage = t * t * (3.0 - 2.0 * t);
 
-                float ndotl = saturate(dot(normal, normalize(-_LightDirection.xyz + float3(0, 0, -1))));
+                float3 col = fluid.rgb * coverage * light + spec;
+                float3 reflTint = (col - 0.04) * _ReflectAmount + 0.04;
 
-                // Shade by brightness only - the level's own colours must survive.
-                float shade = lerp(1.0 - _AOStrength * 0.4, 1.0, ndotl);
-                float spec = _SpecularIntensity * pow(ndotl, max(1.0, _Shininess));
+                float4 refl = tex2D(_FluidTex, uv + n.xy * 0.03);
+                float3 reflCol = refl.rgb * refl.a * fresnel * reflTint;
+                float ao = 1.0 - _AOStrength * refl.a * fresnel;
+                float reflMask = (1.0 - ao) * _ReflectAmount * _ReflectAmount + ao;
+                col = col * ao + reflCol * min(reflMask * reflMask, 1.0);
 
-                fixed3 final = fluidCol.rgb * shade
-                             + _LightColor.rgb * spec
-                             + emitCol.rgb * _ReflectAmount;
-                return fixed4(final, coverage);
+                float3 emi = tex2D(_EmissionTex, uv).xyw;
+                float flash = emi.x >= emi.y ? 1.0 : 0.0;
+                col *= flash * emi.z + 1.0;
+                col = lerp(col, flash, emi.z * 0.6);
+
+                return float4(col, coverage);
             }
             ENDHLSL
         }

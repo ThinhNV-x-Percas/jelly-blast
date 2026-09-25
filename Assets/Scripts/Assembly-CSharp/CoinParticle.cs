@@ -54,8 +54,7 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv15 = UnityEngine.RectTransform::get_anchoredPosition(this.rt);\n\tthis.position = v15;\n\tthis.position.y = v15.y;\n\tthis.prevPosition = this.position;\n\tthis.prevRotation = this.rotation;\n\treturn;\n\tthrow System.NullReferenceException;\n\treturn;\n// 19 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	private void Start()
 	{
-		global::UnityEngine.Vector2 vector = (position = rt.anchoredPosition);
-		position.y = vector.y;
+		position = rt.anchoredPosition;
 		prevPosition = position;
 		prevRotation = rotation;
 	}
@@ -66,12 +65,12 @@ public class CoinParticle : global::UnityEngine.MonoBehaviour
 	public void UpdatePhysics()
 	{
 		prevPosition = position;
-		float dt = global::UnityEngine.Time.deltaTime;
-		velocity += acceleration * dt;
-		velocity -= velocity * dt * dt;
-		position += velocity * dt;
+		velocity += acceleration * global::UnityEngine.Time.deltaTime;
+		velocity -= velocity * damping * global::UnityEngine.Time.deltaTime;
+		acceleration = global::UnityEngine.Vector2.zero;
+		position += velocity * global::UnityEngine.Time.deltaTime;
 		prevRotation = rotation;
-		rotation += angularVelocity * dt;
+		rotation += angularVelocity * global::UnityEngine.Time.deltaTime;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003D4")]

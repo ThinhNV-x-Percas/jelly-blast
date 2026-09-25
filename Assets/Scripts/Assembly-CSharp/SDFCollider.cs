@@ -67,17 +67,14 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		{
 			outputSDF.Release();
 		}
-		// FluidPhysicsCoupler.RegisterSDF reads this back into a NativeArray<float4>, so the
-		// texture has to be 32-bit per channel - a half texture is read at half the stride
-		// and every other value comes back as NaN.
 		outputSDF = new global::UnityEngine.RenderTexture(texWidth, texHeight, 0, global::UnityEngine.RenderTextureFormat.ARGBFloat);
-		outputSDF.name = "SDFOutput";
+		outputSDF.name = "SDF_CaptureRT";
 		outputSDF.filterMode = global::UnityEngine.FilterMode.Point;
 		outputSDF.wrapMode = global::UnityEngine.TextureWrapMode.Clamp;
 		outputSDF.useMipMap = false;
 		outputSDF.autoGenerateMips = false;
 		outputSDF.Create();
-		global::UnityEngine.GameObject cameraObject = new global::UnityEngine.GameObject("SDFRenderCamera");
+		global::UnityEngine.GameObject cameraObject = new global::UnityEngine.GameObject("SDF_CaptureCamera");
 		global::UnityEngine.Camera camera = cameraObject.AddComponent<global::UnityEngine.Camera>();
 		camera.transform.position = new global::UnityEngine.Vector3(sdfCenter.x, sdfCenter.y, -10f);
 		camera.transform.rotation = global::UnityEngine.Quaternion.identity;
@@ -96,6 +93,7 @@ public class SDFCollider : global::UnityEngine.MonoBehaviour
 		global::UnityEngine.Object.DestroyImmediate(cameraObject);
 		generator = new SDFTextureGenerator();
 		generator.Update(outputSDF, sourceValueThreshold, downSampling, precision);
+		outputSDF = generator.SdfTexture;
 	}
 
 	[global::Cpp2ILInjected.Token(Token = "0x60003A0")]

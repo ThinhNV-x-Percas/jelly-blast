@@ -48,14 +48,18 @@ public class Honey : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv26 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tgoto L_0021;\n\tv31 = System.Collections.Generic.NullableComparer`1;\n\tv32 = v31 + 0xD10;\n\tv33 = \"il2cpp_codegen_initialize_runtime_metadata\"(v32, solverContext, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv53 = Il2CppMethodInfo;\n\tv54 = v53 + 0xF20;\n\tv55 = \"il2cpp_codegen_initialize_runtime_metadata\"(v54, solverContext, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv58 = Facebook.Unity.AsyncRequestString+<Start>d__9;\n\tv59 = v58 + 0xE10;\n\tv48 = \"il2cpp_codegen_initialize_runtime_metadata\"(v59, solverContext, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv50 = 1;\n\t*([302AAB7]) = v50;\nL_0021:\n\tv52 = new *([v26 @ X23_v1 (Il2CppClass<Facebook.Unity.AsyncRequestString+<Start>d__9>)+E10])();\n\tSystem.Object::.ctor(v52);\n\tv62 = v52 + 0x10;\n\t*([v52 @ X0_v3 (System.Object)+10]) = this;\n\tv65 = 0xF3F1B4(v62, this, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\t*([v52 @ X0_v3 (System.Object)+18]) = solverContext;\n\t*([v52 @ X0_v3 (System.Object)+20]) = methodInfo;\n\tv130 = this.solver;\n\tv165 = v130.isHoneyCoated;\n\tv167 = *([v165 @ X8_v6 (Unity.Collections.NativeArray`1<System.Boolean>)+solverContext @ X1 (ParticleInitData)]) == 0;\n\tif (v167) goto L_008C;\n\tv131 = this.solverIds;\n\tv114 = this.activeCount;\n\tv110 = solverContext >> 0x20;\n\tv131[v114 @ X9_v4 (System.Int32)] = v110;\n\tv230 = Facebook.Unity.Windows.IWindowsFacebook;\n\tgoto L_0056;\n\tv234 = Facebook.Unity.Windows.IWindowsFacebook;\n\tv235 = v234 + 0x78;\n\tv236 = \"il2cpp_codegen_initialize_runtime_metadata\"(v235, v64, methodInfo, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46);\n\tv239 = 1;\n\t*([302AAB8]) = v239;\nL_0056:\n\tv240 = *([v230 @ X22_v6 (Il2CppClass<Facebook.Unity.Windows.IWindowsFacebook>)+78]);\n\tv120 = System.Threading.Interlocked::Increment(*([v240 @ X8_v13+B8]));\n\tv132 = this.computeIds;\n\tv115 = this.activeCount;\n\tv243 = System.Collections.Generic.NullableComparer`1;\n\tv244 = Il2CppMethodInfo;\n\tv132[v115 @ X9_v5 (System.Int32)] = v120;\n\tv121 = new *([v243 @ X10_v7 (Il2CppClass<System.Collections.Generic.NullableComparer`1>)+D10])();\n\tSystem.Action`1<ParticleInitData>::.ctor(v121, v52, *([v244 @ X24_v5 (Il2CppMethodInfo)+F20]));\n\tFluidCompute::AddParticle(this.compute, v120, v121);\n\tv191 = this.activeCount + 1;\n\tthis.activeCount = v191;\nL_008C:\n\treturn;\n\tv140 = new System.NullReferenceException();\n\tthrow System.IndexOutOfRangeException;\n\treturn;\n// 93 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public void AddSolverParticle(ParticleInitData solverContext)
 	{
-		if (!solver.isHoneyCoated[solverContext.Index])
+		if (!solver.isHoneyCoated[solverContext.Index] || activeCount >= solverIds.Length)
 		{
 			return;
 		}
-		solverIds[activeCount] = solverContext.Index;
+		solverIds[activeCount] = solverContext.Id;
 		int computeId = IdGenerator.Next();
 		computeIds[activeCount] = computeId;
-		compute.AddParticle(computeId);
+		compute.AddParticle(computeId, ctx =>
+		{
+			compute.particleTypes[ctx.Index] = solver.honeyFluidType;
+			compute.positions[ctx.Index] = solver.positions[solverContext.Index];
+		});
 		activeCount++;
 	}
 
@@ -97,24 +101,6 @@ public class Honey : FluidRendererBase
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tgoto L_002A;\n\tv45 = Il2CppMethodInfo;\n\tv46 = v45 + 0x278;\n\tv47 = \"il2cpp_codegen_initialize_runtime_metadata\"(v46, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv69 = Il2CppMethodInfo;\n\tv70 = v69 + 0xC30;\n\tv71 = \"il2cpp_codegen_initialize_runtime_metadata\"(v70, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv74 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv75 = v74 + 0x8B0;\n\tv76 = \"il2cpp_codegen_initialize_runtime_metadata\"(v75, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv414 = \"Writing object reference to Id '{0}' for {1}.\";\n\tv415 = v414 + 0x8B8;\n\tv64 = \"il2cpp_codegen_initialize_runtime_metadata\"(v415, methodInfo, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62);\n\tv66 = 1;\n\t*([302AA57]) = v66;\nL_002A:\n\tv68 = UnityEngine.Time::get_time();\n\tv72 = this.solver;\n\tv88 = this.activeCount < 1;\n\tif (v88) goto L_0159;\n\tv418 = Il2CppMethodInfo;\n\tv421 = v68 - v72.<lastStepWallTime>k__BackingField;\n\tv423 = v421 / this.fixedDeltaTime;\n\tv427 = v423 - 1f;\n\tv428 = v427 < 0;\n\tv429 = v427 == 0;\n\tv430 = v423 ^ 1f;\n\tv431 = v423 ^ v427;\n\tv432 = v430 & v431;\n\tv433 = v432 < 0;\n\tv434 = v428 == v433;\n\tv203 = ~v429;\n\tv435 = v434 & v203;\n\tv436 = ~v435;\n\tif (v436) goto L_0062;\n\tgoto L_0062;\nL_0062:\n\tv199 = v423 >= 0;\n\tif (v199) goto L_FFFFFFFF;\n\tgoto L_FFFFFFFF;\nL_006C:\n\tv348 = this.solverIds;\n\tv615 = this.solver + 0x1F8;\n\tv360 = Unity.Collections.NativeHashMap`2::get_Item /* +1 sharing this address */(v615, v348[v233 @ X22_v6 (System.Int32)], *([v418 @ X23_v5 (Il2CppMethodInfo)+C30]));\n\tv398 = this.solver;\n\tv183 = v360 << 3;\n\tv399 = v398.positions + v183;\n\t// 139 MakeStruct v154 @ AGG100D554_0_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), [v399 @ X8_v16], [v399 @ X8_v16+4]\n\tv207 = Unity.Mathematics.float2::op_Implicit(v154);\n\tv624 = this.positions + v236;\n\t*([v624 @ X8_v18+20]) = v207;\n\t*([v624 @ X8_v18+24]) = v207.y;\n\tv400 = this.solver;\n\tv349 = this.scales;\n\tv147 = v400.scales;\n\tv630 = this.particleSize * *([v147 @ X11_v5 (Unity.Collections.NativeArray`1<System.Single>)+v360 @ X0_v21*4]);\n\tv349[v233 @ X22_v6 (System.Int32)] = v630;\n\tv184 = v360 << 3;\n\tv633 = v400.positionsPrev + v184;\n\t// 190 MakeStruct v142 @ AGG100D5BC_0_v5 (Unity.Mathematics.float2), typeof(Unity.Mathematics.float2), [v633 @ X8_v21], [v633 @ X8_v21+4]\n\tv208 = Unity.Mathematics.float2::op_Implicit(v142);\n\tv638 = v233 << 3;\n\tv639 = this.positions + v638;\n\tv642 = *([v639 @ X8_v23+20]) - v208;\n\tv220 = v642 * v643;\n\tv209 = v208 + v220;\n\tv185 = v233 << 3;\n\tv644 = this.interpPositions + v185;\n\t*([v644 @ X8_v24+20]) = v209;\n\tv402 = this.computeIds;\n\tv353 = this.compute;\n\tv364 = System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>::get_Item(v353.idToIndex, v402[v233 @ X22_v6 (System.Int32)]);\n\tv403 = this.compute;\n\tv649 = v233 << 3;\n\tv650 = this.interpPositions + v649;\n\tv187 = v364 << 3;\n\tv651 = v403.positions + v187;\n\t*([v651 @ X10_v10+20]) = *([v650 @ X9_v14+20]);\n\tv195 = this.scales;\n\tv404 = v403.scales;\n\tv404[v364 @ X0_v25 (System.Int32)] = v195[v233 @ X22_v6 (System.Int32)];\n\tv233 = v233 + 1;\n\tv236 = v236 + 8;\n\tv444 = v233 < this.activeCount;\n\tif (v444) goto L_006C;\nL_0159:\n\tFluidRendererBase::OnPreComputeUpdate(this);\n\tv365 = UnityEngine.Camera::get_main();\n\t// 354 MakeStruct v124 @ AGG100D6F0_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), this.position (UnityEngine.Vector2), this.position.y (System.Single), 0\n\tv212 = UnityEngine.Camera::WorldToViewportPoint(v365, v124);\n\tv366 = UnityEngine.Camera::get_main();\n\t// 369 MakeStruct v115 @ AGG100D718_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), this.min (UnityEngine.Vector2), this.min.y (System.Single), 0\n\tv213 = UnityEngine.Camera::WorldToViewportPoint(v366, v115);\n\tv367 = UnityEngine.Camera::get_main();\n\t// 383 MakeStruct v108 @ AGG100D73C_1_v3 (UnityEngine.Vector3), typeof(UnityEngine.Vector3), this.max (UnityEngine.Vector2), this.max.y (System.Single), 0\n\tv214 = UnityEngine.Camera::WorldToViewportPoint(v367, v108);\n\tUnityEngine.Renderer::GetPropertyBlock(this.mr, this._propBlock);\n\tv625 = \"Writing object reference to Id '{0}' for {1}.\";\n\t// 406 MakeStruct v98 @ AGG100D784_2_v3 (UnityEngine.Vector4), typeof(UnityEngine.Vector4), v212 @ V0_v6 (UnityEngine.Vector3), v212.y (System.Single), v212.z (System.Single), 0\n\tUnityEngine.MaterialPropertyBlock::SetVector(this._propBlock, *([v625 @ X8_v7 (System.String)+8B8]), v98);\n\tv627 = \"Writing object reference to Id '{0}' for {1}.\";\n\t// 413 NotImplemented \"Instruction FABD not yet implemented.\"\n\t// 414 NotImplemented \"Instruction FABD not yet implemented.\"\n\t// 419 MakeStruct v95 @ AGG100D7B0_2_v3 (UnityEngine.Vector4), typeof(UnityEngine.Vector4), v212 @ V0_v6 (UnityEngine.Vector3), v212.y (System.Single), 0, 0\n\tUnityEngine.MaterialPropertyBlock::SetVector(this._propBlock, *([v627 @ X8_v9 (System.String)+8B0]), v95);\n\tUnityEngine.Renderer::SetPropertyBlock(this.mr, this._propBlock);\n\treturn;\n\tv413 = new System.NullReferenceException();\n\tthrow System.IndexOutOfRangeException;\n\treturn;\n// 344 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public override void OnPreComputeUpdate()
 	{
-		//IL_0090: Expected O, but got F4
-		//IL_009d: Expected O, but got F4
-		//IL_0570: Expected O, but got I
-		//IL_0124: Expected O, but got I
-		//IL_05ed: Expected O, but got I
-		//IL_0159: Unknown result type (might be due to invalid IL or missing references)
-		//IL_015e: Expected O, but got Unknown
-		//IL_016b: Expected F4, but got O
-		//IL_0180: Expected F4, but got I
-		//IL_01a2: Expected O, but got I
-		//IL_0222: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0227: Expected O, but got Unknown
-		//IL_0234: Expected F4, but got O
-		//IL_0249: Expected F4, but got I
-		//IL_0279: Expected O, but got I
-		//IL_02d6: Expected O, but got I
-		//IL_0345: Expected O, but got I
-		//IL_0366: Expected O, but got I
 		float time = global::UnityEngine.Time.time;
 		FluidSolver fluidSolver = solver;
 		if (activeCount >= 1)
@@ -122,14 +108,20 @@ public class Honey : FluidRendererBase
 			float t = global::UnityEngine.Mathf.Clamp01((time - fluidSolver.lastStepWallTime) / fixedDeltaTime);
 			for (int i = 0; i < activeCount; i++)
 			{
-				int solverIndex = fluidSolver.idToIndex[solverIds[i]];
+				if (!fluidSolver.idToIndex.TryGetValue(solverIds[i], out int solverIndex))
+				{
+					continue;
+				}
 				global::Unity.Mathematics.float2 currentPos = fluidSolver.positions[solverIndex];
 				positions[i] = currentPos;
 				scales[i] = particleSize * fluidSolver.scales[solverIndex];
 				global::Unity.Mathematics.float2 prevPos = fluidSolver.positionsPrev[solverIndex];
 				global::Unity.Mathematics.float2 delta = currentPos - prevPos;
 				interpPositions[i] = prevPos + delta * t;
-				int computeIndex = compute.idToIndex[computeIds[i]];
+				if (!compute.idToIndex.TryGetValue(computeIds[i], out int computeIndex))
+				{
+					continue;
+				}
 				compute.positions[computeIndex] = interpPositions[i];
 				compute.scales[computeIndex] = scales[i];
 			}

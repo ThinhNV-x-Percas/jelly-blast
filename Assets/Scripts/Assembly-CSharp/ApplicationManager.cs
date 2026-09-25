@@ -101,6 +101,7 @@ public class ApplicationManager : Singleton<ApplicationManager>
 		{
 			yield return null;
 		}
+		OnSceneChanged?.Invoke();
 		appData.LoadPlayerData();
 		loadingScene = false;
 	}
@@ -113,7 +114,7 @@ public class ApplicationManager : Singleton<ApplicationManager>
 		PlayerData playerData = appData.playerData;
 		playerData.soundsOn = !playerData.soundsOn;
 		float value = playerData.soundsOn ? 0f : -80f;
-		Singleton<AudioManager>.Instance.masterMixer.SetFloat("MasterVolume", value);
+		Singleton<AudioManager>.Instance.masterMixer.SetFloat("masterVolume", value);
 		appData.SavePlayerData();
 	}
 
@@ -149,21 +150,7 @@ public class ApplicationManager : Singleton<ApplicationManager>
 	[global::AssetRipperInjected.NativeSource(Body = "// Approximate reconstruction from native code. Reads as C#; does not compile.\n\tv18 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tgoto L_0019;\n\tv23 = Il2CppMethodInfo;\n\tv24 = v23 + 0xC58;\n\tv25 = \"il2cpp_codegen_initialize_runtime_metadata\"(v24, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv52 = System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>;\n\tv53 = v52 + 0xA30;\n\tv42 = \"il2cpp_codegen_initialize_runtime_metadata\"(v53, methodInfo, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40);\n\tv44 = 1;\n\t*([302A965]) = v44;\nL_0019:\n\tv45 = Il2CppMethodInfo;\n\tthis.sceneTransitionDuration = 0.75f;\n\tthis.isDeveloperMode = 1;\n\tv49 = *([v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A30]);\n\tv51 = *([v49 @ X0_v2+E0]) == 0;\n\tif (v51) goto L_0038;\n\tSingleton`1::.ctor /* +1 sharing this address */(this, *([v45 @ X21_v2 (Il2CppMethodInfo)+C58]));\n\treturn;\nL_0038:\n\tSingleton`1::.ctor /* +1 sharing this address */(this, *([v45 @ X21_v2 (Il2CppMethodInfo)+C58]));\n\treturn;\n// 38 bookkeeping instructions omitted: flag registers, address bases and no-ops.\n")]
 	public ApplicationManager()
 	{
-		//IL_000e: Expected I, but got O
-		//IL_005a: Expected O, but got I
-		nint num2 = 0;
 		sceneTransitionDuration = 0.75f;
 		isDeveloperMode = true;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v18 @ X20_v1 (Il2CppClass<System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.Syntax.Expression>>)+A30]");
-		object obj = 0;
-		global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Unmanaged memory load: [v49 @ X0_v2+E0]");
-		if ((nint)0 != 0)
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18ABE40 (Singleton`1::.ctor, and 1 more at this address)");
-		}
-		else
-		{
-			global::Cpp2ILInjected.Cpp2ILHelpers.NoteDecompilerIssue("Method not found @18ABE40 (Singleton`1::.ctor, and 1 more at this address)");
-		}
 	}
 }

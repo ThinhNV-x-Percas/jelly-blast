@@ -4,12 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-/// <summary>
-/// Reconstructed Fish implementation from the supplied IL2CPP/AssetRipper output.
-/// Generated coroutine state-machines and invalid native/decompiler expressions
-/// have been replaced with equivalent normal C# coroutines while preserving the
-/// observable gameplay flow present in the source.
-/// </summary>
 public class Fish : SpecialFluid
 {
     [Header("Movement")]
@@ -72,10 +66,6 @@ public class Fish : SpecialFluid
 
     public bool isBig;
 
-    /// <summary>
-    /// The original generated event accessors were corrupted by decompilation.
-    /// A normal C# event preserves the same public API and semantics.
-    /// </summary>
     public event Action OnMenuReached
     {
         add => m_OnMenuReached += value;
@@ -84,7 +74,6 @@ public class Fish : SpecialFluid
 
     public void PlayHitWaterAnimation(Vector3 worldMenuTarget)
     {
-        // Native source explicitly guards against the animation being started twice.
         if (hasSwum)
             return;
 
@@ -102,11 +91,9 @@ public class Fish : SpecialFluid
         }
         else
         {
-            // Keep the animation usable even if there is no Main Camera.
             pendingCenter = fish.position;
         }
 
-        // Matches the recovered native flow: face changes -> swim animation -> dive rotation.
         if (faceRenderer != null)
         {
             faceRenderer.SetBlendShapeWeight(1, 100f);
@@ -122,9 +109,6 @@ public class Fish : SpecialFluid
         fish.DOLocalRotateQuaternion(diveRotation, 0.2f)
             .SetEase(Ease.OutQuad);
 
-        // The IL2CPP code was trying to complete FluidSolver's current job before
-        // creating the coroutine. The public method in the repaired FluidSolver is
-        // used instead of illegally accessing its private JobHandle.
         if (solver != null)
             solver.LastJobComplete();
 
@@ -141,8 +125,6 @@ public class Fish : SpecialFluid
         if (solver == null || particleIds == null || particleIds.Count == 0)
             return false;
 
-        // Native reconstruction:
-        // particleIds -> solver.idToIndex -> solver.waterDensities[index] > 0.
         foreach (int particleId in particleIds)
         {
             if (!solver.idToIndex.TryGetValue(particleId, out int index))
@@ -166,12 +148,6 @@ public class Fish : SpecialFluid
         float elapsed = 0f;
         bool leftWaterEarly = false;
 
-        // Recovered source waits while the fish is still in water, bounded by
-        // fallWaitTime. If the fish leaves the water before that time is up, the
-        // whole "fly to menu" animation is aborted and the fish just returns to
-        // its normal swimming state (this matches the native reconstruction,
-        // which jumps straight to the abort path the first frame the fish is
-        // found out of water).
         if (fallWaitTime > 0f)
         {
             while (true)
@@ -210,17 +186,12 @@ public class Fish : SpecialFluid
             yield break;
         }
 
-        // The original code removes all solver particles before the final
-        // centre/menu animation.
         if (solver != null && particleIds != null)
             solver.RemoveParticles(particleIds);
 
         if (mr != null)
             mr.enabled = false;
 
-        // The recovered native flow also promotes a fish to "final fish" once the
-        // last displayed Fish goal is about to be completed, even if SetFinalFish
-        // was never explicitly called on it.
         if (!_isFinalFish)
         {
             GoalData goalData = Singleton<GameManager>.Instance.level.goals.Find((GoalData g) => g.goalType == GoalType.Fish);
@@ -238,14 +209,10 @@ public class Fish : SpecialFluid
         float centerDuration = Mathf.Max(0f, centerMoveDuration);
         float menuDuration = Mathf.Max(0f, menuMoveDuration);
 
-        // The original native code has a two-stage "rise / centre / menu" sequence.
-        // Preserve that structure using the recovered target positions and scale fields.
         Sequence sequence = DOTween.Sequence();
 
         if (_isFinalFish)
         {
-            // The recovered native path performs a longer, multi-stage rise (dive,
-            // then rise, then back upright while growing) when this is the final fish.
             float halfRise = rotationDuration * 0.3f;
             float riseDuration = halfRise + halfRise;
             float centerDone = centerDuration + riseDuration;
@@ -298,7 +265,6 @@ public class Fish : SpecialFluid
                     .SetEase(menuEase)
             );
 
-            // The final fish also rotates flat while it moves in to the menu goal icon.
             sequence.Join(
                 fish.DOLocalRotateQuaternion(Quaternion.Euler(-45f, 0f, 0f), menuDuration)
                     .SetEase(menuEase)
@@ -336,34 +302,13 @@ public class Fish : SpecialFluid
     public override void OnPreComputeUpdate()
     {
         base.OnPreComputeUpdate();
-
-        if (fish == null)
-            return;
-
         if (hasSwum)
         {
-            // Native reconstruction: while the fish has swum, the z-scale is kept in
-            // step with the DOScale tween driving x/y (see FallThenFly), following the
-            // recovered "(x + y) * 0.5" relationship from the decompiled output. The
-            // exact secondary constant folded into that expression could not be
-            // recovered, so it is treated as 1 (a no-op multiplier).
-            Vector3 localScale = fish.localScale;
-            fish.localScale = new Vector3(localScale.x, localScale.y, (localScale.x + localScale.y) * 0.5f);
+            Vector3 scale = fish.localScale;
+            fish.localScale = Vector3.one * ((scale.x + scale.y) * 0.5f);
             return;
         }
-
-        float time = Time.time * fishMoveFreq + fishMoveOffset;
-
-        // Native code uses sinusoidal components multiplied by fishMoveMag.
-        // Use the standard Unity sine/cosine form represented by the recovered
-        // Unity.Mathematics sin/cos calls.
-        Vector3 localPosition = new Vector3(
-            fishMoveMag * Mathf.Sin(time),
-            fishMoveMag * Mathf.Cos(time),
-            fishMoveMag * Mathf.Sin(time)
-        );
-
-        fish.localPosition = localPosition;
+        fish.localPosition = Vector3.up * (Mathf.Sin(Time.time * fishMoveFreq + fishMoveOffset) * fishMoveMag);
     }
 
     public void Init(
@@ -412,16 +357,11 @@ public class Fish : SpecialFluid
         menuEase = AnimationCurve.Linear(0f, 0f, 1f, 1f);
         scaleEase = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
-        // The exact serialized native constant for diveAngle could not be recovered
-        // from the supplied output. Keep a neutral default instead of the invalid
-        // zeroed/native-memory expression.
         diveAngle = 0f;
         menuMoveDuration = 0.8f;
         growScaleMultiplier = 1f;
         shrinkScaleMultiplier = 0.5f;
 
-        // These three values belong to SpecialFluid in the original layout, but were
-        // initialized by Fish's constructor in the recovered output.
         zPos = -1f;
         particleSize = 0.8f;
         particleBoundsRadius = 0.4f;
@@ -434,9 +374,6 @@ public class Fish : SpecialFluid
 
         mr.GetPropertyBlock(_propBlock);
 
-        // The original shader property string was lost to an invalid metadata-string
-        // reference. "_Rotation" preserves the recovered intent: a float material
-        // property driven from 0 -> 1 during the blob-rotation animation.
         _propBlock.SetFloat("_Rotation", rot);
 
         mr.SetPropertyBlock(_propBlock);
@@ -447,10 +384,6 @@ public class Fish : SpecialFluid
         if (animator == null)
             return;
 
-        // The decompiler resolved the original metadata pointer to an unrelated
-        // UI string ("Scrollbar Horizontal"). The FIshAnimation.controller asset
-        // confirms the real parameter name is "Swim"; try the most likely semantic
-        // names without throwing when the controller does not contain one.
         AnimatorControllerParameter[] parameters = animator.parameters;
 
         for (int i = 0; i < parameters.Length; ++i)

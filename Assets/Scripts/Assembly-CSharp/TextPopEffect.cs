@@ -118,41 +118,40 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	private void Update()
 	{
 		if (!show || cachedVertexPositions == null)
-		{
 			return;
-		}
+		text.ForceMeshUpdate(false, false);
 		global::TMPro.TMP_TextInfo textInfo = text.textInfo;
 		float time = global::UnityEngine.Time.time;
+		int visibleIndex = 0;
 		for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
 		{
 			global::TMPro.TMP_CharacterInfo characterInfo = textInfo.characterInfo[charIndex];
 			if (!characterInfo.isVisible)
-			{
 				continue;
-			}
 			int materialIndex = characterInfo.materialReferenceIndex;
 			int vertexIndex = characterInfo.vertexIndex;
-			float elapsed = time - (transitionStartTime + letterDelay * charIndex);
+			float elapsed = time - (transitionStartTime + letterDelay * visibleIndex);
+			visibleIndex++;
 			float scale = 0f;
 			float bounceOffset = 0f;
 			if (elapsed >= 0f)
 			{
 				float scaleAngle = elapsed * scaleFrequency;
-				float scaleDecay = global::UnityEngine.Mathf.Exp(0f - scaleDamping * elapsed);
-				scale = 1f - scaleDecay * (elapsed + scaleDamping / scaleFrequency * global::UnityEngine.Mathf.Cos(scaleAngle));
-				float bounceAngle = elapsed * bounceFrequency;
-				float bounceDecay = global::UnityEngine.Mathf.Exp(0f - bounceDamping * elapsed);
-				bounceOffset = jumpHeight * bounceDecay * global::UnityEngine.Mathf.Sin(bounceAngle);
+				scale = 1f - global::UnityEngine.Mathf.Exp(-scaleDamping * elapsed) * (global::UnityEngine.Mathf.Cos(scaleAngle) + scaleDamping / scaleFrequency * global::UnityEngine.Mathf.Sin(scaleAngle));
+				bounceOffset = jumpHeight * global::UnityEngine.Mathf.Exp(-bounceDamping * elapsed) * global::UnityEngine.Mathf.Sin(elapsed * bounceFrequency);
 			}
+			if (materialIndex >= cachedVertexPositions.Length)
+				continue;
 			global::UnityEngine.Vector3[] source = cachedVertexPositions[materialIndex];
+			if (source.Length < vertexIndex + 4)
+				continue;
 			global::UnityEngine.Vector3 midpoint = (source[vertexIndex] + source[vertexIndex + 1] + source[vertexIndex + 2] + source[vertexIndex + 3]) * 0.25f;
 			global::UnityEngine.Vector3[] destination = textInfo.meshInfo[materialIndex].vertices;
 			for (int corner = 0; corner < 4; corner++)
 			{
-				global::UnityEngine.Vector3 original = source[vertexIndex + corner];
-				global::UnityEngine.Vector3 vector = midpoint + (original - midpoint) * scale;
-				vector.y += bounceOffset;
-				destination[vertexIndex + corner] = vector;
+				global::UnityEngine.Vector3 vertex = midpoint + (source[vertexIndex + corner] - midpoint) * scale;
+				vertex.y += bounceOffset;
+				destination[vertexIndex + corner] = vertex;
 			}
 		}
 		for (int meshIndex = 0; meshIndex < textInfo.meshInfo.Length; meshIndex++)
@@ -169,6 +168,9 @@ public class TextPopEffect : global::UnityEngine.MonoBehaviour
 	{
 		letterDelay = 0.05f;
 		jumpHeight = 10f;
-		scaleDamping = 5f;
+		scaleDamping = 6f;
+		scaleFrequency = 12f;
+		bounceDamping = 3f;
+		bounceFrequency = 8f;
 	}
 }

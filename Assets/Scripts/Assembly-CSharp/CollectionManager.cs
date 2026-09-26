@@ -256,26 +256,28 @@ public class CollectionManager : Singleton<CollectionManager>
 
         FluidCollectDisplay display = null;
 
-        if (goal.goalType == GoalType.Snow)
+        if (goal.goalType == GoalType.Snow && solver.snowFluidType == particleType)
         {
-            if (solver.snowFluidType != particleType)
-                return;
             display = snowDisplay;
         }
-        else if (goal.goalType == GoalType.Mud)
+        else if (goal.goalType == GoalType.Mud && solver.mudFluidType == particleType)
         {
-            if (solver.mudFluidType != particleType)
-                return;
             display = mudDisplay;
         }
-        else if (goal.goalType == GoalType.Fluid)
+        else if (goal.goalType == GoalType.Fluid && goal.fluidType == particleType)
         {
-            if (goal.fluidType != particleType)
-                return;
             display = colorDisplay;
         }
         else
         {
+            // Not taken by this goal (e.g. the level's goal is bees): the native code still feeds the
+            // level's bee spawner with every colour/mud/snow particle. This branch was lost, so bee
+            // levels that spawn extra bees from collected fluid (level 7.5) never spawned any.
+            bool isFluid = particleType < solver.colorFluidTypes
+                || particleType == solver.mudFluidType
+                || particleType == solver.snowFluidType;
+            if (isFluid && level != null && level.EnableBeeSpawning)
+                level.OnFluidCollected(particleType);
             return;
         }
 

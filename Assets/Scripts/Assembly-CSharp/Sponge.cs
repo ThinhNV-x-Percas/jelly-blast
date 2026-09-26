@@ -222,14 +222,15 @@ public class Sponge : SpecialFluid
             return;
         }
 
-        Water[] waters = FindObjectsOfType<Water>();
-        if (waters == null || waters.Length == 0)
+        // GameManager keeps the level's water bodies; FindObjectsOfType every frame was a scene scan per sponge.
+        List<Water> waters = Singleton<GameManager>.Instance.waters;
+        if (waters == null || waters.Count == 0)
             return;
 
         Vector2 spongePosition = position;
         float radiusSq = waterSuckRadius * waterSuckRadius;
 
-        for (int w = 0; w < waters.Length; w++)
+        for (int w = 0; w < waters.Count; w++)
         {
             Water water = waters[w];
             if (water == null || water.particleIds == null)

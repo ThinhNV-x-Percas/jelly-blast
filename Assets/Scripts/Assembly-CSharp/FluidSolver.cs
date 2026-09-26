@@ -360,7 +360,20 @@ public class FluidSolver : MonoBehaviour
             capacity = capacity,
             cellMap = cellMap.AsParallelWriter()
         }, ActiveCount, 64, dependsOn2);
-        Unity.Jobs.JobHandle dependsOn4 = Unity.Jobs.IJobParallelForExtensions.Schedule(new WaterDensityJob
+        // Jobs that only matter when their kind of object exists are skipped otherwise: most levels
+        // have no water or octopus, yet their jobs (two extra neighbour passes and a single-threaded
+        // union-find over every particle) used to run on every one of the 3-5 steps per frame.
+        bool hasWater = false;
+        for (int i = 0; i < ActiveCount; ++i)
+        {
+            if (isWater[i]) { hasWater = true; break; }
+        }
+        bool hasOctopus = octopi != null && octopi.Count > 0;
+
+        Unity.Jobs.JobHandle handle = dependsOn3;
+        if (hasWater)
+        {
+            handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new WaterDensityJob
         {
             predicted = predicted,
             cellMap = cellMap,
@@ -369,8 +382,16 @@ public class FluidSolver : MonoBehaviour
             mass = particleMass,
             capacity = capacity,
             radius = particleRadius * 2f
-        }, ActiveCount, 64, dependsOn3);
-        Unity.Jobs.JobHandle dependsOn5 = Unity.Jobs.IJobParallelForExtensions.Schedule(new DensityJob
+        }, ActiveCount, 64, handle);
+        }
+        else if (!_waterDensitiesCleared)
+        {
+            for (int i = 0; i < waterDensities.Length; ++i) waterDensities[i] = 0f;
+            _waterDensitiesCleared = true;
+        }
+        if (hasWater) _waterDensitiesCleared = false;
+
+        handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new DensityJob
         {
             predicted = predicted,
             cellMap = cellMap,
@@ -381,8 +402,8 @@ public class FluidSolver : MonoBehaviour
             mass = particleMass,
             capacity = capacity,
             radius = particleRadius * 2f
-        }, ActiveCount, 64, dependsOn4);
-        Unity.Jobs.JobHandle dependsOn6 = Unity.Jobs.IJobParallelForExtensions.Schedule(new PressureJob
+        }, ActiveCount, 64, handle);
+        handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new PressureJob
         {
             predicted = predicted,
             densities = densities,
@@ -405,8 +426,8 @@ public class FluidSolver : MonoBehaviour
             dt = dt,
             capacity = capacity,
             radius = particleRadius * 2f
-        }, ActiveCount, 64, dependsOn5);
-        Unity.Jobs.JobHandle dependsOn7 = Unity.Jobs.IJobParallelForExtensions.Schedule(new ViscosityJob
+        }, ActiveCount, 64, handle);
+        handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new ViscosityJob
         {
             predicted = predicted,
             velocities = velocities,
@@ -422,8 +443,10 @@ public class FluidSolver : MonoBehaviour
             waterReactionGlobal = waterReactionMultiplier,
             fishIds = fishIds,
             radius = particleRadius * 2f
-        }, ActiveCount, 64, dependsOn6);
-        Unity.Jobs.JobHandle dependsOn8 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BuoyancyJob
+        }, ActiveCount, 64, handle);
+        if (hasWater)
+        {
+            handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new BuoyancyJob
         {
             waterDensities = waterDensities,
             isWater = isWater,
@@ -431,8 +454,8 @@ public class FluidSolver : MonoBehaviour
             deltaVel = deltaVel,
             buoyancyStrength = buoyancyStrength,
             dt = dt
-        }, ActiveCount, 64, dependsOn7);
-        Unity.Jobs.JobHandle dependsOn9 = Unity.Jobs.IJobParallelForExtensions.Schedule(new SplashDownJob
+        }, ActiveCount, 64, handle);
+            handle = Unity.Jobs.IJobParallelForExtensions.Schedule(new SplashDownJob
         {
             predicted = predicted,
             isWater = isWater,
@@ -442,68 +465,20 @@ public class FluidSolver : MonoBehaviour
             capacity = capacity,
             dt = dt,
             radius = particleRadius * 2f
-        }, ActiveCount, 64, dependsOn8);
-        Unity.Jobs.JobHandle dependsOn10 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
+        }, ActiveCount, 64, handle);
+        }
+
+        handle = ScheduleCohesion(fishIds, fishMidpoints, fishCohesionRadius, fishSpringStrength, dt, handle);
+        handle = ScheduleCohesion(powerUpIds, powerUpMidpoints, powerUpCohesionRadius, powerUpSpringStrength, dt, handle);
+        handle = ScheduleCohesion(spongeIds, spongeMidpoints, spongeCohesionRadius, spongeSpringStrength, dt, handle);
+        handle = ScheduleCohesion(clumpIds, clumpMidpoints, clumpCohesionRadius, clumpSpringStrength, dt, handle);
+        handle = ScheduleCohesion(caterpillarIds, caterpillarMidpoints, fishCohesionRadius, fishSpringStrength, dt, handle);
+        handle = ScheduleCohesion(beeIds, beeMidpoints, powerUpCohesionRadius, powerUpSpringStrength, dt, handle);
+
+        Unity.Jobs.JobHandle jobHandle3 = handle;
+        if (hasOctopus)
         {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = fishIds,
-            blobMidpoints = fishMidpoints,
-            cohesionRadius = fishCohesionRadius,
-            springStrength = fishSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn9);
-        Unity.Jobs.JobHandle dependsOn11 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = powerUpIds,
-            blobMidpoints = powerUpMidpoints,
-            cohesionRadius = powerUpCohesionRadius,
-            springStrength = powerUpSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn10);
-        Unity.Jobs.JobHandle dependsOn12 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = spongeIds,
-            blobMidpoints = spongeMidpoints,
-            cohesionRadius = spongeCohesionRadius,
-            springStrength = spongeSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn11);
-        Unity.Jobs.JobHandle dependsOn13 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = clumpIds,
-            blobMidpoints = clumpMidpoints,
-            cohesionRadius = clumpCohesionRadius,
-            springStrength = clumpSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn12);
-        Unity.Jobs.JobHandle dependsOn14 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = caterpillarIds,
-            blobMidpoints = caterpillarMidpoints,
-            cohesionRadius = fishCohesionRadius,
-            springStrength = fishSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn13);
-        Unity.Jobs.JobHandle dependsOn15 = Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            blobIds = beeIds,
-            blobMidpoints = beeMidpoints,
-            cohesionRadius = powerUpCohesionRadius,
-            springStrength = powerUpSpringStrength,
-            dt = dt
-        }, ActiveCount, 64, dependsOn14);
-        Unity.Jobs.JobHandle jobHandle = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctopusHeadCohesionJob
+            Unity.Jobs.JobHandle jobHandle = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctopusHeadCohesionJob
         {
             positions = positions,
             deltaVel = deltaVel,
@@ -513,52 +488,53 @@ public class FluidSolver : MonoBehaviour
             headCohesionRadius = octopusHeadCohesionRadius,
             headSpringStrength = octopusHeadSpringStrength,
             dt = dt
-        }, ActiveCount, 64, dependsOn15);
-        Unity.Jobs.JobHandle jobHandle2 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_InitJob
-        {
-            parent = octUFParent
-        }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
-        // Link octopus particles into connected regions. It reads predicted/cellMap, so it
-        // runs after the main chain (jobHandle) has finished building and relaxing them.
-        Unity.Jobs.JobHandle octUfUnion = Unity.Jobs.IJobExtensions.Schedule(new OctUF_UnionJob
-        {
-            pos = predicted,
-            octopusIds = octopusIds,
-            cellMap = cellMap,
-            parent = octUFParent,
-            capacity = capacity,
-            count = ActiveCount,
-            cellSize = particleRadius * 2f
-        }, Unity.Jobs.JobHandle.CombineDependencies(jobHandle2, jobHandle));
-        Unity.Jobs.JobHandle dependsOn16 = Unity.Jobs.IJobParallelForExtensions.Schedule(new ClearByteJob
-        {
-            array = octComponentHasHead
-        }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
-        Unity.Jobs.JobHandle octUfPreparation = Unity.Jobs.JobHandle.CombineDependencies(octUfUnion, dependsOn16);
-        Unity.Jobs.JobHandle dependsOn17 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_FlagHeadJob
-        {
-            parent = octUFParent,
-            isHead = inOctopusHead.Reinterpret<byte>(),
-            componentHasHead = octComponentHasHead
-        }, ActiveCount, 64, octUfPreparation);
-        Unity.Jobs.JobHandle dependsOn18 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_WriteRegionJob
-        {
-            parent = octUFParent,
-            componentHasHead = octComponentHasHead,
-            regionHasHead = regionHasHead
-        }, ActiveCount, 64, dependsOn17);
-        Unity.Jobs.JobHandle jobHandle3 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctopusBodyCohesionJob
-        {
-            positions = positions,
-            deltaVel = deltaVel,
-            regionHasHead = regionHasHead,
-            octopusIds = octopusIds,
-            octopusHeadMidpoints = octopusHeadMidpoints,
-            bodyCohesionForce = octopusBodyCohesionForce,
-            dt = dt
-        // Both OctopusHeadCohesionJob (jobHandle) and OctopusBodyCohesionJob write deltaVel,
-        // so the body job must wait for the head job as well as the region-map chain.
-        }, ActiveCount, 64, Unity.Jobs.JobHandle.CombineDependencies(dependsOn18, jobHandle));
+        }, ActiveCount, 64, handle);
+            Unity.Jobs.JobHandle jobHandle2 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_InitJob
+            {
+                parent = octUFParent
+            }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
+            // Link octopus particles into connected regions. It reads predicted/cellMap, so it
+            // runs after the main chain (jobHandle) has finished building and relaxing them.
+            Unity.Jobs.JobHandle octUfUnion = Unity.Jobs.IJobExtensions.Schedule(new OctUF_UnionJob
+            {
+                pos = predicted,
+                octopusIds = octopusIds,
+                cellMap = cellMap,
+                parent = octUFParent,
+                capacity = capacity,
+                count = ActiveCount,
+                cellSize = particleRadius * 2f
+            }, Unity.Jobs.JobHandle.CombineDependencies(jobHandle2, jobHandle));
+            Unity.Jobs.JobHandle dependsOn16 = Unity.Jobs.IJobParallelForExtensions.Schedule(new ClearByteJob
+            {
+                array = octComponentHasHead
+            }, ActiveCount, 64, default(Unity.Jobs.JobHandle));
+            Unity.Jobs.JobHandle octUfPreparation = Unity.Jobs.JobHandle.CombineDependencies(octUfUnion, dependsOn16);
+            Unity.Jobs.JobHandle dependsOn17 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_FlagHeadJob
+            {
+                parent = octUFParent,
+                isHead = inOctopusHead.Reinterpret<byte>(),
+                componentHasHead = octComponentHasHead
+            }, ActiveCount, 64, octUfPreparation);
+            Unity.Jobs.JobHandle dependsOn18 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctUF_WriteRegionJob
+            {
+                parent = octUFParent,
+                componentHasHead = octComponentHasHead,
+                regionHasHead = regionHasHead
+            }, ActiveCount, 64, dependsOn17);
+            jobHandle3 = Unity.Jobs.IJobParallelForExtensions.Schedule(new OctopusBodyCohesionJob
+            {
+                positions = positions,
+                deltaVel = deltaVel,
+                regionHasHead = regionHasHead,
+                octopusIds = octopusIds,
+                octopusHeadMidpoints = octopusHeadMidpoints,
+                bodyCohesionForce = octopusBodyCohesionForce,
+                dt = dt
+            // Both OctopusHeadCohesionJob (jobHandle) and OctopusBodyCohesionJob write deltaVel,
+            // so the body job must wait for the head job as well as the region-map chain.
+            }, ActiveCount, 64, Unity.Jobs.JobHandle.CombineDependencies(dependsOn18, jobHandle));
+        }
         Unity.Jobs.JobHandle dependsOn19 = jobHandle3;
         // Pressure/Viscosity/Buoyancy/SplashDown/Cohesion all accumulate into deltaVel;
         // without this the whole force pipeline is discarded and particles never repel.
@@ -585,6 +561,29 @@ public class FluidSolver : MonoBehaviour
         {
             onStep();
         }
+    }
+
+    private bool _waterDensitiesCleared;
+
+    // Spring every particle of a blob kind towards its blob's midpoint; skipped when no blob of that
+    // kind exists (the midpoint maps are rebuilt every step, so an empty map means none).
+    private Unity.Jobs.JobHandle ScheduleCohesion(Unity.Collections.NativeArray<int> blobIds,
+        Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> midpoints, float radius, float strength,
+        float dt, Unity.Jobs.JobHandle dependsOn)
+    {
+        if (midpoints.Count() == 0)
+            return dependsOn;
+
+        return Unity.Jobs.IJobParallelForExtensions.Schedule(new BlobCohesionJob
+        {
+            positions = positions,
+            deltaVel = deltaVel,
+            blobIds = blobIds,
+            blobMidpoints = midpoints,
+            cohesionRadius = radius,
+            springStrength = strength,
+            dt = dt
+        }, ActiveCount, 64, dependsOn);
     }
 
     public HashSet<int> AddParticles(Unity.Mathematics.float2[] spawnPositions, int type, Action<ParticleInitData> onInit = null)
@@ -1294,19 +1293,25 @@ public class FluidSolver : MonoBehaviour
         foreach (var octopus in octopi)
         {
             if (octopus == null || octopus.particleIds == null) continue;
-            var headIds = new HashSet<int>();
+            Unity.Mathematics.float2 sum = Unity.Mathematics.float2.zero;
+            int count = 0;
             foreach (int id in octopus.particleIds)
-                if (idToIndex.TryGetValue(id, out int idx) && inOctopusHead[idx]) headIds.Add(id);
-            if (headIds.Count > 0) octopusHeadMidpoints[octopus.id] = GetAveragePositionFromIDs(headIds);
+            {
+                if (idToIndex.TryGetValue(id, out int idx) && inOctopusHead[idx]) { sum += positions[idx]; count++; }
+            }
+            if (count > 0) octopusHeadMidpoints[octopus.id] = sum / count;
         }
     }
 
-    private void UpdateMidpoints<T>(IEnumerable<T> items, Func<T, int> idGetter, Func<T, HashSet<int>> idsGetter, Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> map) where T : class
+    private void UpdateMidpoints<T>(List<T> items, Func<T, int> idGetter, Func<T, HashSet<int>> idsGetter, Unity.Collections.NativeHashMap<int, Unity.Mathematics.float2> map) where T : class
     {
         map.Clear();
         if (items == null) return;
-        foreach (var item in items)
+        // Indexed loop over the List: foreach through IEnumerable<T> boxed an enumerator per call,
+        // i.e. several allocations on every one of the 3-5 solver steps per frame.
+        for (int i = 0; i < items.Count; i++)
         {
+            T item = items[i];
             if (item == null) continue;
             var ids = idsGetter(item);
             if (ids == null || ids.Count == 0) continue;

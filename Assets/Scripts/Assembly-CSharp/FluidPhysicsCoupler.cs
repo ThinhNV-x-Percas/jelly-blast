@@ -37,6 +37,8 @@ public class FluidPhysicsCoupler : MonoBehaviour
         public float angVel;
         public float2 offsetWS;
         public bool isKinematic;
+        // Radius of the circle enclosing the shape, for a cheap reject before the exact test.
+        public float boundRadius;
     }
 
     internal struct ForceBundle
@@ -105,7 +107,8 @@ public class FluidPhysicsCoupler : MonoBehaviour
                     leverArm = normal * body.radius + body.offsetWS;
                     penetration = minDist - dist;
                 }
-                else if (!BoxContact(in body, delta, particleRadius, out normal, out leverArm, out penetration))
+                else if (math.lengthsq(delta) > Square(body.boundRadius + particleRadius)
+                         || !BoxContact(in body, delta, particleRadius, out normal, out leverArm, out penetration))
                 {
                     continue;
                 }
@@ -251,7 +254,8 @@ public class FluidPhysicsCoupler : MonoBehaviour
                     float2 normal = dist > 1E-06f ? delta / dist : new float2(0f, 1f);
                     pos += normal * ((minDist - dist) * percent);
                 }
-                else if (BoxContact(in body, delta, particleRadius, out float2 normal, out _, out float penetration) && penetration > 0f)
+                else if (math.lengthsq(delta) <= Square(body.boundRadius + particleRadius)
+                         && BoxContact(in body, delta, particleRadius, out float2 normal, out _, out float penetration) && penetration > 0f)
                 {
                     pos += normal * (penetration * percent);
                 }
@@ -355,6 +359,8 @@ public class FluidPhysicsCoupler : MonoBehaviour
 
     // Box test against the box inflated by the particle radius. Returns true when the particle
     // is inside it; the push-out normal is the face normal of the least-penetrated axis.
+    private static float Square(float x) => x * x;
+
     private static bool BoxContact(in BodyData body, float2 delta, float particleRadius, out float2 normal, out float2 leverArm, out float penetration)
     {
         float2 local = math.mul(math.transpose(body.R), delta);
@@ -503,14 +509,15 @@ public class FluidPhysicsCoupler : MonoBehaviour
         Shuffle(bodies);
 
         NativeArray<float2> positions = solver.positions;
-        NativeArray<BodyData> bodyData = new NativeArray<BodyData>(bodies.Count, Allocator.TempJob);
+        EnsureBodyBuffers(bodies.Count);
+        NativeArray<BodyData> bodyData = _bodyData.GetSubArray(0, bodies.Count);
 
         for (int i = 0; i < bodies.Count; i++)
         {
             BodyInfo info = bodies[i];
             Rigidbody2D body = info.body;
 
-            float angle = -body.transform.eulerAngles.z * Mathf.Deg2Rad;
+            float angle = -body.rotation * Mathf.Deg2Rad;
             float cos = Mathf.Cos(angle);
             float sin = Mathf.Sin(angle);
             float2x2 rotation = new float2x2(cos, sin, -sin, cos);
@@ -529,11 +536,12 @@ public class FluidPhysicsCoupler : MonoBehaviour
                 vel = body.velocity,
                 angVel = body.angularVelocity * Mathf.Deg2Rad,
                 offsetWS = info.shape == Shape.Box ? math.mul(rotation, (float2)info.localOffset) : float2.zero,
-                isKinematic = !isDynamic
+                isKinematic = !isDynamic,
+                boundRadius = info.shape == Shape.Box ? math.length(info.halfExtentsLS) : info.radiusWS
             };
         }
 
-        NativeArray<ForceBundle> forces = new NativeArray<ForceBundle>(bodies.Count, Allocator.TempJob);
+        NativeArray<ForceBundle> forces = _forces.GetSubArray(0, bodies.Count);
 
         CouplerJob couplerJob = new CouplerJob
         {
@@ -566,7 +574,8 @@ public class FluidPhysicsCoupler : MonoBehaviour
             body.AddTorque(bundle.torque, ForceMode2D.Force);
         }
 
-        forces.Dispose();
+        for (int i = 0; i < forces.Length; i++)
+            forces[i] = default;
 
         if (positionIterations >= 1)
         {
@@ -588,12 +597,29 @@ public class FluidPhysicsCoupler : MonoBehaviour
                 projectJob.Schedule(solver.ActiveCount, 64).Complete();
         }
 
-        bodyData.Dispose();
         Physics2D.Simulate(dt);
+    }
+
+    // Body buffers are kept between steps (the coupler steps 3-5 times per frame) and only grow.
+    private NativeArray<BodyData> _bodyData;
+    private NativeArray<ForceBundle> _forces;
+
+    private void EnsureBodyBuffers(int count)
+    {
+        if (_bodyData.IsCreated && _bodyData.Length >= count)
+            return;
+
+        int size = Mathf.Max(16, Mathf.NextPowerOfTwo(count));
+        if (_bodyData.IsCreated) _bodyData.Dispose();
+        if (_forces.IsCreated) _forces.Dispose();
+        _bodyData = new NativeArray<BodyData>(size, Allocator.Persistent);
+        _forces = new NativeArray<ForceBundle>(size, Allocator.Persistent);
     }
 
     private void OnDestroy()
     {
+        if (_bodyData.IsCreated) _bodyData.Dispose();
+        if (_forces.IsCreated) _forces.Dispose();
         if (_sdfField.IsCreated)
             _sdfField.Dispose();
     }

@@ -96,15 +96,19 @@ public struct PressureJob : IJobParallelFor
                     }
                     float q = 1f - dist / radius;
                     float2 dir = offset / dist;
-                    // As in the native job, each fluid is its own SPH fluid: pressure only acts between
-                    // particles of the same kind, and different kinds just push apart (first matching
-                    // rule wins). Applying pressure across kinds made mud, snow, honey and the colours
-                    // merge into one mass instead of staying separate blobs.
+                    // Water reacting to non-water is an extra push; in the native job this test falls
+                    // through to the rules below, so water still collides with other fluids via the
+                    // inter-fluid repulsion (making it exclusive let water pass through them).
                     if (isWater[i] != isWater[neighbor])
                     {
                         impulse -= dir * (waterReactionGlobal * q * dt * 0.5f);
                     }
-                    else if (isHoneyCoated[i] != isHoneyCoated[neighbor])
+
+                    // As in the native job, each fluid is its own SPH fluid: pressure only acts between
+                    // particles of the same kind, and different kinds just push apart (first matching
+                    // rule wins). Applying pressure across kinds made mud, snow, honey and the colours
+                    // merge into one mass instead of staying separate blobs.
+                    if (isHoneyCoated[i] != isHoneyCoated[neighbor])
                     {
                         impulse -= dir * (honeyRepelStr * q * dt);
                     }

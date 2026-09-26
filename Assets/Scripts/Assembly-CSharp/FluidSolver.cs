@@ -1732,7 +1732,9 @@ public class FluidSolver : MonoBehaviour
             // The bee is still encased in honey: strip the honey instead of collecting the bee.
             if (bee.solverIds != null)
             {
-                for (int i = 0; i < bee.solverIds.Length; ++i) dehoneyedParticleIds.Add(bee.solverIds[i]);
+                // Only the live slots: entries past activeCount are stale and could name another particle.
+                int count = UnityEngine.Mathf.Min(bee.activeCount, bee.solverIds.Length);
+                for (int i = 0; i < count; ++i) dehoneyedParticleIds.Add(bee.solverIds[i]);
             }
             dehoneyedBeeIds.Add(beeId);
             return;

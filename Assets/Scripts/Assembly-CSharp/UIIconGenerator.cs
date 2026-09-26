@@ -91,9 +91,10 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
                         break;
 
                     case GoalType.Octopus:
-                        RenderObjectIcon(
-                            temporary,
-                            gameManager.octopusPrefab != null ? gameManager.octopusPrefab.gameObject : null);
+                        // Octopus and bee are field-shaded special fluids, not meshes: the original
+                        // draws them like the mud/snow icons, from GameManager's octopus/bee materials.
+                        RenderFluidIcon(temporary, gameManager.octopusMaterial, 0.3f,
+                            pb => pb.SetVector("_HeadPosition", transform.position));
                         break;
 
                     case GoalType.Butterfly:
@@ -103,9 +104,11 @@ public class UIIconGenerator : Singleton<UIIconGenerator>
                         break;
 
                     case GoalType.Bee:
-                        RenderObjectIcon(
-                            temporary,
-                            gameManager.beePrefab != null ? gameManager.beePrefab.gameObject : null);
+                        RenderFluidIcon(temporary, gameManager.beeMaterial, 0.3f, pb =>
+                        {
+                            pb.SetVector("_Position", transform.position);
+                            pb.SetVector("_Rotation", Vector4.zero);
+                        });
                         break;
                 }
 

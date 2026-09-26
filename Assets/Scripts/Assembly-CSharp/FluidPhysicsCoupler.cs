@@ -128,10 +128,12 @@ public class FluidPhysicsCoupler : MonoBehaviour
                 if (phi < particleRadius)
                     ResolveWall(frozen, ref vP, sdfNormal, particleRadius - phi);
 
-                if (pos.y < -limit.y)
-                    ResolveWall(frozen, ref vP, new float2(0f, 1f), -limit.y - pos.y);
-                else if (pos.y > limit.y)
-                    ResolveWall(frozen, ref vP, new float2(0f, -1f), pos.y - limit.y);
+                float minY = LowerBound(limit.y, sdfCenter.y);
+                float maxY = UpperBound(limit.y, sdfCenter.y);
+                if (pos.y < minY)
+                    ResolveWall(frozen, ref vP, new float2(0f, 1f), minY - pos.y);
+                else if (pos.y > maxY)
+                    ResolveWall(frozen, ref vP, new float2(0f, -1f), pos.y - maxY);
             }
 
             velocities[p] = vP;
@@ -261,7 +263,7 @@ public class FluidPhysicsCoupler : MonoBehaviour
 
             float2 limit = halfBounds - particleRadius;
             pos.x = math.clamp(pos.x, -limit.x, limit.x);
-            pos.y = math.clamp(pos.y, -limit.y, limit.y);
+            pos.y = math.clamp(pos.y, LowerBound(limit.y, sdfCenter.y), UpperBound(limit.y, sdfCenter.y));
             positions[p] = pos;
         }
     }
@@ -378,6 +380,14 @@ public class FluidPhysicsCoupler : MonoBehaviour
         penetration = -signedDist;
         return true;
     }
+
+    // Vertical level box. It was centred on the world origin, so on levels deeper than half their
+    // height (e.g. level 6, sections down to y = -22) the lower sections were outside the box and the
+    // fluid could never reach them. The SDF is centred on the level, so the box now also extends down
+    // to the level's bottom; the top keeps the old extent so fluid still spawns above the view.
+    private static float LowerBound(float halfLimit, float centerY) => math.min(-halfLimit, centerY - halfLimit);
+
+    private static float UpperBound(float halfLimit, float centerY) => math.max(halfLimit, centerY + halfLimit);
 
     private static void SampleSDF(float2 worldPos, in NativeArray<float4> field, int2 res, float2 halfBounds, float2 invWorldPerTexel, float2 sdfCenter, out float phi, out float2 n)
     {

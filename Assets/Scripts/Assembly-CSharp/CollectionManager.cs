@@ -293,6 +293,12 @@ public class CollectionManager : Singleton<CollectionManager>
                 targetPosition,
                 onCollected);
         }
+        else
+        {
+            // No free flying particle to deliver it: credit the goal/lock straight away, otherwise
+            // its displayed counter never reaches zero (a lock would never open).
+            onCollected?.Invoke();
+        }
 
         goal.count--;
         level?.OnFluidCollected(particleType);

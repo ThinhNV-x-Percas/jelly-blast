@@ -96,7 +96,27 @@ public struct PressureJob : IJobParallelFor
                     }
                     float q = 1f - dist / radius;
                     float2 dir = offset / dist;
-                    if (isWater[i] == isWater[neighbor])
+                    // As in the native job, each fluid is its own SPH fluid: pressure only acts between
+                    // particles of the same kind, and different kinds just push apart (first matching
+                    // rule wins). Applying pressure across kinds made mud, snow, honey and the colours
+                    // merge into one mass instead of staying separate blobs.
+                    if (isWater[i] != isWater[neighbor])
+                    {
+                        impulse -= dir * (waterReactionGlobal * q * dt * 0.5f);
+                    }
+                    else if (isHoneyCoated[i] != isHoneyCoated[neighbor])
+                    {
+                        impulse -= dir * (honeyRepelStr * q * dt);
+                    }
+                    else if (particleTypes[i] != particleTypes[neighbor])
+                    {
+                        impulse -= dir * (interFluidRepelStr * q * dt);
+                    }
+                    else if (clumpIds[i] != clumpIds[neighbor])
+                    {
+                        impulse -= dir * (clumpRepelStrength * q * dt);
+                    }
+                    else
                     {
                         float2 dn = densities[neighbor];
                         float neighborPressure = pressureMultiplier * (dn.x - targetDensity);
@@ -105,24 +125,6 @@ public struct PressureJob : IJobParallelFor
                         float avgNearPressure = (nearPressure + neighborNearPressure) * 0.5f;
                         float displacement = dt * (avgPressure * q + avgNearPressure * q * q);
                         impulse -= dir * (displacement * 0.5f);
-                    }
-                    else
-                    {
-                        impulse -= dir * (waterReactionGlobal * q * dt * 0.5f);
-                    }
-                    if (particleTypes[i] != particleTypes[neighbor])
-                    {
-                        impulse -= dir * (interFluidRepelStr * q * dt);
-                    }
-                    if (isHoneyCoated[i] != isHoneyCoated[neighbor])
-                    {
-                        impulse -= dir * (honeyRepelStr * q * dt);
-                    }
-                    int myClumpId = clumpIds[i];
-                    int neighborClumpId = clumpIds[neighbor];
-                    if (myClumpId != -1 && neighborClumpId != -1 && myClumpId != neighborClumpId)
-                    {
-                        impulse -= dir * (clumpRepelStrength * q * dt);
                     }
                 }
                 while (cellMap.TryGetNextValue(out neighbor, ref it));

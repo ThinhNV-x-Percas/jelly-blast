@@ -93,6 +93,12 @@ public struct ViscosityJob : IJobParallelFor
                     {
                         strength *= waterReactionGlobal;
                     }
+                    else if (particleTypes[i] != particleTypes[neighbor])
+                    {
+                        // Viscosity smooths velocities within one fluid; different fluids slide past
+                        // each other (the native job carries particleTypes for this test).
+                        continue;
+                    }
                     impulse -= dir * (strength * q * closingSpeed * dt * 0.5f);
                 }
                 while (cellMap.TryGetNextValue(out neighbor, ref it));

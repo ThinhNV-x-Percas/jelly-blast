@@ -1,9 +1,16 @@
+// Power-up blob shader (powerup 0/1/2.mat). Rebuilt on SpecialFluidCommon.cginc.
+// The power-up art (_DetailTex) is a full-colour image laid over the blob's bounding box: SpecialFluid.cs
+// feeds that box every frame as _ViewportPos (centre) / _ViewportSize (extent, viewport units), and
+// PowerUp.RotateBlob spins it through _Rotation (turns) when power-ups merge. The previous
+// reconstruction sampled the art in screen space and only kept its red channel, so the pattern slid
+// under a moving power-up and the white-tinted power-ups (1 and 2) rendered as flat white.
 Shader "Custom/SpecialFluid"
 {
     Properties
     {
         _RawFieldTex ("Raw Field", 2DArray) = "" {}
         _FluidTex ("Merged Fluid", 2D) = "black" {}
+        _EmissionTex ("Emission Texture", 2D) = "black" {}
         _DetailTex ("Detail", 2D) = "white" {}
         [MainColor] _Color ("Tint", Color) = (1,1,1,1)
         _DetailTexScale ("Detail Scale", Float) = 1
@@ -14,6 +21,7 @@ Shader "Custom/SpecialFluid"
         _SpecularIntensity ("Specular Intensity", Range(0,1)) = 1
         _LightColor ("Light Color", Color) = (1,1,1,1)
         _AmbientColor ("Ambient Color", Color) = (1,1,1,1)
+        _FlipDY ("Flip DY", Float) = 1
     }
 
     SubShader
@@ -29,82 +37,32 @@ Shader "Custom/SpecialFluid"
         {
             HLSLPROGRAM
             #pragma target 3.5
-            #pragma vertex vert
+            #pragma vertex SFVert
             #pragma fragment frag
-            #include "UnityCG.cginc"
+            #include "SpecialFluidCommon.cginc"
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct v2f
-            {
-                float4 vertex : SV_POSITION;
-                float4 screenPos : TEXCOORD0;
-                float2 uv : TEXCOORD1;
-            };
-
-            UNITY_DECLARE_TEX2DARRAY(_RawFieldTex);
-            sampler2D _FluidTex;
             sampler2D _DetailTex;
-            float4 _FluidTex_TexelSize;
-            float _DetailTexScale;
-            float _AlphaThreshold;
-            float _Alpha;
-            float _ReflectAmount;
-            float _Shininess;
-            float _SpecularIntensity;
-            float4 _LightColor;
-            float4 _AmbientColor;
             float4 _Color;
-            int _FluidType;
+            float _DetailTexScale;
+            float4 _ViewportPos;
+            float4 _ViewportSize;
+            float _Rotation;
 
-            v2f vert(appdata input)
+            float4 frag(sf_v2f i) : SV_Target
             {
-                v2f output;
-                output.vertex = UnityObjectToClipPos(input.vertex);
-                output.screenPos = ComputeScreenPos(output.vertex);
-                output.uv = input.uv;
-                return output;
-            }
+                SFSurface s = SFSample(i);
 
-            float4 frag(v2f input) : SV_Target
-            {
-                float2 uv = input.screenPos.xy / input.screenPos.w;
+                // Square box around the blob centre, in screen-aspect-corrected viewport units.
+                float aspect = _ScreenParams.x / _ScreenParams.y;
+                float2 offset = (s.screenUV - _ViewportPos.xy) * float2(aspect, 1.0);
+                float boxSize = max(max(_ViewportSize.x * aspect, _ViewportSize.y), 1e-4);
+                float2 local = SFToLocal(offset, _Rotation * 6.2831853);
+                float2 detailUV = local / (boxSize * max(_DetailTexScale, 1e-3)) + 0.5;
+                float3 detail = tex2D(_DetailTex, detailUV).rgb;
 
-                // FluidCompute packs four fluid types into each raw-field layer.
-                int layer = clamp(_FluidType / 4, 0, 7);
-                int channel = clamp(_FluidType - layer * 4, 0, 3);
-                float4 raw = UNITY_SAMPLE_TEX2DARRAY_LOD(_RawFieldTex, float3(uv, (float)layer), 0.0);
-                // The merged field only contains the public colour-fluid layers. A SpecialFluid
-                // must never fall back to that field, otherwise a different fluid can make it
-                // appear in the wrong place.
-                float density = raw[channel];
-                if (density <= 0.001)
-                    discard;
-
-                float edge = max(fwidth(density) * 1.5, 0.004);
-                float coverage = smoothstep(_AlphaThreshold - edge, _AlphaThreshold + edge, density);
-                coverage = saturate(coverage);
-                if (coverage <= 0.001)
-                    discard;
-
-                float detail = saturate(tex2D(_DetailTex, uv * _DetailTexScale).r);
-                float3 baseColor = _Color.rgb * lerp(0.82, 1.08, detail);
-                float3 shaded = baseColor * lerp(_AmbientColor.rgb, 1.0, 0.45);
-
-                float2 texel = max(_FluidTex_TexelSize.xy, float2(1e-5, 1e-5));
-                float dx = tex2D(_FluidTex, uv + float2(texel.x, 0.0)).a
-                         - tex2D(_FluidTex, uv - float2(texel.x, 0.0)).a;
-                float dy = tex2D(_FluidTex, uv + float2(0.0, texel.y)).a
-                         - tex2D(_FluidTex, uv - float2(0.0, texel.y)).a;
-                float3 normal = normalize(float3(-dx, -dy, 0.35));
-                float spec = _SpecularIntensity * pow(saturate(normal.z), max(1.0, _Shininess));
-
-                float3 finalColor = shaded + _LightColor.rgb * spec * _ReflectAmount;
-                return float4(finalColor, coverage * _Alpha);
+                float3 col = SFShade(s, _Color.rgb * detail);
+                col = SFApplyEmission(col, s.screenUV);
+                return float4(col, SFAlpha(s));
             }
             ENDHLSL
         }
